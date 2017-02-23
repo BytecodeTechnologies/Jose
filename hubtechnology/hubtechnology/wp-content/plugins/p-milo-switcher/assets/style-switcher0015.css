@@ -1,0 +1,237 @@
+/*
+ *
+ *		STYLE-SWITCHER.CSS
+ *
+ *	+ PANEL STYLE
+ *	+ COLORS
+ *	+ PATTERNS
+ *
+ */
+
+/***********************************************************************************
+ *	+ PANEL STYLE
+ ***********************************************************************************/
+    .colorpicker {
+        z-index:9999999;
+    }
+
+    .ff-color-picker-overlay {
+    	display: none;
+        z-index:999999;
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        cursor: default;
+    }
+
+    .ff-color-picker-overlay:hover,
+    .ff-color-picker-overlay:focus 	{
+    	text-decoration: none;
+    	outline: none;
+    }
+
+
+
+	#style-switcher {
+		padding: 0 20px;
+		z-index: 99999;
+		background-color: #fff;
+		position: fixed;
+		top: 128px;
+		left: -250px;
+		width: 250px;
+		color: #323232;
+		-webkit-box-sizing: border-box;
+		   -moz-box-sizing: border-box;
+				box-sizing: border-box;
+		-webkit-transition: all 0.5s;
+				transition: all 0.5s;
+	}
+
+    #style-switcher .selected-box {
+        border: 2px solid black;
+    }
+
+    #style-switcher .selected-box-green {
+        border: 2px solid #00AA00;
+    }
+
+
+	#style-switcher.open {
+		left: 0;
+		box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, 0.18);
+	}
+
+	#style-switcher a {
+		text-decoration: none;
+	}
+
+	#style-switcher > a {
+		position: absolute;
+		top: 0;
+		right: -60px;
+		display: block;
+		background-color: #323232;
+		color: #fff;
+		font-size: 25px;
+		text-align: center;
+		text-decoration: none;
+		width: 60px;
+		height: 60px;
+		line-height: 60px;
+	}
+
+	#style-switcher > a:before {
+		font-family: "miu-icon-font";
+		content: "\e668";
+	}
+
+	#style-switcher h4 {
+		text-transform: uppercase;
+		text-align: center;
+		color: #fff;
+		background-color: #323232;
+		padding: 8px 0;
+		margin: 0 -20px;
+		font-weight: 700;
+	}
+
+	#style-switcher h5 {
+		text-transform: uppercase;
+		margin-bottom: 10px;
+		color: #000;
+		font-weight: 700;
+	}
+
+	.colors,
+	.layout,
+	.menus,
+    .color-picker {
+		border-bottom: 1px solid #ccc;
+		padding-bottom: 15px;
+		margin-bottom: 15px;
+		margin-top: 0;
+	}
+
+	.colors a {
+		display: block;
+		width: 30px;
+		height: 30px;
+		float: left;
+		margin-right: 10px;
+		margin-bottom: 10px;
+	}
+
+	.colors a:last-child {
+		margin-right: 0;
+	}
+
+	.layout a {
+		display: block;
+		float: left;
+		width: 50%;
+		text-align: center;
+		background: none;
+		color: #323232;
+	}
+
+	.layout a img {
+		display: block;
+		margin: 0 auto;
+	}
+
+	.menus .btn-default {
+		margin-bottom: 0;
+		padding: 10px;
+		color: #fff;
+	}
+
+	.patterns {
+		padding-bottom: 15px;
+	}
+
+	.patterns a {
+		display: block;
+		width: 30px;
+		height: 30px;
+		float: left;
+		margin-right: 10px;
+		margin-bottom: 10px;
+	}
+
+/***********************************************************************************
+ *	+ COLORS
+ ***********************************************************************************/
+
+	#default {
+		background-color: #bca480;
+	}
+
+	#yellow {
+		background-color: #e3ac4e;
+	}
+
+	#green {
+		background-color: #a0ce4e;
+	}
+
+	#blue {
+		background-color: #74b2ff;
+	}
+
+/***********************************************************************************
+ *	+ PATTERNS
+ ***********************************************************************************/
+
+	.pattern-1 {
+		background: url(../images/pattern-1.png) repeat top left;
+	}
+
+	.pattern-2 {
+		background: url(../images/pattern-2.png) repeat top left;
+	}
+
+	.pattern-2 {
+		background: url(../images/pattern-2.png) repeat top left;
+	}
+
+	.pattern-3 {
+		background: url(../images/pattern-3.png) repeat top left;
+	}
+
+	.pattern-4 {
+		background: url(../images/pattern-4.png) repeat top left;
+	}
+
+	.pattern-5 {
+		background: url(../images/pattern-5.png) repeat top left;
+	}
+
+	.pattern-6 {
+		background: url(../images/pattern-6.png) repeat top left;
+	}
+
+	.pattern-7 {
+		background: url(../images/pattern-7.png) repeat top left;
+	}
+
+	.pattern-8 {
+		background: url(../images/pattern-8.png) repeat top left;
+	}
+
+	.pattern-9 {
+		background: url(../images/pattern-9.png) repeat top left;
+	}
+
+	.pattern-10 {
+		background: url(../images/pattern-10.png) repeat top left;
+	}
+
+
+	@media (max-width: 991px) {
+
+		#style-switcher { display: none; }
+
+	}
