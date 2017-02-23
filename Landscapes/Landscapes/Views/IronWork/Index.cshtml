@@ -1,0 +1,124 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+<div class="inner-banner has-base-color-overlay text-center">
+    <div class="container">
+        <div class="box">
+            <h3>IronWork Categories</h3>
+        </div>
+        <!-- /.box -->
+    </div>
+    <!-- /.container -->
+</div>
+<!-- /.inner-banner -->
+<div class="breadcumb-wrapper">
+    <div class="container">
+        <div class="pull-left">
+            <ul class="list-inline link-list">
+                <li>
+                    <a href="#">Home</a>
+                </li>
+                <!-- comment for inline hack
+				-->
+                <li>
+                    <a href="#">Ironwork</a>
+                </li>
+            </ul>
+            <!-- /.list-line -->
+        </div>
+        <!-- /.pull-left -->
+        <div class="pull-right">
+            <a href="#" class="get-qoute"><i class="fa fa-arrow-circle-right"></i>Make an appointment</a>
+        </div>
+        <!-- /.pull-right -->
+    </div>
+    <!-- /.container -->
+</div>
+<!-- /.breadcumb-wrapper -->
+
+
+<section class="page sidebar-page sec-pad news-wrapper news-list-sidebar-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-12  col-xs-12 pull-right">
+                <div class="single-sidebar wow fadeInUp" data-wow-delay="0ms" data-wow-duration="1500ms">
+                    <div class="search-widget">
+                        <form action="#">
+                            <input type="text" placeholder="Enter your keyword" />
+                            <button type="submit"><i class="fa fa-search"></i></button>
+                        </form>
+                    </div>
+                    <!-- /.search-widget -->
+                </div>
+                <!-- /.single-sidebar -->
+                <div class="single-sidebar wow fadeInUp" data-wow-delay="0ms" data-wow-duration="1500ms">
+                    <div class="categories-widget">
+                        <div class="sec-title-two">
+                            <h3><span class="black-color-text"><i class="fa fa-folder-open-o"></i>Categories</span></h3>
+                            <span class="decor-line"></span>
+                        </div>
+                        <!-- /.sec-title-two -->
+                        <ul class="links">
+                            <li><a href="/IronWork/Index">Iron Work <span></span></a></li>
+                            <li><a href="/Landscape/Index">LandScape Design <span></span></a></li>
+                            <li><a href="/Masonary/Index">Masonry<span></span></a></li>
+                            <li><a href="/Construction/Index">Construction<span></span></a></li>
+                            <li><a href="/Home/Kitchens_Fireplaces">Kitchens & Fireplaces <span></span></a></li>
+                            <li><a href="/Home/DriveWays">Driveways<span></span></a></li>
+                        </ul>
+                        @* <a href="#" class="view-all"><i class="fa fa-plus"></i>View All</a>*@
+                    </div>
+                    <!-- /.categories-widget -->
+                </div>
+                <!-- /.single-sidebar -->
+                <div class="single-sidebar wow fadeInUp" data-wow-delay="0ms" data-wow-duration="1500ms">
+                    <div class="about-widget">
+                        <div class="sec-title-two">
+                            <h3><span class="black-color-text"><i class="fa fa-hand-o-right"></i>About Us</span></h3>
+                            <span class="decor-line"></span>
+                        </div>
+                        <!-- /.sec-title-two -->
+                        <img src="/Theme/img/resources/about-1.jpg" alt="Awesome Image" />
+                        <p>Our company has proudly been serving the area for over 25 years. We work closely with our clients to actualize their ideas and ensure that they have a role in the creative process every step of the way.</p>
+                        <a href="#" class="read-more">Read More <i class="fa fa-caret-right"></i></a>
+                    </div>
+                    <!-- /.about-widget -->
+                </div>
+
+            </div>
+
+
+          
+
+
+            <div id="categoriesshow"></div>
+
+
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container -->
+</section>
+<script src="~/Scripts/jquery-1.7.1.min.js"></script>
+<script>
+
+    $(document).ready(function() {
+        GetIronWorkCategories();
+    
+    })
+        function GetIronWorkCategories() {
+            $.ajax({
+                type: "POST",
+                url: "/Ironwork/GetCategories",
+                dataType: "Html",
+                success: function (response) {
+                    $("#categoriesshow").append(response);
+                },
+                error: function (response) {
+                }
+            });
+        }
+
+
+</script>

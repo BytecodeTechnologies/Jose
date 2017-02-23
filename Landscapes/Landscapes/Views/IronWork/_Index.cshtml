@@ -1,0 +1,49 @@
+﻿    @model IEnumerable<Landscapes.Ls_SubCategory>
+
+<div class="col-md-9 col-sm-12 col-xs-12 pull-left">
+    @foreach (var row in Model)
+{
+                <div class="single-news-post wow fadeIn" data-wow-delay="0ms" data-wow-duration="1500ms">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="img-box">
+                                <img src="@row.Image" alt="Awesome Image" />
+                                <div class="overlay">
+                                    <div class="box">
+                                        <div class="content">
+                                            <a href="/IronWork/Furniture" class="thm-btn">Read More</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.col-md-4 -->
+                        <div class="col-md-8">
+                           @* <ul class="meta-info list-inline">
+                                <li>
+                                    <a href="#"></a>
+                                </li>
+                                <!-- adding this comment for inline hack
+                                -->
+                                <li>
+                                    <a href="#"></a>
+                                </li>
+                                <!-- adding this comment for inline hack
+                                -->
+                                <li>
+                                    <a href="#"></a>
+                                </li>
+                                <!-- adding this comment for inline hack
+                                -->
+                                <li>
+                                    <a href="#"></a>
+                                </li>
+                            </ul>*@
+                            <h3><a href="/IronWork/Furniture">@row.SubCategory_Name</a></h3>
+                            <p>@row.Description</p>
+                        </div>
+                    </div>
+                </div>
+    }
+
+            </div>

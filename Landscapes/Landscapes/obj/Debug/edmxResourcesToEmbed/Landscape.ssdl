@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="LandscapeModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="LandscapeModelStoreContainer">
+    <EntitySet Name="Category" EntityType="LandscapeModel.Store.Category" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Ls_ChildCategory" EntityType="LandscapeModel.Store.Ls_ChildCategory" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Ls_SubCategory" EntityType="LandscapeModel.Store.Ls_SubCategory" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Ls_User" EntityType="LandscapeModel.Store.Ls_User" store:Type="Tables" Schema="dbo" />
+  </EntityContainer>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="CategoryID" />
+    </Key>
+    <Property Name="CategoryID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="CategoryName" Type="varchar" MaxLength="500" />
+    <Property Name="LogoPath" Type="varchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="Ls_ChildCategory">
+    <Key>
+      <PropertyRef Name="Child_ID" />
+    </Key>
+    <Property Name="Child_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="SubcategoryID" Type="int" />
+    <Property Name="Date" Type="datetime" />
+    <Property Name="Image" Type="varchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="Ls_SubCategory">
+    <Key>
+      <PropertyRef Name="SubCategory_Id" />
+    </Key>
+    <Property Name="SubCategory_Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="SubCategory_Name" Type="nchar" MaxLength="500" />
+    <Property Name="Added_by" Type="varchar" MaxLength="100" />
+    <Property Name="Description" Type="varchar(max)" />
+    <Property Name="Image" Type="varchar(max)" />
+    <Property Name="Added_Date" Type="datetime" />
+    <Property Name="Category_Id" Type="int" />
+  </EntityType>
+  <EntityType Name="Ls_User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Useraname" Type="varchar" MaxLength="500" />
+    <Property Name="Password" Type="varchar" MaxLength="50" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="Role" Type="int" />
+    <Property Name="Date_Added" Type="datetime" />
+  </EntityType>
+</Schema>

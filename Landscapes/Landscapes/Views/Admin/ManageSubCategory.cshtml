@@ -1,0 +1,151 @@
+﻿@{
+    ViewBag.Title = "ManageSubCategory";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+  
+}
+
+
+<div class="inner-banner has-base-color-overlay text-center">
+    <div class="container">
+        <div class="box">
+            <h3>Manage SubCategory</h3>
+        </div>
+        <!-- /.box -->
+    </div>
+    <!-- /.container -->
+</div>
+<!-- /.inner-banner -->
+
+
+
+ <div class="text-center">
+            <ul class="post-filter light list-inline">
+                <li>
+                    <a href="/admin/SubCategories"><span>Add SubCategory</span></a>
+                </li>
+                <!-- must add it for inline block hack
+                -->
+                <li class="active">
+                    <a href="/admin/Managesubcategory"><span>Manage Subcategory</span></a>
+                </li>
+                  <li>
+                    <a href="/admin/ChildCategory"><span>Add childImage</span></a>
+                </li>
+                  <li>
+                    <a href="/admin/ManageChildCategories"><span>Manage childImage</span></a>
+                </li>
+                <!-- must add it for inline block hack
+                -->
+                <li>
+            </ul>
+            <!-- /.gallery-filter -->
+        </div>
+        <!-- /.text-center -->
+
+
+
+<div class="breadcumb-wrapper">
+    <div class="container">
+        <div class="pull-left">
+            <ul class="list-inline link-list">
+                <li>
+                    <a href="#">Home</a>
+                </li>
+                <!-- comment for inline hack
+			
+				 -->
+                <li>
+                    <span>Manage SubCategory</span>
+                </li>
+            </ul>
+            <!-- /.list-line -->
+        </div>
+        <!-- /.pull-left -->
+        <div class="pull-right">
+        </div>
+        <!-- /.pull-right -->
+    </div>
+    <!-- /.container -->
+</div>
+<!-- /.breadcumb-wrapper -->
+
+<section class="checkout-section sec-pad cart-section">
+    <div class="container">
+        <div class="row clearfix">
+
+            <!--Form Column-->
+
+            <div class="col-md-12 col-sm-12 col-xs-12 column form-column">
+                <div class="sec-title medium ">
+                    <h2><span class="black-color-text">Manage</span> <span class="base-color-text">Sub Category</span></h2>
+                </div>
+                <div class="default-form billing-info-form">
+                    <form method="post">
+
+                        <div class="row clearfix">
+                            <div id="Grid"></div>
+
+
+
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+</section>
+
+
+
+<script src="/Scripts/jquery-1.7.1.min.js"></script>
+
+
+<script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css" />
+<script>
+
+    $(document).ready(function () {
+
+        GetAllSub_Categories();
+    })
+    function GetAllSub_Categories() {
+        $.ajax({
+            type: "POST",
+            url: "/Admin/GetAll_SubCategories",
+            dataType: "Html",
+            success: function (response) {
+                $("#Grid").append(response);
+            },
+            error: function (response) {
+            }
+        });
+    }
+
+    function DeleteSubactegory(id) {
+        if (confirm("Are you sure?")) {
+            $.ajax({
+                type: "POST",
+                url: "/Admin/DeleteSubCategory",
+                data: { id: id },
+                dataType: "Html",
+                success: function (response) {
+                    $("#Grid").empty();
+                    $("#Grid").append(response);
+                },
+                error: function (response) {
+                }
+            });
+        }
+        return false;
+    }
+    function EditSubcategory(Id) {
+        window.location.href = "/admin/SubCategories?id="+Id;
+    }
+</script>
+

@@ -1,0 +1,182 @@
+﻿@{
+    ViewBag.Title = "Freequote";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="inner-banner has-base-color-overlay text-center">
+    <div class="container">
+        <div class="box">
+            <h3>Free Quote</h3>
+        </div>
+        <!-- /.box -->
+    </div>
+    <!-- /.container -->
+</div>
+<!-- /.inner-banner -->
+
+<div class="breadcumb-wrapper">
+    <div class="container">
+
+        <!-- /.pull-left -->
+        <div class="pull-right">
+            <a href="appointment.html" class="get-qoute"><i class="fa fa-arrow-circle-right"></i>Make an appointment</a>
+        </div>
+        <!-- /.pull-right -->
+    </div>
+    <!-- /.container -->
+</div>
+<!-- /.breadcumb-wrapper -->
+
+<section class="checkout-section sec-pad cart-section">
+    <div class="container">
+
+        <div class="row clearfix">
+
+            <!--Form Column-->
+            <div class="col-md-6 col-sm-12 col-xs-12 column form-column">
+                <div class="sec-title medium ">
+                    <h2><span class="black-color-text">free</span> <span class="base-color-text">Quote</span></h2>
+                </div>
+                <div class="default-form billing-info-form">
+                    <form method="post">
+
+                        <div class="row clearfix">
+
+                            <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                <div class="field-label">Name</div>
+                                <input type="text" placeholder="Name" name="country" value="">
+                            </div>
+
+                            <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                <div class="field-label">Address*</div>
+                                <input type="text" placeholder="Address" name="address-1" value="">
+                            </div>
+
+                            <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                <input type="text" placeholder="Address" name="address-2" value="">
+                            </div>
+
+                            <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                <div class="field-label">Phone</div>
+                                <input type="text" name="town-city" value="">
+                            </div>
+
+                            <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                <div class="field-label">Email</div>
+                                <input type="text" name="email" placeholder="Email" value="" placeholder="Email Address">
+                            </div>
+
+                            @* <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                <div class="field-label">Project Description</div>
+                                <textarea placeholder="Description" style="width: 100%; border-radius: 7px;"></textarea>
+                            </div>
+
+                            <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                <div class="field-label">Notes</div>
+                                <input type="text" placeholder="Notes" name="email" value="" placeholder="Email Address">
+                            </div>*@
+
+
+                            <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                <button class="thm-btn" id="btnsaveSubCategory" type="button">Send</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!--Form Column-->
+            <div class="col-md-6 col-sm-12 col-xs-12 column form-column">
+                <div class="sec-title medium ">
+                    <h2><span class="black-color-text"></span><span class="base-color-text"></span></h2>
+                </div>
+
+                <div class="default-form billing-info-form">
+                    <form method="post">
+
+                        <div class="row clearfix">
+
+                            @* <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                            </div>*@
+
+                            <div class="form-group col-md-3 col-sm-3 col-xs-12">
+                            </div>
+
+                            <div class="form-group form-8 col-md-6 col-sm-6 col-xs-12">
+                                <div class="field-label">Upload Pics of subject Area</div>
+                                @*  <img id="ImgPic"  style="width:100px;height:100px" />*@
+                                <div id="image-holder" style="width: 100px; height: 100px; border: 1px solid;"></div>
+                                <input type="file" id="file" />
+                            </div>
+
+                            <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                <div class="field-label">Project Description</div>
+                                <textarea placeholder="Description" style="width: 100%; height: 111px; border-radius: 7px;"></textarea>
+                            </div>
+
+                            <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                <div class="field-label">Notes</div>
+                                <input type="text" placeholder="Notes" name="email" value="" placeholder="Email Address">
+                            </div>
+
+
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+<script src="~/Scripts/jquery-1.7.1.min.js"></script>
+<script>
+    $(function () {
+        ActiveTab();
+    });
+    function ActiveTab() {
+        $(".tabs").removeClass("current");
+        $("#tabQuote").addClass("current");
+    }
+
+    $("#file").on('change', function () {
+
+        $('#ImgPic').hide();
+
+        //Get count of selected files
+        var countFiles = $(this)[0].files.length;
+        var imgPath = $(this)[0].value;
+        var extn = imgPath.substring(imgPath.lastIndexOf('.') + 1).toLowerCase();
+        var image_holder = $("#image-holder");
+        image_holder.empty();
+        if (extn == "gif" || extn == "png" || extn == "jpg" || extn == "jpeg") {
+            if (typeof (FileReader) != "undefined") {
+                //loop for each file selected for uploaded.
+                for (var i = 0; i < countFiles; i++) {
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                        $("<img />", {
+                            "src": e.target.result,
+                            "Style": "max-width:134%",
+                            "class": "thumb-image"
+                        }).appendTo(image_holder);
+                    }
+                    image_holder.show();
+                    reader.readAsDataURL($(this)[0].files[i]);
+                    $('.loadercont').fadeOut();
+                }
+            } else {
+                $('.loadercont').fadeOut();
+                alert("This browser does not support FileReader.");
+
+            }
+        } else {
+            $('.loadercont').fadeOut();
+            alert("Pls select only images");
+        }
+    });
+
+
+
+</script>

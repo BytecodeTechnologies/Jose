@@ -1,0 +1,145 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<div class="inner-banner has-base-color-overlay text-center">
+    <div class="container">
+        <div class="box">
+            <h3>Admin Login</h3>
+        </div>
+        <!-- /.box -->
+    </div>
+    <!-- /.container -->
+</div>
+<!-- /.inner-banner -->
+
+
+<div class="breadcumb-wrapper">
+    <div class="container">
+        <div class="pull-left">
+            <ul class="list-inline link-list">
+                <li>
+                    <a href="/">Home</a>
+                </li>
+                <li>
+                    <span>Login</span>
+                </li>
+            </ul>
+            <!-- /.list-line -->
+        </div>
+        <!-- /.pull-left -->
+        <div class="pull-right">
+            @*<a href="appointment.html" class="get-qoute"><i class="fa fa-arrow-circle-right"></i> Make an appointment</a>*@
+        </div>
+        <!-- /.pull-right -->
+    </div>
+    <!-- /.container -->
+</div>
+<!-- /.breadcumb-wrapper -->
+
+
+<section class="sec-pad login-register">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <div class="sec-title medium ">
+                    <h2><span style="margin-left: 19px;" class="black-color-text">Login</span> <span class="base-color-text">Here</span></h2>
+                </div>
+
+                <form action="#">
+                    @* <label>Username or Email</label>*@
+                    <div class="form-grp form6">
+                        <input type="text" id="txtuserId" class="lgbtn widwidths" placeholder="UserName" />
+                        <i class="fa fa-user"></i>
+                    </div>
+                    <!-- /.form-grp -->
+                    @* <label>Password</label>*@
+                    <div class="form-grp form6">
+                        <input type="password" id="txtPassword" class="lgbtn widwidths" placeholder="Password" />
+                        <i class="fa fa-lock"></i>
+                    </div>
+                    <!-- /.form-grp -->
+                    <div class="clearfix remember-box">
+                    </div>
+                    <!-- /.clearfix -->
+                    <div class="clearfix submit-box">
+                        <button class="thm-btn" id="btnLogin" type="button">Login</button>
+                    </div>
+                    <!-- /.clearfix -->
+                </form>
+            </div>
+            <!-- /.col-md-6 -->
+
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container -->
+</section>
+<!-- /.sec-pad -->
+
+
+<script src="~/Scripts/jquery-1.7.1.min.js"></script>
+<script>
+    $("#btnLogin").click(function () {
+        $("#btnLogin").parent().next(".validation").remove();
+        var focusSet = false;
+        if (!$('#txtuserId').val()) {
+            if ($("#txtuserId").parent().next(".validation").length == 0) // only add if not added
+            {
+                $("#txtuserId").parent().after("<div class='validation' style='color:red;'>Please enter Email</div>");
+            }
+            $('#txtuserId').focus();
+            focusSet = true;
+        }
+        else {
+            $("#txtuserId").parent().next(".validation").remove(); // remove it
+        }
+        if (!$('#txtPassword').val()) {
+            if ($("#txtPassword").parent().next(".validation").length == 0) // only add if not added
+            {
+                $("#txtPassword").parent().after("<div class='validation' style='color:red;'>Please enter password</div>");
+            }
+
+        }
+        else {
+            $("#txtPassword").parent().next(".validation").remove(); // remove it
+
+        }
+        var Userid = $('#txtuserId').val();
+        var Password = $('#txtPassword').val();
+        if (Userid == "" || Password == "") {
+            return
+
+        }
+        var data = { UserName: Userid, Password: Password };
+        $.ajax({
+            type: "POST",
+            url: "/Admin/UserLogin",
+            data: data,
+            dataType: "json",
+            success: function (response) {
+                if (response == 1) {
+                    $("#btnLogin").parent().next(".validation").remove();
+                    window.location.href = "/admin/SubCategories";
+                }
+                else {
+                    $("#btnLogin").parent().after("<div class='validation' style='color:red'>Check UserName and Password</div>");
+                }
+            },
+            error: function (response) {
+            }
+        });
+    });
+
+    $(".lgbtn").keypress(function (e) {
+        if (e.which == 13) {
+            e.preventDefault();
+            $("#btnLogin").click();
+        }
+    });
+
+
+
+</script>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="10dfb68fd89c44f8a7aacd5e17478446" Name="Diagram1">
+        <EntityTypeShape EntityType="LandscapeModel.Ls_User" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LandscapeModel.Ls_SubCategory" Width="1.5" PointX="3.8404289464654533" PointY="11.714452480764338" />
+        <EntityTypeShape EntityType="LandscapeModel.Category" Width="1.5" PointX="3.1068174443705088" PointY="10.741318171257767" />
+        <EntityTypeShape EntityType="LandscapeModel.Ls_ChildCategory" Width="1.5" PointX="2.4773224510612537" PointY="17.335790180291884" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

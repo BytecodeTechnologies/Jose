@@ -1,0 +1,90 @@
+﻿@model IEnumerable<Landscapes.Ls_SubCategory>
+
+<div class="col-md-9 col-sm-12 col-xs-12 pull-left">
+    @foreach (var row in Model)
+    {
+        <div class="single-news-post wow fadeIn" data-wow-delay="0ms" data-wow-duration="1500ms">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="img-box">
+                        <img src="@row.Image" alt="Awesome Image" />
+                        <div class="overlay">
+                            <div class="box">
+                                <div class="content">
+                                    <a href="/Subcategory/ChildCategory?SubCategoryId=@row.SubCategory_Id&CategoryId=@row.Category_Id" class="thm-btn">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.col-md-4 -->
+                <div class="col-md-8">
+                    @* <ul class="meta-info list-inline">
+                                <li>
+                                    <a href="#"></a>
+                                </li>
+                                <!-- adding this comment for inline hack
+                                -->
+                                <li>
+                                    <a href="#"></a>
+                                </li>
+                                <!-- adding this comment for inline hack
+                                -->
+                                <li>
+                                    <a href="#"></a>
+                                </li>
+                                <!-- adding this comment for inline hack
+                                -->
+                                <li>
+                                    <a href="#"></a>
+                                </li>
+                            </ul>*@
+                    <h3><a href="/Subcategory/ChildCategory?SubCategoryId=@row.SubCategory_Id&CategoryId=@row.Category_Id">@row.SubCategory_Name</a></h3>
+                    <p>@row.Description</p>
+                </div>
+            </div>
+        </div>
+    }
+    <div class="post-nav-wrapper clearfix">
+        <div class="pull-left">
+            <ul class="post-navigation list-inline ">
+                @for (var i = 0; i < ViewBag.PageCount; i++)
+                {
+                    if (i == ViewBag.CurrentPageIndex)
+                    {
+                    <li>@(i + 1)</li>
+                    }
+                    else
+                    {
+                    <li><a href="#" data-pageindex="@i" class="active pager">@(i + 1)</a></li>
+                              
+                    }
+                }
+
+            </ul>
+        </div>
+        <!-- /.pull-left -->
+    </div>
+    <!-- /.post-nav-wrapper -->
+
+</div>
+<script src="~/Scripts/jquery-1.7.1.min.js"></script>
+<script>
+    $('.pager').click(function (evt) {
+        var pageindex = $(evt.target).data("pageindex");
+        $.ajax({
+            type: "POST",
+            url: "/subcategory/GetCategories",
+            data: { pageindex: pageindex, id: id },
+            dataType: "Html",
+            success: function (response) {
+                $("#categoriesshow").empty();
+                $("#categoriesshow").append(response);
+            },
+            error: function (response) {
+                $('.loadercont').fadeOut();
+
+            }
+        });
+    });
+</script>

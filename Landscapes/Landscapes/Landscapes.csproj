@@ -1,0 +1,1294 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0FB1EE39-80F6-4257-B9FB-28BB592F42EB}</ProjectGuid>
+    <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Landscapes</RootNamespace>
+    <AssemblyName>Landscapes</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.Entity">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Entity">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.ApplicationServices">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Core">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Extensions">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Abstractions">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Routing">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Configuration">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Services">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.EnterpriseServices">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.4.5.6\lib\net40\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.4.0.20710.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.4.0.20710.0\lib\net40\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.4.0.20710.0\lib\net40\System.Web.Http.WebHost.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.4.0.20710.0\lib\net40\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.0.0\lib\net40\System.Web.Optimization.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Providers">
+      <HintPath>..\packages\Microsoft.AspNet.Providers.Core.1.1\lib\net40\System.Web.Providers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.2.0.20710.0\lib\net40\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.1.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.1.0\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Category.cs">
+      <DependentUpon>Landscape.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\ConstructionController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\IronWorkController.cs" />
+    <Compile Include="Controllers\LandscapeController.cs" />
+    <Compile Include="Controllers\MasonaryController.cs" />
+    <Compile Include="Controllers\SubcategoryController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Landscape.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Landscape.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Landscape.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Landscape.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Landscape.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Landscape.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Ls_ChildCategory.cs">
+      <DependentUpon>Landscape.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Ls_SubCategory.cs">
+      <DependentUpon>Landscape.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Ls_User.cs">
+      <DependentUpon>Landscape.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ChildCategory.cs" />
+    <Compile Include="Models\IronWork.cs" />
+    <Compile Include="Models\SubCategory.cs" />
+    <Compile Include="Models\User.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\jquery-ui.css" />
+    <Content Include="Content\themes\base\jquery.ui.accordion.css" />
+    <Content Include="Content\themes\base\jquery.ui.all.css" />
+    <Content Include="Content\themes\base\jquery.ui.autocomplete.css" />
+    <Content Include="Content\themes\base\jquery.ui.base.css" />
+    <Content Include="Content\themes\base\jquery.ui.button.css" />
+    <Content Include="Content\themes\base\jquery.ui.core.css" />
+    <Content Include="Content\themes\base\jquery.ui.datepicker.css" />
+    <Content Include="Content\themes\base\jquery.ui.dialog.css" />
+    <Content Include="Content\themes\base\jquery.ui.progressbar.css" />
+    <Content Include="Content\themes\base\jquery.ui.resizable.css" />
+    <Content Include="Content\themes\base\jquery.ui.selectable.css" />
+    <Content Include="Content\themes\base\jquery.ui.slider.css" />
+    <Content Include="Content\themes\base\jquery.ui.tabs.css" />
+    <Content Include="Content\themes\base\jquery.ui.theme.css" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\minified\jquery-ui.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.accordion.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.autocomplete.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.button.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.core.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.datepicker.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.dialog.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.progressbar.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.resizable.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.selectable.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <EntityDeploy Include="Landscape.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Landscape.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Images\logo1\construct.png" />
+    <Content Include="Images\logo1\drivway.png" />
+    <Content Include="Images\logo1\fireplace.png" />
+    <Content Include="Images\logo1\landscap.png" />
+    <Content Include="Images\logo1\masonry.png" />
+    <Content Include="Images\logo1\vision.png" />
+    <Content Include="Images\Logo\vision-main.png" />
+    <Content Include="Images\Site-logos\Logo-construction.png" />
+    <Content Include="Images\Site-logos\Logo-drivway.png" />
+    <Content Include="Images\Site-logos\Logo-fireplace.png" />
+    <Content Include="Images\Site-logos\Logo-iron.png" />
+    <Content Include="Images\Site-logos\Logo-landscape.png" />
+    <Content Include="Images\Site-logos\Logo-masonry.png" />
+    <Content Include="Images\vision-logopics\construction.jpg" />
+    <Content Include="Images\vision-logopics\drivway.jpg" />
+    <Content Include="Images\vision-logopics\iron.jpg" />
+    <Content Include="Images\vision-logopics\kitchen.jpg" />
+    <Content Include="Images\vision-logopics\landscape.jpg" />
+    <Content Include="Images\vision-logopics\masonry.jpg" />
+    <Content Include="Landscape.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Landscape.edmx</DependentUpon>
+      <LastGenOutput>Landscape.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Landscape.edmx.diagram">
+      <DependentUpon>Landscape.edmx</DependentUpon>
+    </Content>
+    <Content Include="Landscape.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Landscape.edmx</DependentUpon>
+      <LastGenOutput>Landscape.cs</LastGenOutput>
+    </Content>
+    <None Include="Scripts\jquery-1.7.1.intellisense.js" />
+    <Content Include="Images\Construction\1.jpg" />
+    <Content Include="Images\Construction\10.jpg" />
+    <Content Include="Images\Construction\11.jpg" />
+    <Content Include="Images\Construction\12.jpg" />
+    <Content Include="Images\Construction\13.jpg" />
+    <Content Include="Images\Construction\14.jpg" />
+    <Content Include="Images\Construction\15.jpg" />
+    <Content Include="Images\Construction\2.jpg" />
+    <Content Include="Images\Construction\3.jpg" />
+    <Content Include="Images\Construction\4.jpg" />
+    <Content Include="Images\Construction\5.jpg" />
+    <Content Include="Images\Construction\6.jpg" />
+    <Content Include="Images\Construction\7.jpg" />
+    <Content Include="Images\Construction\8.jpg" />
+    <Content Include="Images\Construction\9.jpg" />
+    <Content Include="Images\IronWork\DRIVEWAY\1.jpg" />
+    <Content Include="Images\IronWork\DRIVEWAY\10.jpg" />
+    <Content Include="Images\IronWork\DRIVEWAY\11.jpg" />
+    <Content Include="Images\IronWork\DRIVEWAY\12.jpg" />
+    <Content Include="Images\IronWork\DRIVEWAY\13.jpg" />
+    <Content Include="Images\IronWork\DRIVEWAY\14.jpg" />
+    <Content Include="Images\IronWork\DRIVEWAY\15.jpg" />
+    <Content Include="Images\IronWork\DRIVEWAY\16.jpg" />
+    <Content Include="Images\IronWork\DRIVEWAY\17.jpg" />
+    <Content Include="Images\IronWork\DRIVEWAY\18.jpg" />
+    <Content Include="Images\IronWork\DRIVEWAY\2.jpg" />
+    <Content Include="Images\IronWork\DRIVEWAY\3.jpg" />
+    <Content Include="Images\IronWork\DRIVEWAY\4.jpg" />
+    <Content Include="Images\IronWork\DRIVEWAY\5.jpg" />
+    <Content Include="Images\IronWork\DRIVEWAY\6.jpg" />
+    <Content Include="Images\IronWork\DRIVEWAY\7.jpg" />
+    <Content Include="Images\IronWork\DRIVEWAY\8.jpg" />
+    <Content Include="Images\IronWork\DRIVEWAY\9.jpg" />
+    <Content Include="Images\IronWork\Driveway_Gates.jpg" />
+    <Content Include="Images\IronWork\Fences.jpg" />
+    <Content Include="Images\IronWork\Fences\1.jpg" />
+    <Content Include="Images\IronWork\Fences\10.jpg" />
+    <Content Include="Images\IronWork\Fences\11.jpg" />
+    <Content Include="Images\IronWork\Fences\12.jpg" />
+    <Content Include="Images\IronWork\Fences\13.jpg" />
+    <Content Include="Images\IronWork\Fences\14.jpg" />
+    <Content Include="Images\IronWork\Fences\15.jpg" />
+    <Content Include="Images\IronWork\Fences\16.jpg" />
+    <Content Include="Images\IronWork\Fences\17.jpg" />
+    <Content Include="Images\IronWork\Fences\18.jpg" />
+    <Content Include="Images\IronWork\Fences\19.jpg" />
+    <Content Include="Images\IronWork\Fences\2.jpg" />
+    <Content Include="Images\IronWork\Fences\20.jpg" />
+    <Content Include="Images\IronWork\Fences\21.jpg" />
+    <Content Include="Images\IronWork\Fences\22.jpg" />
+    <Content Include="Images\IronWork\Fences\23.jpg" />
+    <Content Include="Images\IronWork\Fences\24.jpg" />
+    <Content Include="Images\IronWork\Fences\25.jpg" />
+    <Content Include="Images\IronWork\Fences\26.jpg" />
+    <Content Include="Images\IronWork\Fences\27.jpg" />
+    <Content Include="Images\IronWork\Fences\28.jpg" />
+    <Content Include="Images\IronWork\Fences\29.jpg" />
+    <Content Include="Images\IronWork\Fences\3.jpg" />
+    <Content Include="Images\IronWork\Fences\30.jpg" />
+    <Content Include="Images\IronWork\Fences\31.jpg" />
+    <Content Include="Images\IronWork\Fences\32.jpg" />
+    <Content Include="Images\IronWork\Fences\33.jpg" />
+    <Content Include="Images\IronWork\Fences\4.jpg" />
+    <Content Include="Images\IronWork\Fences\5.jpg" />
+    <Content Include="Images\IronWork\Fences\6.jpg" />
+    <Content Include="Images\IronWork\Fences\7.jpg" />
+    <Content Include="Images\IronWork\Fences\8.jpg" />
+    <Content Include="Images\IronWork\Fences\9.jpg" />
+    <Content Include="Images\IronWork\Furniture.jpg" />
+    <Content Include="Images\IronWork\Furniture\1.jpg" />
+    <Content Include="Images\IronWork\Furniture\10.jpg" />
+    <Content Include="Images\IronWork\Furniture\11.jpg" />
+    <Content Include="Images\IronWork\Furniture\12.jpg" />
+    <Content Include="Images\IronWork\Furniture\13.jpg" />
+    <Content Include="Images\IronWork\Furniture\14.jpg" />
+    <Content Include="Images\IronWork\Furniture\15.jpg" />
+    <Content Include="Images\IronWork\Furniture\16.jpg" />
+    <Content Include="Images\IronWork\Furniture\2.jpg" />
+    <Content Include="Images\IronWork\Furniture\3.jpg" />
+    <Content Include="Images\IronWork\Furniture\4.jpg" />
+    <Content Include="Images\IronWork\Furniture\5.jpg" />
+    <Content Include="Images\IronWork\Furniture\6.jpg" />
+    <Content Include="Images\IronWork\Furniture\7.jpg" />
+    <Content Include="Images\IronWork\Furniture\8.jpg" />
+    <Content Include="Images\IronWork\Furniture\9.jpg" />
+    <Content Include="Images\IronWork\Gates.jpg" />
+    <Content Include="Images\IronWork\Gates\1.jpg" />
+    <Content Include="Images\IronWork\Gates\10.jpg" />
+    <Content Include="Images\IronWork\Gates\11.jpg" />
+    <Content Include="Images\IronWork\Gates\12.jpg" />
+    <Content Include="Images\IronWork\Gates\13.jpg" />
+    <Content Include="Images\IronWork\Gates\14.jpg" />
+    <Content Include="Images\IronWork\Gates\15.jpg" />
+    <Content Include="Images\IronWork\Gates\16.jpg" />
+    <Content Include="Images\IronWork\Gates\17.jpg" />
+    <Content Include="Images\IronWork\Gates\18.jpg" />
+    <Content Include="Images\IronWork\Gates\19.jpg" />
+    <Content Include="Images\IronWork\Gates\2.jpg" />
+    <Content Include="Images\IronWork\Gates\20.jpg" />
+    <Content Include="Images\IronWork\Gates\21.jpg" />
+    <Content Include="Images\IronWork\Gates\22.jpg" />
+    <Content Include="Images\IronWork\Gates\23.jpg" />
+    <Content Include="Images\IronWork\Gates\3.jpg" />
+    <Content Include="Images\IronWork\Gates\4.jpg" />
+    <Content Include="Images\IronWork\Gates\5.jpg" />
+    <Content Include="Images\IronWork\Gates\6.jpg" />
+    <Content Include="Images\IronWork\Gates\7.jpg" />
+    <Content Include="Images\IronWork\Gates\8.jpg" />
+    <Content Include="Images\IronWork\Gates\9.jpg" />
+    <Content Include="Images\IronWork\Indoor\1.jpg" />
+    <Content Include="Images\IronWork\Indoor\10.jpg" />
+    <Content Include="Images\IronWork\Indoor\11.jpg" />
+    <Content Include="Images\IronWork\Indoor\12.jpg" />
+    <Content Include="Images\IronWork\Indoor\13.jpg" />
+    <Content Include="Images\IronWork\Indoor\14.jpg" />
+    <Content Include="Images\IronWork\Indoor\2.jpg" />
+    <Content Include="Images\IronWork\Indoor\3.jpg" />
+    <Content Include="Images\IronWork\Indoor\4.jpg" />
+    <Content Include="Images\IronWork\Indoor\5.jpg" />
+    <Content Include="Images\IronWork\Indoor\6.jpg" />
+    <Content Include="Images\IronWork\Indoor\7.jpg" />
+    <Content Include="Images\IronWork\Indoor\8.jpg" />
+    <Content Include="Images\IronWork\Indoor\9.jpg" />
+    <Content Include="Images\IronWork\Indoor_Railing.jpg" />
+    <Content Include="Images\IronWork\OutDoor\1.jpg" />
+    <Content Include="Images\IronWork\OutDoor\10.jpg" />
+    <Content Include="Images\IronWork\OutDoor\11.jpg" />
+    <Content Include="Images\IronWork\OutDoor\12.jpg" />
+    <Content Include="Images\IronWork\OutDoor\13.jpg" />
+    <Content Include="Images\IronWork\OutDoor\14.jpg" />
+    <Content Include="Images\IronWork\OutDoor\15.jpg" />
+    <Content Include="Images\IronWork\OutDoor\16.jpg" />
+    <Content Include="Images\IronWork\OutDoor\17.jpg" />
+    <Content Include="Images\IronWork\OutDoor\18.jpg" />
+    <Content Include="Images\IronWork\OutDoor\19.jpg" />
+    <Content Include="Images\IronWork\OutDoor\2.jpg" />
+    <Content Include="Images\IronWork\OutDoor\20.jpg" />
+    <Content Include="Images\IronWork\OutDoor\21.jpg" />
+    <Content Include="Images\IronWork\OutDoor\22.jpg" />
+    <Content Include="Images\IronWork\OutDoor\3.jpg" />
+    <Content Include="Images\IronWork\OutDoor\4.jpg" />
+    <Content Include="Images\IronWork\OutDoor\5.jpg" />
+    <Content Include="Images\IronWork\OutDoor\6.jpg" />
+    <Content Include="Images\IronWork\OutDoor\7.jpg" />
+    <Content Include="Images\IronWork\OutDoor\8.jpg" />
+    <Content Include="Images\IronWork\OutDoor\9.jpg" />
+    <Content Include="Images\IronWork\OutDoor_Railing.jpg" />
+    <Content Include="Images\IronWork\Structures.jpg" />
+    <Content Include="Images\IronWork\Structure\1.jpg" />
+    <Content Include="Images\IronWork\Structure\10.jpg" />
+    <Content Include="Images\IronWork\Structure\11.jpg" />
+    <Content Include="Images\IronWork\Structure\12.jpg" />
+    <Content Include="Images\IronWork\Structure\13.jpg" />
+    <Content Include="Images\IronWork\Structure\14.jpg" />
+    <Content Include="Images\IronWork\Structure\15.jpg" />
+    <Content Include="Images\IronWork\Structure\16.jpg" />
+    <Content Include="Images\IronWork\Structure\17.jpg" />
+    <Content Include="Images\IronWork\Structure\18.jpg" />
+    <Content Include="Images\IronWork\Structure\19.jpg" />
+    <Content Include="Images\IronWork\Structure\2.jpg" />
+    <Content Include="Images\IronWork\Structure\20.jpg" />
+    <Content Include="Images\IronWork\Structure\21.jpg" />
+    <Content Include="Images\IronWork\Structure\22.jpg" />
+    <Content Include="Images\IronWork\Structure\23.jpg" />
+    <Content Include="Images\IronWork\Structure\24.jpg" />
+    <Content Include="Images\IronWork\Structure\25.jpg" />
+    <Content Include="Images\IronWork\Structure\26.jpg" />
+    <Content Include="Images\IronWork\Structure\27.jpg" />
+    <Content Include="Images\IronWork\Structure\28.jpg" />
+    <Content Include="Images\IronWork\Structure\29.jpg" />
+    <Content Include="Images\IronWork\Structure\3.jpg" />
+    <Content Include="Images\IronWork\Structure\30.jpg" />
+    <Content Include="Images\IronWork\Structure\31.jpg" />
+    <Content Include="Images\IronWork\Structure\32.jpg" />
+    <Content Include="Images\IronWork\Structure\33.jpg" />
+    <Content Include="Images\IronWork\Structure\34.jpg" />
+    <Content Include="Images\IronWork\Structure\35.jpg" />
+    <Content Include="Images\IronWork\Structure\36.jpg" />
+    <Content Include="Images\IronWork\Structure\37.jpg" />
+    <Content Include="Images\IronWork\Structure\38.jpg" />
+    <Content Include="Images\IronWork\Structure\39.jpg" />
+    <Content Include="Images\IronWork\Structure\4.jpg" />
+    <Content Include="Images\IronWork\Structure\40.jpg" />
+    <Content Include="Images\IronWork\Structure\41.jpg" />
+    <Content Include="Images\IronWork\Structure\42.jpg" />
+    <Content Include="Images\IronWork\Structure\43.jpg" />
+    <Content Include="Images\IronWork\Structure\44.jpg" />
+    <Content Include="Images\IronWork\Structure\45.jpg" />
+    <Content Include="Images\IronWork\Structure\5.jpg" />
+    <Content Include="Images\IronWork\Structure\6.jpg" />
+    <Content Include="Images\IronWork\Structure\7.jpg" />
+    <Content Include="Images\IronWork\Structure\8.jpg" />
+    <Content Include="Images\IronWork\Structure\9.jpg" />
+    <Content Include="Images\Landscape\Design.jpeg" />
+    <Content Include="Images\Landscape\Design\1.jpeg" />
+    <Content Include="Images\Landscape\Design\2.jpeg" />
+    <Content Include="Images\Landscape\Design\3.jpeg" />
+    <Content Include="Images\Landscape\Design\4.jpeg" />
+    <Content Include="Images\Landscape\Design\5.jpeg" />
+    <Content Include="Images\Landscape\Design\6.jpeg" />
+    <Content Include="Images\Landscape\Design\7.jpeg" />
+    <Content Include="Images\Landscape\Design\8.jpeg" />
+    <Content Include="Images\Landscape\Design\9.jpeg" />
+    <Content Include="Images\Landscape\Drainage.jpg" />
+    <Content Include="Images\Landscape\DRAINAGE\1.jpg" />
+    <Content Include="Images\Landscape\DRAINAGE\2.jpg" />
+    <Content Include="Images\Landscape\DRAINAGE\3.jpg" />
+    <Content Include="Images\Landscape\DRAINAGE\4.jpg" />
+    <Content Include="Images\Landscape\DRAINAGE\5.jpg" />
+    <Content Include="Images\Landscape\DRAINAGE\6.jpg" />
+    <Content Include="Images\Landscape\DRAINAGE\7.jpg" />
+    <Content Include="Images\Landscape\DRAINAGE\8.jpg" />
+    <Content Include="Images\Landscape\DRAINAGE\9.jpg" />
+    <Content Include="Images\Landscape\Grading.jpg" />
+    <Content Include="Images\Landscape\Grading\1.jpg" />
+    <Content Include="Images\Landscape\Grading\2.jpg" />
+    <Content Include="Images\Landscape\Grading\3.jpg" />
+    <Content Include="Images\Landscape\Grading\4.jpg" />
+    <Content Include="Images\Landscape\Grading\5.jpg" />
+    <Content Include="Images\Landscape\Grading\6.jpg" />
+    <Content Include="Images\Landscape\Grading\7.jpg" />
+    <Content Include="Images\Landscape\Grading\8.jpg" />
+    <Content Include="Images\Landscape\Grading\9.jpg" />
+    <Content Include="Images\Landscape\Maintenance.jpg" />
+    <Content Include="Images\Landscape\Maintenance\1.jpg" />
+    <Content Include="Images\Landscape\Maintenance\2.jpg" />
+    <Content Include="Images\Landscape\Maintenance\3.jpg" />
+    <Content Include="Images\Landscape\Maintenance\4.jpg" />
+    <Content Include="Images\Landscape\Maintenance\5.jpg" />
+    <Content Include="Images\Landscape\Planting.jpg" />
+    <Content Include="Images\Landscape\Planting\1.jpg" />
+    <Content Include="Images\Landscape\Planting\10.jpg" />
+    <Content Include="Images\Landscape\Planting\11.jpg" />
+    <Content Include="Images\Landscape\Planting\12.jpg" />
+    <Content Include="Images\Landscape\Planting\13.jpg" />
+    <Content Include="Images\Landscape\Planting\14.jpg" />
+    <Content Include="Images\Landscape\Planting\15.jpg" />
+    <Content Include="Images\Landscape\Planting\16.jpg" />
+    <Content Include="Images\Landscape\Planting\17.jpg" />
+    <Content Include="Images\Landscape\Planting\18.jpg" />
+    <Content Include="Images\Landscape\Planting\19.jpg" />
+    <Content Include="Images\Landscape\Planting\2.jpg" />
+    <Content Include="Images\Landscape\Planting\20.jpg" />
+    <Content Include="Images\Landscape\Planting\21.jpg" />
+    <Content Include="Images\Landscape\Planting\22.jpg" />
+    <Content Include="Images\Landscape\Planting\23.jpg" />
+    <Content Include="Images\Landscape\Planting\24.jpg" />
+    <Content Include="Images\Landscape\Planting\25.jpg" />
+    <Content Include="Images\Landscape\Planting\26.jpg" />
+    <Content Include="Images\Landscape\Planting\27.jpg" />
+    <Content Include="Images\Landscape\Planting\28.jpg" />
+    <Content Include="Images\Landscape\Planting\3.jpg" />
+    <Content Include="Images\Landscape\Planting\4.jpg" />
+    <Content Include="Images\Landscape\Planting\5.jpg" />
+    <Content Include="Images\Landscape\Planting\6.jpg" />
+    <Content Include="Images\Landscape\Planting\7.jpg" />
+    <Content Include="Images\Landscape\Planting\8.jpg" />
+    <Content Include="Images\Landscape\Planting\9.jpg" />
+    <Content Include="Images\Landscape\RockGardens.jpeg" />
+    <Content Include="Images\Landscape\RockGardens\1.jpeg" />
+    <Content Include="Images\Landscape\RockGardens\10.jpeg" />
+    <Content Include="Images\Landscape\RockGardens\11.jpeg" />
+    <Content Include="Images\Landscape\RockGardens\12.jpeg" />
+    <Content Include="Images\Landscape\RockGardens\2.jpeg" />
+    <Content Include="Images\Landscape\RockGardens\3.jpeg" />
+    <Content Include="Images\Landscape\RockGardens\4.jpeg" />
+    <Content Include="Images\Landscape\RockGardens\5.jpeg" />
+    <Content Include="Images\Landscape\RockGardens\6.jpeg" />
+    <Content Include="Images\Landscape\RockGardens\7.jpeg" />
+    <Content Include="Images\Landscape\RockGardens\8.jpeg" />
+    <Content Include="Images\Landscape\RockGardens\9.jpeg" />
+    <Content Include="Images\Landscape\WaterGardens.jpg" />
+    <Content Include="Images\Landscape\WaterGardens\1.jpg" />
+    <Content Include="Images\Landscape\WaterGardens\10.jpg" />
+    <Content Include="Images\Landscape\WaterGardens\11.jpg" />
+    <Content Include="Images\Landscape\WaterGardens\12.jpg" />
+    <Content Include="Images\Landscape\WaterGardens\2.jpg" />
+    <Content Include="Images\Landscape\WaterGardens\3.jpg" />
+    <Content Include="Images\Landscape\WaterGardens\4.jpg" />
+    <Content Include="Images\Landscape\WaterGardens\5.jpg" />
+    <Content Include="Images\Landscape\WaterGardens\6.jpg" />
+    <Content Include="Images\Landscape\WaterGardens\7.jpg" />
+    <Content Include="Images\Landscape\WaterGardens\8.jpg" />
+    <Content Include="Images\Landscape\WaterGardens\9.jpg" />
+    <Content Include="Images\Masonary\Driveways.jpg" />
+    <Content Include="Images\Masonary\Driveways\1.jpg" />
+    <Content Include="Images\Masonary\Driveways\10.jpg" />
+    <Content Include="Images\Masonary\Driveways\11.jpg" />
+    <Content Include="Images\Masonary\Driveways\12.jpg" />
+    <Content Include="Images\Masonary\Driveways\13.jpg" />
+    <Content Include="Images\Masonary\Driveways\14.jpg" />
+    <Content Include="Images\Masonary\Driveways\15.jpg" />
+    <Content Include="Images\Masonary\Driveways\2.jpg" />
+    <Content Include="Images\Masonary\Driveways\3.jpg" />
+    <Content Include="Images\Masonary\Driveways\4.jpg" />
+    <Content Include="Images\Masonary\Driveways\5.jpg" />
+    <Content Include="Images\Masonary\Driveways\6.jpg" />
+    <Content Include="Images\Masonary\Driveways\7.jpg" />
+    <Content Include="Images\Masonary\Driveways\8.jpg" />
+    <Content Include="Images\Masonary\Driveways\9.jpg" />
+    <Content Include="Images\Masonary\Fie_Places.jpeg" />
+    <Content Include="Images\Masonary\FirePlaces\1.jpeg" />
+    <Content Include="Images\Masonary\FirePlaces\10.jpeg" />
+    <Content Include="Images\Masonary\FirePlaces\11.jpeg" />
+    <Content Include="Images\Masonary\FirePlaces\12.jpeg" />
+    <Content Include="Images\Masonary\FirePlaces\13.jpeg" />
+    <Content Include="Images\Masonary\FirePlaces\14.jpeg" />
+    <Content Include="Images\Masonary\FirePlaces\15.jpeg" />
+    <Content Include="Images\Masonary\FirePlaces\2.jpeg" />
+    <Content Include="Images\Masonary\FirePlaces\3.jpeg" />
+    <Content Include="Images\Masonary\FirePlaces\4.jpeg" />
+    <Content Include="Images\Masonary\FirePlaces\5.jpeg" />
+    <Content Include="Images\Masonary\FirePlaces\6.jpeg" />
+    <Content Include="Images\Masonary\FirePlaces\7.jpeg" />
+    <Content Include="Images\Masonary\FirePlaces\8.jpeg" />
+    <Content Include="Images\Masonary\FirePlaces\9.jpeg" />
+    <Content Include="Images\Masonary\Foundations.jpg" />
+    <Content Include="Images\Masonary\Foundation\1.jpg" />
+    <Content Include="Images\Masonary\Foundation\2.jpg" />
+    <Content Include="Images\Masonary\Foundation\3.jpg" />
+    <Content Include="Images\Masonary\Foundation\4.jpg" />
+    <Content Include="Images\Masonary\Foundation\5.jpg" />
+    <Content Include="Images\Masonary\Kitchens.jpg" />
+    <Content Include="Images\Masonary\Kitchens\1.jpg" />
+    <Content Include="Images\Masonary\Kitchens\10.jpg" />
+    <Content Include="Images\Masonary\Kitchens\11.jpg" />
+    <Content Include="Images\Masonary\Kitchens\12.jpg" />
+    <Content Include="Images\Masonary\Kitchens\13.jpg" />
+    <Content Include="Images\Masonary\Kitchens\2.jpg" />
+    <Content Include="Images\Masonary\Kitchens\3.jpg" />
+    <Content Include="Images\Masonary\Kitchens\4.jpg" />
+    <Content Include="Images\Masonary\Kitchens\5.jpg" />
+    <Content Include="Images\Masonary\Kitchens\6.jpg" />
+    <Content Include="Images\Masonary\Kitchens\7.jpg" />
+    <Content Include="Images\Masonary\Kitchens\8.jpg" />
+    <Content Include="Images\Masonary\Kitchens\9.jpg" />
+    <Content Include="Images\Masonary\Patios.jpg" />
+    <Content Include="Images\Masonary\Patios\1.jpg" />
+    <Content Include="Images\Masonary\Patios\10.jpg" />
+    <Content Include="Images\Masonary\Patios\11.jpg" />
+    <Content Include="Images\Masonary\Patios\12.jpg" />
+    <Content Include="Images\Masonary\Patios\13.jpg" />
+    <Content Include="Images\Masonary\Patios\14.jpg" />
+    <Content Include="Images\Masonary\Patios\15.png" />
+    <Content Include="Images\Masonary\Patios\16.png" />
+    <Content Include="Images\Masonary\Patios\17.png" />
+    <Content Include="Images\Masonary\Patios\18.jpg" />
+    <Content Include="Images\Masonary\Patios\2.jpg" />
+    <Content Include="Images\Masonary\Patios\3.jpg" />
+    <Content Include="Images\Masonary\Patios\4.jpg" />
+    <Content Include="Images\Masonary\Patios\5.jpg" />
+    <Content Include="Images\Masonary\Patios\6.jpg" />
+    <Content Include="Images\Masonary\Patios\7.jpg" />
+    <Content Include="Images\Masonary\Patios\8.jpg" />
+    <Content Include="Images\Masonary\Patios\9.jpg" />
+    <Content Include="Images\Masonary\Pits.jpg" />
+    <Content Include="Images\Masonary\Pits\1.jpg" />
+    <Content Include="Images\Masonary\Pits\10.jpg" />
+    <Content Include="Images\Masonary\Pits\11.jpg" />
+    <Content Include="Images\Masonary\Pits\12.jpg" />
+    <Content Include="Images\Masonary\Pits\13.jpg" />
+    <Content Include="Images\Masonary\Pits\14.jpg" />
+    <Content Include="Images\Masonary\Pits\15.jpg" />
+    <Content Include="Images\Masonary\Pits\16.jpg" />
+    <Content Include="Images\Masonary\Pits\17.png" />
+    <Content Include="Images\Masonary\Pits\2.jpg" />
+    <Content Include="Images\Masonary\Pits\3.jpg" />
+    <Content Include="Images\Masonary\Pits\4.jpg" />
+    <Content Include="Images\Masonary\Pits\5.jpg" />
+    <Content Include="Images\Masonary\Pits\6.jpg" />
+    <Content Include="Images\Masonary\Pits\7.jpg" />
+    <Content Include="Images\Masonary\Pits\8.jpg" />
+    <Content Include="Images\Masonary\Pits\9.jpg" />
+    <Content Include="Images\Masonary\Veneer.jpg" />
+    <Content Include="Images\Masonary\Veneer\1.jpg" />
+    <Content Include="Images\Masonary\Veneer\10.jpg" />
+    <Content Include="Images\Masonary\Veneer\11.jpg" />
+    <Content Include="Images\Masonary\Veneer\12.jpg" />
+    <Content Include="Images\Masonary\Veneer\13.jpg" />
+    <Content Include="Images\Masonary\Veneer\14.jpg" />
+    <Content Include="Images\Masonary\Veneer\2.jpg" />
+    <Content Include="Images\Masonary\Veneer\3.jpg" />
+    <Content Include="Images\Masonary\Veneer\4.jpg" />
+    <Content Include="Images\Masonary\Veneer\5.jpg" />
+    <Content Include="Images\Masonary\Veneer\6.jpg" />
+    <Content Include="Images\Masonary\Veneer\7.jpg" />
+    <Content Include="Images\Masonary\Veneer\8.jpg" />
+    <Content Include="Images\Masonary\Veneer\9.jpg" />
+    <Content Include="Images\Masonary\Walks.jpg" />
+    <Content Include="Images\Masonary\Walks\1.jpg" />
+    <Content Include="Images\Masonary\Walks\10.jpg" />
+    <Content Include="Images\Masonary\Walks\11.jpg" />
+    <Content Include="Images\Masonary\Walks\12.jpg" />
+    <Content Include="Images\Masonary\Walks\13.jpg" />
+    <Content Include="Images\Masonary\Walks\14.jpg" />
+    <Content Include="Images\Masonary\Walks\15.jpg" />
+    <Content Include="Images\Masonary\Walks\16.jpg" />
+    <Content Include="Images\Masonary\Walks\17.jpg" />
+    <Content Include="Images\Masonary\Walks\18.jpg" />
+    <Content Include="Images\Masonary\Walks\2.jpg" />
+    <Content Include="Images\Masonary\Walks\3.jpg" />
+    <Content Include="Images\Masonary\Walks\4.jpg" />
+    <Content Include="Images\Masonary\Walks\5.jpg" />
+    <Content Include="Images\Masonary\Walks\6.jpg" />
+    <Content Include="Images\Masonary\Walks\7.jpg" />
+    <Content Include="Images\Masonary\Walks\8.jpg" />
+    <Content Include="Images\Masonary\Walks\9.jpg" />
+    <Content Include="Scripts\DataTable\bootstrap.min.css" />
+    <Content Include="Scripts\DataTable\dataTables.bootstrap.min.css" />
+    <Content Include="Scripts\DataTable\dataTables.bootstrap.min.js" />
+    <Content Include="Scripts\DataTable\jquery-1.12.3.js" />
+    <Content Include="Scripts\DataTable\jquery.dataTables.min.js" />
+    <Content Include="Scripts\jquery-1.7.1.js" />
+    <Content Include="Scripts\jquery-1.7.1.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-ui-1.8.20.js" />
+    <Content Include="Scripts\jquery-ui-1.8.20.min.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\knockout-2.1.0.debug.js" />
+    <Content Include="Scripts\knockout-2.1.0.js" />
+    <Content Include="Scripts\modernizr-2.5.3.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Theme\3d-scene-2.jpg" />
+    <Content Include="Theme\9348e1ec84ab5aab91cca63791afae76.jpg" />
+    <Content Include="Theme\assets\animate.min.css" />
+    <Content Include="Theme\assets\bootstrap-select\dist\css\bootstrap-select.min.css" />
+    <Content Include="Theme\assets\bootstrap-select\dist\js\bootstrap-select.min.js" />
+    <Content Include="Theme\assets\bootstrap-touch-spin\jquery.bootstrap-touchspin.css" />
+    <Content Include="Theme\assets\bootstrap-touch-spin\jquery.bootstrap-touchspin.js" />
+    <Content Include="Theme\assets\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Theme\assets\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Theme\assets\bxslider\dist\images\bx_loader.gif" />
+    <Content Include="Theme\assets\bxslider\dist\images\controls.png" />
+    <Content Include="Theme\assets\bxslider\dist\jquery.bxslider.min.css" />
+    <Content Include="Theme\assets\bxslider\dist\jquery.bxslider.min.js" />
+    <Content Include="Theme\assets\chartjs\dist\Chart.min.js" />
+    <Content Include="Theme\assets\font-awesome\css\font-awesome.min.css" />
+    <Content Include="Theme\assets\gmaps.js" />
+    <Content Include="Theme\assets\isotope.js" />
+    <Content Include="Theme\assets\jquery-1.12.4.min.js" />
+    <Content Include="Theme\assets\jquery-circle-progress-1.1.2\dist\circle-progress.js" />
+    <Content Include="Theme\assets\jquery-validation\dist\jquery.validate.min.js" />
+    <Content Include="Theme\assets\jquery.backstretch.min.js" />
+    <Content Include="Theme\assets\jquery.counterup.min.js" />
+    <Content Include="Theme\assets\lsp-icon\style.css" />
+    <Content Include="Theme\assets\Magnific-Popup-master\dist\jquery.magnific-popup.min.js" />
+    <Content Include="Theme\assets\Magnific-Popup-master\dist\magnific-popup.css" />
+    <Content Include="Theme\assets\map-helper.js" />
+    <Content Include="Theme\assets\masterslider\masterslider.min.js" />
+    <Content Include="Theme\assets\masterslider\skins\default\light-skin-1-retina.png" />
+    <Content Include="Theme\assets\masterslider\skins\default\light-skin-1.png" />
+    <Content Include="Theme\assets\masterslider\skins\default\style.css" />
+    <Content Include="Theme\assets\masterslider\staffcarousel\style\arrows.png" />
+    <Content Include="Theme\assets\masterslider\staffcarousel\style\ms-staff-style.css" />
+    <Content Include="Theme\assets\masterslider\staffcarousel\style\sicons.png" />
+    <Content Include="Theme\assets\masterslider\style\grab.png" />
+    <Content Include="Theme\assets\masterslider\style\grabbing.png" />
+    <Content Include="Theme\assets\masterslider\style\loading-2.gif" />
+    <Content Include="Theme\assets\masterslider\style\masterslider.css" />
+    <Content Include="Theme\assets\masterslider\style\video-close-btn.png" />
+    <Content Include="Theme\assets\morris.js-master\morris.min.js" />
+    <Content Include="Theme\assets\nouislider\nouislider.css" />
+    <Content Include="Theme\assets\nouislider\nouislider.js" />
+    <Content Include="Theme\assets\nouislider\nouislider.pips.css" />
+    <Content Include="Theme\assets\owl.carousel-2\assets\owl.carousel.css" />
+    <Content Include="Theme\assets\owl.carousel-2\assets\owl.theme.default.min.css" />
+    <Content Include="Theme\assets\owl.carousel-2\assets\owl.video.play.html" />
+    <Content Include="Theme\assets\owl.carousel-2\owl.carousel.min.js" />
+    <Content Include="Theme\assets\Polyglot-Language-Switcher-master\css\polyglot-language-switcher.css" />
+    <Content Include="Theme\assets\Polyglot-Language-Switcher-master\images\arrow-down.gif" />
+    <Content Include="Theme\assets\Polyglot-Language-Switcher-master\images\flags\de.png" />
+    <Content Include="Theme\assets\Polyglot-Language-Switcher-master\images\flags\es.png" />
+    <Content Include="Theme\assets\Polyglot-Language-Switcher-master\images\flags\fr.png" />
+    <Content Include="Theme\assets\Polyglot-Language-Switcher-master\images\flags\gb.png" />
+    <Content Include="Theme\assets\Polyglot-Language-Switcher-master\images\flags\it.png" />
+    <Content Include="Theme\assets\Polyglot-Language-Switcher-master\js\jquery.polyglot.language.switcher.js" />
+    <Content Include="Theme\assets\raphael-master\raphael.min.js" />
+    <Content Include="Theme\assets\revolution\assets\coloredbg.png" />
+    <Content Include="Theme\assets\revolution\assets\gridtile.png" />
+    <Content Include="Theme\assets\revolution\assets\gridtile_3x3.png" />
+    <Content Include="Theme\assets\revolution\assets\gridtile_3x3_white.png" />
+    <Content Include="Theme\assets\revolution\assets\gridtile_white.png" />
+    <Content Include="Theme\assets\revolution\assets\loader.gif" />
+    <Content Include="Theme\assets\revolution\css\closedhand.cur" />
+    <Content Include="Theme\assets\revolution\css\layers.css" />
+    <Content Include="Theme\assets\revolution\css\navigation.css" />
+    <Content Include="Theme\assets\revolution\css\openhand.cur" />
+    <Content Include="Theme\assets\revolution\css\settings.css" />
+    <Content Include="Theme\assets\revolution\js\extensions\revolution.extension.actions.min.js" />
+    <Content Include="Theme\assets\revolution\js\extensions\revolution.extension.carousel.min.js" />
+    <Content Include="Theme\assets\revolution\js\extensions\revolution.extension.kenburn.min.js" />
+    <Content Include="Theme\assets\revolution\js\extensions\revolution.extension.layeranimation.min.js" />
+    <Content Include="Theme\assets\revolution\js\extensions\revolution.extension.migration.min.js" />
+    <Content Include="Theme\assets\revolution\js\extensions\revolution.extension.navigation.min.js" />
+    <Content Include="Theme\assets\revolution\js\extensions\revolution.extension.parallax.min.js" />
+    <Content Include="Theme\assets\revolution\js\extensions\revolution.extension.slideanims.min.js" />
+    <Content Include="Theme\assets\revolution\js\extensions\revolution.extension.video.min.js" />
+    <Content Include="Theme\assets\revolution\js\jquery.themepunch.revolution.min.js" />
+    <Content Include="Theme\assets\revolution\js\jquery.themepunch.tools.min.js" />
+    <Content Include="Theme\assets\waypoints.min.js" />
+    <Content Include="Theme\assets\wow.min.js" />
+    <Content Include="Theme\changxing-harbor-arts.jpg" />
+    <Content Include="Theme\css\responsive.css" />
+    <Content Include="Theme\css\skin\color1.css" />
+    <Content Include="Theme\css\style.css" />
+    <Content Include="Theme\css\Layout.css" />
+    <Content Include="Theme\customizer\css\style.css" />
+    <Content Include="Theme\customizer\css\toggle-switch.css" />
+    <Content Include="Theme\customizer\img\boxed-width.jpg" />
+    <Content Include="Theme\customizer\img\full-width.jpg" />
+    <Content Include="Theme\customizer\img\pattern-1.jpg" />
+    <Content Include="Theme\customizer\img\pattern-2.jpg" />
+    <Content Include="Theme\customizer\img\pattern-3.jpg" />
+    <Content Include="Theme\customizer\img\pattern-4.jpg" />
+    <Content Include="Theme\customizer\js\customizer.js" />
+    <Content Include="Theme\customizer\plugins\jQuery.style.switcher.min.js" />
+    <Content Include="Theme\customizer\plugins\malihu-custom-scrollbar-plugin-master\jquery.mCustomScrollbar.concat.min.js" />
+    <Content Include="Theme\customizer\plugins\malihu-custom-scrollbar-plugin-master\jquery.mCustomScrollbar.min.css" />
+    <Content Include="Theme\customizer\plugins\malihu-custom-scrollbar-plugin-master\mCSB_buttons.png" />
+    <Content Include="Theme\design.jpg" />
+    <Content Include="Theme\DSC00124_op_640x480.jpg" />
+    <Content Include="Theme\DSC02502_op_640x480 %281%29.jpg" />
+    <Content Include="Theme\DSC02502_op_640x480-%281%29.jpg" />
+    <Content Include="Theme\DSC02502_op_640x480.jpg" />
+    <Content Include="Theme\DSC03256.jpg" />
+    <Content Include="Theme\DSC03385_op_640x853.jpg" />
+    <Content Include="Theme\ETN_IRON_WORKS.jpg" />
+    <Content Include="Theme\family_300.jpg" />
+    <Content Include="Theme\fonts\montserrat\montserrat-bold\styles.css" />
+    <Content Include="Theme\fonts\montserrat\montserrat-light\styles.css" />
+    <Content Include="Theme\fonts\montserrat\montserrat-regular\styles.css" />
+    <Content Include="Theme\fonts\montserrat\montserrat-semibold\styles.css" />
+    <Content Include="Theme\French-Fireplace2.jpg" />
+    <Content Include="Theme\img\3d-scene-2.jpg" />
+    <Content Include="Theme\img\9348e1ec84ab5aab91cca63791afae76.jpg" />
+    <Content Include="Theme\img\changxing-harbor-arts.jpg" />
+    <Content Include="Theme\img\client\client-1.png" />
+    <Content Include="Theme\img\client\client-2.png" />
+    <Content Include="Theme\img\client\client-3.png" />
+    <Content Include="Theme\img\client\client-4.png" />
+    <Content Include="Theme\img\client\client-5.png" />
+    <Content Include="Theme\img\contemporary-kitchen-banner3.jpg" />
+    <Content Include="Theme\img\DSC00124_op_640x480.jpg" />
+    <Content Include="Theme\img\DSC02502_op_640x480 %281%29.jpg" />
+    <Content Include="Theme\img\DSC02502_op_640x480-%281%29.jpg" />
+    <Content Include="Theme\img\DSC02502_op_640x480.jpg" />
+    <Content Include="Theme\img\DSC03256.jpg" />
+    <Content Include="Theme\img\DSC03385_op_640x853.jpg" />
+    <Content Include="Theme\img\ETN_IRON_WORKS.jpg" />
+    <Content Include="Theme\img\family_300.jpg" />
+    <Content Include="Theme\img\fav-icon.png" />
+    <Content Include="Theme\img\French-Fireplace2.jpg" />
+    <Content Include="Theme\img\gallery\1.jpeg" />
+    <Content Include="Theme\img\gallery\2.jpeg" />
+    <Content Include="Theme\img\gallery\3.jpeg" />
+    <Content Include="Theme\img\gallery\4.jpeg" />
+    <Content Include="Theme\img\gallery\5.jpeg" />
+    <Content Include="Theme\img\gallery\6.jpeg" />
+    <Content Include="Theme\img\gallery\7.jpeg" />
+    <Content Include="Theme\img\gallery\8.jpeg" />
+    <Content Include="Theme\img\gallery\accent1.jpg" />
+    <Content Include="Theme\img\gallery\accent2.jpg" />
+    <Content Include="Theme\img\gallery\accent3.jpg" />
+    <Content Include="Theme\img\gallery\accent4.jpg" />
+    <Content Include="Theme\img\gallery\construction1.jpg" />
+    <Content Include="Theme\img\gallery\construction2.jpg" />
+    <Content Include="Theme\img\gallery\construction3.jpg" />
+    <Content Include="Theme\img\gallery\construction4.JPG" />
+    <Content Include="Theme\img\gallery\construction5.jpg" />
+    <Content Include="Theme\img\gallery\construction6.jpg" />
+    <Content Include="Theme\img\gallery\construction7.jpg" />
+    <Content Include="Theme\img\gallery\construction8.jpg" />
+    <Content Include="Theme\img\gallery\DryWay1.jpg" />
+    <Content Include="Theme\img\gallery\DryWay2.jpg" />
+    <Content Include="Theme\img\gallery\DryWay3.jpg" />
+    <Content Include="Theme\img\gallery\DryWay4.JPG" />
+    <Content Include="Theme\img\gallery\DryWay5.jpg" />
+    <Content Include="Theme\img\gallery\DryWay6.jpg" />
+    <Content Include="Theme\img\gallery\DryWay7.jpg" />
+    <Content Include="Theme\img\gallery\DryWay8.jpg" />
+    <Content Include="Theme\img\gallery\gallery-f-1.jpg" />
+    <Content Include="Theme\img\gallery\gallery-f-10.jpg" />
+    <Content Include="Theme\img\gallery\gallery-f-11.jpg" />
+    <Content Include="Theme\img\gallery\gallery-f-12.jpg" />
+    <Content Include="Theme\img\gallery\gallery-f-2.jpg" />
+    <Content Include="Theme\img\gallery\gallery-f-3.jpg" />
+    <Content Include="Theme\img\gallery\gallery-f-4.jpg" />
+    <Content Include="Theme\img\gallery\gallery-f-5.jpg" />
+    <Content Include="Theme\img\gallery\gallery-f-6.jpg" />
+    <Content Include="Theme\img\gallery\gallery-f-7.jpg" />
+    <Content Include="Theme\img\gallery\gallery-f-8.jpg" />
+    <Content Include="Theme\img\gallery\gallery-f-9.jpg" />
+    <Content Include="Theme\img\gallery\gallery-h1-1.jpg" />
+    <Content Include="Theme\img\gallery\gallery-h1-10.jpg" />
+    <Content Include="Theme\img\gallery\gallery-h1-11.jpg" />
+    <Content Include="Theme\img\gallery\gallery-h1-12.jpg" />
+    <Content Include="Theme\img\gallery\gallery-h1-2.jpg" />
+    <Content Include="Theme\img\gallery\gallery-h1-3.jpg" />
+    <Content Include="Theme\img\gallery\gallery-h1-4.jpg" />
+    <Content Include="Theme\img\gallery\gallery-h1-5.jpg" />
+    <Content Include="Theme\img\gallery\gallery-h1-6.jpg" />
+    <Content Include="Theme\img\gallery\gallery-h1-7.jpg" />
+    <Content Include="Theme\img\gallery\gallery-h1-8.jpg" />
+    <Content Include="Theme\img\gallery\gallery-h1-9.jpg" />
+    <Content Include="Theme\img\gallery\gallery-m-1.jpg" />
+    <Content Include="Theme\img\gallery\gallery-m-10.jpg" />
+    <Content Include="Theme\img\gallery\gallery-m-2.jpg" />
+    <Content Include="Theme\img\gallery\gallery-m-3.jpg" />
+    <Content Include="Theme\img\gallery\gallery-m-4.jpg" />
+    <Content Include="Theme\img\gallery\gallery-m-5.jpg" />
+    <Content Include="Theme\img\gallery\gallery-m-6.jpg" />
+    <Content Include="Theme\img\gallery\gallery-m-7.jpg" />
+    <Content Include="Theme\img\gallery\gallery-m-8.jpg" />
+    <Content Include="Theme\img\gallery\gallery-m-9.jpg" />
+    <Content Include="Theme\img\gallery\gate1.jpg" />
+    <Content Include="Theme\img\gallery\gate2.jpg" />
+    <Content Include="Theme\img\gallery\gate3.jpg" />
+    <Content Include="Theme\img\gallery\gate4.jpg" />
+    <Content Include="Theme\img\gallery\gate5.jpg" />
+    <Content Include="Theme\img\gallery\gate6.jpg" />
+    <Content Include="Theme\img\gallery\gate7.jpg" />
+    <Content Include="Theme\img\gallery\gate8.jpg" />
+    <Content Include="Theme\img\gallery\iron1.jpg" />
+    <Content Include="Theme\img\gallery\iron2.jpg" />
+    <Content Include="Theme\img\gallery\iron3.jpg" />
+    <Content Include="Theme\img\gallery\iron4.jpg" />
+    <Content Include="Theme\img\gallery\Iron5.jpg" />
+    <Content Include="Theme\img\gallery\iron6.jpg" />
+    <Content Include="Theme\img\gallery\iron7.jpg" />
+    <Content Include="Theme\img\gallery\iron8.jpg" />
+    <Content Include="Theme\img\gallery\kitchen1.jpg" />
+    <Content Include="Theme\img\gallery\kitchen2.jpg" />
+    <Content Include="Theme\img\gallery\kitchen3.jpg" />
+    <Content Include="Theme\img\gallery\kitchen4.jpg" />
+    <Content Include="Theme\img\gallery\kitchen5.jpg" />
+    <Content Include="Theme\img\gallery\kitchen6.jpg" />
+    <Content Include="Theme\img\gallery\kitchen7.jpg" />
+    <Content Include="Theme\img\gallery\kitchen8.jpg" />
+    <Content Include="Theme\img\gallery\landscape1.jpg" />
+    <Content Include="Theme\img\gallery\landscape2.jpg" />
+    <Content Include="Theme\img\gallery\Landscape3.JPG" />
+    <Content Include="Theme\img\gallery\Landscape4.JPG" />
+    <Content Include="Theme\img\gallery\Landscape5.jpg" />
+    <Content Include="Theme\img\gallery\Landscape6.jpeg" />
+    <Content Include="Theme\img\gallery\Landscape7.jpg" />
+    <Content Include="Theme\img\gallery\Landscape8.jpg" />
+    <Content Include="Theme\img\gallery\Masonary1.jpeg" />
+    <Content Include="Theme\img\gallery\Masonary1.jpg" />
+    <Content Include="Theme\img\gallery\Masonary2.jpeg" />
+    <Content Include="Theme\img\gallery\Masonary2.jpg" />
+    <Content Include="Theme\img\gallery\Masonary3.jpeg" />
+    <Content Include="Theme\img\gallery\Masonary3.jpg" />
+    <Content Include="Theme\img\gallery\Masonary4.jpeg" />
+    <Content Include="Theme\img\gallery\Masonary4.jpg" />
+    <Content Include="Theme\img\gallery\Masonary5.jpg" />
+    <Content Include="Theme\img\gallery\Masonary6.jpg" />
+    <Content Include="Theme\img\gallery\Masonary7.jpg" />
+    <Content Include="Theme\img\gallery\Masonary8.jpg" />
+    <Content Include="Theme\img\header_img.jpg" />
+    <Content Include="Theme\img\header_img2.jpg" />
+    <Content Include="Theme\img\header_img3.jpg" />
+    <Content Include="Theme\img\img1.jpg" />
+    <Content Include="Theme\img\img2.jpg" />
+    <Content Include="Theme\img\img3.jpg" />
+    <Content Include="Theme\img\img4.jpg" />
+    <Content Include="Theme\img\Large_Landscape_reflection_1024x1024.jpg" />
+    <Content Include="Theme\img\logo-1.png" />
+    <Content Include="Theme\img\logo-vision.png" />
+    <Content Include="Theme\img\logo.png" />
+    <Content Include="Theme\img\logo2.png" />
+    <Content Include="Theme\img\news\news-g-1.jpg" />
+    <Content Include="Theme\img\news\news-g-2.jpg" />
+    <Content Include="Theme\img\news\news-g-3.jpg" />
+    <Content Include="Theme\img\news\news-g-4.jpg" />
+    <Content Include="Theme\img\news\news-h1-1.jpg" />
+    <Content Include="Theme\img\news\news-h1-2.jpg" />
+    <Content Include="Theme\img\news\news-h1-3.jpg" />
+    <Content Include="Theme\img\news\news-h1-4.jpg" />
+    <Content Include="Theme\img\news\news-h1-5.jpg" />
+    <Content Include="Theme\img\news\news-h1-6.jpg" />
+    <Content Include="Theme\img\news\news-h1-7.jpg" />
+    <Content Include="Theme\img\news\news-h1-8.jpg" />
+    <Content Include="Theme\img\news\news-h1-9.jpg" />
+    <Content Include="Theme\img\news\news-l-1.jpg" />
+    <Content Include="Theme\img\news\news-l-2.jpg" />
+    <Content Include="Theme\img\news\news-l-3.jpg" />
+    <Content Include="Theme\img\news\news-l-4.jpg" />
+    <Content Include="Theme\img\news\news-l-5.jpg" />
+    <Content Include="Theme\img\news\news-l-6.jpg" />
+    <Content Include="Theme\img\news\news-l-7.jpg" />
+    <Content Include="Theme\img\news\news-l-8.jpg" />
+    <Content Include="Theme\img\news\news-l-9.jpg" />
+    <Content Include="Theme\img\news\news-sc-1.jpg" />
+    <Content Include="Theme\img\news\news-sc-2.jpg" />
+    <Content Include="Theme\img\news\news-sc-3.jpg" />
+    <Content Include="Theme\img\Pool-La-Santa.jpg" />
+    <Content Include="Theme\img\resources\404-text-bg.png" />
+    <Content Include="Theme\img\resources\about-1.jpg" />
+    <Content Include="Theme\img\resources\about-tab-1.jpg" />
+    <Content Include="Theme\img\resources\add-banner1.png" />
+    <Content Include="Theme\img\resources\background-1.jpg" />
+    <Content Include="Theme\img\resources\background-inner.jpg" />
+    <Content Include="Theme\img\resources\comment-1.jpg" />
+    <Content Include="Theme\img\resources\comment-2.jpg" />
+    <Content Include="Theme\img\resources\construction-2.jpg" />
+    <Content Include="Theme\img\resources\estimate.png" />
+    <Content Include="Theme\img\resources\sidebar-about.jpg" />
+    <Content Include="Theme\img\resources\sidebar-agent-1.jpg" />
+    <Content Include="Theme\img\resources\sidebar-agent-2.jpg" />
+    <Content Include="Theme\img\resources\sidebar-pp-1.jpg" />
+    <Content Include="Theme\img\resources\sidebar-pp-2.jpg" />
+    <Content Include="Theme\img\resources\sidebar-pp-3.jpg" />
+    <Content Include="Theme\img\resources\sidebar-shop-1.jpg" />
+    <Content Include="Theme\img\resources\sidebar-shop-2.jpg" />
+    <Content Include="Theme\img\resources\sidebar-shop-3.jpg" />
+    <Content Include="Theme\img\resources\sidebar-shop-4.jpg" />
+    <Content Include="Theme\img\resources\slider-1.jpg" />
+    <Content Include="Theme\img\resources\slider-2-1.jpg" />
+    <Content Include="Theme\img\resources\slider-2-2.jpg" />
+    <Content Include="Theme\img\resources\slider-2-3.jpg" />
+    <Content Include="Theme\img\resources\slider-2.jpg" />
+    <Content Include="Theme\img\resources\slider-3.jpg" />
+    <Content Include="Theme\img\resources\slider-4-1.jpg" />
+    <Content Include="Theme\img\resources\slider-4-2.jpg" />
+    <Content Include="Theme\img\resources\slider-4-3.jpg" />
+    <Content Include="Theme\img\resources\slider-5-1.jpg" />
+    <Content Include="Theme\img\resources\slider-5-2.jpg" />
+    <Content Include="Theme\img\resources\slider-5-3.jpg" />
+    <Content Include="Theme\img\resources\slider-content-1.png" />
+    <Content Include="Theme\img\resources\team-1.jpg" />
+    <Content Include="Theme\img\resources\team-2.jpg" />
+    <Content Include="Theme\img\resources\team-3.jpg" />
+    <Content Include="Theme\img\resources\team-4.jpg" />
+    <Content Include="Theme\img\resources\testi-2-1.jpg" />
+    <Content Include="Theme\img\resources\testi-2-2.jpg" />
+    <Content Include="Theme\img\resources\testi-2-3.jpg" />
+    <Content Include="Theme\img\resources\testi-2-4.jpg" />
+    <Content Include="Theme\img\resources\testi-2-5.jpg" />
+    <Content Include="Theme\img\resources\testi-2-6.jpg" />
+    <Content Include="Theme\img\resources\testi-h1-1.png" />
+    <Content Include="Theme\img\resources\testi-h1-2.png" />
+    <Content Include="Theme\img\resources\video-bg.jpg" />
+    <Content Include="Theme\img\resources\women.jpg" />
+    <Content Include="Theme\img\services\Belgian-Block.jpg" />
+    <Content Include="Theme\img\services\Formal-Gardens.jpg" />
+    <Content Include="Theme\img\services\Garden-Decorative-Accents.jpg" />
+    <Content Include="Theme\img\services\Gazebos.jpg" />
+    <Content Include="Theme\img\services\Iron-Gates,-Fences.jpg" />
+    <Content Include="Theme\img\services\Irrigation-Systems.jpg" />
+    <Content Include="Theme\img\services\Masonry-Brick,-Stone-Columns-and-Walls.jpg" />
+    <Content Include="Theme\img\services\Natural-Stone-Walls,-Patios-and-Pool-Decks.jpg" />
+    <Content Include="Theme\img\services\Outdoor-Lighting.jpg" />
+    <Content Include="Theme\img\services\Pavers-and-Prefab-Retaining-Walls.jpg" />
+    <Content Include="Theme\img\services\Perennial-Gardens.jpg" />
+    <Content Include="Theme\img\services\Pergolas.jpg" />
+    <Content Include="Theme\img\services\Ponds-and-Water-Falls.jpg" />
+    <Content Include="Theme\img\services\service-s1-1.jpg" />
+    <Content Include="Theme\img\services\service-s1-2.jpg" />
+    <Content Include="Theme\img\services\service-s1-3.jpg" />
+    <Content Include="Theme\img\services\service-s2-1.jpg" />
+    <Content Include="Theme\img\services\service-s2-2.jpg" />
+    <Content Include="Theme\img\services\service-s2-3.jpg" />
+    <Content Include="Theme\img\services\service-s2-4.jpg" />
+    <Content Include="Theme\img\services\service-s2-5.jpg" />
+    <Content Include="Theme\img\services\service-s3-1.jpg" />
+    <Content Include="Theme\img\services\service-s3-2.jpg" />
+    <Content Include="Theme\img\services\service-s4-1.jpg" />
+    <Content Include="Theme\img\services\service-s4-2.jpg" />
+    <Content Include="Theme\img\services\service-s4-3.jpg" />
+    <Content Include="Theme\img\services\service-s5-1.jpg" />
+    <Content Include="Theme\img\services\service-s5-2.jpg" />
+    <Content Include="Theme\img\services\service-s5-3.jpg" />
+    <Content Include="Theme\img\services\service-s5-4.jpg" />
+    <Content Include="Theme\img\services\service-s6-1.jpg" />
+    <Content Include="Theme\img\services\service-s6-2.jpg" />
+    <Content Include="Theme\img\services\service-s6-3.jpg" />
+    <Content Include="Theme\img\services\service-s6-4.jpg" />
+    <Content Include="Theme\img\services\service-s6-5.jpg" />
+    <Content Include="Theme\img\services\service-v1-1.jpg" />
+    <Content Include="Theme\img\services\service-v1-2.jpg" />
+    <Content Include="Theme\img\services\service-v1-3.jpg" />
+    <Content Include="Theme\img\services\service-v1-4.jpg" />
+    <Content Include="Theme\img\services\service-v1-5.jpg" />
+    <Content Include="Theme\img\services\service-v1-6.jpg" />
+    <Content Include="Theme\img\services\service-v3-1.jpg" />
+    <Content Include="Theme\img\services\service-v3-2.jpg" />
+    <Content Include="Theme\img\services\service-v3-3.jpg" />
+    <Content Include="Theme\img\services\service-v3-4.jpg" />
+    <Content Include="Theme\img\services\service-v3-5.jpg" />
+    <Content Include="Theme\img\services\service-v3-6.jpg" />
+    <Content Include="Theme\img\services\Woodland-Planting.jpeg" />
+    <Content Include="Theme\img\shop\shop-c-1.jpg" />
+    <Content Include="Theme\img\shop\shop-c-2.jpg" />
+    <Content Include="Theme\img\shop\shop-c-3.jpg" />
+    <Content Include="Theme\img\shop\shop-card.png" />
+    <Content Include="Theme\img\shop\shop-item-1.jpg" />
+    <Content Include="Theme\img\shop\shop-item-10.jpg" />
+    <Content Include="Theme\img\shop\shop-item-11.jpg" />
+    <Content Include="Theme\img\shop\shop-item-12.jpg" />
+    <Content Include="Theme\img\shop\shop-item-2.jpg" />
+    <Content Include="Theme\img\shop\shop-item-3.jpg" />
+    <Content Include="Theme\img\shop\shop-item-4.jpg" />
+    <Content Include="Theme\img\shop\shop-item-5.jpg" />
+    <Content Include="Theme\img\shop\shop-item-6.jpg" />
+    <Content Include="Theme\img\shop\shop-item-7.jpg" />
+    <Content Include="Theme\img\shop\shop-item-8.jpg" />
+    <Content Include="Theme\img\shop\shop-item-9.jpg" />
+    <Content Include="Theme\img\shop\shop-paypal.png" />
+    <Content Include="Theme\img\shop\shop-s-item-1.jpg" />
+    <Content Include="Theme\img\shop\shop-s-item-thumb.jpg" />
+    <Content Include="Theme\img\stained-concrete-driveway-makeover-kb-concrete-staining_64168.jpg" />
+    <Content Include="Theme\img\textures\crossward.jpg" />
+    <Content Include="Theme\img\textures\dark-texture.jpg" />
+    <Content Include="Theme\img\textures\iso.png" />
+    <Content Include="Theme\img\textures\light-texture.jpg" />
+    <Content Include="Theme\img\textures\marker.png" />
+    <Content Include="Theme\img\textures\play-btn.png" />
+    <Content Include="Theme\img\textures\sign.png" />
+    <Content Include="Theme\img\textures\testi-bg.png" />
+    <Content Include="Theme\img\textures\video-control.png" />
+    <Content Include="Theme\img\vision-2.png" />
+    <Content Include="Theme\js\custom.js" />
+    <Content Include="Theme\Pool-La-Santa.jpg" />
+    <Content Include="Theme\qualityMasonryMilwaukeeLG.jpg" />
+    <Content Include="Theme\stained-concrete-driveway-makeover-kb-concrete-staining_64168.jpg" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Theme\assets\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Theme\assets\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Theme\assets\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Theme\assets\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Theme\assets\bootstrap\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Theme\assets\bootstrap\fonts\glyphicons-halflings-regulard41d.eot" />
+    <Content Include="Theme\assets\font-awesome\fonts\fontawesome-webfont3295.eot" />
+    <Content Include="Theme\assets\font-awesome\fonts\fontawesome-webfont3295.svg" />
+    <Content Include="Theme\assets\font-awesome\fonts\fontawesome-webfont3295.ttf" />
+    <Content Include="Theme\assets\font-awesome\fonts\fontawesome-webfont3295.woff" />
+    <Content Include="Theme\assets\font-awesome\fonts\fontawesome-webfont3295.woff2" />
+    <Content Include="Theme\assets\font-awesome\fonts\fontawesome-webfontd41d.eot" />
+    <Content Include="Theme\assets\lsp-icon\fonts\lsp9a65.eot" />
+    <Content Include="Theme\assets\lsp-icon\fonts\lsp9a65.svg" />
+    <Content Include="Theme\assets\lsp-icon\fonts\lsp9a65.ttf" />
+    <Content Include="Theme\assets\lsp-icon\fonts\lsp9a65.woff" />
+    <Content Include="Theme\assets\revolution\fonts\revicons\revicons90c6.eot" />
+    <Content Include="Theme\assets\revolution\fonts\revicons\revicons90c6.svg" />
+    <Content Include="Theme\assets\revolution\fonts\revicons\revicons90c6.ttf" />
+    <Content Include="Theme\assets\revolution\fonts\revicons\revicons90c6.woff" />
+    <Content Include="Theme\fonts\montserrat\montserrat-bold\Montserrat-Bold.otf" />
+    <Content Include="Theme\fonts\montserrat\montserrat-bold\Montserrat-Bold.svg" />
+    <Content Include="Theme\fonts\montserrat\montserrat-bold\Montserrat-Bold.ttf" />
+    <Content Include="Theme\fonts\montserrat\montserrat-bold\Montserrat-Bold.woff" />
+    <Content Include="Theme\fonts\montserrat\montserrat-bold\Montserrat-Boldd41d.eot" />
+    <Content Include="Theme\fonts\montserrat\montserrat-light\Montserrat-Light.otf" />
+    <Content Include="Theme\fonts\montserrat\montserrat-light\Montserrat-Light.svg" />
+    <Content Include="Theme\fonts\montserrat\montserrat-light\Montserrat-Light.ttf" />
+    <Content Include="Theme\fonts\montserrat\montserrat-light\Montserrat-Light.woff" />
+    <Content Include="Theme\fonts\montserrat\montserrat-light\Montserrat-Lightd41d.eot" />
+    <Content Include="Theme\fonts\montserrat\montserrat-regular\Montserrat-Regular.otf" />
+    <Content Include="Theme\fonts\montserrat\montserrat-regular\Montserrat-Regular.svg" />
+    <Content Include="Theme\fonts\montserrat\montserrat-regular\Montserrat-Regular.ttf" />
+    <Content Include="Theme\fonts\montserrat\montserrat-regular\Montserrat-Regular.woff" />
+    <Content Include="Theme\fonts\montserrat\montserrat-regular\Montserrat-Regulard41d.eot" />
+    <Content Include="Theme\fonts\montserrat\montserrat-semibold\Montserrat-SemiBold.otf" />
+    <Content Include="Theme\fonts\montserrat\montserrat-semibold\Montserrat-SemiBold.svg" />
+    <Content Include="Theme\fonts\montserrat\montserrat-semibold\Montserrat-SemiBold.ttf" />
+    <Content Include="Theme\fonts\montserrat\montserrat-semibold\Montserrat-SemiBold.woff" />
+    <Content Include="Theme\fonts\montserrat\montserrat-semibold\Montserrat-SemiBoldd41d.eot" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\_LayoutPage1.cshtml" />
+    <Content Include="Views\Home\Pools_Spas.cshtml" />
+    <Content Include="Views\Home\DriveWays.cshtml" />
+    <Content Include="Views\Home\Kitchens_Fireplaces.cshtml" />
+    <Content Include="Views\Home\Gates.cshtml" />
+    <Content Include="Views\Home\Decorative_Accents.cshtml" />
+    <Content Include="Views\Home\Landscape_Designs.cshtml" />
+    <Content Include="Views\Home\Under_Construction.cshtml" />
+    <Content Include="Views\Home\Iron_Works.cshtml" />
+    <Content Include="Views\Home\Masonary.cshtml" />
+    <Content Include="Views\Home\Aboutus.cshtml" />
+    <Content Include="Views\Home\Services.cshtml" />
+    <Content Include="Views\Home\Testimonials.cshtml" />
+    <Content Include="Views\Home\Contact_Us.cshtml" />
+    <Content Include="Views\IronWork\Index.cshtml" />
+    <Content Include="Views\IronWork\Furniture.cshtml" />
+    <Content Include="Views\IronWork\Indoor-Railing.cshtml" />
+    <Content Include="Views\IronWork\OutDoor-Railing.cshtml" />
+    <Content Include="Views\IronWork\Driveway.cshtml" />
+    <Content Include="Views\IronWork\Gates.cshtml" />
+    <Content Include="Views\IronWork\Fences.cshtml" />
+    <Content Include="Views\IronWork\structure.cshtml" />
+    <Content Include="Views\Landscape\Index.cshtml" />
+    <Content Include="Views\Landscape\Rock-Gardens.cshtml" />
+    <Content Include="Views\Landscape\Gradings.cshtml" />
+    <Content Include="Views\Landscape\Drainage.cshtml" />
+    <Content Include="Views\Landscape\Water-Gardens.cshtml" />
+    <Content Include="Views\Landscape\Maintenance.cshtml" />
+    <Content Include="Views\Landscape\Planting.cshtml" />
+    <Content Include="Views\Landscape\Design.cshtml" />
+    <Content Include="Views\Masonary\Index.cshtml" />
+    <Content Include="Views\Masonary\Driveways.cshtml" />
+    <Content Include="Views\Masonary\Kitchens.cshtml" />
+    <Content Include="Views\Masonary\Fire-Pits.cshtml" />
+    <Content Include="Views\Masonary\Walks.cshtml" />
+    <Content Include="Views\Masonary\Patios.cshtml" />
+    <Content Include="Views\Masonary\Veneer.cshtml" />
+    <Content Include="Views\Masonary\Foundations.cshtml" />
+    <Content Include="Views\Masonary\Fire-Place.cshtml" />
+    <Content Include="Views\Construction\Index.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\SubCategories.cshtml" />
+    <Content Include="Views\IronWork\_Index.cshtml" />
+    <Content Include="Views\Subcategory\Index.cshtml" />
+    <Content Include="Views\Subcategory\_Index.cshtml" />
+    <Content Include="Views\Admin\ManageSubCategory.cshtml" />
+    <Content Include="Views\Admin\_ManageSubCategory.cshtml" />
+    <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
+    <Content Include="Views\Admin\ManageChildCategories.cshtml" />
+    <Content Include="Views\Admin\_ManageChildCategories.cshtml" />
+    <Content Include="Views\Home\Freequote.cshtml" />
+    <Content Include="Views\Admin\ChildCategory.cshtml" />
+    <Content Include="Views\Subcategory\ChildCategory.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Images\DriveWays\" />
+    <Folder Include="Images\Kitchens\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:1589/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

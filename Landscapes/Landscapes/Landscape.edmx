@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="LandscapeModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="LandscapeModelStoreContainer">
+          <EntitySet Name="Category" EntityType="LandscapeModel.Store.Category" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Ls_ChildCategory" EntityType="LandscapeModel.Store.Ls_ChildCategory" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Ls_SubCategory" EntityType="LandscapeModel.Store.Ls_SubCategory" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Ls_User" EntityType="LandscapeModel.Store.Ls_User" store:Type="Tables" Schema="dbo" />
+        </EntityContainer>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="CategoryID" />
+          </Key>
+          <Property Name="CategoryID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryName" Type="varchar" MaxLength="500" />
+          <Property Name="LogoPath" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="Ls_ChildCategory">
+          <Key>
+            <PropertyRef Name="Child_ID" />
+          </Key>
+          <Property Name="Child_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="SubcategoryID" Type="int" />
+          <Property Name="Date" Type="datetime" />
+          <Property Name="Image" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="Ls_SubCategory">
+          <Key>
+            <PropertyRef Name="SubCategory_Id" />
+          </Key>
+          <Property Name="SubCategory_Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="SubCategory_Name" Type="nchar" MaxLength="500" />
+          <Property Name="Added_by" Type="varchar" MaxLength="100" />
+          <Property Name="Description" Type="varchar(max)" />
+          <Property Name="Image" Type="varchar(max)" />
+          <Property Name="Added_Date" Type="datetime" />
+          <Property Name="Category_Id" Type="int" />
+        </EntityType>
+        <EntityType Name="Ls_User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Useraname" Type="varchar" MaxLength="500" />
+          <Property Name="Password" Type="varchar" MaxLength="50" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Role" Type="int" />
+          <Property Name="Date_Added" Type="datetime" />
+        </EntityType>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="LandscapeModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="LandscapesEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="Ls_User" EntityType="LandscapeModel.Ls_User" />
+          <EntitySet Name="Ls_SubCategory" EntityType="LandscapeModel.Ls_SubCategory" />
+          <EntitySet Name="Categories" EntityType="LandscapeModel.Category" />
+          <EntitySet Name="Ls_ChildCategory" EntityType="LandscapeModel.Ls_ChildCategory" />
+        </EntityContainer>
+        <EntityType Name="Ls_User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Useraname" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="Password" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Name" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Role" Type="Int32" />
+          <Property Name="Date_Added" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Ls_SubCategory">
+          <Key>
+            <PropertyRef Name="SubCategory_Id" />
+          </Key>
+          <Property Type="Int32" Name="SubCategory_Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="SubCategory_Name" MaxLength="500" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="Added_by" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Image" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Added_Date" Precision="3" />
+          <Property Type="Int32" Name="Category_Id" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="CategoryID" />
+          </Key>
+          <Property Type="Int32" Name="CategoryID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="CategoryName" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="LogoPath" MaxLength="500" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Ls_ChildCategory">
+          <Key>
+            <PropertyRef Name="Child_ID" />
+          </Key>
+          <Property Type="Int32" Name="Child_ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="SubcategoryID" />
+          <Property Type="DateTime" Name="Date" Precision="3" />
+          <Property Type="String" Name="Image" MaxLength="500" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="LandscapeModelStoreContainer" CdmEntityContainer="LandscapesEntities">
+          <EntitySetMapping Name="Ls_User">
+            <EntityTypeMapping TypeName="LandscapeModel.Ls_User">
+              <MappingFragment StoreEntitySet="Ls_User">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Useraname" ColumnName="Useraname" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Role" ColumnName="Role" />
+                <ScalarProperty Name="Date_Added" ColumnName="Date_Added" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ls_SubCategory">
+            <EntityTypeMapping TypeName="LandscapeModel.Ls_SubCategory">
+              <MappingFragment StoreEntitySet="Ls_SubCategory">
+                <ScalarProperty Name="Category_Id" ColumnName="Category_Id" />
+                <ScalarProperty Name="Added_Date" ColumnName="Added_Date" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Added_by" ColumnName="Added_by" />
+                <ScalarProperty Name="SubCategory_Name" ColumnName="SubCategory_Name" />
+                <ScalarProperty Name="SubCategory_Id" ColumnName="SubCategory_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="LandscapeModel.Category">
+              <MappingFragment StoreEntitySet="Category">
+                <ScalarProperty Name="LogoPath" ColumnName="LogoPath" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ls_ChildCategory">
+            <EntityTypeMapping TypeName="LandscapeModel.Ls_ChildCategory">
+              <MappingFragment StoreEntitySet="Ls_ChildCategory">
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="SubcategoryID" ColumnName="SubcategoryID" />
+                <ScalarProperty Name="Child_ID" ColumnName="Child_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

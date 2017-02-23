@@ -1,0 +1,298 @@
+﻿@{
+    ViewBag.Title = "ChildCategory";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml"; 
+}
+
+<div class="inner-banner has-base-color-overlay text-center">
+    <div class="container">
+        <div class="box">
+            <h3>Add ChildImage</h3>
+        </div>
+        <!-- /.box -->
+    </div>
+    <!-- /.container -->
+</div>
+<!-- /.inner-banner -->
+
+
+<section class="latest-project sec-pad ">
+    <div class="container">
+
+
+        <div class="text-center">
+            <ul class="post-filter light list-inline">
+                <li>
+                    <a href="/admin/SubCategories"><span>Add SubCategory</span></a>
+                </li>
+                <!-- must add it for inline block hack
+                -->
+                <li>
+                    <a href="/admin/Managesubcategory"><span>Manage Subcategory</span></a>
+                </li>
+                <li class="active">
+                    <a href="/admin/ChildCategory"><span>Add childImage</span></a>
+                </li>
+                <li>
+                    <a href="/admin/ManageChildCategories"><span>Manage childImage</span></a>
+                </li>
+                <!-- must add it for inline block hack
+                -->
+                <li>
+            </ul>
+            <!-- /.gallery-filter -->
+        </div>
+        <!-- /.text-center -->
+
+
+
+
+        <div class="breadcumb-wrapper">
+            <div class="container">
+                <div class="pull-left">
+                    <ul class="list-inline link-list">
+                        <li>
+                            <a href="#">Home</a>
+                        </li>
+                        <!-- comment for inline hack
+                            <li>
+                                <span>Add ChildImage</span>
+                            </li>
+                        
+                    </ul>
+                    <!-- /.list-line
+                    -->
+                </div>
+                <!-- /.pull-left -->
+                <div class="pull-right">
+                </div>
+                <!-- /.pull-right -->
+            </div>
+            <!-- /.container -->
+        </div>
+        <!-- /.breadcumb-wrapper -->
+
+        <section class="checkout-section sec-pad cart-section">
+            <div class="container">
+                <div class="row clearfix">
+
+                    <!--Form Column-->
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6 col-sm-12 col-xs-12 column form-column">
+                        <div class="sec-title medium ">
+                            <h2><span class="black-color-text">Add/update</span> <span class="base-color-text">Child Image</span></h2>
+                        </div>
+                        <div class="default-form billing-info-form">
+                            <form method="post">
+
+                                <div class="row clearfix">
+
+                                    <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                        <div class="field-label">Category*</div>
+                                        <div class="form-group col-md-12 col-sm-6 col-xs-12">
+                                            <div>
+                                                <select id="ddlCategory" name="country" style="margin-left: -13px" class="widwidths">
+                                                    <option value="0">Select</option>
+                                                    <option value="1">Iron Work</option>
+                                                    <option value="2">LandScape Design</option>
+                                                    <option value="3">Masonry</option>
+                                                    <option value="4">Construction</option>
+                                                    <option value="5">Kitchens & Fireplaces</option>
+                                                    <option value="6">Driveways</option>
+                                                </select>
+                                            </div>
+                                            <!-- /.select-box -->
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                        <div class="field-label">Sub Category*</div>
+                                        <div class="form-group col-md-12 col-sm-6 col-xs-12">
+                                            <div>
+                                                <select id="ddlSubCategory" style="margin-left: -13px" class="widwidths">
+                                                    <option value="0">Please select Category</option>
+                                                </select>
+                                            </div>
+                                            <!-- /.select-box -->
+                                        </div>
+                                    </div>
+
+                                    @*  <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                        <div class="field-label">Description</div>
+                                        <textarea id="txtDescription" class="widwidth"></textarea>
+
+                                    </div>*@
+
+                                    <div class="form-group form-8 col-md-6 col-sm-6 col-xs-12">
+
+                                        <div class="field-label">Image</div>
+                                        <input type="file" id="file" />
+                                    </div>
+
+                                    <div class="form-group col-md-6 col-sm-6 col-xs-12">
+
+                                        <div id="image-holder" style="width: 100px"></div>
+
+                                        <div class="form-group col-md-12 col-sm-6 col-xs-12">
+
+
+                                            <button class="thm-btn" id="btnsaveChild" style="MARGIN-TOP: 70PX" type="button">Add</button>
+
+
+                                            <div class="form-group spmmsg col-md-12 col-sm-6 col-xs-12">
+                                                <span id="spnmessage"></span>
+                                            </div>
+
+
+
+                                        </div>
+                                    </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+</section>
+</div>
+<script src="~/Scripts/jquery-1.7.1.min.js"></script>
+<script>
+
+    $("#ddlCategory").change(function () {
+        var categoryId = $("#ddlCategory").val();
+        var data = { id: categoryId }
+        $.ajax({
+            type: "POST",
+            url: "/Admin/GetSubCategorybyId",
+            data: data,
+            dataType: "json",
+            success: function (response) {
+                $("#ddlSubCategory").empty();
+                $("#ddlSubCategory").append("<option value='0'>Select</option>")
+                for (var i = 0; i <= response.length; i++) {
+
+                    $("#ddlSubCategory").append("<option value=" + response[i].SubCategory_Id + ">" + response[i].SubCategory_Name + "</option>")
+                }
+
+            },
+            error: function (response) {
+            }
+        });
+    });
+
+
+    $("#file").on('change', function () {
+
+        $('#imgblogPreview').hide();
+        //Get count of selected files
+        var countFiles = $(this)[0].files.length;
+        var imgPath = $(this)[0].value;
+        var extn = imgPath.substring(imgPath.lastIndexOf('.') + 1).toLowerCase();
+        var image_holder = $("#image-holder");
+        image_holder.empty();
+        if (extn == "gif" || extn == "png" || extn == "jpg" || extn == "jpeg") {
+            if (typeof (FileReader) != "undefined") {
+                //loop for each file selected for uploaded.
+                for (var i = 0; i < countFiles; i++) {
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                        $("<img />", {
+                            "src": e.target.result,
+                            "class": "thumb-image"
+                        }).appendTo(image_holder);
+                    }
+                    image_holder.show();
+                    reader.readAsDataURL($(this)[0].files[i]);
+                    $('.loadercont').fadeOut();
+                }
+            } else {
+                $('.loadercont').fadeOut();
+                alert("This browser does not support FileReader.");
+
+            }
+        } else {
+            $('.loadercont').fadeOut();
+            alert("Pls select only images");
+        }
+    });
+
+
+
+    $("#btnsaveChild").click(function () {
+        $("#spnmessage").empty();
+        var focusSet = false;
+        // category validation
+
+        if ($('#ddlCategory').val() == 0) {
+            if ($("#ddlCategory").parent().next(".validation").length == 0) // only add if not added
+            {
+                $("#ddlCategory").parent().after("<div class='validation' style='color:red;'>Please Select Category</div>");
+            }
+        }
+        else {
+            $("#ddlCategory").parent().next(".validation").remove(); // remove it
+        }
+
+
+        // subcategory validation
+        if ($('#ddlSubCategory').val() == 0) {
+            if ($("#ddlSubCategory").parent().next(".validation").length == 0) // only add if not added
+            {
+                $("#ddlSubCategory").parent().after("<div class='validation' style='color:red;'>Please Select SubCategory</div>");
+            }
+        }
+        else {
+            $("#ddlSubCategory").parent().next(".validation").remove(); // remove it
+        }
+
+        // file validation
+        if (!$('#file').val()) {
+            if ($("#file").parent().next(".validation").length == 0) // only add if not added
+            {
+                $("#file").parent().after("<div class='validation' style='color:red;margin-top: 50px;'>Please Select image</div>");
+            }
+            $('#file').focus();
+            focusSet = true;
+        }
+        else {
+            $("#file").parent().next(".validation").remove(); // remove it
+        }
+     
+
+        var Category = $('#ddlCategory').val();
+        var SubCategoryId = $('#ddlSubCategory').val();
+        var Subcategory = $("#ddlSubCategory option:selected").text();
+        var files = $("#file").get(0).files;
+        if (Category == "" || SubCategoryId == 0 || files.length == 0) {
+            return
+        }
+        var data = new FormData();
+        data.append("file", files[0]);
+        data.append("SubCategoryId", SubCategoryId);
+        data.append("Category", Category);
+        data.append("Subcategory", Subcategory);
+        $.ajax({
+            type: "POST",
+            url: "/Admin/AddChildImage",
+            data: data,
+            processData: false,
+            contentType: false,
+            dataType: "json",
+            success: function (response) {
+                $("#spnmessage").append("<div id='showmessage' class='validation' style='color:red;'>" + response + "</div>");
+                $('#ddlCategory').val(0);
+                $('#ddlSubCategory').val(0);
+                $("#file").empty();
+                $("#image-holder").empty();
+            },
+            error: function (response) {
+            }
+        });
+    });
+
+
+
+
+
+
+</script>

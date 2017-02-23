@@ -1,0 +1,397 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+     <link href="/Theme/css/style.css" rel="stylesheet" />
+	 <link href="/Theme/css/responsive.css" rel="stylesheet" />
+
+	<!-- customizer plate css -->
+        <link href="/Theme/customizer/css/style.css" rel="stylesheet" />
+    <!-- Color css -->
+    <link href="/Theme/css/skin/color1.css" rel="stylesheet" />
+    <link href="/Theme/assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    </head>
+<body>
+    
+
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
+    <header class="header header-2 site-header">
+	<div class="header-top">
+		<div class="container">			
+			<div class="pull-left contact-info right-info">
+				<ul class="list-inline contact-info-list">
+					<li>
+						<div class="inner-box">
+							<i class="fa fa-phone"></i><span>9854-368-237</span>
+						</div><!-- /.inner-box -->
+					</li><!-- adding comment for inline hack 
+					--><li>
+						<div class="inner-box">
+							<i class="fa fa-envelope-o"></i><span>support@landshaper.com</span>
+						</div><!-- /.inner-box -->
+					</li>
+				</ul>
+			</div><!-- /.pull-right -->
+            <div class="pull-right contact-info right-info">
+                <ul class="link-list pull-left list-inline">
+                    <li><a href="#">Careers</a>
+                    </li><!-- comment for inline hack 
+                     --><li>
+                        <a href="#">Helpdesk</a>
+                    </li><!-- comment for inline hack
+                     --><li>
+                        <a href="#">Support</a>
+                    </li>
+                </ul><!-- /.link-list -->
+                <ul class="social-icon pull-left list-inline">
+                    <li>
+                        <a href="#"><i class="fa fa-facebook"></i></a>
+                    </li><!-- comment for inline hack  
+                    --><li>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                    </li><!-- comment for inline hack 
+                    --><li>
+                            <a href="#"><i class="fa fa-linkedin"></i></a>
+                    </li><!--  comment for inline hack
+                    --><li>
+                            <a href="#"><i class="fa fa-google-plus"></i></a>
+                    </li>
+                </ul><!-- /.social-icon pull-left -->
+            </div><!-- /.pull-right -->
+		</div><!-- /.container -->
+	</div><!-- /.header-top -->
+	<nav class="navbar navbar-default header-navigation stricky">
+		<div class="container">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-nav-bar" aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand light-logo" href="index-2.html">
+					<img src="~/Theme/img/logo2.png" alt="Awesome Image"/>
+				</a>
+			</div>
+
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse" id="main-nav-bar">
+				
+
+				<ul class="nav navbar-nav navigation-box">
+					<li class="current">
+                        <a href="index-2.html">Home</a>
+                        <ul class="sub-menu">							
+                            <li><a href="index-2.html">Home One</a></li>
+                            <li><a href="index-v2.html">Home Two</a></li>
+                            <li><a href="index-v3.html">Home Three</a></li>
+                            <li><a href="index-v4.html">Home Four</a></li>
+                            <li><a href="index-v5.html">Home Five</a></li>
+                        </ul><!-- /.sub-menu -->
+                    </li>
+                    <li>
+                        <a href="about.html">About Us</a>
+                        <ul class="sub-menu">							
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="testimonial.html">Testimonials</a></li>
+                            <li><a href="faq.html">Frequently Asked Questions</a></li>
+                            <li><a href="pricing.html">Prices and Delivery</a></li>
+                            <li><a href="404.html">404 Page</a></li>
+                            <li><a href="appointment.html">Make An Appointment</a></li>
+                        </ul><!-- /.sub-menu -->
+                    </li>
+                    <li>
+                        <a href="services.html">Services</a>
+                        <ul class="sub-menu">							
+                            <li><a href="services.html">All Services</a></li>
+                            <li><a href="design.html">Design and Planning </a></li>
+                            <li><a href="lawn-garden.html">Lawn and Garden Care</a></li>
+                            <li><a href="irrigation.html">Irrigation & Drainage</a></li>
+                            <li><a href="snow-ice.html">Snow & Ice Removal </a></li>
+                            <li><a href="spring.html">Spring & Fall Cleanup </a></li>
+                            <li><a href="stone.html">Stone & Hardscaping </a></li>
+                        </ul><!-- /.sub-menu -->
+                    </li>
+                    <li>
+                        <a href="gallery-v1.html">Gallery</a>
+                        <ul class="sub-menu">							
+                            <li><a href="gallery-v1.html">Classic Gallery </a></li>
+                            <li><a href="gallery-v2.html">Masonary Style </a></li>
+                            <li><a href="gallery-v3.html">Fullwidth Gallery</a></li>
+                            <li><a href="#">Fullwidth Detail Page</a></li>
+                        </ul><!-- /.sub-menu -->
+                    </li>
+                    <li>
+                        <a href="blog-v1.html">Blog</a>
+                        <ul class="sub-menu">							
+                            <li><a href="blog-v1.html">Blog - Fullwidth</a></li>
+                            <li><a href="blog-v2.html">Blog - Grid View</a></li>
+                            <li><a href="blog-v3.html">Blog - List View</a></li>
+                            <li><a href="blog-details.html">Blog - Single Detail</a></li>
+                        </ul><!-- /.sub-menu -->
+                    </li>
+                    <li>
+                        <a href="shop.html">Shop</a>
+                        <ul class="sub-menu right-align">							
+                            <li><a href="shop.html">Shop Products</a></li>
+                            <li><a href="shop-v2.html">Shop With Sidebar</a></li>
+                            <li><a href="single-shop.html">Product Details</a></li>
+                            <li><a href="cart.html">Cart Page</a></li>
+                            <li><a href="checkout.html">Checkout Page</a></li>
+                            <li><a href="login-register.html">Login & Register</a></li>
+                        </ul><!-- /.sub-menu -->
+                    </li>
+                    <li><a href="contact.html">Contact</a></li>
+				</ul>			
+				<ul class="nav navbar-nav navbar-right right-box">
+					<li>
+						<a href="#" class="thm-btn">Get a Quote</a>
+					</li>
+				</ul>
+				
+			</div><!-- /.navbar-collapse -->
+		</div><!-- /.container -->
+	</nav>
+
+</header><!-- /.header -->
+    @RenderBody()
+    <footer class="footer has-black-color-overlay has-dark-texture">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-3">
+					<div class="footer-widget about-widget">
+						<a href="index-2.html"><img src="~/Theme/img/logo2.png" alt="" />
+						<p>Landshaper HTML5 Template is build  for Lawn, Landscaping, Garden Companies, Florists, Ground skeepers, Landscape, Architects, Gardening Shops, and other lawn and landscaping related services. </p> 
+						<a href="#" class="thm-btn">Purchase for 17$</a>
+					</div><!-- /.footer-widget about-widget -->
+				</div><!-- /.col-md-3 -->
+				<div class="col-md-3">
+					<div class="footer-widget link-widget">
+						<div class="sec-title-two">
+							<h3><span class="white-color-text">Our Services</span></h3>
+							<span class="decor-line"></span>
+						</div><!-- /.sec-title-two -->
+						<ul class="links">
+							<li><a href="design.html">Design and Planning</a></li>
+							<li><a href="lawn-garden.html">Lawn and Garden Care</a></li>
+							<li><a href="irrigation.html">Irrigation & Drainage</a></li>
+							<li><a href="snow-ice.html">Snow & Ice Removal</a></li>
+							<li><a href="spring.html">Spring & Fall Cleanup</a></li>
+							<li><a href="stone.html">Stone & Hardscaping</a></li>
+							<li><a href="services.html">All Services</a></li>
+						</ul><!-- /.links -->
+					</div><!-- /.footer-widget link-widget -->
+				</div><!-- /.col-md-3 -->
+				<div class="col-md-3">
+					<div class="footer-widget subscribe-widget">
+						<div class="sec-title-two">
+							<h3><span class="white-color-text">Subscribe us</span></h3>
+							<span class="decor-line"></span>
+						</div><!-- /.sec-title-two -->
+						<p class="highlight">Sign up today for hints, tips and the latest product news - plus exclusive special offers.</p>
+						<form action="http://steelthemes.com/demo/html/landshaper/inc/mailchimp/subscribe.php" class="clearfix mailchimp-form">
+							<input type="text" name="email" placeholder="Email address" />
+							<button type="submit"><i class="fa fa-envelope-o"></i></button>
+						</form>
+						<p>Get Latest Updates & Offer</p>
+						<div class="result"></div><!-- /.result -->
+						<ul class="list-inline social">
+							<li>
+								<a href="#"><i class="fa fa-facebook"></i></a>								
+							</li><!-- comment for inline hack
+							--><li>
+								<a href="#"><i class="fa fa-twitter"></i></a>								
+							</li><!-- comment for inline hack
+							--><li>
+								<a href="#"><i class="fa fa-skype"></i></a>								
+							</li><!-- comment for inline hack
+							--><li>
+								<a href="#"><i class="fa fa-linkedin"></i></a>								
+							</li>
+						</ul><!-- /.list-inline -->
+					</div><!-- /.footer-widget link-widget -->
+				</div><!-- /.col-md-3 -->
+				<div class="col-md-3">
+					<div class="footer-widget contact-widget">
+						<div class="sec-title-two">
+							<h3><span class="white-color-text">Contact Details</span></h3>
+							<span class="decor-line"></span>
+						</div><!-- /.sec-title-two -->
+						<div class="footer-contact-info-carousel owl-theme owl-carousel">
+							<div class="item">
+								<ul class="contact-infos">
+									<li>
+										<div class="icon-box">
+											<i class="lsp-icon-signs"></i>
+										</div><!-- /.icon-box -->
+										<div class="text-box">
+											<p>008 City of Work ,<br />New York, NY 641109 US.</p>
+										</div><!-- /.text-box -->
+									</li>
+									<li>
+										<div class="icon-box">
+											<i class="lsp-icon-technology"></i>
+										</div><!-- /.icon-box -->
+										<div class="text-box">
+											<p>Call us: +3257 700 1430</p>
+										</div><!-- /.text-box -->
+									</li>
+									<li>
+										<div class="icon-box">
+											<i class="lsp-icon-note"></i>
+										</div><!-- /.icon-box -->
+										<div class="text-box">
+											<p>Mail us : USA@Statistic.com </p>
+										</div><!-- /.text-box -->
+									</li>
+									<li>
+										<div class="icon-box">
+											<i class="lsp-icon-clock"></i>
+										</div><!-- /.icon-box -->
+										<div class="text-box">
+											<p>Mon - Sat 9.00 - 20.00,<br />Sunday CLOSED</p>
+										</div><!-- /.text-box -->
+									</li>
+								</ul><!-- /.contact-infos -->						
+							</div><!-- /.item -->
+							<div class="item">
+								<ul class="contact-infos">
+									<li>
+										<div class="icon-box">
+											<i class="lsp-icon-signs"></i>
+										</div><!-- /.icon-box -->
+										<div class="text-box">
+											<p>008 City of Work ,<br />New York, NY 641109 US.</p>
+										</div><!-- /.text-box -->
+									</li>
+									<li>
+										<div class="icon-box">
+											<i class="lsp-icon-technology"></i>
+										</div><!-- /.icon-box -->
+										<div class="text-box">
+											<p>Call us: +3257 700 1430</p>
+										</div><!-- /.text-box -->
+									</li>
+									<li>
+										<div class="icon-box">
+											<i class="lsp-icon-note"></i>
+										</div><!-- /.icon-box -->
+										<div class="text-box">
+											<p>Mail us : USA@Statistic.com </p>
+										</div><!-- /.text-box -->
+									</li>
+									<li>
+										<div class="icon-box">
+											<i class="lsp-icon-clock"></i>
+										</div><!-- /.icon-box -->
+										<div class="text-box">
+											<p>Mon - Sat 9.00 - 20.00,<br />Sunday CLOSED</p>
+										</div><!-- /.text-box -->
+									</li>
+								</ul><!-- /.contact-infos -->						
+							</div><!-- /.item -->
+							<div class="item">
+								<ul class="contact-infos">
+									<li>
+										<div class="icon-box">
+											<i class="lsp-icon-signs"></i>
+										</div><!-- /.icon-box -->
+										<div class="text-box">
+											<p>008 City of Work ,<br />New York, NY 641109 US.</p>
+										</div><!-- /.text-box -->
+									</li>
+									<li>
+										<div class="icon-box">
+											<i class="lsp-icon-technology"></i>
+										</div><!-- /.icon-box -->
+										<div class="text-box">
+											<p>Call us: +3257 700 1430</p>
+										</div><!-- /.text-box -->
+									</li>
+									<li>
+										<div class="icon-box">
+											<i class="lsp-icon-note"></i>
+										</div><!-- /.icon-box -->
+										<div class="text-box">
+											<p>Mail us : USA@Statistic.com </p>
+										</div><!-- /.text-box -->
+									</li>
+									<li>
+										<div class="icon-box">
+											<i class="lsp-icon-clock"></i>
+										</div><!-- /.icon-box -->
+										<div class="text-box">
+											<p>Mon - Sat 9.00 - 20.00,<br />Sunday CLOSED</p>
+										</div><!-- /.text-box -->
+									</li>
+								</ul><!-- /.contact-infos -->						
+							</div><!-- /.item -->
+						</div><!-- /.contact-info-carousel owl-theme owl-carousel -->
+						
+					</div><!-- /.footer-widget link-widget -->
+				</div><!-- /.col-md-3 -->
+			</div><!-- /.row -->
+		</div><!-- /.container -->
+	</footer>
+    <!-- <script src="http://code.jquery.com/jquery-latest.min.js"></script> -->
+    <script src="~/Theme/assets/jquery-1.12.4.min.js"></script>
+    <script src="~/Theme/assets/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+    <!-- revolution slider js -->
+<script src="~/Theme/assets/revolution/js/jquery.themepunch.tools.min.js"></script>
+<script src="~/Theme/assets/revolution/js/jquery.themepunch.revolution.min.js"></script>
+<script src="~/Theme/assets/revolution/js/extensions/revolution.extension.actions.min.js"></script>
+<script src="~/Theme/assets/revolution/js/extensions/revolution.extension.carousel.min.js"></script>
+<script src="~/Theme/assets/revolution/js/extensions/revolution.extension.kenburn.min.js"></script>
+<script src="~/Theme/assets/revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
+<script src="~/Theme/assets/revolution/js/extensions/revolution.extension.migration.min.js"></script>
+<script src="~/Theme/assets/revolution/js/extensions/revolution.extension.navigation.min.js"></script>
+<script src="~/Theme/assets/revolution/js/extensions/revolution.extension.parallax.min.js"></script>
+<script src="~/Theme/assets/revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
+<script src="~/Theme/assets/revolution/js/extensions/revolution.extension.video.min.js"></script>
+
+<script src="~/Theme/assets/jquery-validation/dist/jquery.validate.min.js"></script>
+
+<script src="~/Theme/assets/owl.carousel-2/owl.carousel.min.js"></script>
+
+<script src="~/Theme/assets/nouislider/nouislider.js"></script>
+<script src="~/Theme/assets/bootstrap-touch-spin/jquery.bootstrap-touchspin.js"></script>
+
+<script src="~/Theme/assets/isotope.js"></script>
+
+<script src="~/Theme/assets/masterslider/masterslider.min.js"></script>
+
+<script src="~/Theme/assets/bxslider/dist/jquery.bxslider.min.js"></script>
+
+<script src="~/Theme/assets/chartjs/dist/Chart.min.js"></script>
+
+<script src="~/Theme/assets/jquery-circle-progress-1.1.2/dist/circle-progress.js"></script>
+<script src="~/Theme/assets/morris.js-master/morris.min.js"></script>
+<script src="~/Theme/assets/raphael-master/raphael.min.js"></script>
+
+<script src="~/Theme/assets/Magnific-Popup-master/dist/jquery.magnific-popup.min.js"></script>
+
+<script src="~/Theme/assets/waypoints.min.js"></script>
+<script src="~/Theme/assets/jquery.counterup.min.js"></script>
+
+<script src="~/Theme/assets/wow.min.js"></script>
+
+
+<script src="~/Theme/assets/jquery.backstretch.min.js"></script>
+
+
+<script src="~/Theme/assets/Polyglot-Language-Switcher-master/js/jquery.polyglot.language.switcher.js"></script>
+
+<script src="~/Theme/js/custom.js"></script>
+
+<script type="text/javascript" src="../../../../cdnjs.cloudflare.com/ajax/libs/js-cookie/2.1.2/js.cookie.min.js"></script>
+<script src="~/Theme/customizer/plugins/jQuery.style.switcher.min.js"></script>
+<script src="~/Theme/customizer/plugins/malihu-custom-scrollbar-plugin-master/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="~/Theme/customizer/js/customizer.js"></script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="LandscapeModelStoreContainer" CdmEntityContainer="LandscapesEntities">
+    <EntitySetMapping Name="Ls_User">
+      <EntityTypeMapping TypeName="LandscapeModel.Ls_User">
+        <MappingFragment StoreEntitySet="Ls_User">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Useraname" ColumnName="Useraname" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Role" ColumnName="Role" />
+          <ScalarProperty Name="Date_Added" ColumnName="Date_Added" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ls_SubCategory">
+      <EntityTypeMapping TypeName="LandscapeModel.Ls_SubCategory">
+        <MappingFragment StoreEntitySet="Ls_SubCategory">
+          <ScalarProperty Name="Category_Id" ColumnName="Category_Id" />
+          <ScalarProperty Name="Added_Date" ColumnName="Added_Date" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Added_by" ColumnName="Added_by" />
+          <ScalarProperty Name="SubCategory_Name" ColumnName="SubCategory_Name" />
+          <ScalarProperty Name="SubCategory_Id" ColumnName="SubCategory_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Categories">
+      <EntityTypeMapping TypeName="LandscapeModel.Category">
+        <MappingFragment StoreEntitySet="Category">
+          <ScalarProperty Name="LogoPath" ColumnName="LogoPath" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ls_ChildCategory">
+      <EntityTypeMapping TypeName="LandscapeModel.Ls_ChildCategory">
+        <MappingFragment StoreEntitySet="Ls_ChildCategory">
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="SubcategoryID" ColumnName="SubcategoryID" />
+          <ScalarProperty Name="Child_ID" ColumnName="Child_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

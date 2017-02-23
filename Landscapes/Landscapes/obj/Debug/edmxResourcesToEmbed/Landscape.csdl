@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="LandscapeModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="LandscapesEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="Ls_User" EntityType="LandscapeModel.Ls_User" />
+    <EntitySet Name="Ls_SubCategory" EntityType="LandscapeModel.Ls_SubCategory" />
+    <EntitySet Name="Categories" EntityType="LandscapeModel.Category" />
+    <EntitySet Name="Ls_ChildCategory" EntityType="LandscapeModel.Ls_ChildCategory" />
+  </EntityContainer>
+  <EntityType Name="Ls_User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Useraname" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+    <Property Name="Password" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Name" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Role" Type="Int32" />
+    <Property Name="Date_Added" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Ls_SubCategory">
+    <Key>
+      <PropertyRef Name="SubCategory_Id" />
+    </Key>
+    <Property Type="Int32" Name="SubCategory_Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="SubCategory_Name" MaxLength="500" FixedLength="true" Unicode="true" />
+    <Property Type="String" Name="Added_by" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Image" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Added_Date" Precision="3" />
+    <Property Type="Int32" Name="Category_Id" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="CategoryID" />
+    </Key>
+    <Property Type="Int32" Name="CategoryID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="CategoryName" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="LogoPath" MaxLength="500" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Ls_ChildCategory">
+    <Key>
+      <PropertyRef Name="Child_ID" />
+    </Key>
+    <Property Type="Int32" Name="Child_ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="SubcategoryID" />
+    <Property Type="DateTime" Name="Date" Precision="3" />
+    <Property Type="String" Name="Image" MaxLength="500" FixedLength="false" Unicode="false" />
+  </EntityType>
+</Schema>
