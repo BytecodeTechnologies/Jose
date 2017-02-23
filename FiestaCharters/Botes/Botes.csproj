@@ -1,0 +1,546 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{AA512324-FB96-4D59-9B15-21F79BAC2E02}</ProjectGuid>
+    <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Botes</RootNamespace>
+    <AssemblyName>Botes</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.4.5.6\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.4.0.20710.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.4.0.20710.0\lib\net40\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.4.0.20710.0\lib\net40\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.4.0.20710.0\lib\net40\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.0.0\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Providers">
+      <HintPath>..\packages\Microsoft.AspNet.Providers.Core.1.1\lib\net40\System.Web.Providers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.2.0.20710.0\lib\net40\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.1.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.1.0\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="assets\bootstrap\fonts\glyphicons-halflings-regular.html" />
+    <Content Include="assets\css\bootstrap.css" />
+    <Content Include="assets\css\demo.css" />
+    <Content Include="assets\css\images\slash-line-big.html" />
+    <Content Include="assets\css\motives\beach.css" />
+    <Content Include="assets\css\style.css" />
+    <Content Include="assets\fonts\css\weather-icons.css" />
+    <Content Include="assets\fonts\fonts\fontawesome-webfont3295-2.html" />
+    <Content Include="assets\fonts\fonts\fontawesome-webfont3295.html" />
+    <Content Include="assets\fonts\fonts\weathericons-regular-webfont.html" />
+    <Content Include="assets\form\js\contact-form.js" />
+    <Content Include="assets\images\background.jpg" />
+    <Content Include="assets\images\bg_pattern_01.jpg" />
+    <Content Include="assets\images\bg_pattern_02.jpg" />
+    <Content Include="assets\images\bg_pattern_03.jpg" />
+    <Content Include="assets\images\bg_pattern_04.jpg" />
+    <Content Include="assets\images\bg_pattern_05.jpg" />
+    <Content Include="assets\images\bg_pattern_06.jpg" />
+    <Content Include="assets\images\bg_pattern_07.jpg" />
+    <Content Include="assets\images\bg_pattern_08.jpg" />
+    <Content Include="assets\images\bg_pattern_09.jpg" />
+    <Content Include="assets\images\bg_pattern_10.jpg" />
+    <Content Include="assets\images\bg_pattern_11.jpg" />
+    <Content Include="assets\images\bg_pattern_12.jpg" />
+    <Content Include="assets\images\Boat_Pics\banne1.jpg" />
+    <Content Include="assets\images\Boat_Pics\banner.jpg" />
+    <Content Include="assets\images\Boat_Pics\boat2.jpg" />
+    <Content Include="assets\images\Boat_Pics\boat3.JPG" />
+    <Content Include="assets\images\Boat_Pics\boat3_full.jpg" />
+    <Content Include="assets\images\Boat_Pics\boat4.jpg" />
+    <Content Include="assets\images\Boat_Pics\boat5.jpg" />
+    <Content Include="assets\images\Boat_Pics\boat_fullSize.jpg" />
+    <Content Include="assets\images\Boat_Pics\gallery\a1.jpg" />
+    <Content Include="assets\images\Boat_Pics\gallery\a2.jpg" />
+    <Content Include="assets\images\Boat_Pics\gallery\a3.jpg" />
+    <Content Include="assets\images\Boat_Pics\gallery\a4.jpg" />
+    <Content Include="assets\images\Boat_Pics\gallery\b1.jpg" />
+    <Content Include="assets\images\Boat_Pics\gallery\b2.jpg" />
+    <Content Include="assets\images\Boat_Pics\gallery\b3.jpg" />
+    <Content Include="assets\images\Boat_Pics\gallery\b4.jpg" />
+    <Content Include="assets\images\Botes\Cabin-Cruies\1.jpeg" />
+    <Content Include="assets\images\Botes\Cabin-Cruies\2.jpeg" />
+    <Content Include="assets\images\Botes\Cabin-Cruies\3.jpeg" />
+    <Content Include="assets\images\Botes\Cabin-Cruies\4.jpeg" />
+    <Content Include="assets\images\Botes\Cabin-Cruies\5.jpeg" />
+    <Content Include="assets\images\Botes\Cabin-Cruiser-Boats.jpg" />
+    <Content Include="assets\images\Botes\Catamaran-Boats.jpg" />
+    <Content Include="assets\images\Botes\center-console-boat.jpg" />
+    <Content Include="assets\images\Botes\cuddy-cabin-boat.jpg" />
+    <Content Include="assets\images\Botes\Dinghy-boat.jpg" />
+    <Content Include="assets\images\Botes\fishing-boat.jpg" />
+    <Content Include="assets\images\Botes\Houseboats.jpg" />
+    <Content Include="assets\images\Botes\Motor-yacht-Boats.jpg" />
+    <Content Include="assets\images\Botes\Trawler Boats.jpg" />
+    <Content Include="assets\images\contact-bar.png" />
+    <Content Include="assets\images\demo-content\beach-about-image1.jpg" />
+    <Content Include="assets\images\demo-content\beach-about-image2.jpg" />
+    <Content Include="assets\images\demo-content\beach-blog-item1.jpg" />
+    <Content Include="assets\images\demo-content\beach-blog-single.jpg" />
+    <Content Include="assets\images\demo-content\beach-divided-section-middle.jpg" />
+    <Content Include="assets\images\demo-content\beach-divided-section-middle2.jpg" />
+    <Content Include="assets\images\demo-content\beach-divided-section-middle3.jpg" />
+    <Content Include="assets\images\demo-content\beach-divided-section-middle4.jpg" />
+    <Content Include="assets\images\demo-content\beach-divided-section-middle5.jpg" />
+    <Content Include="assets\images\demo-content\beach-divided-section2.jpg" />
+    <Content Include="assets\images\demo-content\beach-divided-section4.jpg" />
+    <Content Include="assets\images\demo-content\beach-divided-slider-item1.jpg" />
+    <Content Include="assets\images\demo-content\beach-header.jpg" />
+    <Content Include="assets\images\demo-content\beach-index-gallery-indoor-item1.jpg" />
+    <Content Include="assets\images\demo-content\beach-index-gallery-outdoor-item1.jpg" />
+    <Content Include="assets\images\demo-content\beach-logo.png" />
+    <Content Include="assets\images\demo-content\beach-main-logo.png" />
+    <Content Include="assets\images\demo-content\blog-single-admin.jpg" />
+    <Content Include="assets\images\demo-content\blog-single-comment-author1.jpg" />
+    <Content Include="assets\images\demo-content\blog-single-comment-author2.jpg" />
+    <Content Include="assets\images\demo-content\blog-single-comment-author3.jpg" />
+    <Content Include="assets\images\demo-content\country-blog-slider-item1.jpg" />
+    <Content Include="assets\images\demo-content\country-blog-slider-item2.jpg" />
+    <Content Include="assets\images\demo-content\country-blog-slider-item3.jpg" />
+    <Content Include="assets\images\demo-content\country-board-item1.jpg" />
+    <Content Include="assets\images\demo-content\country-board-item2.jpg" />
+    <Content Include="assets\images\demo-content\country-board-item3.jpg" />
+    <Content Include="assets\images\demo-content\country-book-sidebar-image.jpg" />
+    <Content Include="assets\images\demo-content\country-divided-section-middle4.jpg" />
+    <Content Include="assets\images\demo-content\country-gallery-backyard.jpg" />
+    <Content Include="assets\images\demo-content\country-gallery-backyard2.jpg" />
+    <Content Include="assets\images\demo-content\country-gallery-backyard3.jpg" />
+    <Content Include="assets\images\demo-content\country-gallery-backyard4.jpg" />
+    <Content Include="assets\images\demo-content\country-gallery-backyard5.jpg" />
+    <Content Include="assets\images\demo-content\country-gallery-backyard6.jpg" />
+    <Content Include="assets\images\demo-content\country-gallery-bathroom.jpg" />
+    <Content Include="assets\images\demo-content\country-gallery-bathroom2.jpg" />
+    <Content Include="assets\images\demo-content\country-gallery-bathroom3.jpg" />
+    <Content Include="assets\images\demo-content\country-gallery-bathroom4.jpg" />
+    <Content Include="assets\images\demo-content\country-gallery-bedroom.jpg" />
+    <Content Include="assets\images\demo-content\country-gallery-bedroom2.jpg" />
+    <Content Include="assets\images\demo-content\country-gallery-bedroom3.jpg" />
+    <Content Include="assets\images\demo-content\country-gallery-bedroom4.jpg" />
+    <Content Include="assets\images\demo-content\country-gallery-belfry.jpg" />
+    <Content Include="assets\images\demo-content\country-gallery-belfry2.jpg" />
+    <Content Include="assets\images\demo-content\country-gallery-belfry3.jpg" />
+    <Content Include="assets\images\demo-content\country-gallery-category1.jpg" />
+    <Content Include="assets\images\demo-content\country-gallery-category2.jpg" />
+    <Content Include="assets\images\demo-content\country-gallery-category3.jpg" />
+    <Content Include="assets\images\demo-content\country-gallery-category4.jpg" />
+    <Content Include="assets\images\demo-content\country-gallery-category5.jpg" />
+    <Content Include="assets\images\demo-content\country-gallery-category6.jpg" />
+    <Content Include="assets\images\demo-content\country-gallery-category7.jpg" />
+    <Content Include="assets\images\demo-content\country-gallery-category8.jpg" />
+    <Content Include="assets\images\demo-content\country-gallery-kitchen.jpg" />
+    <Content Include="assets\images\demo-content\country-gallery-kitchen2.jpg" />
+    <Content Include="assets\images\demo-content\country-gallery-kitchen3.jpg" />
+    <Content Include="assets\images\demo-content\country-gallery-kitchen4.jpg" />
+    <Content Include="assets\images\demo-content\country-gallery-laundry.jpg" />
+    <Content Include="assets\images\demo-content\country-gallery-laundry2.jpg" />
+    <Content Include="assets\images\demo-content\country-gallery-livingroom.jpg" />
+    <Content Include="assets\images\demo-content\country-gallery-livingroom2.jpg" />
+    <Content Include="assets\images\demo-content\country-gallery-livingroom3.jpg" />
+    <Content Include="assets\images\demo-content\country-gallery-livingroom4.jpg" />
+    <Content Include="assets\images\demo-content\country-gallery-livingroom5.jpg" />
+    <Content Include="assets\images\demo-content\country-gallery-livingroom6.jpg" />
+    <Content Include="assets\images\demo-content\country-gallery-terrace.jpg" />
+    <Content Include="assets\images\demo-content\country-gallery-terrace2.jpg" />
+    <Content Include="assets\images\demo-content\country-gallery-terrace3.jpg" />
+    <Content Include="assets\images\demo-content\country-gallery-terrace4.jpg" />
+    <Content Include="assets\images\demo-content\country-gallery-terrace5.jpg" />
+    <Content Include="assets\images\demo-content\country-gallery-terrace6.jpg" />
+    <Content Include="assets\images\demo-content\country-infoslider-item1.jpg" />
+    <Content Include="assets\images\demo-content\country-infoslider-item2.jpg" />
+    <Content Include="assets\images\demo-content\country-infoslider-item3.jpg" />
+    <Content Include="assets\images\demo-content\country-latest-offer-item1.jpg" />
+    <Content Include="assets\images\demo-content\country-latest-offer-item2.jpg" />
+    <Content Include="assets\images\demo-content\country-latest-offer-item3.jpg" />
+    <Content Include="assets\images\demo-content\country-latest-offer2-item1.jpg" />
+    <Content Include="assets\images\demo-content\country-latest-offer2-item2.jpg" />
+    <Content Include="assets\images\demo-content\country-latest-offer2-item3.jpg" />
+    <Content Include="assets\images\demo-content\country-logo2.png" />
+    <Content Include="assets\images\demo-content\country-menu-separator.png" />
+    <Content Include="assets\images\demo-content\country-select-house-slider-item1.jpg" />
+    <Content Include="assets\images\demo-content\country-select-house-slider-item2.jpg" />
+    <Content Include="assets\images\demo-content\country-select-house-slider-item3.jpg" />
+    <Content Include="assets\images\demo-content\country-select-house-slider-item4.jpg" />
+    <Content Include="assets\images\demo-content\country-select-house-slider-item5.jpg" />
+    <Content Include="assets\images\demo-content\country-select-house-slider-item6.jpg" />
+    <Content Include="assets\images\demo-content\country-sidebar-list-icon1.jpg" />
+    <Content Include="assets\images\demo-content\country-sidebar-list-icon2.jpg" />
+    <Content Include="assets\images\demo-content\country-sidebar-list-icon3.jpg" />
+    <Content Include="assets\images\demo-content\country-sidebar-list-icon4.jpg" />
+    <Content Include="assets\images\demo-content\country-slider-item1.jpg" />
+    <Content Include="assets\images\demo-content\country-slider-item2.jpg" />
+    <Content Include="assets\images\demo-content\country-slider-item3.jpg" />
+    <Content Include="assets\images\demo-content\country-slider-item4.jpg" />
+    <Content Include="assets\images\demo-content\country-thumbnail-slider-item1-big.jpg" />
+    <Content Include="assets\images\demo-content\country-thumbnail-slider-item1-small.jpg" />
+    <Content Include="assets\images\demo-content\country-thumbnail-slider-item1.jpg" />
+    <Content Include="assets\images\demo-content\country-thumbnail-slider-item10-big.jpg" />
+    <Content Include="assets\images\demo-content\country-thumbnail-slider-item10-small.jpg" />
+    <Content Include="assets\images\demo-content\country-thumbnail-slider-item10.jpg" />
+    <Content Include="assets\images\demo-content\country-thumbnail-slider-item11-big.jpg" />
+    <Content Include="assets\images\demo-content\country-thumbnail-slider-item11-small.jpg" />
+    <Content Include="assets\images\demo-content\country-thumbnail-slider-item11.jpg" />
+    <Content Include="assets\images\demo-content\country-thumbnail-slider-item12-big.jpg" />
+    <Content Include="assets\images\demo-content\country-thumbnail-slider-item12-small.jpg" />
+    <Content Include="assets\images\demo-content\country-thumbnail-slider-item12.jpg" />
+    <Content Include="assets\images\demo-content\country-thumbnail-slider-item13-big.jpg" />
+    <Content Include="assets\images\demo-content\country-thumbnail-slider-item13-small.jpg" />
+    <Content Include="assets\images\demo-content\country-thumbnail-slider-item13.jpg" />
+    <Content Include="assets\images\demo-content\country-thumbnail-slider-item14-big.jpg" />
+    <Content Include="assets\images\demo-content\country-thumbnail-slider-item14-small.jpg" />
+    <Content Include="assets\images\demo-content\country-thumbnail-slider-item14.jpg" />
+    <Content Include="assets\images\demo-content\country-thumbnail-slider-item2-big.jpg" />
+    <Content Include="assets\images\demo-content\country-thumbnail-slider-item2-small.jpg" />
+    <Content Include="assets\images\demo-content\country-thumbnail-slider-item2.jpg" />
+    <Content Include="assets\images\demo-content\country-thumbnail-slider-item3-big.jpg" />
+    <Content Include="assets\images\demo-content\country-thumbnail-slider-item3-small.jpg" />
+    <Content Include="assets\images\demo-content\country-thumbnail-slider-item3.jpg" />
+    <Content Include="assets\images\demo-content\country-thumbnail-slider-item4-big.jpg" />
+    <Content Include="assets\images\demo-content\country-thumbnail-slider-item4-small.jpg" />
+    <Content Include="assets\images\demo-content\country-thumbnail-slider-item4.jpg" />
+    <Content Include="assets\images\demo-content\country-thumbnail-slider-item5-big.jpg" />
+    <Content Include="assets\images\demo-content\country-thumbnail-slider-item5-small.jpg" />
+    <Content Include="assets\images\demo-content\country-thumbnail-slider-item5.jpg" />
+    <Content Include="assets\images\demo-content\country-thumbnail-slider-item6-big.jpg" />
+    <Content Include="assets\images\demo-content\country-thumbnail-slider-item6-small.jpg" />
+    <Content Include="assets\images\demo-content\country-thumbnail-slider-item6.jpg" />
+    <Content Include="assets\images\demo-content\country-thumbnail-slider-item7-big.jpg" />
+    <Content Include="assets\images\demo-content\country-thumbnail-slider-item7-small.jpg" />
+    <Content Include="assets\images\demo-content\country-thumbnail-slider-item7.jpg" />
+    <Content Include="assets\images\demo-content\country-thumbnail-slider-item8-big.jpg" />
+    <Content Include="assets\images\demo-content\country-thumbnail-slider-item8-small.jpg" />
+    <Content Include="assets\images\demo-content\country-thumbnail-slider-item8.jpg" />
+    <Content Include="assets\images\demo-content\country-thumbnail-slider-item9-big.jpg" />
+    <Content Include="assets\images\demo-content\country-thumbnail-slider-item9-small.jpg" />
+    <Content Include="assets\images\demo-content\country-thumbnail-slider-item9.jpg" />
+    <Content Include="assets\images\demo-content\footer-white-logo.png" />
+    <Content Include="assets\images\demo-content\picture-person.jpg" />
+    <Content Include="assets\images\demo-content\picture-person2.jpg" />
+    <Content Include="assets\images\demo-content\picture-person3.jpg" />
+    <Content Include="assets\images\demo-content\picture-person4.jpg" />
+    <Content Include="assets\images\demo-content\picture-person5.jpg" />
+    <Content Include="assets\images\form-slash.png" />
+    <Content Include="assets\images\Hotel-Pics\boat1.jpg" />
+    <Content Include="assets\images\Hotel-Pics\boat1s.jpg" />
+    <Content Include="assets\images\Hotel-Pics\boat2.jpg" />
+    <Content Include="assets\images\Hotel-Pics\boat2s.jpg" />
+    <Content Include="assets\images\Hotel-Pics\boat3.jpg" />
+    <Content Include="assets\images\Hotel-Pics\boat3s.jpg" />
+    <Content Include="assets\images\Hotel-Pics\boat4.jpg" />
+    <Content Include="assets\images\Hotel-Pics\boat4s.jpg" />
+    <Content Include="assets\images\Hotel-Pics\boat5.jpg" />
+    <Content Include="assets\images\Hotel-Pics\boat5s.jpg" />
+    <Content Include="assets\images\mochaGrunge.png" />
+    <Content Include="assets\images\new\IMG_3610.JPG" />
+    <Content Include="assets\images\new\IMG_3616_1.JPG" />
+    <Content Include="assets\images\new\IMG_3620.JPG" />
+    <Content Include="assets\images\new\IMG_3621.JPG" />
+    <Content Include="assets\images\new\safety.jpg" />
+    <Content Include="assets\images\Project\about_us_bg.jpg" />
+    <Content Include="assets\images\Project\Bkimg.jpg" />
+    <Content Include="assets\images\Project\SliderV.jpg" />
+    <Content Include="assets\images\Project\sup.jpg" />
+    <Content Include="assets\images\refreshment\cleaning.jpg" />
+    <Content Include="assets\images\refreshment\cleaning1.jpg" />
+    <Content Include="assets\images\refreshment\meals.jpg" />
+    <Content Include="assets\images\refreshment\meals1.jpg" />
+    <Content Include="assets\images\refreshment\refresh.jpg" />
+    <Content Include="assets\images\refreshment\refresh1.jpg" />
+    <Content Include="assets\images\refreshment\saferty.jpg" />
+    <Content Include="assets\images\refreshment\saferty1.jpg" />
+    <Content Include="assets\images\refreshment\safety.jpg" />
+    <Content Include="assets\images\refreshment\safety1.jpg" />
+    <Content Include="assets\images\safety.jpg" />
+    <Content Include="assets\images\slash-line-big.html" />
+    <Content Include="assets\images\surprise&amp;hapitime\hapitime.jpg" />
+    <Content Include="assets\images\surprise&amp;hapitime\hapitime1.jpg" />
+    <Content Include="assets\images\surprise&amp;hapitime\hapitime2.jpg" />
+    <Content Include="assets\images\surprise&amp;hapitime\surprise.jpg" />
+    <Content Include="assets\images\surprise&amp;hapitime\surprise1.jpg" />
+    <Content Include="assets\images\surprise&amp;hapitime\surprise2.jpg" />
+    <Content Include="assets\images\widget-dot.png" />
+    <Content Include="assets\js\counter\init.js" />
+    <Content Include="assets\js\counter\jquery.countTo.js" />
+    <Content Include="assets\js\datapicker\bootstrap-datepicker.js" />
+    <Content Include="assets\js\datapicker\datepicker.css" />
+    <Content Include="assets\js\demo.js" />
+    <Content Include="assets\js\externals.min.js" />
+    <Content Include="assets\js\fullcalendar\fullcalendar.css" />
+    <Content Include="assets\js\fullcalendar\fullcalendar.min.js" />
+    <Content Include="assets\js\fullcalendar\init.js" />
+    <Content Include="assets\js\fullcalendar\moment.min.js" />
+    <Content Include="assets\js\gmaps\gmap3.min.js" />
+    <Content Include="assets\js\gmaps\init.js" />
+    <Content Include="assets\js\jquery.simpleWeather.min.js" />
+    <Content Include="assets\js\less.min.js" />
+    <Content Include="assets\js\magnific-popup\jquery.magnific-popup.min.js" />
+    <Content Include="assets\js\main.js" />
+    <Content Include="assets\js\modernizr.custom.js" />
+    <Content Include="assets\js\onepage-scroll\jquery.onepage-scroll.js" />
+    <Content Include="assets\js\retina.min.js" />
+    <Content Include="assets\js\select2\select2.css" />
+    <Content Include="assets\js\select2\select2.min.js" />
+    <Content Include="assets\plugins\ct-mediaSection\js\init.js" />
+    <Content Include="assets\plugins\ct-mediaSection\js\jquery.stellar.min.js" />
+    <Content Include="assets\plugins\headroom\headroom.js" />
+    <Content Include="assets\plugins\headroom\init.js" />
+    <Content Include="assets\plugins\headroom\jQuery.headroom.js" />
+    <Content Include="assets\plugins\owl\AjaxLoader.gif" />
+    <Content Include="assets\plugins\owl\grabbing.png" />
+    <Content Include="assets\plugins\owl\init.js" />
+    <Content Include="assets\plugins\owl\owl.carousel.css" />
+    <Content Include="assets\plugins\owl\owl.carousel.min.js" />
+    <Content Include="assets\plugins\owl\owl.theme.css" />
+    <Content Include="assets\plugins\owl\owl.transitions.css" />
+    <Content Include="assets\plugins\owl\thumbnail-init.js" />
+    <Content Include="assets\twitter\js\jquery.tweet.js" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\jquery-ui.css" />
+    <Content Include="Content\themes\base\jquery.ui.accordion.css" />
+    <Content Include="Content\themes\base\jquery.ui.all.css" />
+    <Content Include="Content\themes\base\jquery.ui.autocomplete.css" />
+    <Content Include="Content\themes\base\jquery.ui.base.css" />
+    <Content Include="Content\themes\base\jquery.ui.button.css" />
+    <Content Include="Content\themes\base\jquery.ui.core.css" />
+    <Content Include="Content\themes\base\jquery.ui.datepicker.css" />
+    <Content Include="Content\themes\base\jquery.ui.dialog.css" />
+    <Content Include="Content\themes\base\jquery.ui.progressbar.css" />
+    <Content Include="Content\themes\base\jquery.ui.resizable.css" />
+    <Content Include="Content\themes\base\jquery.ui.selectable.css" />
+    <Content Include="Content\themes\base\jquery.ui.slider.css" />
+    <Content Include="Content\themes\base\jquery.ui.tabs.css" />
+    <Content Include="Content\themes\base\jquery.ui.theme.css" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\minified\jquery-ui.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.accordion.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.autocomplete.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.button.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.core.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.datepicker.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.dialog.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.progressbar.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.resizable.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.selectable.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="assets\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="assets\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="assets\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="assets\bootstrap\fonts\glyphicons-halflings-regulard41d.eot" />
+    <Content Include="assets\fonts\fonts\fontawesome-webfont3295.eot" />
+    <Content Include="assets\fonts\fonts\fontawesome-webfont3295.svg" />
+    <Content Include="assets\fonts\fonts\fontawesome-webfont3295.woff" />
+    <Content Include="assets\fonts\fonts\fontawesome-webfontd41d.eot" />
+    <Content Include="assets\fonts\fonts\weathericons-regular-webfont.eot" />
+    <Content Include="assets\fonts\fonts\weathericons-regular-webfont.svg" />
+    <Content Include="assets\fonts\fonts\weathericons-regular-webfont.woff" />
+    <Content Include="assets\fonts\fonts\weathericons-regular-webfontd41d.eot" />
+    <Content Include="assets\images\rings.svg" />
+    <None Include="Scripts\jquery-1.7.1.intellisense.js" />
+    <Content Include="Scripts\jquery-1.7.1.js" />
+    <Content Include="Scripts\jquery-1.7.1.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-ui-1.8.20.js" />
+    <Content Include="Scripts\jquery-ui-1.8.20.min.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\knockout-2.1.0.debug.js" />
+    <Content Include="Scripts\knockout-2.1.0.js" />
+    <Content Include="Scripts\modernizr-2.5.3.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:1772/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>
