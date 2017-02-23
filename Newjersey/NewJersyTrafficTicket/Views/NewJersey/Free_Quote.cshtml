@@ -1,0 +1,604 @@
+﻿@{
+    ViewBag.Title = "Free Quote for New Jersey Traffic Ticket";
+    ViewBag.Description = "Free consultation about Traffic Tickets issued in New Jersey: Drunk driving, DUI, Careless, Speeding an all other traffic tickets";
+    Layout = "~/Views/Shared/_LayoutForQuotes.cshtml";
+}
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+@*<script type="text/javascript" src='https://www.google.com/recaptcha/api.js'></script>*@
+<div class="white_bg right_side col-lg-8 col-md-8 col-sm-12 col-xs-12 pull-right">
+    <section id="checkout-content">
+        <div class="container fontstylelg">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 left-checkout quoteform" style="padding-left:0px;">
+                    <div class="Row Quote_title">
+                        <h1 style="display:none;">Free Quotes</h1>
+                        CLIENT INFORMATION
+                    </div>
+                    <div class="row">
+
+                        <div class="col-lg-4" style="padding-left:0px;">
+                            <label>Full Name :<span>*</span></label>
+                        </div>
+                        <div class="col-lg-3 left_position_fix" style="padding-left:0px;">
+                            <input type="text" placeholder="Full Name " id="txtfullname">
+                        </div>
+                        <div class="col-lg-2" style="padding-left:0px;">
+                            <label>Email<span>*</span></label>
+                        </div>
+                        <div class="col-lg-3 left_position_fix" style="padding-left:0px;">
+                            <input type="text" placeholder="Email" id="txtEmail">
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-4" style="padding-left:0px;">
+                                <label>Phone :</label>
+                            </div>
+                            <div class="col-lg-3 left_position_fix" style="padding-left:0px;">
+                                <input type="text" placeholder="Phone" id="txtPhoneCell">
+                            </div>
+                        </div>
+                        <div class="Row Quote_title">
+                            OFFENCE/TICKET INFORMATION
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-4" style="padding-left:0px;">
+                                <label>Type of Summons/Offence 1:</label>
+                            </div>
+                            <div class="col-lg-3 left_position_fix" style="padding-left:0px;">
+                                <select class="dropdown-toggle" id="ddloffences1">
+                                    <option value="">Select One...	</option>
+                                    <option value="27:23-29 Moving against traffic 2 points points	">	27:23-29 Moving against traffic 2 points points	</option>
+                                    <option value="27:23-29 Improper passing 4 points	">	27:23-29 Improper passing 4 points	</option>
+                                    <option value="27:23-29 Unlawful use of median strip 2 points	">	27:23-29 Unlawful use of median strip 2 points	</option>
+                                    <option value="39:3-20 Operating constructor vehicle in excess of 45 mph 3 points	">	39:3-20 Operating constructor vehicle in excess of 45 mph 3 points	</option>
+                                    <option value="39:4-14.3 Operating motorized bicycle on a restricted highway 2 points	">	39:4-14.3 Operating motorized bicycle on a restricted highway 2 points	</option>
+                                    <option value="39:4-14.3d More than one person on a motorized bicycle 2 points	">	39:4-14.3d More than one person on a motorized bicycle 2 points	</option>
+                                    <option value="39:4-35 Failure to yield to pedestrian in crosswalk 2 points	">	39:4-35 Failure to yield to pedestrian in crosswalk 2 points	</option>
+                                    <option value="39:4-36 Passing a vehicle yielding to pedestrian in crosswalk 2 points	">	39:4-36 Passing a vehicle yielding to pedestrian in crosswalk 2 points	</option>
+                                    <option value="39:4-41 Driving through safety zone 2 points	">	39:4-41 Driving through safety zone 2 points	</option>
+                                    <option value="39:4-52 Racing on highway 5 points	">	39:4-52 Racing on highway 5 points	</option>
+                                    <option value="39:4-55 Improper action or omission on grades and curves 2 points	">	39:4-55 Improper action or omission on grades and curves 2 points	</option>
+                                    <option value="39:4-57 Failure to observe direction of officer 2 points	">	39:4-57 Failure to observe direction of officer 2 points	</option>
+                                    <option value="39:4-66 Failure to stop vehicle before crossing sidewalk 2 points	">	39:4-66 Failure to stop vehicle before crossing sidewalk 2 points	</option>
+                                    <option value="39:4-66.1 Failure to yield to pedestrians or vehicles while entering or leaving highway 2 points	">	39:4-66.1 Failure to yield to pedestrians or vehicles while entering or leaving highway 2 points	</option>
+                                    <option value="39:4-66.2 Driving on public or private property to avoid a traffic sign or signal 2 points	">	39:4-66.2 Driving on public or private property to avoid a traffic sign or signal 2 points	</option>
+                                    <option value="39:4-71 Operating a motor vehicle on a sidewalk 2 points	">	39:4-71 Operating a motor vehicle on a sidewalk 2 points	</option>
+                                    <option value="39:4-80 Failure to obey direction of officer 2 points	">	39:4-80 Failure to obey direction of officer 2 points	</option>
+                                    <option value="39:4-81 Failure to observe traffic signals 2 points	">	39:4-81 Failure to observe traffic signals 2 points	</option>
+                                    <option value="39:4-82 Failure to keep right 2 points	">	39:4-82 Failure to keep right 2 points	</option>
+                                    <option value="39:4-82.1 Improper operating of vehicle on divided highway or divider 2 points	">	39:4-82.1 Improper operating of vehicle on divided highway or divider 2 points	</option>
+                                    <option value="39:4-83 Failure to keep right at intersection 2 points	">	39:4-83 Failure to keep right at intersection 2 points	</option>
+                                    <option value="39:4-84 Failure to pass to right of vehicle proceeding in opposite direction 5 points	">	39:4-84 Failure to pass to right of vehicle proceeding in opposite direction 5 points	</option>
+                                    <option value="39:4-85 Improper passing on right or off roadway 4 points	">	39:4-85 Improper passing on right or off roadway 4 points	</option>
+                                    <option value="39:4-85.1 Wrong way on a one-way street 2 points	">	39:4-85.1 Wrong way on a one-way street 2 points	</option>
+                                    <option value="39:4-86 Improper passing in no passing zone 4 points	">	39:4-86 Improper passing in no passing zone 4 points	</option>
+                                    <option value="39:4-87 Failure to yield to overtaking vehicle 2 points	">	39:4-87 Failure to yield to overtaking vehicle 2 points	</option>
+                                    <option value="39:4-88 Failure to observe traffic lanes 2 points	">	39:4-88 Failure to observe traffic lanes 2 points	</option>
+                                    <option value="39:4-89 Tailgating 5 points	">	39:4-89 Tailgating 5 points	</option>
+                                    <option value="39:4-90 Failure to yield at intersection 2 points	">	39:4-90 Failure to yield at intersection 2 points	</option>
+                                    <option value="39:4-90.1 Failure to use proper entrances to limited access highways 2 points	">	39:4-90.1 Failure to use proper entrances to limited access highways 2 points	</option>
+                                    <option value="39:4-91-92 Failure to yield to emergency vehicles 2 points	">	39:4-91-92 Failure to yield to emergency vehicles 2 points	</option>
+                                    <option value="39:4-96 Reckless driving 5 points	">	39:4-96 Reckless driving 5 points	</option>
+                                    <option value="39:4-97 Careless driving 2 points	">	39:4-97 Careless driving 2 points	</option>
+                                    <option value="39:4-97a Destruction of agricultural or recreational property 2 points	">	39:4-97a Destruction of agricultural or recreational property 2 points	</option>
+                                    <option value="39:4-97.1 Slow speed blocking traffic 2 points	">	39:4-97.1 Slow speed blocking traffic 2 points	</option>
+                                    <option value="39:4-97.2 Driving in an unsafe manner 4 points	">	39:4-97.2 Driving in an unsafe manner 4 points	</option>
+                                    <option value="39:4-98 Exceeding maximum speed 1-14 mph over limit 2 points	">	39:4-98 Exceeding maximum speed 1-14 mph over limit 2 points	</option>
+                                    <option value="39:4-98-99 Speeding Exceeding maximum speed 15-29 mph over limit 4 points	">	39:4-98-99 Speeding Exceeding maximum speed 15-29 mph over limit 4 points	</option>
+                                    <option value="39:4-99 Speeding Exceeding maximum speed 30 mph or more over limit 5 points	">	39:4-99 Speeding Exceeding maximum speed 30 mph or more over limit 5 points	</option>
+                                    <option value="39:4-105 Failure to stop for traffic light 2 points	">	39:4-105 Failure to stop for traffic light 2 points	</option>
+                                    <option value="39:4-115 Improper turn at traffic light 3 points	">	39:4-115 Improper turn at traffic light 3 points	</option>
+                                    <option value="39:4-119 Failure to stop at flashing red signal 2 points	">	39:4-119 Failure to stop at flashing red signal 2 points	</option>
+                                    <option value="39:4-122 Failure to stop for police whistle 2 points	">	39:4-122 Failure to stop for police whistle 2 points	</option>
+                                    <option value="39:4-123 Improper right or left turn 3 points	">	39:4-123 Improper right or left turn 3 points	</option>
+                                    <option value="39:4-124 Improper turn from approved turning course 3 points	">	39:4-124 Improper turn from approved turning course 3 points	</option>
+                                    <option value="39:4-125 Improper U-turn 3 points	">	39:4-125 Improper U-turn 3 points	</option>
+                                    <option value="39:4-126 Failure to give proper signal 2 points	">	39:4-126 Failure to give proper signal 2 points	</option>
+                                    <option value="39:4-127 Improper backing or turning in street 2 points	">	39:4-127 Improper backing or turning in street 2 points	</option>
+                                    <option value="39:4-127.1 Improper crossing of railroad grade crossing 2 points	">	39:4-127.1 Improper crossing of railroad grade crossing 2 points	</option>
+                                    <option value="39:4-127.2 Improper crossing of bridge 2 points	">	39:4-127.2 Improper crossing of bridge 2 points	</option>
+                                    <option value="39:4-128 Improper crossing of railroad grade crossing by certain vehicles 2 points	">	39:4-128 Improper crossing of railroad grade crossing by certain vehicles 2 points	</option>
+                                    <option value="39:4-128.1 Improper passing of school bus 5 points	">	39:4-128.1 Improper passing of school bus 5 points	</option>
+                                    <option value="39:4-128.4 Improper passing of frozen dessert truck 4 points	">	39:4-128.4 Improper passing of frozen dessert truck 4 points	</option>
+                                    <option value="39:4-129 Leaving the scene of an accident - No personal injury 2 points	">	39:4-129 Leaving the scene of an accident - No personal injury 2 points	</option>
+                                    <option value="39:4-129 Leaving the scene of an accident - Personal injury 8 points	">	39:4-129 Leaving the scene of an accident - Personal injury 8 points	</option>
+                                    <option value="39:4-144 Failure to observe stop or yield signs 2 points	">	39:4-144 Failure to observe stop or yield signs 2 points	</option>
+                                    <option value="39:5C-1 Racing on highway 5 points	">	39:5C-1 Racing on highway 5 points	</option>
+                                    <option value="39:5D-4 Moving violation out of state 2 points	">	39:5D-4 Moving violation out of state 2 points	</option>
+                                    <option value="39:3-40 Driving with a suspended or revoked license	">	39:3-40 Driving with a suspended or revoked license	</option>
+                                    <option value="39:4-50  Drunk driving	">	39:4-50  Drunk driving	</option>
+                                    <option value="39:4-50.2 or -50.4a Breath test refusal	">	39:4-50.2 or -50.4a Breath test refusal	</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-3" style="padding-left:0px;">
+                                <label>DWI or DUI  </label>
+                            </div>
+                            <div class="col-lg-2 left_position_fix right_pos_control" style="padding-left:0px;">
+                                <select class="dropdown-toggle" id="ddldwi">
+                                    <option value="">Select One...</option>
+                                    <option value="Yes">Yes</option>
+                                    <option value="No">No</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-4" style="padding-left:0px;">
+                                <label>Type of Summons/Offence 2:</label>
+                            </div>
+                            <div class="col-lg-3 left_position_fix" style="padding-left:0px;">
+                                <select class="dropdown-toggle" id="ddloffences2">
+                                    <option value="">	Select One...	</option>
+                                    <option value="27:23-29 Moving against traffic 2 points points	">	27:23-29 Moving against traffic 2 points points	</option>
+                                    <option value="27:23-29 Improper passing 4 points	">	27:23-29 Improper passing 4 points	</option>
+                                    <option value="27:23-29 Unlawful use of median strip 2 points	">	27:23-29 Unlawful use of median strip 2 points	</option>
+                                    <option value="39:3-20 Operating constructor vehicle in excess of 45 mph 3 points	">	39:3-20 Operating constructor vehicle in excess of 45 mph 3 points	</option>
+                                    <option value="39:4-14.3 Operating motorized bicycle on a restricted highway 2 points	">	39:4-14.3 Operating motorized bicycle on a restricted highway 2 points	</option>
+                                    <option value="39:4-14.3d More than one person on a motorized bicycle 2 points	">	39:4-14.3d More than one person on a motorized bicycle 2 points	</option>
+                                    <option value="39:4-35 Failure to yield to pedestrian in crosswalk 2 points	">	39:4-35 Failure to yield to pedestrian in crosswalk 2 points	</option>
+                                    <option value="39:4-36 Passing a vehicle yielding to pedestrian in crosswalk 2 points	">	39:4-36 Passing a vehicle yielding to pedestrian in crosswalk 2 points	</option>
+                                    <option value="39:4-41 Driving through safety zone 2 points	">	39:4-41 Driving through safety zone 2 points	</option>
+                                    <option value="39:4-52 Racing on highway 5 points	">	39:4-52 Racing on highway 5 points	</option>
+                                    <option value="39:4-55 Improper action or omission on grades and curves 2 points	">	39:4-55 Improper action or omission on grades and curves 2 points	</option>
+                                    <option value="39:4-57 Failure to observe direction of officer 2 points	">	39:4-57 Failure to observe direction of officer 2 points	</option>
+                                    <option value="39:4-66 Failure to stop vehicle before crossing sidewalk 2 points	">	39:4-66 Failure to stop vehicle before crossing sidewalk 2 points	</option>
+                                    <option value="39:4-66.1 Failure to yield to pedestrians or vehicles while entering or leaving highway 2 points	">	39:4-66.1 Failure to yield to pedestrians or vehicles while entering or leaving highway 2 points	</option>
+                                    <option value="39:4-66.2 Driving on public or private property to avoid a traffic sign or signal 2 points	">	39:4-66.2 Driving on public or private property to avoid a traffic sign or signal 2 points	</option>
+                                    <option value="39:4-71 Operating a motor vehicle on a sidewalk 2 points	">	39:4-71 Operating a motor vehicle on a sidewalk 2 points	</option>
+                                    <option value="39:4-80 Failure to obey direction of officer 2 points	">	39:4-80 Failure to obey direction of officer 2 points	</option>
+                                    <option value="39:4-81 Failure to observe traffic signals 2 points	">	39:4-81 Failure to observe traffic signals 2 points	</option>
+                                    <option value="39:4-82 Failure to keep right 2 points	">	39:4-82 Failure to keep right 2 points	</option>
+                                    <option value="39:4-82.1 Improper operating of vehicle on divided highway or divider 2 points	">	39:4-82.1 Improper operating of vehicle on divided highway or divider 2 points	</option>
+                                    <option value="39:4-83 Failure to keep right at intersection 2 points	">	39:4-83 Failure to keep right at intersection 2 points	</option>
+                                    <option value="39:4-84 Failure to pass to right of vehicle proceeding in opposite direction 5 points	">	39:4-84 Failure to pass to right of vehicle proceeding in opposite direction 5 points	</option>
+                                    <option value="39:4-85 Improper passing on right or off roadway 4 points	">	39:4-85 Improper passing on right or off roadway 4 points	</option>
+                                    <option value="39:4-85.1 Wrong way on a one-way street 2 points	">	39:4-85.1 Wrong way on a one-way street 2 points	</option>
+                                    <option value="39:4-86 Improper passing in no passing zone 4 points	">	39:4-86 Improper passing in no passing zone 4 points	</option>
+                                    <option value="39:4-87 Failure to yield to overtaking vehicle 2 points	">	39:4-87 Failure to yield to overtaking vehicle 2 points	</option>
+                                    <option value="39:4-88 Failure to observe traffic lanes 2 points	">	39:4-88 Failure to observe traffic lanes 2 points	</option>
+                                    <option value="39:4-89 Tailgating 5 points	">	39:4-89 Tailgating 5 points	</option>
+                                    <option value="39:4-90 Failure to yield at intersection 2 points	">	39:4-90 Failure to yield at intersection 2 points	</option>
+                                    <option value="39:4-90.1 Failure to use proper entrances to limited access highways 2 points	">	39:4-90.1 Failure to use proper entrances to limited access highways 2 points	</option>
+                                    <option value="39:4-91-92 Failure to yield to emergency vehicles 2 points	">	39:4-91-92 Failure to yield to emergency vehicles 2 points	</option>
+                                    <option value="39:4-96 Reckless driving 5 points	">	39:4-96 Reckless driving 5 points	</option>
+                                    <option value="39:4-97 Careless driving 2 points	">	39:4-97 Careless driving 2 points	</option>
+                                    <option value="39:4-97a Destruction of agricultural or recreational property 2 points	">	39:4-97a Destruction of agricultural or recreational property 2 points	</option>
+                                    <option value="39:4-97.1 Slow speed blocking traffic 2 points	">	39:4-97.1 Slow speed blocking traffic 2 points	</option>
+                                    <option value="39:4-97.2 Driving in an unsafe manner 4 points	">	39:4-97.2 Driving in an unsafe manner 4 points	</option>
+                                    <option value="39:4-98 Exceeding maximum speed 1-14 mph over limit 2 points	">	39:4-98 Exceeding maximum speed 1-14 mph over limit 2 points	</option>
+                                    <option value="39:4-98-99 Speeding Exceeding maximum speed 15-29 mph over limit 4 points	">	39:4-98-99 Speeding Exceeding maximum speed 15-29 mph over limit 4 points	</option>
+                                    <option value="39:4-99 Speeding Exceeding maximum speed 30 mph or more over limit 5 points	">	39:4-99 Speeding Exceeding maximum speed 30 mph or more over limit 5 points	</option>
+                                    <option value="39:4-105 Failure to stop for traffic light 2 points	">	39:4-105 Failure to stop for traffic light 2 points	</option>
+                                    <option value="39:4-115 Improper turn at traffic light 3 points	">	39:4-115 Improper turn at traffic light 3 points	</option>
+                                    <option value="39:4-119 Failure to stop at flashing red signal 2 points	">	39:4-119 Failure to stop at flashing red signal 2 points	</option>
+                                    <option value="39:4-122 Failure to stop for police whistle 2 points	">	39:4-122 Failure to stop for police whistle 2 points	</option>
+                                    <option value="39:4-123 Improper right or left turn 3 points	">	39:4-123 Improper right or left turn 3 points	</option>
+                                    <option value="39:4-124 Improper turn from approved turning course 3 points	">	39:4-124 Improper turn from approved turning course 3 points	</option>
+                                    <option value="39:4-125 Improper U-turn 3 points	">	39:4-125 Improper U-turn 3 points	</option>
+                                    <option value="39:4-126 Failure to give proper signal 2 points	">	39:4-126 Failure to give proper signal 2 points	</option>
+                                    <option value="39:4-127 Improper backing or turning in street 2 points	">	39:4-127 Improper backing or turning in street 2 points	</option>
+                                    <option value="39:4-127.1 Improper crossing of railroad grade crossing 2 points	">	39:4-127.1 Improper crossing of railroad grade crossing 2 points	</option>
+                                    <option value="39:4-127.2 Improper crossing of bridge 2 points	">	39:4-127.2 Improper crossing of bridge 2 points	</option>
+                                    <option value="39:4-128 Improper crossing of railroad grade crossing by certain vehicles 2 points	">	39:4-128 Improper crossing of railroad grade crossing by certain vehicles 2 points	</option>
+                                    <option value="39:4-128.1 Improper passing of school bus 5 points	">	39:4-128.1 Improper passing of school bus 5 points	</option>
+                                    <option value="39:4-128.4 Improper passing of frozen dessert truck 4 points	">	39:4-128.4 Improper passing of frozen dessert truck 4 points	</option>
+                                    <option value="39:4-129 Leaving the scene of an accident - No personal injury 2 points	">	39:4-129 Leaving the scene of an accident - No personal injury 2 points	</option>
+                                    <option value="39:4-129 Leaving the scene of an accident - Personal injury 8 points	">	39:4-129 Leaving the scene of an accident - Personal injury 8 points	</option>
+                                    <option value="39:4-144 Failure to observe stop or yield signs 2 points	">	39:4-144 Failure to observe stop or yield signs 2 points	</option>
+                                    <option value="39:5C-1 Racing on highway 5 points	">	39:5C-1 Racing on highway 5 points	</option>
+                                    <option value="39:5D-4 Moving violation out of state 2 points	">	39:5D-4 Moving violation out of state 2 points	</option>
+                                    <option value="39:3-40 Driving with a suspended or revoked license	">	39:3-40 Driving with a suspended or revoked license	</option>
+                                    <option value="39:4-50  Drunk driving	">	39:4-50  Drunk driving	</option>
+                                    <option value="39:4-50.2 or -50.4a Breath test refusal	">	39:4-50.2 or -50.4a Breath test refusal	</option>
+
+                                </select>
+                            </div>
+                            <div class="col-lg-3" style="padding-left:0px;">
+                                <label>Ticket Number:</label>
+                            </div>
+                            <div class="col-lg-2 left_position_fix right_pos_control" style="padding-left:0px;">
+                                <input type="text" placeholder="Ticket Number" id="txtticketnumber">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-4" style="padding-left:0px;">
+                                <label>Type of Summons/Offence 3:</label>
+                            </div>
+                            <div class="col-lg-3 left_position_fix" style="padding-left:0px;">
+                                <select class="dropdown-toggle" id="ddloffences3">
+                                    <option value="">	Select One...	</option>
+                                    <option value="27:23-29 Moving against traffic 2 points points	">	27:23-29 Moving against traffic 2 points points	</option>
+                                    <option value="27:23-29 Improper passing 4 points	">	27:23-29 Improper passing 4 points	</option>
+                                    <option value="27:23-29 Unlawful use of median strip 2 points	">	27:23-29 Unlawful use of median strip 2 points	</option>
+                                    <option value="39:3-20 Operating constructor vehicle in excess of 45 mph 3 points	">	39:3-20 Operating constructor vehicle in excess of 45 mph 3 points	</option>
+                                    <option value="39:4-14.3 Operating motorized bicycle on a restricted highway 2 points	">	39:4-14.3 Operating motorized bicycle on a restricted highway 2 points	</option>
+                                    <option value="39:4-14.3d More than one person on a motorized bicycle 2 points	">	39:4-14.3d More than one person on a motorized bicycle 2 points	</option>
+                                    <option value="39:4-35 Failure to yield to pedestrian in crosswalk 2 points	">	39:4-35 Failure to yield to pedestrian in crosswalk 2 points	</option>
+                                    <option value="39:4-36 Passing a vehicle yielding to pedestrian in crosswalk 2 points	">	39:4-36 Passing a vehicle yielding to pedestrian in crosswalk 2 points	</option>
+                                    <option value="39:4-41 Driving through safety zone 2 points	">	39:4-41 Driving through safety zone 2 points	</option>
+                                    <option value="39:4-52 Racing on highway 5 points	">	39:4-52 Racing on highway 5 points	</option>
+                                    <option value="39:4-55 Improper action or omission on grades and curves 2 points	">	39:4-55 Improper action or omission on grades and curves 2 points	</option>
+                                    <option value="39:4-57 Failure to observe direction of officer 2 points	">	39:4-57 Failure to observe direction of officer 2 points	</option>
+                                    <option value="39:4-66 Failure to stop vehicle before crossing sidewalk 2 points	">	39:4-66 Failure to stop vehicle before crossing sidewalk 2 points	</option>
+                                    <option value="39:4-66.1 Failure to yield to pedestrians or vehicles while entering or leaving highway 2 points	">	39:4-66.1 Failure to yield to pedestrians or vehicles while entering or leaving highway 2 points	</option>
+                                    <option value="39:4-66.2 Driving on public or private property to avoid a traffic sign or signal 2 points	">	39:4-66.2 Driving on public or private property to avoid a traffic sign or signal 2 points	</option>
+                                    <option value="39:4-71 Operating a motor vehicle on a sidewalk 2 points	">	39:4-71 Operating a motor vehicle on a sidewalk 2 points	</option>
+                                    <option value="39:4-80 Failure to obey direction of officer 2 points	">	39:4-80 Failure to obey direction of officer 2 points	</option>
+                                    <option value="39:4-81 Failure to observe traffic signals 2 points	">	39:4-81 Failure to observe traffic signals 2 points	</option>
+                                    <option value="39:4-82 Failure to keep right 2 points	">	39:4-82 Failure to keep right 2 points	</option>
+                                    <option value="39:4-82.1 Improper operating of vehicle on divided highway or divider 2 points	">	39:4-82.1 Improper operating of vehicle on divided highway or divider 2 points	</option>
+                                    <option value="39:4-83 Failure to keep right at intersection 2 points	">	39:4-83 Failure to keep right at intersection 2 points	</option>
+                                    <option value="39:4-84 Failure to pass to right of vehicle proceeding in opposite direction 5 points	">	39:4-84 Failure to pass to right of vehicle proceeding in opposite direction 5 points	</option>
+                                    <option value="39:4-85 Improper passing on right or off roadway 4 points	">	39:4-85 Improper passing on right or off roadway 4 points	</option>
+                                    <option value="39:4-85.1 Wrong way on a one-way street 2 points	">	39:4-85.1 Wrong way on a one-way street 2 points	</option>
+                                    <option value="39:4-86 Improper passing in no passing zone 4 points	">	39:4-86 Improper passing in no passing zone 4 points	</option>
+                                    <option value="39:4-87 Failure to yield to overtaking vehicle 2 points	">	39:4-87 Failure to yield to overtaking vehicle 2 points	</option>
+                                    <option value="39:4-88 Failure to observe traffic lanes 2 points	">	39:4-88 Failure to observe traffic lanes 2 points	</option>
+                                    <option value="39:4-89 Tailgating 5 points	">	39:4-89 Tailgating 5 points	</option>
+                                    <option value="39:4-90 Failure to yield at intersection 2 points	">	39:4-90 Failure to yield at intersection 2 points	</option>
+                                    <option value="39:4-90.1 Failure to use proper entrances to limited access highways 2 points	">	39:4-90.1 Failure to use proper entrances to limited access highways 2 points	</option>
+                                    <option value="39:4-91-92 Failure to yield to emergency vehicles 2 points	">	39:4-91-92 Failure to yield to emergency vehicles 2 points	</option>
+                                    <option value="39:4-96 Reckless driving 5 points	">	39:4-96 Reckless driving 5 points	</option>
+                                    <option value="39:4-97 Careless driving 2 points	">	39:4-97 Careless driving 2 points	</option>
+                                    <option value="39:4-97a Destruction of agricultural or recreational property 2 points	">	39:4-97a Destruction of agricultural or recreational property 2 points	</option>
+                                    <option value="39:4-97.1 Slow speed blocking traffic 2 points	">	39:4-97.1 Slow speed blocking traffic 2 points	</option>
+                                    <option value="39:4-97.2 Driving in an unsafe manner 4 points	">	39:4-97.2 Driving in an unsafe manner 4 points	</option>
+                                    <option value="39:4-98 Exceeding maximum speed 1-14 mph over limit 2 points	">	39:4-98 Exceeding maximum speed 1-14 mph over limit 2 points	</option>
+                                    <option value="39:4-98-99 Speeding Exceeding maximum speed 15-29 mph over limit 4 points	">	39:4-98-99 Speeding Exceeding maximum speed 15-29 mph over limit 4 points	</option>
+                                    <option value="39:4-99 Speeding Exceeding maximum speed 30 mph or more over limit 5 points	">	39:4-99 Speeding Exceeding maximum speed 30 mph or more over limit 5 points	</option>
+                                    <option value="39:4-105 Failure to stop for traffic light 2 points	">	39:4-105 Failure to stop for traffic light 2 points	</option>
+                                    <option value="39:4-115 Improper turn at traffic light 3 points	">	39:4-115 Improper turn at traffic light 3 points	</option>
+                                    <option value="39:4-119 Failure to stop at flashing red signal 2 points	">	39:4-119 Failure to stop at flashing red signal 2 points	</option>
+                                    <option value="39:4-122 Failure to stop for police whistle 2 points	">	39:4-122 Failure to stop for police whistle 2 points	</option>
+                                    <option value="39:4-123 Improper right or left turn 3 points	">	39:4-123 Improper right or left turn 3 points	</option>
+                                    <option value="39:4-124 Improper turn from approved turning course 3 points	">	39:4-124 Improper turn from approved turning course 3 points	</option>
+                                    <option value="39:4-125 Improper U-turn 3 points	">	39:4-125 Improper U-turn 3 points	</option>
+                                    <option value="39:4-126 Failure to give proper signal 2 points	">	39:4-126 Failure to give proper signal 2 points	</option>
+                                    <option value="39:4-127 Improper backing or turning in street 2 points	">	39:4-127 Improper backing or turning in street 2 points	</option>
+                                    <option value="39:4-127.1 Improper crossing of railroad grade crossing 2 points	">	39:4-127.1 Improper crossing of railroad grade crossing 2 points	</option>
+                                    <option value="39:4-127.2 Improper crossing of bridge 2 points	">	39:4-127.2 Improper crossing of bridge 2 points	</option>
+                                    <option value="39:4-128 Improper crossing of railroad grade crossing by certain vehicles 2 points	">	39:4-128 Improper crossing of railroad grade crossing by certain vehicles 2 points	</option>
+                                    <option value="39:4-128.1 Improper passing of school bus 5 points	">	39:4-128.1 Improper passing of school bus 5 points	</option>
+                                    <option value="39:4-128.4 Improper passing of frozen dessert truck 4 points	">	39:4-128.4 Improper passing of frozen dessert truck 4 points	</option>
+                                    <option value="39:4-129 Leaving the scene of an accident - No personal injury 2 points	">	39:4-129 Leaving the scene of an accident - No personal injury 2 points	</option>
+                                    <option value="39:4-129 Leaving the scene of an accident - Personal injury 8 points	">	39:4-129 Leaving the scene of an accident - Personal injury 8 points	</option>
+                                    <option value="39:4-144 Failure to observe stop or yield signs 2 points	">	39:4-144 Failure to observe stop or yield signs 2 points	</option>
+                                    <option value="39:5C-1 Racing on highway 5 points	">	39:5C-1 Racing on highway 5 points	</option>
+                                    <option value="39:5D-4 Moving violation out of state 2 points	">	39:5D-4 Moving violation out of state 2 points	</option>
+                                    <option value="39:3-40 Driving with a suspended or revoked license	">	39:3-40 Driving with a suspended or revoked license	</option>
+                                    <option value="39:4-50  Drunk driving	">	39:4-50  Drunk driving	</option>
+                                    <option value="39:4-50.2 or -50.4a Breath test refusal	">	39:4-50.2 or -50.4a Breath test refusal	</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-3" style="padding-left:0px;">
+                                <label>Date Ticket Was Issued:</label>
+                            </div>
+                            <div class="col-lg-2 left_position_fix right_pos_control" style="padding-left:0px;">
+                                <input type="text" placeholder="Issue Date" id="txtdateissue">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-4" style="padding-left:0px;">
+                                <label>Or type your violation:</label>
+                            </div>
+                            <div class="col-lg-3 left_position_fix" style="padding-left:0px;">
+                                <input type="text" placeholder="violation" id="txtviolation">
+                            </div>
+
+                            <div class="col-lg-3" style="padding-left:0px;">
+                                <label>Court Location:</label>
+                            </div>
+                            <div class="col-lg-2 left_position_fix right_pos_control" style="padding-left:0px;">
+                                <input type="text" placeholder="Court Location" id="txtlocation">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-4" style="padding-left:0px;">
+                                <label>Current Number of Points on License:</label>
+                            </div>
+                            <div class="col-lg-3 left_position_fix" style="padding-left:0px;">
+                                <input type="text" placeholder="Points on License" id="txtpointno">
+                            </div>
+                            <div class="col-lg-3" style="padding-left:0px;">
+                                <label>State of Your License</label>
+                            </div>
+                            <div class="col-lg-2 left_position_fix right_pos_control" style="padding-left:0px;">
+                                <select class="dropdown-toggle" id="ddlstate">
+                                    <option value="" selected="selected">Select a State</option>
+                                    <option value="AL">Alabama</option>
+                                    <option value="AK">Alaska</option>
+                                    <option value="AZ">Arizona</option>
+                                    <option value="AR">Arkansas</option>
+                                    <option value="CA">California</option>
+                                    <option value="CO">Colorado</option>
+                                    <option value="CT">Connecticut</option>
+                                    <option value="DE">Delaware</option>
+                                    <option value="DC">District Of Columbia</option>
+                                    <option value="FL">Florida</option>
+                                    <option value="GA">Georgia</option>
+                                    <option value="HI">Hawaii</option>
+                                    <option value="ID">Idaho</option>
+                                    <option value="IL">Illinois</option>
+                                    <option value="IN">Indiana</option>
+                                    <option value="IA">Iowa</option>
+                                    <option value="KS">Kansas</option>
+                                    <option value="KY">Kentucky</option>
+                                    <option value="LA">Louisiana</option>
+                                    <option value="ME">Maine</option>
+                                    <option value="MD">Maryland</option>
+                                    <option value="MA">Massachusetts</option>
+                                    <option value="MI">Michigan</option>
+                                    <option value="MN">Minnesota</option>
+                                    <option value="MS">Mississippi</option>
+                                    <option value="MO">Missouri</option>
+                                    <option value="MT">Montana</option>
+                                    <option value="NE">Nebraska</option>
+                                    <option value="NV">Nevada</option>
+                                    <option value="NH">New Hampshire</option>
+                                    <option value="NJ">New Jersey</option>
+                                    <option value="NM">New Mexico</option>
+                                    <option value="NY">New York</option>
+                                    <option value="NC">North Carolina</option>
+                                    <option value="ND">North Dakota</option>
+                                    <option value="OH">Ohio</option>
+                                    <option value="OK">Oklahoma</option>
+                                    <option value="OR">Oregon</option>
+                                    <option value="PA">Pennsylvania</option>
+                                    <option value="RI">Rhode Island</option>
+                                    <option value="SC">South Carolina</option>
+                                    <option value="SD">South Dakota</option>
+                                    <option value="TN">Tennessee</option>
+                                    <option value="TX">Texas</option>
+                                    <option value="UT">Utah</option>
+                                    <option value="VT">Vermont</option>
+                                    <option value="VA">Virginia</option>
+                                    <option value="WA">Washington</option>
+                                    <option value="WV">West Virginia</option>
+                                    <option value="WI">Wisconsin</option>
+                                    <option value="WY">Wyoming</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-4" style="padding-left:0px;">
+                                <label>Have you used any plea bargains in the last 5 years? </label>
+                            </div>
+                            <div class="col-lg-8 left_position_fix" style="padding-left:0px;">
+                                <select class="dropdown-toggle" id="ddlfive">
+                                    <option value=""> Select One</option>
+                                    <option value="yes">Yes</option>
+                                    <option value="No">No</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="row">
+
+                            <div class="col-lg-4" style="padding-left:0px;">
+                                <label>Was the ticket a result of an accident?</label>
+                            </div>
+                            <div class="col-lg-8 left_position_fix" style="padding-left:0px;">
+                                <select class="dropdown-toggle" id="ddlAccident">
+                                    <option value=""> Select One</option>
+                                    <option value="yes">Yes</option>
+                                    <option value="No">No</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-4" style="padding-left:0px;">
+                                <label>If DUI and DWI: Have you had any other offences?</label>
+                            </div>
+                            <div class="col-lg-8 left_position_fix" style="padding-left:0px;">
+                                <textarea id="txtHadOtherOffence"></textarea>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-4" style="padding-left:0px;">
+                                <label>Comments:</label>
+                            </div>
+                            <div class="col-lg-8 left_position_fix" style="padding-left:0px;">
+                                <textarea id="txtMessage"></textarea>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-4" style="padding-left:0px;">
+                                <label >Verify Capcha<span>*</span></label>
+                            </div>
+
+                                <div class="col-lg-4 left_position_fix" style="padding-left:0px;">
+                             <img id="m_imgCaptcha" />
+                                    <a href="#txtCapcha" id="RefreshImage">Change Text</a>
+                                    <input type="text" placeholder="Type text Display in Image" id="txtCapcha">
+                                    <label style="color:red">Letters are case sensitve</label>
+
+    @*<div class="g-recaptcha"
+             data-sitekey="6LcvlyYTAAAAAPlWxU4uDOfTXwp_Kl4KG7TO5rEJ">
+        </div>*@
+</div>
+                            </div>
+
+
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12" style="padding-left:0px;">
+                                <a href="#" id="btnSendForm" class="read-more2">Send Form<i class="fa fa-arrow-circle-right"></i></a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+</section>
+</div>
+
+
+@*<script src="~/Scripts/jquery-1.10.2.js"></script>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>*@
+<script>
+
+
+    //$(function () {
+    $('#txtdateissue').datepicker({
+        changeMonth: true,
+        changeYear: true,
+        yearRange: "-116:+0",
+    });
+    $(".menuspan").removeClass("menu-active");
+    $("#FreeQuote").addClass("menu-active");
+
+    //});
+
+    $('#btnSendForm').click(function (evt) {
+        $("#btnSendForm").parent().next(".validation").remove();
+        $('.loadercont').fadeIn();
+        var fullname = $('#txtfullname').val();
+        var CellNo = $('#txtPhoneCell').val();
+        var Email = $('#txtEmail').val();
+        var offences1 = $('#ddloffences1').val();
+        var offences2 = $('#ddloffences2').val();
+        var offences3 = $('#ddloffences3').val();
+        var violation = $('#txtviolation').val();
+        var pointno = $('#txtpointno').val();
+        var ddldwi = $('#ddldwi').val();
+        var ticketnumber = $('#txtticketnumber').val();
+        var dateissue = $('#txtdateissue').val();
+        var location = $('#txtlocation').val();
+        var state = $('#ddlstate').val();
+        var five = $('#ddlfive').val();
+        var Accident = $('#ddlAccident').val();
+       
+        var HadOtherOffence = $('#txtHadOtherOffence').val();
+        var Message = $('#txtMessage').val();
+        
+        var Capcha = $('#txtCapcha').val();
+      
+        //captcharesponse = grecaptcha.getResponse();
+        //if (fullname == "") {
+        //    $('.loadercont').fadeOut();
+        //    alert('Please Enter Name')
+
+        //    return
+        //}
+
+        if (fullname == "") {
+            $('.loadercont').fadeOut();
+            alert('Please Enter Name')
+
+            return
+        }
+        if (Email == "") {
+            $('.loadercont').fadeOut();
+            alert('Please Enter Email')
+           
+            return
+        }
+        if (!ValidateEmail(Email)) {
+           
+            $('.loadercont').fadeOut();
+            alert('Not a valid email');
+            return;
+        }
+        if (Capcha == "")
+        {
+            alert('Please verify Capcha')
+           // $("#btnSendForm").parent().after("<div class='validation' id='dvmsg' style='color:red;margin-bottom: 20px;'>Please verify Capcha</div>");
+            $('.loadercont').fadeOut();
+            return;
+        }
+        
+        var data = {
+            fullname: fullname, CellNo: CellNo, Email: Email, offences1: offences1, offences2: offences2, offences3: offences3,
+            violation: violation, pointno: pointno, ddldwi: ddldwi, ticketnumber: ticketnumber, dateissue: dateissue, location: location,
+            state: state, five: five, Accident: Accident, HadOtherOffence: HadOtherOffence, Message: Message, Capcha: Capcha
+        }
+       
+        $.ajax({
+            type: "POST",
+            url: "/NewJersey/SendQuoteForm",
+            data: data,
+            dataType: "Html",
+            success: function (response) {
+                if (response == "1")
+                {
+                    window.location.href = "/NewJersey/ThankYou";
+                    $('.loadercont').fadeOut();
+                    return;
+                }
+                alert(response)
+               // $("#btnSendForm").parent().after("<div class='validation' style='color:red;margin-bottom: 20px;'>Your request is sent successfully. One of our advisor will reach you as soon as possible.</div>");
+                $('#txtfullname').val('');
+                $('#txtPhoneCell').val('');
+               $('#txtEmail').val('');
+                $('#ddloffences1').val('');
+                $('#ddloffences2').val('');
+                $('#ddloffences3').val('');
+                 $('#txtviolation').val('');
+                $('#txtpointno').val('');
+                $('#ddldwi').val('');
+               $('#txtticketnumber').val('');
+                $('#txtdateissue').val('');
+                $('#txtlocation').val('');
+                $('#ddlstate').val('');
+               $('#ddlfive').val('');
+               $('#ddlAccident').val('');
+                 $('#txtHadOtherOffence').val('');
+                 $('#txtMessage').val('');
+                 $('#txtCapcha').val('');
+                 $('.loadercont').fadeOut();
+             
+                loadCaptcha();
+               
+               
+            },
+            error: function (response) {
+                $('.loadercont').fadeOut();
+
+            }
+        });
+    });
+
+    function ValidateEmail(email) {
+        // Validate email format
+        var expr = /^([\w-\.]+)@@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+        return expr.test(email);
+    };
+
+    $(document).ready(function () {
+       
+        loadCaptcha();
+    });
+
+    function loadCaptcha() {
+     
+        $.ajax({
+            type: 'GET',
+            url: '/NewJersey/generateCaptcha',
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            cache: false,
+            success: function (data) { $("#m_imgCaptcha").attr('src', data); },
+            error: function (data) { alert("Error while loading captcha image") }
+        });
+    }
+   
+    $('#RefreshImage').click(function (evt) {
+       
+        loadCaptcha();
+        evt.preventDefault();
+      
+    });
+
+    
+
+
+
+
+</script>
+
+
+

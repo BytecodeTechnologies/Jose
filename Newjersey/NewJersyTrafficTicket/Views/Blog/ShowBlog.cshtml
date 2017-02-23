@@ -1,0 +1,251 @@
+﻿
+@{
+    ViewBag.Title = "ShowBlog";
+    Layout = "~/Views/Shared/_LayoytForBlogIndex.cshtml";
+}
+
+<section class="blog-container two-side-background single-blog-page faqs_sec">
+    
+    <div class="container" >
+        <div class="rows ">
+            <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 white-left left-content ptb-80">
+              
+                <div class="single-blog-post single-page-content anim-5-all">
+                   
+                    <div class="img-holder">
+                        <img src=@Model.Image alt="">
+                    </div>
+                    <div class="post-meta">
+                        <div class="date-holder">
+                            <span>@(Convert.ToDateTime(Model.Post_Date_st).Day)</span> @(Convert.ToDateTime(Model.Post_Date_st).ToString("MMMM"))
+                        </div>
+                        <div class="title-holder">
+                            <h2 class="title">@Model.Title</h2>
+                            <ul>
+                                <li><a href="#">Posted By: @Model.UserName</a></li>
+                              
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <p style="white-space: pre-wrap;">@Model.Text</p>
+                        <br>
+
+                    </div>
+
+                    <!-- .author-box -->
+                    <div class="author-box">
+
+                    </div><!-- /.author-box -->
+
+                   
+
+                    <div class="comment-box" id="comment-box"></div>
+
+
+                        <!-- .comment-form -->
+                        <div class="comment-form">
+                            <h3>Leave a Comment</h3>
+                            <form action="#">
+                                <div class="form-group">
+                                    <p class="half">
+                                        <input type="text" id="inputName" class="pressenter" placeholder="Enter your name">
+                                        <span id="inputNamevalidate"></span>
+                                    </p>
+                                    <p class="half">
+                                        <input type="text" id="inputEmail" class="pressenter" placeholder="Enter your email address">
+                                        <span id="inputEmailvalidate"></span>
+                                    </p>
+                                </div>
+                                <p><textarea id="inputMessage" class="pressenter" placeholder="Wrtie message"></textarea></p>
+                                <span id="inputMessagevalidate"></span>
+                                <button type="button" id="btnsubmitComment"  class="submit">submit now <i class="fa fa-arrow-circle-right"></i></button>
+                            </form>
+                        </div><!-- /.comment-form -->
+                    </div><!-- /.single-blog-post -->
+                </div>
+
+                <div class="col-lg-4 col-md-4 col-sm-12 pull-left left_side pdr5">
+                    <!--for this page-(Right Side) -->
+                    <h4>Search</h4>
+                    <form action="#">
+                        <input type="text" id="txtSearch" class="pressenterSearch" placeholder="Enter Search Keywords">
+                        <button type="button" id="btnsearch" ><span class="icon icon-Search"></span></button>
+                    </form>
+                    <h4>About Us</h4>
+                    <p>At Stabile Law Firm, we are a full-service law firm with concentration in traffic law and DUI - DWI matters in New Jersey. We pride ourselves on our ability to solve traffic violations for our clients. </p>
+                    <h4>Categories</h4>
+                    <ul class="p0 category_item">
+    @foreach (var item in ViewBag.Categories)
+    {
+                        <li><a href="/blog/Index?id=@item.categoryId"><i class="fa fa-angle-right"></i>&nbsp;&nbsp;&nbsp;&nbsp;@item.CategoryName</a></li>
+
+    }
+                    </ul>
+
+                </div> <!-- End left side -->
+            </div>
+        </div>
+    </section>
+
+
+
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+
+
+
+
+    <script>
+
+        $(document).ready(function () {
+            $(".menuspan").removeClass("menu-active");
+            $('.loadercont').fadeIn();
+            var data = { id: '@Model.tblBlog_Id' };
+            $.ajax({
+                type: "POST",
+                url: "/Blog/GetCommentByBlogID",
+                data: data,
+                dataType: "HTML",
+                success: function (response) {
+                 
+                    $('#comment-box').append(response);
+                    $('.loadercont').fadeOut();
+                },
+                error: function (response) {
+                    $('.loadercont').fadeOut();
+
+                }
+            });
+           
+        });
+        $("#btnsearch").click(function () {
+          
+            var value = $('#txtSearch').val()
+            if (value != "") {
+                window.location.href = "/blog/Index?SearchItem=" + value;
+            }
+        });
+
+
+        $("#btnsubmitComment").click(function () {
+          
+            $('.loadercont').fadeIn();
+            $("#inputMessagevalidate").empty();
+            $("#inputEmailvalidate").empty();
+            $("#inputNamevalidate").empty()
+
+            $("#btnsubmitComment").parent().next(".validation").remove();
+            $("#inputEmail").parent().next(".validation").remove();
+            var focusSet = false;
+            if (!$('#inputName').val()) {
+                if ($("#inputName").parent().next(".validation").length == 0) // only add if not added
+                {
+                    $("#inputNamevalidate").append("<div class='validation' style='color:red;margin-bottom: 20px;'>Please type Your Name</div>");
+                }
+                $('#inputName').focus();
+                focusSet = true;
+            }
+            else {
+                $("#inputNamevalidate").empty(); // remove it
+            }
+
+            if (!$('#inputEmail').val()) {
+                if ($("#inputEmail").parent().next(".validation").length == 0) // only add if not added
+                {
+                    $("#inputEmailvalidate").append("<div class='validation' style='color:red;margin-bottom: 20px;'>Please type Your Email</div>");
+                }
+                $('#inputEmail').focus();
+                focusSet = true;
+            }
+            else {
+                $("#inputEmailvalidate").empty(); // remove it
+            }
+
+
+            if (!$('#inputMessage').val()) {
+                if ($("#inputMessage").parent().next(".validation").length == 0) // only add if not added
+                {
+                    $("#inputMessagevalidate").append("<div class='validation' style='color:red;margin-bottom: 20px;'>Please type Message</div>");
+                }
+                $('#inputMessage').focus();
+                focusSet = true;
+            }
+            else {
+                $("#inputMessagevalidate").empty(); // remove it
+            }
+
+
+
+           
+            var UserName = $('#inputName').val();
+            var UserEmail = $('#inputEmail').val();
+            var UserMessage = $('#inputMessage').val();
+            var BlogId = '@Model.tblBlog_Id';
+
+            if (UserName == "" || UserEmail == "" || UserMessage == "" ) {
+                $('.loadercont').fadeOut();
+                return
+            }
+            if (!ValidateEmail(UserEmail)) {
+                $('.loadercont').fadeOut();
+                $('.loadercont').fadeOut();
+                $("#inputEmailvalidate").append("<div class='validation' style='color:red;margin-bottom: 20px;'>Not a Valid Email</div>");
+                return;
+            }
+
+           
+            var data = { Comment_Text: UserMessage, Comment_By: UserName, Comment_Email: UserEmail, Blog_Id: BlogId };
+
+            $.ajax({
+                type: "POST",
+                url: "/Blog/AddComment",
+                data: data,
+                dataType: "HTML",
+                success: function (response) {
+                    $('#comment-box').empty();
+                    $('#comment-box').append(response);
+                    $("#btnsubmitComment").parent().after("<div id='showmessage' class='validation' style='color:red;margin-bottom: 20px;'>Your comment has been successfully update. Comment will be shown once approved from Admin.</div>");
+                   $('#inputName').val("");
+                  $('#inputEmail').val("");
+                   $('#inputMessage').val("");
+                 
+                    $('.loadercont').fadeOut();
+                },
+                error: function (response) {
+                    $('.loadercont').fadeOut();
+
+                }
+            });
+
+        });
+
+        function ValidateEmail(email) {
+            // Validate email format
+            var expr = /^([\w-\.]+)@@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+            return expr.test(email);
+        };
+
+        $(".pressenter").keypress(function (e) {
+            if (e.which == 13) {
+                e.preventDefault();
+                $("#btnsubmitComment").click();
+            }
+        });
+
+        $(".pressenterSearch").keypress(function (e) {
+            if (e.which == 13) {
+                e.preventDefault();
+                $("#btnsearch").click();
+            }
+        });
+
+       
+
+
+
+
+    </script>
+
+
+

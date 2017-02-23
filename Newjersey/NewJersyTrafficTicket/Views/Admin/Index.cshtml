@@ -1,0 +1,134 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutForQuotes.cshtml";
+  
+}
+
+<div class="white_bg right_side col-lg-8 col-md-8 col-sm-12 col-xs-12 pull-right">
+    <section id="checkout-content">
+        <div class="container fontstyle1">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 left-checkout quoteform" style="padding-left:0px;">
+                    <div class="Row Quote_title1">
+                        Login
+                    </div>
+                    
+                        <div class="row ">
+                            <div class="col-lg-4" style="padding-left:0px;">
+                                <label>UserId</label>
+                            </div>
+                            <div class="col-lg-5 " style="padding-left:0px;">
+                                <input type="text" placeholder="UserId" class="lgbtn" id="txtuserId">
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-4" style="padding-left:0px;">
+                                <label>Password</label>
+                            </div>
+                            <div class="col-lg-5" style="padding-left:0px;">
+                                <input type="password" placeholder="Password " class="lgbtn" id="txtPassword">
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-lg-4" style="padding-left:0px;"></div>
+                            <div class="col-lg-8" style="padding-left:0px;">
+                                <input type="button" id="btnLogin" class="read-more2 lgbtn" value="Login" />
+                                <p id="showmessage"></p>
+
+                            </div>
+
+                        </div>
+</div>
+            </div>
+        </div>
+       </section>
+    </div>
+
+
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+
+
+<script>
+    $("#btnLogin").click(function () {
+        $('.loadercont').fadeIn();
+        $("#btnLogin").parent().next(".validation").remove();
+        var focusSet = false;
+        if (!$('#txtuserId').val()) {
+            if ($("#txtuserId").parent().next(".validation").length == 0) // only add if not added
+            {
+                $("#txtuserId").parent().after("<div class='validation' style='color:red;margin-bottom: 20px;'>Please enter email address</div>");
+            }
+            $('#txtuserId').focus();
+            focusSet = true;
+        } 
+        else
+        {
+            $("#txtuserId").parent().next(".validation").remove(); // remove it
+        }
+        if (!$('#txtPassword').val()) {
+            if ($("#txtPassword").parent().next(".validation").length == 0) // only add if not added
+            {
+                $("#txtPassword").parent().after("<div class='validation' style='color:red;margin-bottom: 20px;'>Please enter password</div>");
+            }
+         
+        }
+        else {
+            $("#txtPassword").parent().next(".validation").remove(); // remove it
+            
+        }
+     
+        var Userid = $('#txtuserId').val();
+        var Password = $('#txtPassword').val();
+        if (Userid == "" || Password == "")
+        {
+            $('.loadercont').fadeOut();
+            return
+           
+        }
+     
+        var data = { UserName: Userid, Password: Password };
+
+        $.ajax({
+            type: "POST",
+            url: "/Admin/UserLogin",
+            data: data,
+            dataType: "json",
+            success: function (response) {
+               
+                if (response == 1) {
+                    $("#btnLogin").parent().next(".validation").remove();
+                    window.location.href = "/admin/Result";
+                    $('.loadercont').fadeOut();
+
+                }
+                else
+                {
+                    $("#btnLogin").parent().after("<div class='validation' style='color:red;margin-bottom: 20px;'>Check UserName and Password</div>");
+                    $('.loadercont').fadeOut();
+                }
+                
+            },
+            error: function (response) {
+                $('.loadercont').fadeOut();
+              
+            }
+        });
+       
+
+    });
+
+    $(".lgbtn").keypress(function (e) {
+        if (e.which == 13) {
+            e.preventDefault();
+            $("#btnLogin").click();
+        }
+    });
+
+
+
+    </script>
+    

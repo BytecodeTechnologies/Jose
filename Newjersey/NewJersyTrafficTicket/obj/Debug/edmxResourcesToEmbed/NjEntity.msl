@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="dd_NJTrafficTicketsModelStoreContainer" CdmEntityContainer="dd_NJTrafficTicketsEntities">
+    <EntitySetMapping Name="tblResults">
+      <EntityTypeMapping TypeName="dd_NJTrafficTicketsModel.tblResult">
+        <MappingFragment StoreEntitySet="tblResult">
+          <ScalarProperty Name="tblResultId" ColumnName="tblResultId" />
+          <ScalarProperty Name="Result_Text" ColumnName="Result_Text" />
+          <ScalarProperty Name="Result_Date" ColumnName="Result_Date" />
+          <ScalarProperty Name="Result_Heading" ColumnName="Result_Heading" />
+          <ScalarProperty Name="tblUserId" ColumnName="tblUserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblUsers">
+      <EntityTypeMapping TypeName="dd_NJTrafficTicketsModel.tblUser">
+        <MappingFragment StoreEntitySet="tblUser">
+          <ScalarProperty Name="tblUserId" ColumnName="tblUserId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="tblUserRoleId" ColumnName="tblUserRoleId" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblUserRoles">
+      <EntityTypeMapping TypeName="dd_NJTrafficTicketsModel.tblUserRole">
+        <MappingFragment StoreEntitySet="tblUserRole">
+          <ScalarProperty Name="tblUserRoleId" ColumnName="tblUserRoleId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblBlogs">
+      <EntityTypeMapping TypeName="dd_NJTrafficTicketsModel.tblBlog">
+        <MappingFragment StoreEntitySet="tblBlog">
+          <ScalarProperty Name="tblCategory_Id" ColumnName="tblCategory_Id" />
+          <ScalarProperty Name="tbluserid" ColumnName="tbluserid" />
+          <ScalarProperty Name="published_Date" ColumnName="published_Date" />
+          <ScalarProperty Name="Post_Date" ColumnName="Post_Date" />
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="tblBlog_Id" ColumnName="tblBlog_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblCategories">
+      <EntityTypeMapping TypeName="dd_NJTrafficTicketsModel.tblCategory">
+        <MappingFragment StoreEntitySet="tblCategory">
+          <ScalarProperty Name="Caregory_Name" ColumnName="Caregory_Name" />
+          <ScalarProperty Name="tblCategory_Id" ColumnName="tblCategory_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblComments">
+      <EntityTypeMapping TypeName="dd_NJTrafficTicketsModel.tblComment">
+        <MappingFragment StoreEntitySet="tblComment">
+          <ScalarProperty Name="Isapproved" ColumnName="Isapproved" />
+          <ScalarProperty Name="Blog_Id" ColumnName="Blog_Id" />
+          <ScalarProperty Name="Comment_Email" ColumnName="Comment_Email" />
+          <ScalarProperty Name="Comment_By" ColumnName="Comment_By" />
+          <ScalarProperty Name="Comment_Date" ColumnName="Comment_Date" />
+          <ScalarProperty Name="Comment_Text" ColumnName="Comment_Text" />
+          <ScalarProperty Name="Comment_Id" ColumnName="Comment_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

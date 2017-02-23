@@ -1,0 +1,64 @@
+﻿
+@{
+    ViewBag.Title = "Thank You";
+    ViewBag.Description = "Thank You for Sending your quote request";
+    Layout = "~/Views/Shared/_LayoutForQuotes.cshtml";
+}
+
+<div class="white_bg right_side col-lg-8 col-md-8 col-sm-8 col-xs-12 pull-right">
+    <div class="bottom_tab">
+        <div id="listofBlogs"></div>
+        <h1 style="display:none">Thank You</h1>
+        <article class="blog-variation-container blog_four">
+
+
+            @*<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 pagination">*@
+             
+
+
+                <div class=" blog_single_post blog_single_post_v4">
+                    <h2>Your request is sent successfully. One of our advisor will reach you as soon as possible.</h2>
+
+
+                    <a href="#" id="PreviousPage">Go Back to Previous Page <i class=" fa fa-arrow-circle-right"></i> </a>
+                </div>
+
+            @*</div>*@
+
+
+        </article>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+
+<script type="text/javascript">
+    $('#PreviousPage').click(function () {
+        parent.history.back();
+        return false;
+    });
+
+    </script>

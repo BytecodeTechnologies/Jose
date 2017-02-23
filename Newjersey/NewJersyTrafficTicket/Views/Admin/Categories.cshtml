@@ -1,0 +1,123 @@
+﻿
+
+@{
+    ViewBag.Title = "Categories";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+
+<div class="white_bg right_side col-lg-8 col-md-8 col-sm-12 col-xs-12 pull-right">
+    <section id="checkout-content">
+        <div class="container fontstyle1">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 left-checkout quoteform" style="padding-left:0px;">
+                    <div class="Row Quote_title1">
+                        @if (Model.categoryId > 0)
+                        {
+                            <div class="Row Quote_title1">
+                                Update Category
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="Row Quote_title1">
+                                Add Category
+                            </div>
+                        }
+                       
+                    </div>
+
+                    <div class="row ">
+                        <div class="col-lg-4" style="padding-left:0px;">
+                            <label>Category Name</label>
+                        </div>
+                        <div class="col-lg-5 " style="padding-left:0px;">
+                            <input type="text" class="pressenter" placeholder="Category " id="txtCategory" value="@Model.CategoryName" />
+                        </div>
+                    </div>
+
+
+
+                    <div class="row">
+                        <div class="col-lg-4" style="padding-left:0px;"></div>
+                        <div class="col-lg-8" style="padding-left:0px;">
+                            @if (Model.categoryId > 0)
+                            {
+
+                                  <input type="button" id="btnAddCategoty" class="read-more2 lgbtn" value="Update" />
+                            }
+                            else
+                            {
+                                  <input type="button" id="btnAddCategoty" class="read-more2 lgbtn" value="Add" />
+
+                            }
+
+                          
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+
+
+<script>
+    $("#btnAddCategoty").click(function () {
+        $('.loadercont').fadeIn();
+
+        $("#btnAddCategoty").parent().next(".validation").remove();
+        var focusSet = false;
+        if (!$('#txtCategory').val()) {
+            if ($("#txtCategory").parent().next(".validation").length == 0) // only add if not added
+            {
+                $("#txtCategory").parent().after("<div class='validation' style='color:red;margin-bottom: 20px;'>Please type Category Name</div>");
+            }
+            $('#txtCategory').focus();
+            focusSet = true;
+        }
+        else {
+            $("#txtCategory").parent().next(".validation").remove(); // remove it
+        }
+
+        
+        var categoryName = $('#txtCategory').val();
+
+        if (categoryName == "") {
+            $('.loadercont').fadeOut();
+            return
+        }
+       
+        var data = { CategoryName: categoryName, categoryId: '@Model.categoryId' };
+
+        $.ajax({
+            type: "POST",
+            url: "/Admin/AddCategory",
+            data: data,
+            dataType: "json",
+            success: function (response) {
+
+                $("#btnAddCategoty").parent().after("<div id='showmessage' class='validation' style='color:red;margin-bottom: 20px;'>" + response + "</div>");
+                $("#txtCategory").val("");
+                $('.loadercont').fadeOut();
+            },
+            error: function (response) {
+                $('.loadercont').fadeOut();
+
+            }
+        });
+
+    });
+
+    $(document).ready(function () {
+        $(".menuspan").removeClass("menu-active");
+        $(".ntab").removeClass("active");
+        $("#ulCategory").addClass("active");
+    });
+
+    </script>

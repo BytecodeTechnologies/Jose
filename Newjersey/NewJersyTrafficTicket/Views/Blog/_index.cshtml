@@ -1,0 +1,105 @@
+﻿
+
+
+
+    <article class="blog-variation-container blog_four">
+      
+            <div class="row">
+@foreach (var row in Model)
+{
+
+    <div class="col-lg-12 col-md-12 blog_single_post blog_single_post_v4">
+
+     <div class="img_holder">
+        <img class="img-responsive" src=@row.Image alt="image">
+        <div class="img_overlay"><a href="#">
+            
+            <i class="fa fa-link"></i></a></div>
+        <p><span>@(Convert.ToDateTime(row.Post_Date_st).Day)</span>@(Convert.ToDateTime(row.Post_Date_st).ToString("MMMM"))</p>
+    </div>
+                        <h3>@row.Title</h3>
+                        <ul>
+                            <li><a href="/Blog/ShowBlog?id=@row.tblBlog_Id"><i class="fa fa-user"></i>By:  @row.UserName </a></li>
+                            <li><a href="/Blog/ShowBlog?id=@row.tblBlog_Id"><i class="fa fa-tag"></i>@row.CategoryName</a></li>
+                            <li><a href="/Blog/ShowBlog?id=@row.tblBlog_Id"><i class="fa fa-comments-o"></i>Comments:@row.Commentcount</a></li>
+                        </ul>
+        <p style="white-space: pre-wrap;">@row.Text...</p>
+                        <a href="/Blog/ShowBlog?id=@row.tblBlog_Id">read more <i class=" fa fa-arrow-circle-right"> </i></a>
+</div>
+}
+        
+
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pagination">
+                    <!-- pagination -->
+                    <ul>
+                        @for (var i = 0; i < ViewBag.PageCount; i++)
+                        {
+                            if (i == ViewBag.CurrentPageIndex)
+                            {
+                                <li>@(i + 1)</li>
+                            }
+                            else
+                            {
+                                 <li><a href="#listofBlogs" data-pageindex="@i" class="active pager">@(i + 1)</a></li>
+                              
+                            }
+                        }
+
+                    </ul>
+                    @if (ViewBag.totalRecord == 0)
+{
+    <div class="col-lg-12 col-md-12 blog_single_post blog_single_post_v4">
+        <h2>No Item to display</h2>
+
+
+        <a href="#" id="PreviousPage">Go Back to Previous Page <i class=" fa fa-arrow-circle-right"></i> </a>
+    </div>
+}
+                </div> <!-- End pagination -->
+            </div> <!-- End row -->
+     
+    </article>
+
+
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+
+<script type="text/javascript">
+
+    $('.pager').click(function (evt) {
+        $('.loadercont').fadeIn();
+        var pageindex = $(evt.target).data("pageindex");
+        var categoryId = $('#hdnCategoryId').val();
+        var SearchItem = $('#hdnSearchItem').val();
+        //evt.preventDefault();
+
+        $.ajax({
+            type: "POST",
+            url: "/Blog/Index1",
+            data: { pageindex: pageindex, categoryID: categoryId, SearchItem: SearchItem },
+            dataType: "Html",
+            success: function (response) {
+                $('#listofBlogs').empty();
+                $('#listofBlogs').append(response);
+                $('.loadercont').fadeOut();
+            },
+            error: function (response) {
+                $('.loadercont').fadeOut();
+
+            }
+        });
+    });
+
+    $('#PreviousPage').click(function () {
+        parent.history.back();
+        return false;
+    });
+
+
+
+</script>
+
+
+
+
+

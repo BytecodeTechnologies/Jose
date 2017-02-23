@@ -1,0 +1,81 @@
+﻿
+@model IEnumerable<NewJersyTrafficTicket.tblComment>
+    @using System.Web.Helpers;
+
+    @{
+        Layout = "~/Views/Shared/_LayoutAdminGrid.cshtml";
+
+    }
+    <div class="white_bg right_side col-lg-10 col-md-10 col-sm-12 col-xs-12 pull-right">
+
+        @{
+            var grid = new WebGrid(Model, canPage: true, rowsPerPage: 3,
+            selectionFieldName: "selectedRow", ajaxUpdateContainerId: "gridContent");
+            grid.Pager(WebGridPagerModes.NextPrevious);}
+
+        <div class="col-lg-9"> </div>
+        <div class="col-lg-3 nm"> <label>Total Records: @Model.Count() </label> </div>
+        <div id="dvUserList">
+
+
+            @grid.GetHtml(tableStyle: "webGrid",
+            headerStyle: "header",
+            alternatingRowStyle: "alt",
+            selectedRowStyle: "select",
+
+            columns: grid.Columns(
+
+
+                                                               grid.Column("Comment_Id", "Comment_Id", style: ""),
+                                                                                          grid.Column("Comment_Text", "Comment_Text", canSort: true, style: "webtexts gridtextspacing"),
+                                                                                        
+                                                               
+
+                                 
+       grid.Column(
+               header: "Delete",
+                         style: "webcolumnnn",
+                     format: (item) =>
+                     {
+                         var template = "<a href='#' id='" + item.Comment_Id + "' onclick='DeleteBlog(this.id);'>Delete</a> ";
+                         return Html.Raw(template);
+                     }
+    )
+
+             ))
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+
+    <script>
+
+        $(document).ready(function () {
+
+            $(".menuspan").removeClass("menu-active");
+            $(".ntab").removeClass("active");
+            $("#ViewAll").addClass("active");
+
+
+        });
+
+
+
+
+        function DeleteBlog(id) {
+            if (confirm("Are you sure to delete this Blog?")) {
+                window.location = "/Blog/DeleteComment?id=" + id;
+            }
+        }
+
+    </script>

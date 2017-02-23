@@ -1,0 +1,826 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{98DA6327-CA87-4100-865E-5BD591EA2F60}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NewJersyTrafficTicket</RootNamespace>
+    <AssemblyName>NewJersyTrafficTicket</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=12.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\packages\ExcelPackage.1.0.0\lib\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Entity">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.ApplicationServices">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Core">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Extensions">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Abstractions">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Routing">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Configuration">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Services">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.EnterpriseServices">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGridMvc">
+      <HintPath>..\packages\WebGridMvc.1.0.0\lib\net40\WebGridMvc.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.3.0.1\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.3.0.1\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.3.0.1\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.3.0.1\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Capcha\Capcha.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\BlogController.cs" />
+    <Compile Include="Controllers\esController.cs" />
+    <Compile Include="Controllers\NewJerseyController.cs" />
+    <Compile Include="Controllers\TestController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Blog.cs" />
+    <Compile Include="Models\CategoryModel.cs" />
+    <Compile Include="Models\CommentModel.cs" />
+    <Compile Include="Models\FreeQuote.cs" />
+    <Compile Include="Models\LoginModel.cs" />
+    <Compile Include="Models\ResultModel.cs" />
+    <Compile Include="NjEntity.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NjEntity.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NjEntity.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NjEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NjEntity.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NjEntity.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+    <Compile Include="tblBlog.cs">
+      <DependentUpon>NjEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblCategory.cs">
+      <DependentUpon>NjEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblComment.cs">
+      <DependentUpon>NjEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblResult.cs">
+      <DependentUpon>NjEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblUser.cs">
+      <DependentUpon>NjEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblUserRole.cs">
+      <DependentUpon>NjEntity.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Antlr3.Runtime.dll" />
+    <Content Include="bin\Antlr3.Runtime.pdb" />
+    <Content Include="bin\EntityFramework.dll" />
+    <Content Include="bin\EntityFramework.SqlServer.dll" />
+    <Content Include="bin\EntityFramework.SqlServer.xml" />
+    <Content Include="bin\EntityFramework.xml" />
+    <Content Include="bin\Microsoft.AspNet.Identity.Core.dll" />
+    <Content Include="bin\Microsoft.AspNet.Identity.Core.xml" />
+    <Content Include="bin\Microsoft.AspNet.Identity.EntityFramework.dll" />
+    <Content Include="bin\Microsoft.AspNet.Identity.EntityFramework.xml" />
+    <Content Include="bin\Microsoft.AspNet.Identity.Owin.dll" />
+    <Content Include="bin\Microsoft.AspNet.Identity.Owin.xml" />
+    <Content Include="bin\Microsoft.Owin.dll" />
+    <Content Include="bin\Microsoft.Owin.Host.SystemWeb.dll" />
+    <Content Include="bin\Microsoft.Owin.Host.SystemWeb.xml" />
+    <Content Include="bin\Microsoft.Owin.Security.Cookies.dll" />
+    <Content Include="bin\Microsoft.Owin.Security.Cookies.xml" />
+    <Content Include="bin\Microsoft.Owin.Security.dll" />
+    <Content Include="bin\Microsoft.Owin.Security.Facebook.dll" />
+    <Content Include="bin\Microsoft.Owin.Security.Facebook.xml" />
+    <Content Include="bin\Microsoft.Owin.Security.Google.dll" />
+    <Content Include="bin\Microsoft.Owin.Security.Google.xml" />
+    <Content Include="bin\Microsoft.Owin.Security.MicrosoftAccount.dll" />
+    <Content Include="bin\Microsoft.Owin.Security.MicrosoftAccount.xml" />
+    <Content Include="bin\Microsoft.Owin.Security.OAuth.dll" />
+    <Content Include="bin\Microsoft.Owin.Security.OAuth.xml" />
+    <Content Include="bin\Microsoft.Owin.Security.Twitter.dll" />
+    <Content Include="bin\Microsoft.Owin.Security.Twitter.xml" />
+    <Content Include="bin\Microsoft.Owin.Security.xml" />
+    <Content Include="bin\Microsoft.Owin.xml" />
+    <Content Include="bin\Microsoft.Web.Infrastructure.dll" />
+    <Content Include="bin\NewJersyTrafficTicket.dll" />
+    <Content Include="bin\NewJersyTrafficTicket.pdb" />
+    <Content Include="bin\Newtonsoft.Json.dll" />
+    <Content Include="bin\Newtonsoft.Json.xml" />
+    <Content Include="bin\Owin.dll" />
+    <Content Include="bin\System.Web.Helpers.dll" />
+    <Content Include="bin\System.Web.Helpers.xml" />
+    <Content Include="bin\System.Web.Mvc.dll" />
+    <Content Include="bin\System.Web.Mvc.xml" />
+    <Content Include="bin\System.Web.Optimization.dll" />
+    <Content Include="bin\System.Web.Optimization.xml" />
+    <Content Include="bin\System.Web.Razor.dll" />
+    <Content Include="bin\System.Web.Razor.xml" />
+    <Content Include="bin\System.Web.WebPages.Deployment.dll" />
+    <Content Include="bin\System.Web.WebPages.Deployment.xml" />
+    <Content Include="bin\System.Web.WebPages.dll" />
+    <Content Include="bin\System.Web.WebPages.Razor.dll" />
+    <Content Include="bin\System.Web.WebPages.Razor.xml" />
+    <Content Include="bin\System.Web.WebPages.xml" />
+    <Content Include="bin\WebGrease.dll" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Chat\Chat.css" />
+    <Content Include="Content\Chat\Chat.js" />
+    <Content Include="Content\css\AjaxLoader.html" />
+    <Content Include="Content\css\bootstrap.vertical-tabs.css" />
+    <Content Include="Content\css\bootstrap\bootstrap.css" />
+    <Content Include="Content\css\custom\owl.carousel.css" />
+    <Content Include="Content\css\custom\style.css" />
+    <Content Include="Content\css\grabbing.html" />
+    <Content Include="Content\css\gradient.css" />
+    <Content Include="Content\css\hover.css" />
+    <Content Include="Content\css\img\cart\select-box-bg.html" />
+    <Content Include="Content\css\jquery.bxslider.css" />
+    <Content Include="Content\css\jquery.fancybox.css" />
+    <Content Include="Content\css\jquery.mCustomScrollbar.min.css" />
+    <Content Include="Content\css\mCSB_buttons.html" />
+    <Content Include="Content\css\owl.carousel.css" />
+    <Content Include="Content\css\owl.theme.css" />
+    <Content Include="Content\css\responsive\responsive.css" />
+    <Content Include="Content\css\revolution-slider\closedhand.html" />
+    <Content Include="Content\css\revolution-slider\layers.css" />
+    <Content Include="Content\css\revolution-slider\navigation.css" />
+    <Content Include="Content\css\revolution-slider\openhand.html" />
+    <Content Include="Content\css\revolution-slider\settings.css" />
+    <Content Include="Content\fonts\font-awesome\css\font-awesome.min.css" />
+    <Content Include="Content\fonts\font-awesome\fonts\fontawesome-webfont3295.html" />
+    <Content Include="Content\fonts\font-awesome\fonts\fontawesome-webfont3295.svg" />
+    <Content Include="Content\fonts\glyphicons\glyphicons-halflings-regular.html" />
+    <Content Include="Content\fonts\glyphicons\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\fonts\revicons\revicons90c6.svg" />
+    <Content Include="Content\fonts\stroke-gap\style.css" />
+    <Content Include="Content\images\1.jpg" />
+    <Content Include="Content\images\10.jpg" />
+    <Content Include="Content\images\11.jpg" />
+    <Content Include="Content\images\12.jpg" />
+    <Content Include="Content\images\13.jpg" />
+    <Content Include="Content\images\14.jpg" />
+    <Content Include="Content\images\15.jpg" />
+    <Content Include="Content\images\16.jpg" />
+    <Content Include="Content\images\17.jpg" />
+    <Content Include="Content\images\2.jpg" />
+    <Content Include="Content\images\3.jpg" />
+    <Content Include="Content\images\4.jpg" />
+    <Content Include="Content\images\404\bg.jpg" />
+    <Content Include="Content\images\5.jpg" />
+    <Content Include="Content\images\6.jpg" />
+    <Content Include="Content\images\7.jpg" />
+    <Content Include="Content\images\8.jpg" />
+    <Content Include="Content\images\9.jpg" />
+    <Content Include="Content\images\about\1.jpg" />
+    <Content Include="Content\images\about\banner-bg.jpg" />
+    <Content Include="Content\images\about\bg.jpg" />
+    <Content Include="Content\images\arrow-up.png" />
+    <Content Include="Content\images\banner.jpg" />
+    <Content Include="Content\images\blog\1.jpg" />
+    <Content Include="Content\images\blog\10.jpg" />
+    <Content Include="Content\images\blog\11.jpg" />
+    <Content Include="Content\images\blog\12.jpg" />
+    <Content Include="Content\images\blog\13.jpg" />
+    <Content Include="Content\images\blog\14.jpg" />
+    <Content Include="Content\images\blog\15.jpg" />
+    <Content Include="Content\images\blog\16.jpg" />
+    <Content Include="Content\images\blog\17.jpg" />
+    <Content Include="Content\images\blog\18.jpg" />
+    <Content Include="Content\images\blog\2.jpg" />
+    <Content Include="Content\images\blog\3.jpg" />
+    <Content Include="Content\images\blog\4.jpg" />
+    <Content Include="Content\images\blog\5.jpg" />
+    <Content Include="Content\images\blog\6.jpg" />
+    <Content Include="Content\images\blog\7.jpg" />
+    <Content Include="Content\images\blog\8.jpg" />
+    <Content Include="Content\images\blog\9.jpg" />
+    <Content Include="Content\images\brand-logo.jpg" />
+    <Content Include="Content\images\bx-slider\bx_loader.gif" />
+    <Content Include="Content\images\bx-slider\controls.png" />
+    <Content Include="Content\images\c-icon1.jpg" />
+    <Content Include="Content\images\c-icon2.jpg" />
+    <Content Include="Content\images\c-icon3.jpg" />
+    <Content Include="Content\images\c-icon4.jpg" />
+    <Content Include="Content\images\c-icon5.jpg" />
+    <Content Include="Content\images\c-icon6.jpg" />
+    <Content Include="Content\images\card.jpg" />
+    <Content Include="Content\images\cart\1.jpg" />
+    <Content Include="Content\images\f-1.jpg" />
+    <Content Include="Content\images\f-2.jpg" />
+    <Content Include="Content\images\f-3.jpg" />
+    <Content Include="Content\images\f-4.jpg" />
+    <Content Include="Content\images\f-5.jpg" />
+    <Content Include="Content\images\f-6.jpg" />
+    <Content Include="Content\images\fancybox\blank.gif" />
+    <Content Include="Content\images\fancybox\fancybox_loading%402x.gif" />
+    <Content Include="Content\images\fancybox\fancybox_loading.gif" />
+    <Content Include="Content\images\fancybox\fancybox_overlay.png" />
+    <Content Include="Content\images\fancybox\fancybox_sprite%402x.png" />
+    <Content Include="Content\images\fancybox\fancybox_sprite.png" />
+    <Content Include="Content\images\fav-icon\android-icon-192x192.png" />
+    <Content Include="Content\images\fav-icon\apple-icon-114x114.png" />
+    <Content Include="Content\images\fav-icon\apple-icon-120x120.png" />
+    <Content Include="Content\images\fav-icon\apple-icon-144x144.png" />
+    <Content Include="Content\images\fav-icon\apple-icon-152x152.png" />
+    <Content Include="Content\images\fav-icon\apple-icon-180x180.png" />
+    <Content Include="Content\images\fav-icon\apple-icon-57x57.png" />
+    <Content Include="Content\images\fav-icon\apple-icon-60x60.png" />
+    <Content Include="Content\images\fav-icon\apple-icon-72x72.png" />
+    <Content Include="Content\images\fav-icon\apple-icon-76x76.png" />
+    <Content Include="Content\images\fav-icon\favicon-16x16.png" />
+    <Content Include="Content\images\fav-icon\favicon-32x32.png" />
+    <Content Include="Content\images\fav-icon\favicon-96x96.png" />
+    <Content Include="Content\images\get-bg.jpg" />
+    <Content Include="Content\images\icon-1.png" />
+    <Content Include="Content\images\icon-2.png" />
+    <Content Include="Content\images\icon-3.png" />
+    <Content Include="Content\images\icon-bg-hover.png" />
+    <Content Include="Content\images\icon-bg.png" />
+    <Content Include="Content\images\ln-bg.jpg" />
+    <Content Include="Content\images\logo-footer.png" />
+    <Content Include="Content\images\logo.png" />
+    <Content Include="Content\images\menu-arrow.png" />
+    <Content Include="Content\images\product-sidebar\1.jpg" />
+    <Content Include="Content\images\product-sidebar\2.jpg" />
+    <Content Include="Content\images\product-sidebar\3.jpg" />
+    <Content Include="Content\images\product\1.jpg" />
+    <Content Include="Content\images\product\2.jpg" />
+    <Content Include="Content\images\product\3.jpg" />
+    <Content Include="Content\images\pro\1.jpg" />
+    <Content Include="Content\images\pro\2.jpg" />
+    <Content Include="Content\images\pro\3.jpg" />
+    <Content Include="Content\images\pro\4.jpg" />
+    <Content Include="Content\images\pro\5.jpg" />
+    <Content Include="Content\images\pro\6.jpg" />
+    <Content Include="Content\images\pro\7.jpg" />
+    <Content Include="Content\images\pro\8.jpg" />
+    <Content Include="Content\images\pro\a.jpg" />
+    <Content Include="Content\images\pro\b.jpg" />
+    <Content Include="Content\images\pro\c.jpg" />
+    <Content Include="Content\images\pro\d.jpg" />
+    <Content Include="Content\images\pro\e.jpg" />
+    <Content Include="Content\images\pro\f.jpg" />
+    <Content Include="Content\images\pro\g.jpg" />
+    <Content Include="Content\images\pro\h.jpg" />
+    <Content Include="Content\images\pro\i.jpg" />
+    <Content Include="Content\images\pro\v3-1.jpg" />
+    <Content Include="Content\images\pro\v3-2.jpg" />
+    <Content Include="Content\images\pro\v3-4.jpg" />
+    <Content Include="Content\images\pro\v3-5.jpg" />
+    <Content Include="Content\images\pro\v3-6.jpg" />
+    <Content Include="Content\images\pro\v3-7.jpg" />
+    <Content Include="Content\images\pro\v3-8.jpg" />
+    <Content Include="Content\images\pro\v4-1.jpg" />
+    <Content Include="Content\images\pro\v4-2.jpg" />
+    <Content Include="Content\images\pro\v4-3.jpg" />
+    <Content Include="Content\images\pro\v4-4.jpg" />
+    <Content Include="Content\images\pro\v4-5.jpg" />
+    <Content Include="Content\images\pro\v4-6.jpg" />
+    <Content Include="Content\images\pro\v4-7.jpg" />
+    <Content Include="Content\images\pro\v4-8.jpg" />
+    <Content Include="Content\images\pro\v4-9.jpg" />
+    <Content Include="Content\images\pro\v5-1.jpg" />
+    <Content Include="Content\images\pro\v5-2.jpg" />
+    <Content Include="Content\images\pro\v5-3.jpg" />
+    <Content Include="Content\images\pro\v5-4.jpg" />
+    <Content Include="Content\images\pro\v5-5.jpg" />
+    <Content Include="Content\images\pro\v5-6.jpg" />
+    <Content Include="Content\images\revolution-slider\coloredbg.png" />
+    <Content Include="Content\images\revolution-slider\gridtile.png" />
+    <Content Include="Content\images\revolution-slider\gridtile_3x3.png" />
+    <Content Include="Content\images\revolution-slider\gridtile_3x3_white.png" />
+    <Content Include="Content\images\revolution-slider\gridtile_white.png" />
+    <Content Include="Content\images\revolution-slider\loader.gif" />
+    <Content Include="Content\images\search\1.jpg" />
+    <Content Include="Content\images\search\2.jpg" />
+    <Content Include="Content\images\search\3.jpg" />
+    <Content Include="Content\images\search\4.jpg" />
+    <Content Include="Content\images\search\5.jpg" />
+    <Content Include="Content\images\service\1.jpg" />
+    <Content Include="Content\images\service\10.jpg" />
+    <Content Include="Content\images\service\11.jpg" />
+    <Content Include="Content\images\service\12.jpg" />
+    <Content Include="Content\images\service\13.jpg" />
+    <Content Include="Content\images\service\2.jpg" />
+    <Content Include="Content\images\service\3.jpg" />
+    <Content Include="Content\images\service\4.jpg" />
+    <Content Include="Content\images\service\5.jpg" />
+    <Content Include="Content\images\service\6.jpg" />
+    <Content Include="Content\images\service\7.jpg" />
+    <Content Include="Content\images\service\8.jpg" />
+    <Content Include="Content\images\service\9.jpg" />
+    <Content Include="Content\images\service\arrow-down.png" />
+    <Content Include="Content\images\service\arrow-right.jpg" />
+    <Content Include="Content\images\shadow.png" />
+    <Content Include="Content\images\shop\1.jpg" />
+    <Content Include="Content\images\shop\2.jpg" />
+    <Content Include="Content\images\shop\3.jpg" />
+    <Content Include="Content\images\shop\4.jpg" />
+    <Content Include="Content\images\shop\5.jpg" />
+    <Content Include="Content\images\shop\6.jpg" />
+    <Content Include="Content\images\shop\7.jpg" />
+    <Content Include="Content\images\shop\8.jpg" />
+    <Content Include="Content\images\shop\9.jpg" />
+    <Content Include="Content\images\shop\product-details.png" />
+    <Content Include="Content\images\sign.jpg" />
+    <Content Include="Content\images\slides\1.jpg" />
+    <Content Include="Content\images\slides\2.jpg" />
+    <Content Include="Content\images\sm-bg.jpg" />
+    <Content Include="Content\images\star.jpg" />
+    <Content Include="Content\images\t-bg.jpg" />
+    <Content Include="Content\images\testimonial\2.jpg" />
+    <Content Include="Content\images\testimonial\3.jpg" />
+    <Content Include="Content\images\testimonial\4.jpg" />
+    <Content Include="Content\images\testimonial\5.jpg" />
+    <Content Include="Content\images\testimonial\bg.jpg" />
+    <Content Include="Content\images\testimonial\sign.jpg" />
+    <Content Include="Content\images\testimonial\star-yellow.png" />
+    <Content Include="Content\images\testimonial\star.png" />
+    <Content Include="Content\images\top-header.jpg" />
+    <Content Include="Content\js\bootstrap.min.js" />
+    <Content Include="Content\js\custom.js" />
+    <Content Include="Content\js\gmap.js" />
+    <Content Include="Content\js\jquery-2.1.4.js" />
+    <Content Include="Content\js\jquery.appear.js" />
+    <Content Include="Content\js\jquery.bxslider.min.js" />
+    <Content Include="Content\js\jquery.countTo.js" />
+    <Content Include="Content\js\jquery.fancybox.pack.js" />
+    <Content Include="Content\js\jquery.mCustomScrollbar.concat.min.js" />
+    <Content Include="Content\js\jquery.mixitup.min.js" />
+    <Content Include="Content\js\jquery.sliphover.min.js" />
+    <Content Include="Content\js\owl-custom.js" />
+    <Content Include="Content\js\owl.carousel.js" />
+    <Content Include="Content\js\revolution-slider\extensions\revolution.extension.actions.min.js" />
+    <Content Include="Content\js\revolution-slider\extensions\revolution.extension.carousel.min.js" />
+    <Content Include="Content\js\revolution-slider\extensions\revolution.extension.kenburn.min.js" />
+    <Content Include="Content\js\revolution-slider\extensions\revolution.extension.layeranimation.min.js" />
+    <Content Include="Content\js\revolution-slider\extensions\revolution.extension.migration.min.js" />
+    <Content Include="Content\js\revolution-slider\extensions\revolution.extension.navigation.min.js" />
+    <Content Include="Content\js\revolution-slider\extensions\revolution.extension.parallax.min.js" />
+    <Content Include="Content\js\revolution-slider\extensions\revolution.extension.slideanims.min.js" />
+    <Content Include="Content\js\revolution-slider\extensions\revolution.extension.video.min.js" />
+    <Content Include="Content\js\revolution-slider\jquery.themepunch.revolution.min.js" />
+    <Content Include="Content\js\revolution-slider\jquery.themepunch.tools.min.js" />
+    <Content Include="Content\js\validate.js" />
+    <Content Include="Content\NJ_Images\71303.jpg" />
+    <Content Include="Content\NJ_Images\Banner-img4.jpg" />
+    <Content Include="Content\NJ_Images\banner-inner-13.jpg" />
+    <Content Include="Content\NJ_Images\BannerImg1.jpg" />
+    <Content Include="Content\NJ_Images\BannerImg2.jpg" />
+    <Content Include="Content\NJ_Images\BannerImg3.jpg" />
+    <Content Include="Content\NJ_Images\can-a-lawyer-beat-your-new-jersey-traffic-ticket.jpg" />
+    <Content Include="Content\NJ_Images\careless-driving-in-new jersey.jpg" />
+    <Content Include="Content\NJ_Images\ContactBAck.jpg" />
+    <Content Include="Content\NJ_Images\court.jpg" />
+    <Content Include="Content\NJ_Images\default-avatar.v9899025.gif" />
+    <Content Include="Content\NJ_Images\driving-while-suspended.jpg" />
+    <Content Include="Content\NJ_Images\dui-dwi-defense-lawyers-in-new-jersey-nj-attorneys.jpg" />
+    <Content Include="Content\NJ_Images\dui_penalties_in_new_jersey.jpg" />
+    <Content Include="Content\NJ_Images\fight-traffic-ticket-banner-b.jpg" />
+    <Content Include="Content\NJ_Images\gavel-books-image.jpg" />
+    <Content Include="Content\NJ_Images\gavel-books-image2.jpg" />
+    <Content Include="Content\NJ_Images\gavel.jpg" />
+    <Content Include="Content\NJ_Images\hammer.jpg" />
+    <Content Include="Content\NJ_Images\languages-icon-128px.png" />
+    <Content Include="Content\NJ_Images\livehelp %281%29.jpg" />
+    <Content Include="Content\NJ_Images\livehelp.jpg" />
+    <Content Include="Content\NJ_Images\Logo-3.jpg" />
+    <Content Include="Content\NJ_Images\logo.gif" />
+    <Content Include="Content\NJ_Images\logo3.png" />
+    <Content Include="Content\NJ_Images\logofinal.png" />
+    <Content Include="Content\NJ_Images\logofinal2.png" />
+    <Content Include="Content\NJ_Images\logofinal1.png" />
+    <Content Include="Content\NJ_Images\megan.jpg" />
+    <Content Include="Content\NJ_Images\Modern_British_LED_Traffic_Light.jpg" />
+    <Content Include="Content\NJ_Images\no-car-insurance-in-new-jersey.jpg" />
+    <Content Include="Content\NJ_Images\off-careless.jpg" />
+    <Content Include="Content\NJ_Images\office_plaza_nine.jpg" />
+    <Content Include="Content\NJ_Images\penalties_and_fines_in_new_jersey.jpg" />
+    <Content Include="Content\NJ_Images\police.jpg" />
+    <Content Include="Content\NJ_Images\policeman-ticket.jpg" />
+    <Content Include="Content\NJ_Images\popbill.jpg" />
+    <Content Include="Content\NJ_Images\popwilliam.jpg" />
+    <Content Include="Content\NJ_Images\probate-litigation_disputes1-295x300.jpg" />
+    <Content Include="Content\NJ_Images\reckless-driving-in-new jersey.jpg" />
+    <Content Include="Content\NJ_Images\restoring_your_license_in_new_jersey.jpg" />
+    <Content Include="Content\NJ_Images\speeding-ticket-lawyer.jpg" />
+    <Content Include="Content\NJ_Images\steve.jpg" />
+    <Content Include="Content\NJ_Images\stopped_for_a_traffic_violation_in_nj.jpg" />
+    <Content Include="Content\NJ_Images\tb_Redlight_450.jpg" />
+    <Content Include="Content\NJ_Images\tenderi.jpg" />
+    <Content Include="Content\NJ_Images\timing.jpg" />
+    <Content Include="Content\NJ_Images\traffic-cop.jpg" />
+    <Content Include="Content\NJ_Images\traffic-ticket.jpg" />
+    <Content Include="Content\NJ_Images\Traffic-Tickets-Slide.jpg" />
+    <Content Include="Content\NJ_Images\traffic.jpg" />
+    <Content Include="Content\NJ_Images\trafficSmall.jpg" />
+    <Content Include="Content\NJ_Images\traffictickets-Slide3.jpg" />
+    <Content Include="Content\NJ_Images\traffic_tickets_in_new_jersey_lawyers_defense_nj_speeding_ticket_dui_dwi.jpg" />
+    <Content Include="Content\NJ_Images\Banner5.jpg" />
+    <Content Include="Content\NJ_Images\traffic_ticket_lawyers_in_new_jersey_nj_attorneys.jpg" />
+    <Content Include="Content\NJ_Images\Untitled-3.png" />
+    <Content Include="Content\NJ_Images\viewlogo.png" />
+    <Content Include="Content\NJ_Images\Website-Traffic.jpg" />
+    <Content Include="Content\NJ_Images\what_to_do_suspended_license_nj.jpg" />
+    <Content Include="Content\Slider\owl-carousel\AjaxLoader.gif" />
+    <Content Include="Content\Slider\owl-carousel\grabbing.png" />
+    <Content Include="Content\Slider\owl-carousel\owl.carousel.css" />
+    <Content Include="Content\Slider\owl-carousel\owl.carousel.js" />
+    <Content Include="Content\Slider\owl-carousel\owl.carousel.min.js" />
+    <Content Include="Content\Slider\owl-carousel\owl.theme.css" />
+    <Content Include="Content\Slider\owl-carousel\owl.transitions.css" />
+    <Content Include="es\ejemplo.html" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="mobile\popup\bill.html" />
+    <Content Include="new-jersey\ejemplo.html" />
+    <Content Include="new-jersey\speeding-tickets.html" />
+    <Content Include="new-york-traffic-ticket-lawyers.html" />
+    <Content Include="popup\bill.html" />
+    <Content Include="popup\cifrodello.html" />
+    <Content Include="popup\eugene.html" />
+    <Content Include="popup\megan.html" />
+    <Content Include="popup\william.html" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Content\fonts\font-awesome\fonts\fontawesome-webfont3295.eot" />
+    <Content Include="Content\fonts\font-awesome\fonts\fontawesome-webfont3295.ttf" />
+    <Content Include="Content\fonts\font-awesome\fonts\fontawesome-webfont3295.woff" />
+    <Content Include="Content\fonts\font-awesome\fonts\fontawesome-webfontd41d.eot" />
+    <Content Include="Content\fonts\glyphicons\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\fonts\glyphicons\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\fonts\glyphicons\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\fonts\glyphicons\glyphicons-halflings-regulard41d.eot" />
+    <Content Include="Content\fonts\revicons\revicons90c6.eot" />
+    <Content Include="Content\fonts\revicons\revicons90c6.ttf" />
+    <Content Include="Content\fonts\revicons\revicons90c6.woff" />
+    <Content Include="Content\fonts\stroke-gap\fonts\Stroke-Gap-Icons.eot" />
+    <Content Include="bin\NewJersyTrafficTicket.dll.config" />
+    <EntityDeploy Include="NjEntity.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>NjEntity.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="NjEntity.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>NjEntity.edmx</DependentUpon>
+      <LastGenOutput>NjEntity.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="NjEntity.edmx.diagram">
+      <DependentUpon>NjEntity.edmx</DependentUpon>
+    </Content>
+    <Content Include="NjEntity.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>NjEntity.edmx</DependentUpon>
+      <LastGenOutput>NjEntity.cs</LastGenOutput>
+    </Content>
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\webGrid.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Testin.html" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\NewJersey\Index.cshtml" />
+    <Content Include="Views\NewJersey\About_Us.cshtml" />
+    <Content Include="Views\NewJersey\Why_Us.cshtml" />
+    <Content Include="Views\NewJersey\Our_Services.cshtml" />
+    <Content Include="Views\NewJersey\Resources.cshtml" />
+    <Content Include="Views\NewJersey\Free_Quote.cshtml" />
+    <Content Include="Views\NewJersey\Traffic_Tickets.cshtml" />
+    <Content Include="Views\NewJersey\Speeding_Tickets.cshtml" />
+    <Content Include="Views\NewJersey\No_Car_Insurance.cshtml" />
+    <Content Include="Views\NewJersey\Reckless_Driving.cshtml" />
+    <Content Include="Views\NewJersey\Careless_Driving.cshtml" />
+    <Content Include="Views\NewJersey\Dui_Dwi_Defense_Lawyers.cshtml" />
+    <Content Include="Views\NewJersey\Suspended_License.cshtml" />
+    <Content Include="Views\NewJersey\Points_and_Surcharges.cshtml" />
+    <Content Include="Views\NewJersey\Beat_Your_Traffic_Ticket.cshtml" />
+    <Content Include="Views\NewJersey\What_to_do_suspended_license.cshtml" />
+    <Content Include="Views\NewJersey\Restore_License.cshtml" />
+    <Content Include="Views\NewJersey\Penalties.cshtml" />
+    <Content Include="Views\NewJersey\What_to_do_when_stoped_by_police.cshtml" />
+    <Content Include="Views\NewJersey\Why_hire_a_new_jersey_traffic_lawyers.cshtml" />
+    <Content Include="Views\NewJersey\Dui_Penalties.cshtml" />
+    <Content Include="Views\NewJersey\Tailgating.cshtml" />
+    <Content Include="Views\NewJersey\Failure_to_stop_for_traffic_light.cshtml" />
+    <Content Include="Views\NewJersey\Improper_passing_school_bus.cshtml" />
+    <Content Include="Views\NewJersey\Frequently_asked_questions.cshtml" />
+    <Content Include="Views\es\Index.cshtml" />
+    <Content Include="Views\es\About_Us.cshtml" />
+    <Content Include="Views\es\Why_Us.cshtml" />
+    <Content Include="Views\es\Our_Services.cshtml" />
+    <Content Include="Views\es\Resources.cshtml" />
+    <Content Include="Views\es\Free_Quote.cshtml" />
+    <Content Include="Views\es\Traffic_Tickets.cshtml" />
+    <Content Include="Views\es\Speeding_Tickets.cshtml" />
+    <Content Include="Views\es\No_Car_Insurance.cshtml" />
+    <Content Include="Views\es\Reckless_Driving.cshtml" />
+    <Content Include="Views\es\Careless_Driving.cshtml" />
+    <Content Include="Views\es\Dui_Dwi_Defense_Lawyers.cshtml" />
+    <Content Include="Views\es\Suspended_License.cshtml" />
+    <Content Include="Views\es\Points_and_Surcharges.cshtml" />
+    <Content Include="Views\es\Beat_Your_Traffic_Ticket.cshtml" />
+    <Content Include="Views\es\What_to_do_suspended_license.cshtml" />
+    <Content Include="Views\es\Restore_License.cshtml" />
+    <Content Include="Views\es\Penalties.cshtml" />
+    <Content Include="Views\es\What_to_do_when_stoped_by_police.cshtml" />
+    <Content Include="Views\es\Why_hire_a_new_jersey_traffic_lawyers.cshtml" />
+    <Content Include="Views\es\Dui_Penalties.cshtml" />
+    <Content Include="Views\es\Tailgating.cshtml" />
+    <Content Include="Views\es\Failure_to_stop_for_traffic_light.cshtml" />
+    <Content Include="Views\es\Improper_passing_school_bus.cshtml" />
+    <Content Include="Views\es\Frequently_asked_questions.cshtml" />
+    <Content Include="Views\Shared\_Layoutes.cshtml" />
+    <Content Include="Views\Shared\_LayoutForQuotes.cshtml" />
+    <Content Include="Views\Shared\_LayoutesForQuotes.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\AddResult.cshtml" />
+    <Content Include="Views\Admin\Result.cshtml" />
+    <Content Include="Views\Admin\_Result.cshtml" />
+    <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
+    <Content Include="Views\Blog\Add_New.cshtml" />
+    <Content Include="Views\Blog\List.cshtml" />
+    <Content Include="Views\Shared\_LayoutAdminGrid.cshtml" />
+    <Content Include="Views\Blog\Index.cshtml" />
+    <Content Include="Views\Shared\_LayoytForBlogIndex.cshtml" />
+    <Content Include="Views\Blog\_index.cshtml" />
+    <Content Include="Views\Blog\ShowBlog.cshtml" />
+    <Content Include="Views\Admin\Categories.cshtml" />
+    <Content Include="Views\Admin\CategoryList.cshtml" />
+    <Content Include="Views\NewJersey\ShowResult.cshtml" />
+    <Content Include="Views\Blog\ApproveComment.cshtml" />
+    <Content Include="Views\Blog\Comment.cshtml" />
+    <Content Include="Views\Blog\_Comment.cshtml" />
+    <Content Include="Views\Test\Index.cshtml" />
+    <Content Include="Views\NewJersey\Error.cshtml" />
+    <Content Include="Views\NewJersey\ThankYou.cshtml" />
+    <Content Include="Views\NewJersey\ContactUs.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="CapchaImage\" />
+    <Folder Include="Content\Blog_Images\" />
+    <Folder Include="Content\Test_Image\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>7119</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:7119/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

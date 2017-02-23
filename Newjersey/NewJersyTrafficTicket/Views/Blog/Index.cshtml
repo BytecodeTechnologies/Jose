@@ -1,0 +1,50 @@
+﻿@*@model IEnumerable<NewJersyTrafficTicket.Models.blog>*@
+    @{
+        ViewBag.Title = "Blogs for New Jersey Traffic Tickets";
+        Layout = "~/Views/Shared/_LayoytForBlogIndex.cshtml";
+    }
+
+    <div class="white_bg right_side col-lg-12 col-md-12 col-sm-12 col-xs-12 pull-right">
+        <div class="bottom_tab">
+            <div id="listofBlogs"></div>
+            <h1 style="display:none">Blogs</h1>
+            <input type="hidden" id="hdnCategoryId" value=@Request.QueryString["id"] />
+            <input type="hidden" id="hdnSearchItem" value=@Request.QueryString["SearchItem"] />
+            </div>
+    </div>
+
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        var categoryId = $('#hdnCategoryId').val();
+        var SearchItem = $('#hdnSearchItem').val();
+     
+        $('.loadercont').fadeIn();
+        $('.loadercont').fadeIn();
+
+        $.ajax({
+            type: "POST",
+            url: "/Blog/Index1",
+            data: { pageindex: 0, categoryID: categoryId, SearchItem: SearchItem },
+            dataType: "Html",
+            success: function (response) {
+                $('#listofBlogs').append(response);
+                $('.loadercont').fadeOut();
+            },
+            error: function (response) {
+                $('.loadercont').fadeOut();
+
+            }
+        });
+
+    });
+
+    $(".menuspan").removeClass("menu-active");
+    $("#Blogs").addClass("menu-active");
+
+
+</script>

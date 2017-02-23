@@ -1,0 +1,160 @@
+﻿@*@model NewJersyTrafficTicket.Models.ResultModel;*@
+@{
+    ViewBag.Title = "AddResult";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="white_bg right_side col-lg-8 col-md-8 col-sm-12 col-xs-12 pull-right">
+    <section id="checkout-content">
+        <div class="container fontstyle1">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 left-checkout quoteform" style="padding-left:0px;">
+                    @*<div class="row ">
+                        <div class="col-lg-12" style="padding-left:0px;">
+                            <a href="/Admin/Result" class="read-more2">Result List</a>
+                        </div>
+                    </div>*@
+                    <div class="Row Quote_title1">
+                        @if (Model.tblResultId > 0)
+                        {
+                            <div class="Row Quote_title1">
+                                Update Result
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="Row Quote_title1">
+                                Add Result
+                            </div>
+                        }
+
+
+
+                    </div>
+                   
+                            <div class="row ">
+                                <div class="col-lg-4" style="padding-left:0px;">
+                                    <label>Result Heading</label>
+                                </div>
+                                <div class="col-lg-5 " style="padding-left:0px;">
+                                    <input type="text" class="pressenter" placeholder="Heading " id="txtResultHeading" value="@Model.Result_Heading" />
+                                </div>
+                            </div>
+                   
+
+                            <div class="row">
+                                <div class="col-lg-4" style="padding-left:0px;">
+                                    <label>Result </label>
+                                </div>
+                                <div class="col-lg-5 left_position_fix" style="padding-left:0px;">
+                                    <textarea placeholder="Result" class="pressenter" id="txtResult">@Model.Result_Text</textarea>
+                                 
+                                 
+                                </div>
+                            </div>
+
+
+                            <div class="row">
+                                <div class="col-lg-4" style="padding-left:0px;"></div>
+                                <div class="col-lg-8" style="padding-left:0px;">
+                                    @if (Model.tblResultId > 0)
+                                    {
+
+                                        <input type="button" id="btnSaveResult" class="read-more2 lgbtn" value="Update" />}
+                                    else
+                                    {
+                                        <input type="button" id="btnSaveResult" class="read-more2 lgbtn" value="Add" />
+                                       
+                                    }
+                                    <p id="showmessage"></p>
+                                </div>
+                            </div>
+                        </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+
+
+<script>
+
+    $(function () {
+        $(".menuspan").removeClass("menu-active");
+        $(".ntab").removeClass("active");
+        $("#Dui").addClass("active");
+
+    });
+
+
+
+    $("#btnSaveResult").click(function () {
+        $('.loadercont').fadeIn();
+
+        $("#btnSaveResult").parent().next(".validation").remove();
+        var focusSet = false;
+        if (!$('#txtResultHeading').val()) {
+            if ($("#txtResultHeading").parent().next(".validation").length == 0) // only add if not added
+            {
+                $("#txtResultHeading").parent().after("<div class='validation' style='color:red;margin-bottom: 20px;'>Please Result heading</div>");
+            }
+            $('#txtResultHeading').focus();
+            focusSet = true;
+        }
+        else {
+            $("#txtResultHeading").parent().next(".validation").remove(); // remove it
+        }
+        if (!$('#txtResult').val()) {
+            if ($("#txtResult").parent().next(".validation").length == 0) // only add if not added
+            {
+                $("#txtResult").parent().after("<div class='validation' style='color:red;margin-bottom: 20px;'>Please enter result</div>");
+            }
+
+        }
+        else {
+            $("#txtResult").parent().next(".validation").remove(); // remove it
+        }
+       
+        var resulthesding = $('#txtResultHeading').val();
+        var Result = $('#txtResult').val();
+        if (resulthesding == "" || Result == "") {
+            $('.loadercont').fadeOut();
+            return
+        }
+      
+        var data = { Result_Heading: resulthesding, Result_Text: Result,tblResultId: '@Model.tblResultId' };
+
+        $.ajax({
+            type: "POST",
+            url: "/Admin/AddingResult",
+            data: data,
+            dataType: "json",
+            success: function (response) {
+
+                $("#btnSaveResult").parent().after("<div id='showmessage' class='validation' style='color:red;margin-bottom: 20px;'>" + response + "</div>");
+                $("#txtResultHeading").val("");
+                $("#txtResult").val("");
+                $('.loadercont').fadeOut();
+            },
+            error: function (response) {
+                $('.loadercont').fadeOut();
+
+            }
+        });
+
+    });
+
+
+    //$(".pressenter").keypress(function (e) {
+    //    if (e.which == 13) {
+    //        e.preventDefault();
+    //        $("#btnSaveResult").click();
+    //    }
+    //});
+</script>
+
+
+

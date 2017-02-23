@@ -1,0 +1,47 @@
+﻿@model IEnumerable<NewJersyTrafficTicket.Models.ResultModel>
+    @using System.Web.Helpers;
+
+
+    @{
+        var grid = new WebGrid(Model, canPage: true, rowsPerPage: 2,
+        selectionFieldName: "selectedRow", ajaxUpdateContainerId: "gridContent");
+        grid.Pager(WebGridPagerModes.NextPrevious);}
+
+
+    <div class="col-sm-2"> <label>Total Records: @Model.Count()</label> </div>
+
+    @grid.GetHtml(tableStyle: "webGrid",
+            headerStyle: "header",
+            alternatingRowStyle: "alt",
+            selectedRowStyle: "select",
+            columns: grid.Columns(
+                     grid.Column("Result_Date", "ResultDate"),
+                                                    grid.Column("Result_Heading", "Header", canSort: true),
+                                                        grid.Column("Name", "Added By", canSort: true),
+                                                    grid.Column("Result_Text", "Text", canSort: true),
+
+                                                     grid.Column(
+                                       header: "Edit",
+                                             format: (item) =>
+                                                  {
+                                                      var template = "<a href='/admin/EditUser?id=" + item.tblResultId + "'id='" + item.tblResultId + "' onclick='EditResult(this.id);'>Edit</a> ";
+                                                      return Html.Raw(template);
+                                                  }
+                            ),
+       grid.Column(
+               header: "Delete",
+                     format: (item) =>
+                          {
+                              var template = "<a href='#' id='" + item.tblResultId + "' onclick='DeleteResult(this.id);'>Delete</a> ";
+                              return Html.Raw(template);
+                          }
+    )
+
+             ))
+
+    
+    
+
+
+
+

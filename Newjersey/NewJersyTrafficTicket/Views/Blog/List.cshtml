@@ -1,0 +1,108 @@
+﻿@model IEnumerable<NewJersyTrafficTicket.Models.Blog>
+    @using System.Web.Helpers;
+
+    @{
+        Layout = "~/Views/Shared/_LayoutAdminGrid.cshtml";
+        
+    }
+                      <div class="white_bg right_side col-lg-10 col-md-10 col-sm-12 col-xs-12 pull-right">
+
+                          @{
+                              var grid = new WebGrid(Model, canPage: true, rowsPerPage: 3,
+                              selectionFieldName: "selectedRow", ajaxUpdateContainerId: "gridContent");
+                              grid.Pager(WebGridPagerModes.NextPrevious);}
+
+                          <div class="col-lg-9"> </div>
+                          <div class="col-lg-3 nm"> <label>Total Records: @Model.Count() </label> </div>
+                          <div id="dvUserList">
+
+
+                              @grid.GetHtml(tableStyle: "webGrid",
+            headerStyle: "header",
+            alternatingRowStyle: "alt",
+            selectedRowStyle: "select",
+
+            columns: grid.Columns(
+                      grid.Column(
+                                             header: "Image",
+                                             format: (item) =>
+                                             {
+
+                                                 return Html.Raw(string.Format("<text ><img src=\"{0}\" alt=\"Image\" width='80px' height='70px' class=''  /></text>", Url.Content(item.Image)));
+
+                                                 //return Html.Raw(template);
+                                             }
+                                     ),
+
+                                             grid.Column("Title", "Title", style: ""),
+                                                                        grid.Column("Text", "Text", canSort: true, style: "webtexts gridtextspacing"),
+                                                                                          grid.Column("Post_Date_st", "Post_Date", canSort: true, style: "webcolumn"),
+                                                                        grid.Column("published_Date_st", "Publish_Date", canSort: true, style: "webcolumn"),
+                                                               grid.Column("UserName", "Added By", canSort: true, style: ""),
+                                                                        grid.Column("CategoryName", "Category", canSort: true, style: ""),
+
+                                    grid.Column(
+                                    header: "Edit",
+                                              style: "webcolumnnn",
+                                    format: (item) =>
+                                        {
+                                            var template = "<a href='/Blog/EditBlog?id=" + item.tblBlog_Id + "'id='" + item.tblBlog_Id + "' >Edit</a> ";
+                                            //var template = "<a href='#'id='" + item.tblBlog_Id + "'>Edit</a> ";
+                                            return Html.Raw(template);
+                                        }
+                            ),
+       grid.Column(
+               header: "Delete",
+                         style: "webcolumnnn",
+                     format: (item) =>
+                     {
+                         var template = "<a href='#' id='" + item.tblBlog_Id + "' onclick='DeleteBlog(this.id);'>Delete</a> ";
+                         return Html.Raw(template);
+                     }
+    )
+
+             ))
+
+                          </div>
+                      </div>
+
+
+
+
+
+
+
+
+
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+
+    <script>
+
+        $(document).ready(function () {
+            
+            $(".menuspan").removeClass("menu-active");
+            $(".ntab").removeClass("active");
+            $("#ViewAll").addClass("active");
+
+
+        });
+
+
+
+
+        function DeleteBlog(id) {
+            if (confirm("Are you sure to delete this Blog?")) {
+                window.location = "/Blog/DeleteBlog?id=" + id;
+            }
+        }
+
+    </script>
+
+
+
+
+
+
+
+

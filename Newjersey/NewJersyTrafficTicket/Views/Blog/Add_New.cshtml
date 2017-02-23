@@ -1,0 +1,321 @@
+﻿
+@{
+    ViewBag.Title = "Add_New";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    //Layout = "~/Views/Shared/_LayoutForQuotes.cshtml";
+}
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+
+<style type="text/css">
+    .thumb-image {
+        float: left;
+        width: 100px;
+        position: relative;
+        padding: 5px;
+    }
+</style>
+
+<div class="white_bg right_side col-lg-8 col-md-8 col-sm-12 col-xs-12 pull-right">
+    <section id="checkout-content">
+        <div class="container fontstyle1">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 left-checkout quoteform" style="padding-left:0px;">
+                    @if (Model.tblBlog_Id > 0)
+                    {
+                        <div class="Row Quote_title1">
+                            Update Blog
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="Row Quote_title1">
+                            Add Blog
+                        </div>
+                    }
+
+                    <div class="row ">
+                        <div class="col-lg-4" style="padding-left:0px;">
+                            <label>Image</label>
+                        </div>
+                        <div class="col-lg-5 " style="padding-left:0px;">
+                            <input type="file" id="file" name="file" multiple value=@Model.Image />
+
+                            <div id="image-holder" style="width:10px;"></div>
+                            @if (Model.tblBlog_Id > 0)
+                            {
+                                <div style="width:10px;"><img id="imgblogPreview" src='@Model.Image' class="thumb-image" /></div>
+                            }
+
+
+                        </div>
+                        <div class="col-lg-3" style="padding-left:0px;">
+                            <div id="image-holder"></div>
+                        </div>
+                    </div>
+
+
+                    <div class="row ">
+                        <div class="col-lg-4" style="padding-left:0px;">
+                            <label>Title</label>
+                        </div>
+                        <div class="col-lg-5 " style="padding-left:0px;">
+                            <input type="text" class="pressenter" placeholder="Title " id="txtTitleBlog" value="@Model.Title" />
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-lg-4" style="padding-left:0px;">
+                            <label>Text </label>
+                        </div>
+                        <div class="col-lg-5 left_position_fix" style="padding-left:0px;">
+                            <textarea placeholder="Text" class="pressenter" id="txtTextBlog">@Model.Text</textarea>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-4" style="padding-left:0px;">
+                            <label>Publish Date </label>
+                        </div>
+                        <div class="col-lg-5 left_position_fix" style="padding-left:0px;">
+                            @if (Model.tblBlog_Id > 0)
+                            {
+                                <input type="text" class="pressenter" placeholder="Publish Date " id="txtPublishDate" value="@Model.published_Date_st" />
+                            }
+                            else
+                            {
+                                <input type="text" class="pressenter" placeholder="Publish Date " id="txtPublishDate" />
+                            }
+                        </div>
+                    </div>
+
+
+
+                        <div class="row">
+                            <div class="col-lg-4" style="padding-left:0px;">
+                                <label>Category</label>
+                            </div>
+                            <div class="col-lg-5 left_position_fix" style="padding-left:0px;">
+
+                                <select id="Category" class="filter" >
+                                    <option value="0">Choose a Category</option>
+                                                                        @foreach (var item in ViewBag.Categories)
+{
+    <option value="@item.categoryId">@item.CategoryName</option>
+}
+
+
+                                </select>
+
+                            </div>
+                        </div>
+
+
+
+                        <div class="row">
+                            <div class="col-lg-4" style="padding-left:0px;"></div>
+                            <div class="col-lg-8" style="padding-left:0px;">
+                                @if (Model.tblBlog_Id > 0)
+                                {
+                                    <input type="button" id="btnSaveBlog" class="read-more2 lgbtn" value="Update" />
+                                }
+                                else
+                                {
+                                    <input type="button" id="btnSaveBlog" class="read-more2 lgbtn" value="Add" />
+                                }
+                                <p id="showmessage"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
+</div>
+
+<script>
+
+    $('#txtPublishDate').datepicker({
+        changeMonth: true,
+        changeYear: true,
+        yearRange: "-116:+0",
+    });
+
+    $(document).ready(function () {
+
+        $(".menuspan").removeClass("menu-active");
+        $(".ntab").removeClass("active");
+        $("#Points").addClass("active");
+
+        var categoryid = '@Model.CategoryId';
+        if (categoryid != "") {
+            $('#Category').val('@Model.CategoryId')
+        }
+
+
+
+        $("#file").on('change', function () {
+
+            $('#imgblogPreview').hide();
+            //Get count of selected files
+            var countFiles = $(this)[0].files.length;
+            var imgPath = $(this)[0].value;
+            var extn = imgPath.substring(imgPath.lastIndexOf('.') + 1).toLowerCase();
+            var image_holder = $("#image-holder");
+            image_holder.empty();
+            if (extn == "gif" || extn == "png" || extn == "jpg" || extn == "jpeg") {
+                if (typeof (FileReader) != "undefined") {
+                    //loop for each file selected for uploaded.
+                    for (var i = 0; i < countFiles; i++) {
+                        var reader = new FileReader();
+                        reader.onload = function (e) {
+                            $("<img />", {
+                                "src": e.target.result,
+                                "class": "thumb-image"
+                            }).appendTo(image_holder);
+                        }
+                        image_holder.show();
+                        reader.readAsDataURL($(this)[0].files[i]);
+                        $('.loadercont').fadeOut();
+                    }
+                } else {
+                    $('.loadercont').fadeOut();
+                    alert("This browser does not support FileReader.");
+
+                }
+            } else {
+                $('.loadercont').fadeOut();
+                alert("Pls select only images");
+
+            }
+        });
+
+
+        $("#btnSaveBlog").click(function () {
+            $('.loadercont').fadeIn();
+            $("#btnSaveBlog").parent().next(".validation").remove();
+
+            $("#btnSaveResult").parent().next(".validation").remove();
+            var focusSet = false;
+            if ('@Model.tblBlog_Id' == 0) {
+                if (!$('#file').val()) {
+                    if ($("#file").parent().next(".validation").length == 0) // only add if not added
+                    {
+                        $("#file").parent().after("<div class='validation' style='color:red;margin-bottom: 20px;'>Please Select image</div>");
+                    }
+                    $('#file').focus();
+                    focusSet = true;
+                }
+                else {
+                    $("#file").parent().next(".validation").remove(); // remove it
+                }
+            }
+
+
+
+
+            if (!$('#txtTitleBlog').val()) {
+                if ($("#txtTitleBlog").parent().next(".validation").length == 0) // only add if not added
+                {
+                    $("#txtTitleBlog").parent().after("<div class='validation' style='color:red;margin-bottom: 20px;'>Please enter Title</div>");
+                }
+
+            }
+            else {
+                $("#txtTitleBlog").parent().next(".validation").remove(); // remove it
+            }
+            if (!$('#txtTextBlog').val()) {
+                if ($("#txtTextBlog").parent().next(".validation").length == 0) // only add if not added
+                {
+                    $("#txtTextBlog").parent().after("<div class='validation' style='color:red;margin-bottom: 20px;'>Please enter Text</div>");
+                }
+
+            }
+            else {
+                $("#txtTextBlog").parent().next(".validation").remove(); // remove it
+            }
+
+            if (!$('#txtPublishDate').val()) {
+                if ($("#txtPublishDate").parent().next(".validation").length == 0) // only add if not added
+                {
+                    $("#txtPublishDate").parent().after("<div class='validation' style='color:red;margin-bottom: 20px;'>Please enter Publish Date</div>");
+                }
+
+            }
+            else {
+                $("#txtPublishDate").parent().next(".validation").remove(); // remove it
+            }
+          
+            if ($('#Category').val() == 0) {
+                if ($("#Category").parent().next(".validation").length == 0) // only add if not added
+                {
+                    $("#Category").parent().after("<div class='validation' style='color:red;margin-bottom: 20px;'>Please enter Category</div>");
+                }
+
+            }
+            else {
+                $("#Category").parent().next(".validation").remove(); // remove it
+            }
+
+            Title = $('#txtTitleBlog').val();
+            Text = $('#txtTextBlog').val();
+            published_Date = $('#txtPublishDate').val();
+            Category = $('#Category').val();
+            var files = $("#file").get(0).files;
+
+           
+            var resulthesding = $('#txtResultHeading').val();
+            var Result = $('#txtResult').val();
+            if ('@Model.tblBlog_Id' == 0) {
+                if (Title == "" || Text == "" || published_Date == "" || files.length == 0 || Category== 0) {
+                    $('.loadercont').fadeOut();
+                    return
+                }
+            }
+            else {
+                if (Title == "" || Text == "" || published_Date == "" || Category == 0) {
+                    $('.loadercont').fadeOut();
+                    return
+                }
+            }
+            var data = new FormData();
+
+            // if (files.length > 0) {
+            data.append("file", files[0]);
+            data.append("Title", Title);
+            data.append("Text", Text);
+            data.append("published_Date", published_Date);
+            data.append("tblBlog_Id", '@Model.tblBlog_Id')
+            data.append("CategoryId", Category)
+            // }
+
+            $.ajax({
+                type: "POST",
+                url: "/Blog/Image",
+                data: data,
+                processData: false,
+                contentType: false,
+                dataType: "json",
+                success: function (response) {
+                    $("#txtTitleBlog").val("");
+                    $("#txtTextBlog").val("");
+                    $("#txtPublishDate").val("");
+                    $("#image-holder").empty();
+                    $("#file").val("");
+                    $('#Category').val(0);
+                    $('#imgblogPreview').hide();
+                    $("#btnSaveBlog").parent().after("<div id='showmessage' class='validation' style='color:red;margin-bottom: 20px;'>" + response + "</div>");
+                    $('.loadercont').fadeOut();
+                },
+                error: function (response) {
+                    $('.loadercont').fadeOut();
+
+                }
+            });
+        });
+    });
+</script>
+

@@ -1,0 +1,88 @@
+﻿@model IEnumerable<NewJersyTrafficTicket.Models.CategoryModel>
+    @{
+        ViewBag.Title = "CategoryList";
+        Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    }
+
+    @using System.Web.Helpers;
+
+    @{
+        Layout = "~/Views/Shared/_LayoutAdminGrid.cshtml";
+    }
+    <div class="white_bg right_side col-lg-10 col-md-10 col-sm-12 col-xs-12 pull-right">
+
+        @{
+            var grid = new WebGrid(Model, canPage: true, rowsPerPage: 3,
+            selectionFieldName: "selectedRow", ajaxUpdateContainerId: "gridContent");
+            grid.Pager(WebGridPagerModes.NextPrevious);}
+
+        <div class="col-lg-10"></div>
+        <div class="col-lg-2 nm"> <label>Total Results: @Model.Count() </label> </div>
+        <div id="dvUserList">
+
+
+            @grid.GetHtml(tableStyle: "webGrid",
+            headerStyle: "header",
+            alternatingRowStyle: "alt",
+            selectedRowStyle: "select",
+            columns: grid.Columns(
+                                 grid.Column("CategoryName", "CategoryName", style: "webcolumn"),
+                                            grid.Column(
+                                                header: "Edit",
+                                                 style: "webcolumnnn",
+                                                      format: (item) =>
+                                                           {
+                                                               var template = "<a href='/admin/EditCategory?id=" + item.categoryId + "'id='" + item.categoryId + "' class='webcolumnnn'>Edit</a> ";
+                                                               return Html.Raw(template);
+                                                           }
+                                     ),
+                grid.Column(
+                        header: "Delete",
+                                             style: "webcolumnnn",
+                              format: (item) =>
+                              {
+                                  var template = "<a href='#' id='" + item.categoryId + "' onclick='DeleteCategory(this.id);' >Delete</a> ";
+                                  return Html.Raw(template);
+                              }
+             )
+
+
+
+
+    
+
+             ))
+
+        </div>
+    </div>
+
+
+
+
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+
+    <script>
+
+        $(document).ready(function () {
+            $(".menuspan").removeClass("menu-active");
+            $(".ntab").removeClass("active");
+            $("#ulCategoryList").addClass("active");
+        });
+
+
+        function DeleteCategory(id) {
+            if (confirm("Are you sure to delete this Category?")) {
+                window.location = "/admin/DeleteCategory?id=" + id;
+            }
+        }
+
+    </script>
+
+
+
+
+
+
+
+

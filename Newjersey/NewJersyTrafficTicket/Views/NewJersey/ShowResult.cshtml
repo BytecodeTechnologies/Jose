@@ -1,0 +1,92 @@
+﻿
+<!DOCTYPE html>
+
+@{
+    ViewBag.Title = "ShowBlog";
+    Layout = "~/Views/Shared/_LayoytForBlogIndex.cshtml";
+}
+
+<section class="blog-container two-side-background  faqs_sec">
+
+    <div class="container">
+        <div class="rows ">
+            <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 white-left left-content ptb-80">
+
+                <div class="single-blog-post single-page-content anim-5-all">
+
+                    <div class="img-holder">
+                       
+                    </div>
+                    <div class="post-meta">
+                        <div class="date-holder">
+                            <span>@(Convert.ToDateTime(Model.Date).Day)</span> @(Convert.ToDateTime(Model.Date).ToString("MMMM"))
+                        </div>
+                        <div class="title-holder">
+                            <h2 class="title">@Model.Result_Heading</h2>
+                            <ul>
+                                <li><a href="#">Posted By: @Model.Name</a></li>
+
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <p style="white-space: pre-wrap;">@Model.Result_Text</p>
+                        <br>
+
+                    </div>
+
+                    <!-- .author-box -->
+                    <div class="author-box">
+
+                    </div><!-- /.author-box -->
+
+
+
+                    <div class="comment-box" id="comment-box"></div>
+
+
+                    <!-- .comment-form -->
+                   <!-- /.comment-form -->
+                </div><!-- /.single-blog-post -->
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-12 pull-left left_side pdr5">
+                <!--for this page-(Right Side) -->
+                @*<h4>Search</h4>*@
+                @*<form action="#">
+                    <input type="text" id="txtSearch" class="pressenterSearch" placeholder="Enter Search Keywords">
+                    <button type="button" id="btnsearch"><span class="icon icon-Search"></span></button>
+                </form>*@
+                <h4 style="padding-left:10px">About Us</h4>
+                <p style="padding-left:10px">At Stabile Law Firm, we are a full-service law firm with concentration in traffic law and DUI - DWI matters in New Jersey. We pride ourselves on our ability to solve traffic violations for our clients. </p>
+              
+              
+
+            </div> <!-- End left side -->
+        </div>
+    </div>
+</section>
+
+
+
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+
+
+
+
+<script>
+
+        $(document).ready(function () {
+           
+        });
+        $(".menuspan").removeClass("menu-active");
+
+
+
+
+
+</script>
+
+
+

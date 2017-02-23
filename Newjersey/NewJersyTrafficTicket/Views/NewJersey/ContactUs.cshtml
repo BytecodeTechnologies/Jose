@@ -1,0 +1,147 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="white_bg right_side col-lg-8 col-md-8 col-sm-12 col-xs-12 pull-right">
+    @*<section id="checkout-content">*@
+        <div class="container fontstyle1">
+            <div class="row">
+                <section class="contact_us_container">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8" style="text-align:center;">
+                                <!-- section title -->
+                                <h2>Get In Touch With Us</h2>
+                            </div> <!-- End section title -->
+                            <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 form_holder">
+                                <!-- form holder -->
+                                <form action="includes/sendemail.php" class="contact-form">
+                                    <input type="text" id="txtName" placeholder="Name" class="form-control name" />
+                                    <input type="text" id="txtEmail" placeholder="Email" class="form-control email" />
+                                    <input type="text" id="txtPhone" placeholder="Phone" class="form-control" />
+                                    <textarea id="txtMessage" class="form-control txtcontact" placeholder="Comment"></textarea>
+                                    <img id="m_imgCaptcha" class="txtcontact" style="width:31%;" />
+                                    <a href="#txtCapcha" id="RefreshImage">Change Text</a>
+                                    <input type="text" placeholder="Type text Display in Image" class="form-control" id="txtCapcha">
+                                    <button type="button" style="margin-top: 11px;" id="btnsendQuote" class="submit">Send <i class="fa fa-arrow-circle-right"></i></button>
+                                  </form> <!-- End form holder -->
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+
+             
+            </div>
+        </div>
+</div>
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script>
+    $(function () {
+        loadCaptcha();
+        $(".menuspan").removeClass("menu-active");
+        $(".menuspan").removeClass("menu-active");
+        $("#Contactus").addClass("menu-active");
+    });
+
+
+    function loadCaptcha() {
+
+        $.ajax({
+            type: 'GET',
+            url: '/NewJersey/generateCaptcha',
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            cache: false,
+            success: function (data) { $("#m_imgCaptcha").attr('src', data); },
+            error: function (data) { alert("Error while loading captcha image") }
+        });
+    }
+
+    $('#RefreshImage').click(function (evt) {
+
+        loadCaptcha();
+        evt.preventDefault();
+
+    });
+
+
+
+    $('#btnsendQuote').click(function (evt) {
+        $('.loadercont').fadeIn();
+        var fullname = $('#txtName').val();
+        var CellNo = $('#txtPhone').val();
+        var Email = $('#txtEmail').val();
+        var Message = $('#txtMessage').val();
+        var Capcha = $('#txtCapcha').val();
+
+
+
+        if (fullname == "") {
+            $('.loadercont').fadeOut();
+            alert('Please Enter Name')
+
+            return
+        }
+        if (Email == "") {
+            $('.loadercont').fadeOut();
+            alert('Please Enter Email')
+
+            return
+        }
+        if (!ValidateEmail(Email)) {
+
+            $('.loadercont').fadeOut();
+            alert('Not a valid email');
+            return;
+        }
+        if (Capcha == "") {
+            alert('Please verify Capcha')
+            $('.loadercont').fadeOut();
+            return;
+        }
+
+        var data = {
+            fullname: fullname, CellNo: CellNo, Email: Email, Message: Message, Capcha: Capcha
+        }
+
+        $.ajax({
+            type: "POST",
+            url: "/NewJersey/Sendquery",
+            data: data,
+            dataType: "Html",
+            success: function (response) {
+                alert(response)
+                $('.loadercont').fadeOut();
+                $('#txtName').val('');
+                $('#txtPhone').val('');
+                $('#txtEmail').val('');
+                $('#txtMessage').val('');
+                $('#txtCapcha').val('');
+                loadCaptcha();
+            },
+            error: function (response) {
+                $('.loadercont').fadeOut();
+            }
+        });
+    });
+
+    function ValidateEmail(email) {
+        // Validate email format
+        var expr = /^([\w-\.]+)@@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+        return expr.test(email);
+    };
+
+    $("#txtPhone").keypress(function (e) {
+        //if the letter is not digit then display error and don't type anything
+        if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+            //display error message
+
+            return false;
+        }
+    });
+
+</script>

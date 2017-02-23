@@ -1,0 +1,241 @@
+﻿@{
+    ViewBag.Title = "New Jersey Surcharge Violation | Points System";
+    ViewBag.Description = "New Jersey Surcharge Violation and Points System associated to a Traffic Ticket in New Jersey. Contact us for free consultation on these issues.";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .tb_head {
+        background-color: #13A0B2;
+        color: white;
+        text-align: center;
+        padding: 5px;
+    }
+
+    .tb {
+        width: 90%;
+        border:1px solid #CCCCCC
+    }
+
+    .tb_td {
+        font-family: 'Open Sans', sans-serif;
+        font-size: 0.875em;
+        color: #898989;
+        line-height: 26px;
+        padding: 5px;
+    }
+
+    .tb_head2 {
+       font-family: 'Open Sans', sans-serif;
+        font-size: 0.875em;
+        color: #898989;
+        line-height: 26px;
+        padding: 5px;
+        width:30%
+    }
+
+    .tb_head4 {
+        padding: 8px;
+        text-align: left;
+        border: 1px solid white;
+    }
+    tr {
+    border-bottom:1px solid #CCCCCC
+    }
+</style>
+
+<div class="white_bg right_side col-lg-8 col-md-8 col-sm-12 col-xs-12 pull-right h1s" style="margin-top: 50px;">
+    <div class="clear_fix"></div>
+    <h1 style="margin-left: 30px !important">Points and Surcharges in New Jersey</h1>
+    <div class="bottom_tab">
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#tab_3" data-toggle="tab" aria-expanded="true">NJSA Point Scale</a></li>
+            <li class=""><a href="#tab_1" data-toggle="tab" aria-expanded="false">Surcharges</a></li>
+            <li class=""><a href="#tab_2" data-toggle="tab" aria-expanded="false">Additional surcharges:</a></li>
+
+        </ul>
+        <div class="tab-content bottom_tab_info">
+            <div class="tab-pane fade  active in" id="tab_3">
+                <div class="table-responsive">
+                    <table class="tb" style="margin-top:20px">
+                        <tr class="tb_head">
+                            <td colspan="3">NJSA POINT SCALE</td>
+                        </tr>
+                        <tr class="tb_head">
+                            <td colspan="3">New Jersey Turnpike, Garden State Parkway and Atlantic City Expressway</td>
+                        </tr>
+                        <tr class="tb_head">
+                            <td class="tb_head4">NJSA Section</td>
+                            <td class="tb_head4">Offense</td>
+                            <td class="tb_head4">Points</td>
+                        </tr>
+
+                        <tr>
+                            <td class="tb_head2">27:23-29</td>
+                            <td class="tb_head2">Moving against traffic</td>
+                            <td class="tb_head2">2</td>
+                        </tr>
+
+                        <tr>
+                            <td class="tb_head2">27:23-29</td>
+                            <td class="tb_head2">Improper passing</td>
+                            <td class="tb_head2">4</td>
+                        </tr>
+
+                        <tr>
+                            <td class="tb_head2">27:23-29</td>
+                            <td class="tb_head2">Unlawful use of median strip</td>
+                            <td class="tb_head2">2</td>
+                        </tr>
+
+                        <tr class="tb_head">
+                            <td colspan="3">All roads and highways</td>
+                        </tr>
+                        <tr class="tb_head">
+                            <td class="tb_head4">NJSA Section</td>
+                            <td class="tb_head4">Offense</td>
+                            <td class="tb_head4">Points</td>
+                        </tr>
+                        <tr><td class="tb_head2">39:3-20</td>	<td class="tb_head2">Operating constructor vehicle in excess of 45 mph</td>	<td class="tb_head2">3</td></tr>
+                        <tr><td class="tb_head2">39:4-14.3</td>	<td class="tb_head2">Operating motorized bicycle on a restricted highway</td>	<td class="tb_head2">2</td></tr>
+                        <tr><td class="tb_head2">39:4-14.3d</td><td class="tb_head2"> 	More than one person on a motorized bicycle</td><td class="tb_head2">	2</td></tr>
+                        <tr><td class="tb_head2">39:4-35</td><td class="tb_head2">	Failure to yield to pedestrian in crosswalk</td><td class="tb_head2">	2</td></tr>
+                        <tr>
+                            <td class="tb_head2">39:4-36</td>
+                            <td class="tb_head2">
+                                Failure to yield to pedestrian in crosswalk;
+                                passing a vehicle yielding to pedestrian in crosswalk
+                            </td>
+                            <td class="tb_head2">	2</td>
+                        </tr>
+                        <tr><td class="tb_head2">39:4- 41</td><td class="tb_head2">	Driving through safety zone</td><td class="tb_head2">	2</td></tr>
+                        <tr><td class="tb_head2">39:4-52</td><td class="tb_head2"> 	Racing on highway</td><td class="tb_head2">	5</td></tr>
+                        <tr><td class="tb_head2">39:4-55 </td><td class="tb_head2">	Improper action or omission on grades and curves</td><td class="tb_head2">	2</td></tr>
+
+                        <tr><td class="tb_head2">39:4-57</td>	<td class="tb_head2">Failure to observe direction of officer</td><td class="tb_head2">	2</td></tr>
+                        <tr><td class="tb_head2">39:4-66</td><td class="tb_head2">	Failure to stop vehicle before crossing sidewalk</td><td class="tb_head2">	2</td></tr>
+                        <tr><td class="tb_head2">39:4-66.1</td><td class="tb_head2">Failure to yield to pedestrians or vehicles while entering or leaving highway</td><td class="tb_head2">2</td></tr>
+                        <tr><td class="tb_head2">39:4-66.2</td>	<td class="tb_head2">Driving on public or private property to avoid a traffic sign or signal</td><td class="tb_head2">2</td></tr>
+                        <tr><td class="tb_head2">39:4-71</td>	<td class="tb_head2">Operating a motor vehicle on a sidewalk	</td><td class="tb_head2">2</td></tr>
+                        <tr><td class="tb_head2">39:4-80</td><td class="tb_head2">	Failure to obey direction of officer</td><td class="tb_head2">	2</td></tr>
+                        <tr><td class="tb_head2">39:4-81</td><td class="tb_head2">	Failure to observe traffic signals</td><td class="tb_head2">	2</td></tr>
+                        <tr><td class="tb_head2">39:4-82</td><td class="tb_head2">	Failure to keep right</td><td class="tb_head2">	2</td></tr>
+                        <tr><td class="tb_head2">39:4-82.1</td><td class="tb_head2">	Improper operating of vehicle on divided highway or divider</td><td class="tb_head2">	2</td></tr>
+                        <tr><td class="tb_head2">39:4-83</td><td class="tb_head2">	Failure to keep right at intersection</td><td class="tb_head2">	2</td></tr>
+                        <tr><td class="tb_head2">39:4-84</td><td class="tb_head2">	Failure to pass to right of vehicle proceeding in opposite direction</td><td class="tb_head2">	5</td></tr>
+                        <tr><td class="tb_head2">39:4-85</td> <td class="tb_head2">Improper passing on right or off roadway</td>	<td class="tb_head2">4</td></tr>
+                        <tr><td class="tb_head2">39:4-85.1</td>	<td class="tb_head2">Wrong way on a one-way street</td><td class="tb_head2">	2</td></tr>
+                        <tr><td class="tb_head2">39:4-86</td><td class="tb_head2">	Improper passing in no passing zone</td><td class="tb_head2">	4</td></tr>
+                        <tr><td class="tb_head2">39:4-87</td><td class="tb_head2">	Failure to yield to overtaking vehicle</td><td class="tb_head2">	2</td></tr>
+                        <tr><td class="tb_head2">39:4-88</td><td class="tb_head2">	Failure to observe traffic lanes</td><td class="tb_head2">	2</td></tr>
+                        <tr><td class="tb_head2">39:4-89</td><td class="tb_head2">	Tailgating</td><td class="tb_head2">5</td></tr>
+                        <tr><td class="tb_head2">39:4-90 </td><td class="tb_head2">	Failure to yield at intersection</td><td class="tb_head2">	2</td></tr>
+                        <tr><td class="tb_head2">39:4-90.1</td><td class="tb_head2">	Failure to use proper entrances to limited access highways</td><td class="tb_head2">	2</td></tr>
+                        <tr><td class="tb_head2">39:4-91-92</td><td class="tb_head2">	Failure to yield to emergency vehicles</td><td class="tb_head2">	2</td></tr>
+                        <tr><td class="tb_head2">39:4-96</td><td class="tb_head2">	Reckless driving	</td><td class="tb_head2">5</td></tr>
+                        <tr><td class="tb_head2">39:4-97</td><td class="tb_head2">	Careless driving</td><td class="tb_head2">	2</td></tr>
+                        <tr><td class="tb_head2">39:4-97a</td><td class="tb_head2">	Destruction of agricultural or recreational property</td><td class="tb_head2">	2</td></tr>
+                        <tr><td class="tb_head2">39:4-97.1</td><td class="tb_head2">	Slow speed blocking traffic</td><td class="tb_head2">	2</td></tr>
+                        <tr>
+                            <td class="tb_head2">39:4-97.2</td>
+                            <td class="tb_head2">
+                                Driving in an unsafe manner (points only assessed for the
+                                third or subsequent violation(s) within a five-year period.)
+                            </td>
+                            <td class="tb_head2">	4</td>
+                        </tr>
+                        <tr><td class="tb_head2">39:4-98</td><td class="tb_head2">	Exceeding maximum speed 1-14 mph over limit</td><td class="tb_head2">	2</td></tr>
+                        <tr>
+                            <td class="tb_head2">39:4-99</td>
+                            <td class="tb_head2">
+                                Exceeding maximum speed 15-29 mph over limit
+                                Exceeding maximum speed 30 mph or more over limit
+                            </td>
+                            <td class="tb_head2">
+                                4
+                            </td>
+                        </tr>
+                        <tr><td class="tb_head2">39:4-105</td><td class="tb_head2">	Failure to stop for traffic light</td><td class="tb_head2">	2</td></tr>
+                        <tr><td class="tb_head2">39:4-115</td><td class="tb_head2">Improper turn at traffic light</td><td class="tb_head2">	3</td></tr>
+                        <tr><td class="tb_head2">39:4-119</td><td class="tb_head2">	Failure to stop at flashing red signal</td><td class="tb_head2">	2</td></tr>
+                        <tr><td class="tb_head2">39:4-122</td><td class="tb_head2">	Failure to stop for police whistle</td><td class="tb_head2">	2</td></tr>
+                        <tr><td class="tb_head2">39:4-123</td><td class="tb_head2">	Improper right or left turn</td><td class="tb_head2">	3</td></tr>
+                        <tr><td class="tb_head2">39:4-124</td><td class="tb_head2">	Improper turn from approved turning course	</td><td class="tb_head2">3</td></tr>
+                        <tr><td class="tb_head2">39:4-125</td><td class="tb_head2">	Improper U-turn</td><td class="tb_head2">	3</td></tr>
+                        <tr><td class="tb_head2">39:4-126</td><td class="tb_head2">	Failure to give proper signal</td><td class="tb_head2">	2</td></tr>
+                        <tr><td class="tb_head2">39:4-127</td><td class="tb_head2">	Improper backing or turning in street</td><td class="tb_head2">	2</td></tr>
+                        <tr><td class="tb_head2">39:4-127.1</td><td class="tb_head2"> 	Improper crossing of railroad grade crossing</td><td class="tb_head2">	2</td></tr>
+                        <tr><td class="tb_head2">39:4-127.2</td><td class="tb_head2"> 	Improper crossing of bridge</td><td class="tb_head2">	2</td></tr>
+                        <tr><td class="tb_head2">39:4-128</td><td class="tb_head2">	Improper crossing of railroad grade crossing by certain vehicles</td><td class="tb_head2">	2</td></tr>
+                        <tr><td class="tb_head2">39:4-128.1</td><td class="tb_head2">	Improper passing of school bus</td><td class="tb_head2">	5</td></tr>
+                        <tr><td class="tb_head2">39:4-128.4</td><td class="tb_head2">	Improper passing of frozen dessert truck</td><td class="tb_head2">	4</td></tr>
+                        <tr>
+                            <td class="tb_head2">39:4-129</td>
+                            <td class="tb_head2">Leaving the scene of an accident - No personal injury Personal injury</td>
+                            <td class="tb_head2">2 </td>
+                        </tr>
+                        <tr><td class="tb_head2">39:4-144</td><td class="tb_head2">	Failure to observe stop or yield signs</td><td class="tb_head2">	2</td></tr>
+                        <tr><td class="tb_head2">39:5C-1</td><td class="tb_head2">	Racing on highway</td><td class="tb_head2">	5</td></tr>
+                        <tr><td class="tb_head2">39:5D-4</td><td class="tb_head2">	Moving violation out of state	 </td><td class="tb_head2"></td></tr>
+                    </table>
+					<br/>
+				 <iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2Fstabilelawfirm%2F&width=300&layout=button&action=like&size=small&show_faces=true&share=false&height=80&appId" width="50" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowtransparency="true"></iframe>
+
+                </div>
+            </div>
+            <div class="tab-pane fade" id="tab_1">
+                <h3>Surcharges</h3>
+                <p>If you are assigned points on your Driver License, you will have to pay point surcharges (see below) in addition to any court-imposed fines and penalties.</p>
+                <ul style="list-style-type:disc;margin-left:41px">
+                    <li class="tab_li">Surcharges remain operational as long as a motorist has six or more points on record resulting from violations posted in the preceding three years.</li>
+                    <li class="tab_li">The point total is based on the date the violations are posted to your record, not the date when the violations occurred.</li>
+                    <li class="tab_li">If the surcharge is not paid, MVC will suspend all driving privileges indefinitely and take judgment action filed in the state Superior Court, which may include securing a lien against any real property that you own, a garnishment of your wages, or other similar actions.</li>
+                </ul>
+                <h3>Point surcharges:</h3>
+                <ul style="list-style-type:disc;margin-left:41px">
+                    <li class="tab_li">$150 for six points, and (effective July 1, 2004)</li>
+                    <li class="tab_li">$25 for each additional point
+					<br/>
+				 <iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2Fstabilelawfirm%2F&width=300&layout=button&action=like&size=small&show_faces=true&share=false&height=80&appId" width="50" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowtransparency="true"></iframe>
+					
+					</li>
+                </ul>
+
+            </div>
+            <div class="tab-pane fade" id="tab_2">
+                <h3>Additional surcharges:</h3>
+                <ul style="list-style-type:disc;margin-left:41px">
+                    <li class="tab_li">$100 for driving while unlicensed</li>
+                    <li class="tab_li">$250 for driving while suspended</li>
+                    <li class="tab_li">$100 for failing to insure a MOPED</li>
+                    <li class="tab_li">$250 for operating an uninsured vehicle</li>
+                    <li class="tab_li">$250 for pleading guilty to unsafe driving (court-imposed surcharge)</li>
+                    <li class="tab_li">$1000 a year for three years for driving while intoxicated or refusing to take the breathalizer (first and second offenses).</li>
+                    <li class="tab_li">$1500 a year for three years for driving while intoxicated or refusing to take the breathalizer (third offense).
+					<br/>
+				 <iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2Fstabilelawfirm%2F&width=300&layout=button&action=like&size=small&show_faces=true&share=false&height=80&appId" width="50" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowtransparency="true"></iframe>
+					
+					</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+
+<script>
+    $(function () {
+        $(".menuspan").removeClass("menu-active");
+        $(".ntab").removeClass("active");
+        $("#Points").addClass("active");
+
+    });
+
+</script>
+
+
+

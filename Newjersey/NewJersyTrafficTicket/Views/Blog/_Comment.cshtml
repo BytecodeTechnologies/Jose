@@ -1,0 +1,25 @@
+﻿@model IEnumerable<NewJersyTrafficTicket.Models.CommentModel>
+<div class="comment-box">
+    <h3>Comments <span>@Model.Count()</span></h3>
+
+    <div class="comment-holder">
+
+        @foreach(var row in Model)
+        { 
+
+        <div class="single-comment">
+
+            <div class="content">
+                <h4>@row.Comment_By</h4>
+                <p>@row.Comment_Text</p>
+                <ul class="meta">
+                    <li><a href="#" class="date">@(Convert.ToDateTime(@row.Comment_Date_St).ToString("MMMM")) @(Convert.ToDateTime(@row.Comment_Date_St).Day) @(Convert.ToDateTime(@row.Comment_Date_St).Year)</a></li>
+
+                </ul>
+            </div>
+        </div>
+        }
+
+       
+    </div>
+</div>
