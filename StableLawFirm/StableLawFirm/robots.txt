@@ -1,0 +1,12 @@
+User-agent: *
+
+Disallow: /Suspended-License.aspx
+Disallow: /Restoring-your-license.aspx
+Disallow: /What-to-do-when-stoped-by-police.aspx
+Disallow: /court-imposed-penalties-for-Dui.aspx
+
+
+
+
+
+

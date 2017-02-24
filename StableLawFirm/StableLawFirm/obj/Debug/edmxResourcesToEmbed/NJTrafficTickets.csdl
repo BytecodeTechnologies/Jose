@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="NJTrafficTicketsModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="NJTrafficTicketsEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="tblBlogs" EntityType="NJTrafficTicketsModel.tblBlog" />
+    <EntitySet Name="tblCategories" EntityType="NJTrafficTicketsModel.tblCategory" />
+    <EntitySet Name="tblComments" EntityType="NJTrafficTicketsModel.tblComment" />
+    <EntitySet Name="tblResults" EntityType="NJTrafficTicketsModel.tblResult" />
+    <EntitySet Name="tblUsers" EntityType="NJTrafficTicketsModel.tblUser" />
+    <EntitySet Name="tblUserRoles" EntityType="NJTrafficTicketsModel.tblUserRole" />
+    <AssociationSet Name="FK_tblBlog_tblUser" Association="NJTrafficTicketsModel.FK_tblBlog_tblUser">
+      <End Role="tblCategory" EntitySet="tblCategories" />
+      <End Role="tblBlog" EntitySet="tblBlogs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblComment_tblBlog" Association="NJTrafficTicketsModel.FK_tblComment_tblBlog">
+      <End Role="tblBlog" EntitySet="tblBlogs" />
+      <End Role="tblComment" EntitySet="tblComments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblResult_tblUser" Association="NJTrafficTicketsModel.FK_tblResult_tblUser">
+      <End Role="tblUser" EntitySet="tblUsers" />
+      <End Role="tblResult" EntitySet="tblResults" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblUser_tblUserRole" Association="NJTrafficTicketsModel.FK_tblUser_tblUserRole">
+      <End Role="tblUserRole" EntitySet="tblUserRoles" />
+      <End Role="tblUser" EntitySet="tblUsers" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="tblBlog">
+    <Key>
+      <PropertyRef Name="tblBlog_Id" />
+    </Key>
+    <Property Name="tblBlog_Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Image" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+    <Property Name="Title" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+    <Property Name="Text" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="Post_Date" Type="DateTime" Precision="3" />
+    <Property Name="published_Date" Type="DateTime" Precision="3" />
+    <Property Name="tbluserid" Type="Int32" Nullable="false" />
+    <Property Name="tblCategory_Id" Type="Int32" />
+    <NavigationProperty Name="tblCategory" Relationship="NJTrafficTicketsModel.FK_tblBlog_tblUser" FromRole="tblBlog" ToRole="tblCategory" />
+    <NavigationProperty Name="tblComments" Relationship="NJTrafficTicketsModel.FK_tblComment_tblBlog" FromRole="tblBlog" ToRole="tblComment" />
+  </EntityType>
+  <EntityType Name="tblCategory">
+    <Key>
+      <PropertyRef Name="tblCategory_Id" />
+    </Key>
+    <Property Name="tblCategory_Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Caregory_Name" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="tblBlogs" Relationship="NJTrafficTicketsModel.FK_tblBlog_tblUser" FromRole="tblCategory" ToRole="tblBlog" />
+  </EntityType>
+  <EntityType Name="tblComment">
+    <Key>
+      <PropertyRef Name="Comment_Id" />
+    </Key>
+    <Property Name="Comment_Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Comment_Text" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="Comment_Date" Type="DateTime" Precision="3" />
+    <Property Name="Comment_By" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="Comment_Email" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="Blog_Id" Type="Int32" />
+    <Property Name="Isapproved" Type="Int32" />
+    <NavigationProperty Name="tblBlog" Relationship="NJTrafficTicketsModel.FK_tblComment_tblBlog" FromRole="tblComment" ToRole="tblBlog" />
+  </EntityType>
+  <EntityType Name="tblResult">
+    <Key>
+      <PropertyRef Name="tblResultId" />
+    </Key>
+    <Property Name="tblResultId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Result_Text" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="Result_Date" Type="DateTime" Precision="3" />
+    <Property Name="Result_Heading" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+    <Property Name="tblUserId" Type="Int32" />
+    <NavigationProperty Name="tblUser" Relationship="NJTrafficTicketsModel.FK_tblResult_tblUser" FromRole="tblResult" ToRole="tblUser" />
+  </EntityType>
+  <EntityType Name="tblUser">
+    <Key>
+      <PropertyRef Name="tblUserId" />
+    </Key>
+    <Property Name="tblUserId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="tblUserRoleId" Type="Int32" />
+    <Property Name="UserName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Password" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="tblResults" Relationship="NJTrafficTicketsModel.FK_tblResult_tblUser" FromRole="tblUser" ToRole="tblResult" />
+    <NavigationProperty Name="tblUserRole" Relationship="NJTrafficTicketsModel.FK_tblUser_tblUserRole" FromRole="tblUser" ToRole="tblUserRole" />
+  </EntityType>
+  <EntityType Name="tblUserRole">
+    <Key>
+      <PropertyRef Name="tblUserRoleId" />
+    </Key>
+    <Property Name="tblUserRoleId" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+    <NavigationProperty Name="tblUsers" Relationship="NJTrafficTicketsModel.FK_tblUser_tblUserRole" FromRole="tblUserRole" ToRole="tblUser" />
+  </EntityType>
+  <Association Name="FK_tblBlog_tblUser">
+    <End Role="tblCategory" Type="NJTrafficTicketsModel.tblCategory" Multiplicity="0..1" />
+    <End Role="tblBlog" Type="NJTrafficTicketsModel.tblBlog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblCategory">
+        <PropertyRef Name="tblCategory_Id" />
+      </Principal>
+      <Dependent Role="tblBlog">
+        <PropertyRef Name="tblCategory_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblComment_tblBlog">
+    <End Role="tblBlog" Type="NJTrafficTicketsModel.tblBlog" Multiplicity="0..1" />
+    <End Role="tblComment" Type="NJTrafficTicketsModel.tblComment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblBlog">
+        <PropertyRef Name="tblBlog_Id" />
+      </Principal>
+      <Dependent Role="tblComment">
+        <PropertyRef Name="Blog_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblResult_tblUser">
+    <End Role="tblUser" Type="NJTrafficTicketsModel.tblUser" Multiplicity="0..1" />
+    <End Role="tblResult" Type="NJTrafficTicketsModel.tblResult" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblUser">
+        <PropertyRef Name="tblUserId" />
+      </Principal>
+      <Dependent Role="tblResult">
+        <PropertyRef Name="tblUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblUser_tblUserRole">
+    <End Role="tblUserRole" Type="NJTrafficTicketsModel.tblUserRole" Multiplicity="0..1" />
+    <End Role="tblUser" Type="NJTrafficTicketsModel.tblUser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblUserRole">
+        <PropertyRef Name="tblUserRoleId" />
+      </Principal>
+      <Dependent Role="tblUser">
+        <PropertyRef Name="tblUserRoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

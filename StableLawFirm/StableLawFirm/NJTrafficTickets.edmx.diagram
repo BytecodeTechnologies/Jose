@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f21eb228320b4e199c60019d75c8b1e9" Name="Diagram1">
+        <EntityTypeShape EntityType="NJTrafficTicketsModel.tblBlog" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="NJTrafficTicketsModel.tblCategory" Width="1.5" PointX="0.75" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="NJTrafficTicketsModel.tblComment" Width="1.5" PointX="5.25" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="NJTrafficTicketsModel.tblResult" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="NJTrafficTicketsModel.tblUser" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="NJTrafficTicketsModel.tblUserRole" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
+        <AssociationConnector Association="NJTrafficTicketsModel.FK_tblBlog_tblUser" ManuallyRouted="false" />
+        <AssociationConnector Association="NJTrafficTicketsModel.FK_tblComment_tblBlog" ManuallyRouted="false" />
+        <AssociationConnector Association="NJTrafficTicketsModel.FK_tblResult_tblUser" ManuallyRouted="false" />
+        <AssociationConnector Association="NJTrafficTicketsModel.FK_tblUser_tblUserRole" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,376 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="NJTrafficTicketsModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="NJTrafficTicketsModelStoreContainer">
+          <EntitySet Name="tblBlog" EntityType="NJTrafficTicketsModel.Store.tblBlog" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tblCategory" EntityType="NJTrafficTicketsModel.Store.tblCategory" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tblComment" EntityType="NJTrafficTicketsModel.Store.tblComment" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tblResult" EntityType="NJTrafficTicketsModel.Store.tblResult" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tblUser" EntityType="NJTrafficTicketsModel.Store.tblUser" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tblUserRole" EntityType="NJTrafficTicketsModel.Store.tblUserRole" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_tblBlog_tblUser" Association="NJTrafficTicketsModel.Store.FK_tblBlog_tblUser">
+            <End Role="tblCategory" EntitySet="tblCategory" />
+            <End Role="tblBlog" EntitySet="tblBlog" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblComment_tblBlog" Association="NJTrafficTicketsModel.Store.FK_tblComment_tblBlog">
+            <End Role="tblBlog" EntitySet="tblBlog" />
+            <End Role="tblComment" EntitySet="tblComment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblResult_tblUser" Association="NJTrafficTicketsModel.Store.FK_tblResult_tblUser">
+            <End Role="tblUser" EntitySet="tblUser" />
+            <End Role="tblResult" EntitySet="tblResult" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblUser_tblUserRole" Association="NJTrafficTicketsModel.Store.FK_tblUser_tblUserRole">
+            <End Role="tblUserRole" EntitySet="tblUserRole" />
+            <End Role="tblUser" EntitySet="tblUser" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="tblBlog">
+          <Key>
+            <PropertyRef Name="tblBlog_Id" />
+          </Key>
+          <Property Name="tblBlog_Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Image" Type="varchar" MaxLength="500" />
+          <Property Name="Title" Type="varchar" MaxLength="500" />
+          <Property Name="Text" Type="varchar(max)" />
+          <Property Name="Post_Date" Type="datetime" />
+          <Property Name="published_Date" Type="datetime" />
+          <Property Name="tbluserid" Type="int" Nullable="false" />
+          <Property Name="tblCategory_Id" Type="int" />
+        </EntityType>
+        <EntityType Name="tblCategory">
+          <Key>
+            <PropertyRef Name="tblCategory_Id" />
+          </Key>
+          <Property Name="tblCategory_Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Caregory_Name" Type="varchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tblComment">
+          <Key>
+            <PropertyRef Name="Comment_Id" />
+          </Key>
+          <Property Name="Comment_Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Comment_Text" Type="varchar(max)" />
+          <Property Name="Comment_Date" Type="datetime" />
+          <Property Name="Comment_By" Type="varchar" MaxLength="200" />
+          <Property Name="Comment_Email" Type="varchar" MaxLength="100" />
+          <Property Name="Blog_Id" Type="int" />
+          <Property Name="Isapproved" Type="int" />
+        </EntityType>
+        <EntityType Name="tblResult">
+          <Key>
+            <PropertyRef Name="tblResultId" />
+          </Key>
+          <Property Name="tblResultId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Result_Text" Type="varchar(max)" />
+          <Property Name="Result_Date" Type="datetime" />
+          <Property Name="Result_Heading" Type="varchar" MaxLength="500" />
+          <Property Name="tblUserId" Type="int" />
+        </EntityType>
+        <EntityType Name="tblUser">
+          <Key>
+            <PropertyRef Name="tblUserId" />
+          </Key>
+          <Property Name="tblUserId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="tblUserRoleId" Type="int" />
+          <Property Name="UserName" Type="varchar" MaxLength="50" />
+          <Property Name="Password" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tblUserRole">
+          <Key>
+            <PropertyRef Name="tblUserRoleId" />
+          </Key>
+          <Property Name="tblUserRoleId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <Association Name="FK_tblBlog_tblUser">
+          <End Role="tblCategory" Type="NJTrafficTicketsModel.Store.tblCategory" Multiplicity="0..1" />
+          <End Role="tblBlog" Type="NJTrafficTicketsModel.Store.tblBlog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCategory">
+              <PropertyRef Name="tblCategory_Id" />
+            </Principal>
+            <Dependent Role="tblBlog">
+              <PropertyRef Name="tblCategory_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblComment_tblBlog">
+          <End Role="tblBlog" Type="NJTrafficTicketsModel.Store.tblBlog" Multiplicity="0..1" />
+          <End Role="tblComment" Type="NJTrafficTicketsModel.Store.tblComment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblBlog">
+              <PropertyRef Name="tblBlog_Id" />
+            </Principal>
+            <Dependent Role="tblComment">
+              <PropertyRef Name="Blog_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblResult_tblUser">
+          <End Role="tblUser" Type="NJTrafficTicketsModel.Store.tblUser" Multiplicity="0..1" />
+          <End Role="tblResult" Type="NJTrafficTicketsModel.Store.tblResult" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUser">
+              <PropertyRef Name="tblUserId" />
+            </Principal>
+            <Dependent Role="tblResult">
+              <PropertyRef Name="tblUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblUser_tblUserRole">
+          <End Role="tblUserRole" Type="NJTrafficTicketsModel.Store.tblUserRole" Multiplicity="0..1" />
+          <End Role="tblUser" Type="NJTrafficTicketsModel.Store.tblUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUserRole">
+              <PropertyRef Name="tblUserRoleId" />
+            </Principal>
+            <Dependent Role="tblUser">
+              <PropertyRef Name="tblUserRoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="NJTrafficTicketsModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="NJTrafficTicketsEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="tblBlogs" EntityType="NJTrafficTicketsModel.tblBlog" />
+          <EntitySet Name="tblCategories" EntityType="NJTrafficTicketsModel.tblCategory" />
+          <EntitySet Name="tblComments" EntityType="NJTrafficTicketsModel.tblComment" />
+          <EntitySet Name="tblResults" EntityType="NJTrafficTicketsModel.tblResult" />
+          <EntitySet Name="tblUsers" EntityType="NJTrafficTicketsModel.tblUser" />
+          <EntitySet Name="tblUserRoles" EntityType="NJTrafficTicketsModel.tblUserRole" />
+          <AssociationSet Name="FK_tblBlog_tblUser" Association="NJTrafficTicketsModel.FK_tblBlog_tblUser">
+            <End Role="tblCategory" EntitySet="tblCategories" />
+            <End Role="tblBlog" EntitySet="tblBlogs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblComment_tblBlog" Association="NJTrafficTicketsModel.FK_tblComment_tblBlog">
+            <End Role="tblBlog" EntitySet="tblBlogs" />
+            <End Role="tblComment" EntitySet="tblComments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblResult_tblUser" Association="NJTrafficTicketsModel.FK_tblResult_tblUser">
+            <End Role="tblUser" EntitySet="tblUsers" />
+            <End Role="tblResult" EntitySet="tblResults" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblUser_tblUserRole" Association="NJTrafficTicketsModel.FK_tblUser_tblUserRole">
+            <End Role="tblUserRole" EntitySet="tblUserRoles" />
+            <End Role="tblUser" EntitySet="tblUsers" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="tblBlog">
+          <Key>
+            <PropertyRef Name="tblBlog_Id" />
+          </Key>
+          <Property Name="tblBlog_Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Image" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="Title" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="Text" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="Post_Date" Type="DateTime" Precision="3" />
+          <Property Name="published_Date" Type="DateTime" Precision="3" />
+          <Property Name="tbluserid" Type="Int32" Nullable="false" />
+          <Property Name="tblCategory_Id" Type="Int32" />
+          <NavigationProperty Name="tblCategory" Relationship="NJTrafficTicketsModel.FK_tblBlog_tblUser" FromRole="tblBlog" ToRole="tblCategory" />
+          <NavigationProperty Name="tblComments" Relationship="NJTrafficTicketsModel.FK_tblComment_tblBlog" FromRole="tblBlog" ToRole="tblComment" />
+        </EntityType>
+        <EntityType Name="tblCategory">
+          <Key>
+            <PropertyRef Name="tblCategory_Id" />
+          </Key>
+          <Property Name="tblCategory_Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Caregory_Name" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="tblBlogs" Relationship="NJTrafficTicketsModel.FK_tblBlog_tblUser" FromRole="tblCategory" ToRole="tblBlog" />
+        </EntityType>
+        <EntityType Name="tblComment">
+          <Key>
+            <PropertyRef Name="Comment_Id" />
+          </Key>
+          <Property Name="Comment_Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Comment_Text" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="Comment_Date" Type="DateTime" Precision="3" />
+          <Property Name="Comment_By" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+          <Property Name="Comment_Email" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="Blog_Id" Type="Int32" />
+          <Property Name="Isapproved" Type="Int32" />
+          <NavigationProperty Name="tblBlog" Relationship="NJTrafficTicketsModel.FK_tblComment_tblBlog" FromRole="tblComment" ToRole="tblBlog" />
+        </EntityType>
+        <EntityType Name="tblResult">
+          <Key>
+            <PropertyRef Name="tblResultId" />
+          </Key>
+          <Property Name="tblResultId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Result_Text" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="Result_Date" Type="DateTime" Precision="3" />
+          <Property Name="Result_Heading" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="tblUserId" Type="Int32" />
+          <NavigationProperty Name="tblUser" Relationship="NJTrafficTicketsModel.FK_tblResult_tblUser" FromRole="tblResult" ToRole="tblUser" />
+        </EntityType>
+        <EntityType Name="tblUser">
+          <Key>
+            <PropertyRef Name="tblUserId" />
+          </Key>
+          <Property Name="tblUserId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="tblUserRoleId" Type="Int32" />
+          <Property Name="UserName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Password" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="tblResults" Relationship="NJTrafficTicketsModel.FK_tblResult_tblUser" FromRole="tblUser" ToRole="tblResult" />
+          <NavigationProperty Name="tblUserRole" Relationship="NJTrafficTicketsModel.FK_tblUser_tblUserRole" FromRole="tblUser" ToRole="tblUserRole" />
+        </EntityType>
+        <EntityType Name="tblUserRole">
+          <Key>
+            <PropertyRef Name="tblUserRoleId" />
+          </Key>
+          <Property Name="tblUserRoleId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+          <NavigationProperty Name="tblUsers" Relationship="NJTrafficTicketsModel.FK_tblUser_tblUserRole" FromRole="tblUserRole" ToRole="tblUser" />
+        </EntityType>
+        <Association Name="FK_tblBlog_tblUser">
+          <End Role="tblCategory" Type="NJTrafficTicketsModel.tblCategory" Multiplicity="0..1" />
+          <End Role="tblBlog" Type="NJTrafficTicketsModel.tblBlog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCategory">
+              <PropertyRef Name="tblCategory_Id" />
+            </Principal>
+            <Dependent Role="tblBlog">
+              <PropertyRef Name="tblCategory_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblComment_tblBlog">
+          <End Role="tblBlog" Type="NJTrafficTicketsModel.tblBlog" Multiplicity="0..1" />
+          <End Role="tblComment" Type="NJTrafficTicketsModel.tblComment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblBlog">
+              <PropertyRef Name="tblBlog_Id" />
+            </Principal>
+            <Dependent Role="tblComment">
+              <PropertyRef Name="Blog_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblResult_tblUser">
+          <End Role="tblUser" Type="NJTrafficTicketsModel.tblUser" Multiplicity="0..1" />
+          <End Role="tblResult" Type="NJTrafficTicketsModel.tblResult" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUser">
+              <PropertyRef Name="tblUserId" />
+            </Principal>
+            <Dependent Role="tblResult">
+              <PropertyRef Name="tblUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblUser_tblUserRole">
+          <End Role="tblUserRole" Type="NJTrafficTicketsModel.tblUserRole" Multiplicity="0..1" />
+          <End Role="tblUser" Type="NJTrafficTicketsModel.tblUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUserRole">
+              <PropertyRef Name="tblUserRoleId" />
+            </Principal>
+            <Dependent Role="tblUser">
+              <PropertyRef Name="tblUserRoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="NJTrafficTicketsModelStoreContainer" CdmEntityContainer="NJTrafficTicketsEntities">
+          <EntitySetMapping Name="tblBlogs">
+            <EntityTypeMapping TypeName="NJTrafficTicketsModel.tblBlog">
+              <MappingFragment StoreEntitySet="tblBlog">
+                <ScalarProperty Name="tblBlog_Id" ColumnName="tblBlog_Id" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Text" ColumnName="Text" />
+                <ScalarProperty Name="Post_Date" ColumnName="Post_Date" />
+                <ScalarProperty Name="published_Date" ColumnName="published_Date" />
+                <ScalarProperty Name="tbluserid" ColumnName="tbluserid" />
+                <ScalarProperty Name="tblCategory_Id" ColumnName="tblCategory_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblCategories">
+            <EntityTypeMapping TypeName="NJTrafficTicketsModel.tblCategory">
+              <MappingFragment StoreEntitySet="tblCategory">
+                <ScalarProperty Name="tblCategory_Id" ColumnName="tblCategory_Id" />
+                <ScalarProperty Name="Caregory_Name" ColumnName="Caregory_Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblComments">
+            <EntityTypeMapping TypeName="NJTrafficTicketsModel.tblComment">
+              <MappingFragment StoreEntitySet="tblComment">
+                <ScalarProperty Name="Comment_Id" ColumnName="Comment_Id" />
+                <ScalarProperty Name="Comment_Text" ColumnName="Comment_Text" />
+                <ScalarProperty Name="Comment_Date" ColumnName="Comment_Date" />
+                <ScalarProperty Name="Comment_By" ColumnName="Comment_By" />
+                <ScalarProperty Name="Comment_Email" ColumnName="Comment_Email" />
+                <ScalarProperty Name="Blog_Id" ColumnName="Blog_Id" />
+                <ScalarProperty Name="Isapproved" ColumnName="Isapproved" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblResults">
+            <EntityTypeMapping TypeName="NJTrafficTicketsModel.tblResult">
+              <MappingFragment StoreEntitySet="tblResult">
+                <ScalarProperty Name="tblResultId" ColumnName="tblResultId" />
+                <ScalarProperty Name="Result_Text" ColumnName="Result_Text" />
+                <ScalarProperty Name="Result_Date" ColumnName="Result_Date" />
+                <ScalarProperty Name="Result_Heading" ColumnName="Result_Heading" />
+                <ScalarProperty Name="tblUserId" ColumnName="tblUserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblUsers">
+            <EntityTypeMapping TypeName="NJTrafficTicketsModel.tblUser">
+              <MappingFragment StoreEntitySet="tblUser">
+                <ScalarProperty Name="tblUserId" ColumnName="tblUserId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="tblUserRoleId" ColumnName="tblUserRoleId" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblUserRoles">
+            <EntityTypeMapping TypeName="NJTrafficTicketsModel.tblUserRole">
+              <MappingFragment StoreEntitySet="tblUserRole">
+                <ScalarProperty Name="tblUserRoleId" ColumnName="tblUserRoleId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="StabileLawFirmModelStoreContainer" CdmEntityContainer="StabileLawFirmEntities">
+    <EntitySetMapping Name="STtblBlogs">
+      <EntityTypeMapping TypeName="StabileLawFirmModel.STtblBlog">
+        <MappingFragment StoreEntitySet="STtblBlog">
+          <ScalarProperty Name="tblBlog_Id" ColumnName="tblBlog_Id" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="Post_Date" ColumnName="Post_Date" />
+          <ScalarProperty Name="Published_Date" ColumnName="Published_Date" />
+          <ScalarProperty Name="tbluserid" ColumnName="tbluserid" />
+          <ScalarProperty Name="tblCategory_Id" ColumnName="tblCategory_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="STtblCategories">
+      <EntityTypeMapping TypeName="StabileLawFirmModel.STtblCategory">
+        <MappingFragment StoreEntitySet="STtblCategory">
+          <ScalarProperty Name="tblCategory_Id" ColumnName="tblCategory_Id" />
+          <ScalarProperty Name="caregory_Name" ColumnName="caregory_Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="STtblComments">
+      <EntityTypeMapping TypeName="StabileLawFirmModel.STtblComment">
+        <MappingFragment StoreEntitySet="STtblComment">
+          <ScalarProperty Name="Comment_Id" ColumnName="Comment_Id" />
+          <ScalarProperty Name="Comment_Text" ColumnName="Comment_Text" />
+          <ScalarProperty Name="Comment_Date" ColumnName="Comment_Date" />
+          <ScalarProperty Name="Comment_By" ColumnName="Comment_By" />
+          <ScalarProperty Name="Comment_Email" ColumnName="Comment_Email" />
+          <ScalarProperty Name="Blog_Id" ColumnName="Blog_Id" />
+          <ScalarProperty Name="Isapproved" ColumnName="Isapproved" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="STtblResults">
+      <EntityTypeMapping TypeName="StabileLawFirmModel.STtblResult">
+        <MappingFragment StoreEntitySet="STtblResult">
+          <ScalarProperty Name="tblResultId" ColumnName="tblResultId" />
+          <ScalarProperty Name="Result_Text" ColumnName="Result_Text" />
+          <ScalarProperty Name="Result_Date" ColumnName="Result_Date" />
+          <ScalarProperty Name="Result_Heading" ColumnName="Result_Heading" />
+          <ScalarProperty Name="tblUserId" ColumnName="tblUserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="STtblUsers">
+      <EntityTypeMapping TypeName="StabileLawFirmModel.STtblUser">
+        <MappingFragment StoreEntitySet="STtblUser">
+          <ScalarProperty Name="tblUserId" ColumnName="tblUserId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="tblUserRoleId" ColumnName="tblUserRoleId" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="STtblUserRoles">
+      <EntityTypeMapping TypeName="StabileLawFirmModel.STtblUserRole">
+        <MappingFragment StoreEntitySet="STtblUserRole">
+          <ScalarProperty Name="tblUserRoleId" ColumnName="tblUserRoleId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
