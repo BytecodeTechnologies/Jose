@@ -1,0 +1,125 @@
+﻿@model IEnumerable<SecureDriving.Models.UserList>
+<style>
+    .lists a {
+        background: #44A1FD;
+        padding: 10px 16px;
+        color: white;
+        font-weight: 600;
+    }
+
+    #CompletedCourseTable {
+        margin: 4px;
+        border-collapse: collapse;
+        width: 1170px;
+        background-color: white;
+        margin: 30px auto;
+    }
+
+    .header {
+        background-color: #44A1FD;
+        font-weight: bold;
+        color: white;
+    }
+
+    #CompletedCourseTable td {
+        padding: 5px;
+    }
+
+    #CompletedCourseTable td {
+        padding-left: 100px;
+    }
+
+    #CompletedCourseTable th {
+        padding-left: 100px;
+    }
+
+    .leftmargin {
+        padding-left: 20px !important;
+    }
+
+    #CompletedCourseTable tr:nth-child(even) {
+        background: #D5DAE0;
+    }
+
+    #CompletedCourseTable tr:nth-child(odd) {
+        background: #fff;
+    }
+    #gridContent {
+    margin-top: 66px;
+}
+</style>
+<div id="gridContent">
+    <div class="col-sm-12">
+        <div class="col-sm-9"></div>
+
+        <div class="col-sm-2">
+            <label>Total Users: @Model.Count()</label>
+        </div>
+        <div class="col-sm-1"></div>
+    </div>
+    <table style="width: 90%; margin-top: !important;" border="1" id="CompletedCourseTable">
+        <tr>
+            <th style="width: 120px;" class="header leftmargin">
+                <input type="checkbox" id="selectAll" />&nbsp;&nbsp;<label for="selectAll">Select All</label>
+            </th>
+            <th class="header">Name</th>
+            <th class="header">Email</th>
+             <th class="header">Course Completed Date</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td class="leftmargin">
+                    <input type="checkbox" class="ComnCheckboxes" title="@item.Name" value="@item.id" id="@item.id" />
+                </td>
+                <td>@item.Name</td>
+
+
+                <td>@item.Email</td>
+                <td>@Convert.ToDateTime(item.creationDate).ToShortDateString()</td>
+            </tr>
+        }
+    </table>
+    <input type="button" onclick="GenratePdfOfList()" value="Genrate Certificate" class="btn btn-primary" style="margin-left: 40%; margin-top: 30px;">
+    <input type="hidden" id="hdnChkValue" />
+</div>
+<script src="~/Scripts/jquery-1.9.1.js"></script>
+<script src="~/Scripts/jquery-1.9.1.min.js"></script>
+<script>
+
+    $('#selectAll').click(function (e) {
+
+        $(this).closest('table').find('td input:checkbox').prop('checked', this.checked);
+    });
+
+    function GenratePdfOfList() {
+        $('.loadercont').fadeIn();
+        var val = "";
+        var allVals = [];
+        $('.ComnCheckboxes:checked').each(function () {
+            allVals.push($(this).val());
+        });
+        if (allVals.length == 0) {
+            alert("Please Choose Records");
+            $('.loadercont').fadeOut();
+            return;
+        }
+        $("#hdnChkValue").val(allVals);
+        val = $("#hdnChkValue").val();
+        $.ajax({
+            type: "POST",
+            url: "/Admin/CheckedUserList",
+            data: { List: val },
+            dataType: "json",
+            success: function (data) {
+                $('.loadercont').fadeOut();
+                window.open(data, '_blank');
+            },
+            error: function (data) {
+                $('.loadercont').fadeOut();
+            }
+        });
+    }
+</script>
+
+

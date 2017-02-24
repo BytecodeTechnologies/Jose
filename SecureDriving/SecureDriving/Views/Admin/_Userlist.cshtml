@@ -1,0 +1,131 @@
+﻿@model IEnumerable<SecureDriving.Models.UserList>
+@using System.Web.Helpers;
+
+@{
+    var grid = new WebGrid(Model, canPage: true, rowsPerPage: 10,
+    selectionFieldName: "selectedRow", ajaxUpdateContainerId: "gridContent");
+    grid.Pager(WebGridPagerModes.NextPrevious);}
+<div id="gridContent">
+    <div class="col-sm-12">
+        <div class="col-sm-9"></div>
+
+        <div class="col-sm-2">
+            <label>Total Users: @Model.Count()</label>
+        </div>
+        <div class="col-sm-1"></div>
+    </div>
+    @grid.GetHtml(tableStyle: "webGrid",
+            headerStyle: "header",
+            alternatingRowStyle: "alt",
+            selectedRowStyle: "select",
+            columns: grid.Columns(
+            grid.Column("creationDate", "DateTime"),
+              grid.Column(
+               header: "FullName",
+                     format: (item) =>
+                          {
+                              var template = "<a href='#' id='" + item.id + "' onclick='GetUserInfo(this.id);'>" + item.Name + "</a> ";
+                              //var template = "<a href='/Admin/UserInfo/" + item.id + "' id='" + item.id + "' >" + item.Name + "</a> ";
+                              return Html.Raw(template);
+                          }
+    ),
+            //grid.Column("Name", "FullName"),
+            grid.Column("Email", "Email"),
+            grid.Column("Password", "Password"),
+                    grid.Column(
+                    header: "Status",
+                    format: (item) =>
+                    {
+                        if (item.Active == "1")
+                        {
+                            var template = "Active";
+                            return Html.Raw(template);
+                        }
+                        else
+                        {
+                            var template = "Inactive";
+                            return Html.Raw(template);
+                        }
+                    }
+                    ),
+                    grid.Column(
+                    header: "Operation",
+                    format: (item) =>
+                    {
+                        if (item.Active == "1")
+                        {
+                            var template = "<a href='#' id='" + item.id + "' onclick='DeActivateUser(this.id);'>Deactivate</a> ";
+                            return Html.Raw(template);
+                        }
+                        else
+                        {
+                            var template = "<a href='#' id='" + item.id + "' onclick='ActivateUser(this.id);'>Activate</a> ";
+                            return Html.Raw(template);
+                        }
+                    }
+                    ),
+                     grid.Column(
+                    header: "CourseCompleted",
+                    format: (item) =>
+                    {
+                        if (item.Iscompleted == false)
+                        {
+                            var template = "<a href='#' id='" + item.id + "' onclick='CourseCompleted(this.id);'>Mark if completed</a> ";
+                            return Html.Raw(template);
+                        }
+                        else
+                        {
+                            return Html.Label("");
+                        }
+                    }
+                    ),
+                    
+                     grid.Column(
+                        header: "Delete",
+                        format: (item) =>
+                            {
+                                if (item.Active == "1")
+                                {
+                                    return Html.Label("");
+                                }
+                                else
+                                {
+                                    var template = "<a href='#' id='" + item.id + "' onclick='DeleteUser(this.id);'>Delete</a> ";
+                                    return Html.Raw(template);
+                                }
+                            }
+                    ),
+                     grid.Column(
+                    header: "ChangeRole",
+                    format: (item) =>
+                    {
+                        if (item.Role == 1)
+                        {
+                            var template = "<a href='#' id='" + item.id + "' onclick='ChangeToAdmin(this.id);'>Admin</a> ";
+                            return Html.Raw(template);
+                        }
+                        else
+                        {
+                            var template = "<a href='#' id='" + item.id + "' onclick='ChangeToUser(this.id);'>Regular User</a> ";
+                            return Html.Raw(template);
+                        }
+                    }
+                    ),
+                    grid.Column(
+                       header: "PDF",
+                             format: (item) =>
+                                  {
+                                      var template = "<a href='#' id='" + item.id + "' onclick='GenratePdf(this.id);'>GenratePDF</a> ";
+                                      return Html.Raw(template);
+                                  }
+            )
+           
+
+             ))
+
+</div>
+<script type="text/javascript">
+    $(function () {
+
+    });
+</script>

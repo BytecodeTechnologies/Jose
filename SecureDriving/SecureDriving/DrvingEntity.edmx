@@ -1,0 +1,780 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="dd_databaseModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="dd_databaseModelStoreContainer">
+          <EntitySet Name="blogcoment" EntityType="dd_databaseModel.Store.blogcoment" store:Type="Tables" store:Schema="dbo" store:Name="blogcoment">
+            <DefiningQuery>SELECT 
+      [blogcoment].[vcodcoment] AS [vcodcoment], 
+      [blogcoment].[vcodusua] AS [vcodusua], 
+      [blogcoment].[vcodpost] AS [vcodpost], 
+      [blogcoment].[vdescoment] AS [vdescoment], 
+      [blogcoment].[dfecregi] AS [dfecregi], 
+      [blogcoment].[vestregi] AS [vestregi]
+      FROM [dbo].[blogcoment] AS [blogcoment]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="blogpost" EntityType="dd_databaseModel.Store.blogpost" store:Type="Tables" store:Schema="dbo" store:Name="blogpost">
+            <DefiningQuery>SELECT 
+      [blogpost].[vcodpost] AS [vcodpost], 
+      [blogpost].[vtitulo] AS [vtitulo], 
+      [blogpost].[vcontenido] AS [vcontenido], 
+      [blogpost].[vimagen] AS [vimagen], 
+      [blogpost].[vimgubic] AS [vimgubic], 
+      [blogpost].[vlabel] AS [vlabel], 
+      [blogpost].[dfecregi] AS [dfecregi], 
+      [blogpost].[vestregi] AS [vestregi]
+      FROM [dbo].[blogpost] AS [blogpost]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="casos" EntityType="dd_databaseModel.Store.casos" store:Type="Tables" store:Schema="dbo" store:Name="casos">
+            <DefiningQuery>SELECT 
+      [casos].[vcodcaso] AS [vcodcaso], 
+      [casos].[vcodusua] AS [vcodusua], 
+      [casos].[vname] AS [vname], 
+      [casos].[vcourt] AS [vcourt], 
+      [casos].[vtype] AS [vtype], 
+      [casos].[vinter] AS [vinter], 
+      [casos].[ntotal] AS [ntotal], 
+      [casos].[npaid] AS [npaid], 
+      [casos].[nbalan] AS [nbalan], 
+      [casos].[vfile] AS [vfile], 
+      [casos].[vcom] AS [vcom], 
+      [casos].[dfecregi] AS [dfecregi], 
+      [casos].[vestregi] AS [vestregi]
+      FROM [dbo].[casos] AS [casos]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="casos1" EntityType="dd_databaseModel.Store.casos1" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="client" EntityType="dd_databaseModel.Store.client" store:Type="Tables" store:Schema="dbo" store:Name="client">
+            <DefiningQuery>SELECT 
+      [client].[vcodcli] AS [vcodcli], 
+      [client].[vnomcli] AS [vnomcli], 
+      [client].[vapecli] AS [vapecli], 
+      [client].[vdircli] AS [vdircli], 
+      [client].[vtelcli] AS [vtelcli], 
+      [client].[vfecnaci] AS [vfecnaci], 
+      [client].[dfecregi] AS [dfecregi], 
+      [client].[vestregi] AS [vestregi]
+      FROM [dbo].[client] AS [client]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="client1" EntityType="dd_databaseModel.Store.client1" store:Type="Tables" store:Schema="dbo" store:Name="client1">
+            <DefiningQuery>SELECT 
+      [client1].[vcodcli] AS [vcodcli], 
+      [client1].[vnomcli] AS [vnomcli], 
+      [client1].[vapecli] AS [vapecli], 
+      [client1].[vdircli] AS [vdircli], 
+      [client1].[vtelcli] AS [vtelcli], 
+      [client1].[vfecnaci] AS [vfecnaci], 
+      [client1].[dfecregi] AS [dfecregi], 
+      [client1].[vestregi] AS [vestregi]
+      FROM [dbo].[client1] AS [client1]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="court" EntityType="dd_databaseModel.Store.court" store:Type="Tables" store:Schema="dbo" store:Name="court">
+            <DefiningQuery>SELECT 
+      [court].[ncodcort] AS [ncodcort], 
+      [court].[ncodusua] AS [ncodusua], 
+      [court].[nnomcort] AS [nnomcort], 
+      [court].[vdircort] AS [vdircort], 
+      [court].[vtelcort] AS [vtelcort], 
+      [court].[vdet] AS [vdet], 
+      [court].[dfecregi] AS [dfecregi], 
+      [court].[vestregi] AS [vestregi]
+      FROM [dbo].[court] AS [court]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="court1" EntityType="dd_databaseModel.Store.court1" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="emails" EntityType="dd_databaseModel.Store.emails" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="usuarios" EntityType="dd_databaseModel.Store.usuarios" store:Type="Tables" store:Schema="dbo" store:Name="usuarios">
+            <DefiningQuery>SELECT 
+      [usuarios].[vcodusua] AS [vcodusua], 
+      [usuarios].[vtipo] AS [vtipo], 
+      [usuarios].[vnomusua] AS [vnomusua], 
+      [usuarios].[vcon] AS [vcon], 
+      [usuarios].[vnom] AS [vnom], 
+      [usuarios].[vape] AS [vape], 
+      [usuarios].[vmail] AS [vmail], 
+      [usuarios].[vfecnaci] AS [vfecnaci], 
+      [usuarios].[dfecregi] AS [dfecregi], 
+      [usuarios].[vestregi] AS [vestregi]
+      FROM [dbo].[usuarios] AS [usuarios]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="video_usuarios" EntityType="dd_databaseModel.Store.video_usuarios" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="video_usuarios_tipo" EntityType="dd_databaseModel.Store.video_usuarios_tipo" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_video_usuarios_video_usuarios_tipo" Association="dd_databaseModel.Store.FK_video_usuarios_video_usuarios_tipo">
+            <End Role="video_usuarios_tipo" EntitySet="video_usuarios_tipo" />
+            <End Role="video_usuarios" EntitySet="video_usuarios" />
+          </AssociationSet>
+        </EntityContainer>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'dd_newdatabase.dbo.blogcoment' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="blogcoment">
+          <Key>
+            <PropertyRef Name="vcodcoment" />
+            <PropertyRef Name="vcodusua" />
+          </Key>
+          <Property Name="vcodcoment" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="vcodusua" Type="int" Nullable="false" />
+          <Property Name="vcodpost" Type="int" />
+          <Property Name="vdescoment" Type="text" />
+          <Property Name="dfecregi" Type="datetime" />
+          <Property Name="vestregi" Type="char" MaxLength="1" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'dd_newdatabase.dbo.blogpost' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="blogpost">
+          <Key>
+            <PropertyRef Name="vcodpost" />
+          </Key>
+          <Property Name="vcodpost" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="vtitulo" Type="varchar" MaxLength="255" />
+          <Property Name="vcontenido" Type="text" />
+          <Property Name="vimagen" Type="varchar" MaxLength="50" />
+          <Property Name="vimgubic" Type="char" MaxLength="1" />
+          <Property Name="vlabel" Type="varchar" MaxLength="250" />
+          <Property Name="dfecregi" Type="datetime" />
+          <Property Name="vestregi" Type="char" MaxLength="1" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'dd_newdatabase.dbo.casos' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="casos">
+          <Key>
+            <PropertyRef Name="vcodcaso" />
+          </Key>
+          <Property Name="vcodcaso" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="vcodusua" Type="int" />
+          <Property Name="vname" Type="varchar" MaxLength="255" />
+          <Property Name="vcourt" Type="varchar" MaxLength="255" />
+          <Property Name="vtype" Type="nchar" MaxLength="10" />
+          <Property Name="vinter" Type="varchar" MaxLength="80" />
+          <Property Name="ntotal" Type="numeric" Precision="7" Scale="2" />
+          <Property Name="npaid" Type="numeric" Precision="7" Scale="2" />
+          <Property Name="nbalan" Type="numeric" Precision="7" Scale="2" />
+          <Property Name="vfile" Type="varchar" MaxLength="50" />
+          <Property Name="vcom" Type="text" />
+          <Property Name="dfecregi" Type="datetime" />
+          <Property Name="vestregi" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="casos1">
+          <Key>
+            <PropertyRef Name="vcodcaso" />
+          </Key>
+          <Property Name="vcodcaso" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="vcodusua" Type="int" />
+          <Property Name="vname" Type="varchar" MaxLength="255" />
+          <Property Name="vcourt" Type="varchar" MaxLength="255" />
+          <Property Name="vtype" Type="nchar" MaxLength="10" />
+          <Property Name="vinter" Type="varchar" MaxLength="80" />
+          <Property Name="ntotal" Type="numeric" Precision="7" Scale="2" />
+          <Property Name="npaid" Type="numeric" Precision="7" Scale="2" />
+          <Property Name="nbalan" Type="numeric" Precision="7" Scale="2" />
+          <Property Name="vfile" Type="varchar" MaxLength="50" />
+          <Property Name="vcom" Type="text" />
+          <Property Name="dfecregi" Type="datetime" />
+          <Property Name="vestregi" Type="char" MaxLength="1" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'dd_newdatabase.dbo.client' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="client">
+          <Key>
+            <PropertyRef Name="vcodcli" />
+          </Key>
+          <Property Name="vcodcli" Type="int" Nullable="false" />
+          <Property Name="vnomcli" Type="varchar" MaxLength="50" />
+          <Property Name="vapecli" Type="varchar" MaxLength="50" />
+          <Property Name="vdircli" Type="varchar" MaxLength="250" />
+          <Property Name="vtelcli" Type="varchar" MaxLength="100" />
+          <Property Name="vfecnaci" Type="date" />
+          <Property Name="dfecregi" Type="datetime" />
+          <Property Name="vestregi" Type="char" MaxLength="1" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'dd_newdatabase.dbo.client1' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="client1">
+          <Key>
+            <PropertyRef Name="vcodcli" />
+          </Key>
+          <Property Name="vcodcli" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="vnomcli" Type="varchar" MaxLength="50" />
+          <Property Name="vapecli" Type="varchar" MaxLength="50" />
+          <Property Name="vdircli" Type="varchar" MaxLength="250" />
+          <Property Name="vtelcli" Type="varchar" MaxLength="100" />
+          <Property Name="vfecnaci" Type="date" />
+          <Property Name="dfecregi" Type="datetime" />
+          <Property Name="vestregi" Type="char" MaxLength="1" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'dd_newdatabase.dbo.court' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="court">
+          <Key>
+            <PropertyRef Name="ncodcort" />
+          </Key>
+          <Property Name="ncodcort" Type="int" Nullable="false" />
+          <Property Name="ncodusua" Type="int" />
+          <Property Name="nnomcort" Type="varchar" MaxLength="50" />
+          <Property Name="vdircort" Type="varchar" MaxLength="50" />
+          <Property Name="vtelcort" Type="nchar" MaxLength="10" />
+          <Property Name="vdet" Type="text" />
+          <Property Name="dfecregi" Type="datetime" />
+          <Property Name="vestregi" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="court1">
+          <Key>
+            <PropertyRef Name="ncodcort" />
+          </Key>
+          <Property Name="ncodcort" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ncodusua" Type="int" />
+          <Property Name="nnomcort" Type="varchar" MaxLength="50" />
+          <Property Name="vdircort" Type="varchar" MaxLength="50" />
+          <Property Name="vtelcort" Type="nchar" MaxLength="10" />
+          <Property Name="vdet" Type="text" />
+          <Property Name="dfecregi" Type="datetime" />
+          <Property Name="vestregi" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="emails">
+          <Key>
+            <PropertyRef Name="vcodemail" />
+          </Key>
+          <Property Name="vcodemail" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="vtitle" Type="varchar" MaxLength="10" />
+          <Property Name="vname" Type="varchar" MaxLength="255" />
+          <Property Name="vphome" Type="nchar" MaxLength="20" />
+          <Property Name="vpcell" Type="nchar" MaxLength="20" />
+          <Property Name="vemail" Type="varchar" MaxLength="100" />
+          <Property Name="vcboOff1" Type="varchar" MaxLength="255" />
+          <Property Name="vcboOff2" Type="varchar" MaxLength="255" />
+          <Property Name="vcboOff3" Type="varchar" MaxLength="255" />
+          <Property Name="vcboOff4" Type="varchar" MaxLength="255" />
+          <Property Name="vrdbdd1" Type="varchar" MaxLength="10" />
+          <Property Name="vticket" Type="varchar" MaxLength="20" />
+          <Property Name="vdate" Type="varchar" MaxLength="50" />
+          <Property Name="vcourt" Type="varchar" MaxLength="150" />
+          <Property Name="vestlicen" Type="varchar" MaxLength="150" />
+          <Property Name="vpoints" Type="varchar" MaxLength="150" />
+          <Property Name="vrdbq1" Type="varchar" MaxLength="10" />
+          <Property Name="vrdbq2" Type="varchar" MaxLength="10" />
+          <Property Name="vcomduidwi" Type="varchar" MaxLength="150" />
+          <Property Name="vcomment" Type="varchar" MaxLength="150" />
+          <Property Name="dfecregi" Type="datetime" />
+          <Property Name="vestregi" Type="char" MaxLength="1" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'dd_newdatabase.dbo.usuarios' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="usuarios">
+          <Key>
+            <PropertyRef Name="vcodusua" />
+          </Key>
+          <Property Name="vcodusua" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="vtipo" Type="varchar" MaxLength="50" />
+          <Property Name="vnomusua" Type="varchar" MaxLength="50" />
+          <Property Name="vcon" Type="nchar" MaxLength="10" />
+          <Property Name="vnom" Type="varchar" MaxLength="250" />
+          <Property Name="vape" Type="varchar" MaxLength="250" />
+          <Property Name="vmail" Type="varchar" MaxLength="100" />
+          <Property Name="vfecnaci" Type="date" />
+          <Property Name="dfecregi" Type="datetime" />
+          <Property Name="vestregi" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="video_usuarios">
+          <Key>
+            <PropertyRef Name="ncodusua" />
+          </Key>
+          <Property Name="ncodusua" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="nusuariotipo" Type="int" />
+          <Property Name="vfullname" Type="varchar" MaxLength="250" />
+          <Property Name="vphone" Type="varchar" MaxLength="30" />
+          <Property Name="vcelular" Type="varchar" MaxLength="50" />
+          <Property Name="vemail" Type="varchar" MaxLength="50" />
+          <Property Name="vcomments" Type="text" />
+          <Property Name="vcon" Type="varchar" MaxLength="10" />
+          <Property Name="vcreation" Type="datetime" />
+          <Property Name="vestusuario" Type="varchar" MaxLength="1" />
+          <Property Name="vdeleted" Type="varchar" MaxLength="1" />
+          <Property Name="Address" Type="varchar" MaxLength="100" />
+          <Property Name="NJDL#" Type="varchar" MaxLength="100" />
+          <Property Name="DOB" Type="datetime" />
+          <Property Name="EyeColor" Type="varchar" MaxLength="50" />
+          <Property Name="Gender" Type="varchar" MaxLength="10" />
+          <Property Name="State" Type="varchar" MaxLength="100" />
+          <Property Name="City" Type="varchar" MaxLength="100" />
+          <Property Name="Zip" Type="nvarchar" MaxLength="20" />
+          <Property Name="IsCompleted" Type="bit" Nullable="false" />
+          <Property Name="CourseCompletedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="video_usuarios_tipo">
+          <Key>
+            <PropertyRef Name="nusuariotipo" />
+          </Key>
+          <Property Name="nusuariotipo" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="vdescripcion" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <Association Name="FK_video_usuarios_video_usuarios_tipo">
+          <End Role="video_usuarios_tipo" Type="dd_databaseModel.Store.video_usuarios_tipo" Multiplicity="0..1" />
+          <End Role="video_usuarios" Type="dd_databaseModel.Store.video_usuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="video_usuarios_tipo">
+              <PropertyRef Name="nusuariotipo" />
+            </Principal>
+            <Dependent Role="video_usuarios">
+              <PropertyRef Name="nusuariotipo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="dd_databaseModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="dd_databaseEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="blogcoments" EntityType="dd_databaseModel.blogcoment" />
+          <EntitySet Name="blogposts" EntityType="dd_databaseModel.blogpost" />
+          <EntitySet Name="casos" EntityType="dd_databaseModel.caso" />
+          <EntitySet Name="casos1" EntityType="dd_databaseModel.casos1" />
+          <EntitySet Name="clients" EntityType="dd_databaseModel.client" />
+          <EntitySet Name="client1" EntityType="dd_databaseModel.client1" />
+          <EntitySet Name="courts" EntityType="dd_databaseModel.court" />
+          <EntitySet Name="court1" EntityType="dd_databaseModel.court1" />
+          <EntitySet Name="emails" EntityType="dd_databaseModel.email" />
+          <EntitySet Name="usuarios" EntityType="dd_databaseModel.usuario" />
+          <EntitySet Name="video_usuarios_tipo" EntityType="dd_databaseModel.video_usuarios_tipo" />
+          <EntitySet Name="video_usuarios" EntityType="dd_databaseModel.video_usuarios" />
+          <AssociationSet Name="FK_video_usuarios_video_usuarios_tipo" Association="dd_databaseModel.FK_video_usuarios_video_usuarios_tipo">
+            <End Role="video_usuarios_tipo" EntitySet="video_usuarios_tipo" />
+            <End Role="video_usuarios" EntitySet="video_usuarios" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="blogcoment">
+          <Key>
+            <PropertyRef Name="vcodcoment" />
+            <PropertyRef Name="vcodusua" />
+          </Key>
+          <Property Name="vcodcoment" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="vcodusua" Type="Int32" Nullable="false" />
+          <Property Name="vcodpost" Type="Int32" />
+          <Property Name="vdescoment" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="dfecregi" Type="DateTime" Precision="3" />
+          <Property Name="vestregi" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+        </EntityType>
+        <EntityType Name="blogpost">
+          <Key>
+            <PropertyRef Name="vcodpost" />
+          </Key>
+          <Property Name="vcodpost" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="vtitulo" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="vcontenido" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="vimagen" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="vimgubic" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="vlabel" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
+          <Property Name="dfecregi" Type="DateTime" Precision="3" />
+          <Property Name="vestregi" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+        </EntityType>
+        <EntityType Name="caso">
+          <Key>
+            <PropertyRef Name="vcodcaso" />
+          </Key>
+          <Property Name="vcodcaso" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="vcodusua" Type="Int32" />
+          <Property Name="vname" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="vcourt" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="vtype" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+          <Property Name="vinter" Type="String" MaxLength="80" Unicode="false" FixedLength="false" />
+          <Property Name="ntotal" Type="Decimal" Precision="7" Scale="2" />
+          <Property Name="npaid" Type="Decimal" Precision="7" Scale="2" />
+          <Property Name="nbalan" Type="Decimal" Precision="7" Scale="2" />
+          <Property Name="vfile" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="vcom" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="dfecregi" Type="DateTime" Precision="3" />
+          <Property Name="vestregi" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+        </EntityType>
+        <EntityType Name="casos1">
+          <Key>
+            <PropertyRef Name="vcodcaso" />
+          </Key>
+          <Property Name="vcodcaso" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="vcodusua" Type="Int32" />
+          <Property Name="vname" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="vcourt" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="vtype" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+          <Property Name="vinter" Type="String" MaxLength="80" Unicode="false" FixedLength="false" />
+          <Property Name="ntotal" Type="Decimal" Precision="7" Scale="2" />
+          <Property Name="npaid" Type="Decimal" Precision="7" Scale="2" />
+          <Property Name="nbalan" Type="Decimal" Precision="7" Scale="2" />
+          <Property Name="vfile" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="vcom" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="dfecregi" Type="DateTime" Precision="3" />
+          <Property Name="vestregi" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+        </EntityType>
+        <EntityType Name="client">
+          <Key>
+            <PropertyRef Name="vcodcli" />
+          </Key>
+          <Property Name="vcodcli" Type="Int32" Nullable="false" />
+          <Property Name="vnomcli" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="vapecli" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="vdircli" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
+          <Property Name="vtelcli" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="vfecnaci" Type="DateTime" Precision="0" />
+          <Property Name="dfecregi" Type="DateTime" Precision="3" />
+          <Property Name="vestregi" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+        </EntityType>
+        <EntityType Name="client1">
+          <Key>
+            <PropertyRef Name="vcodcli" />
+          </Key>
+          <Property Name="vcodcli" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="vnomcli" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="vapecli" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="vdircli" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
+          <Property Name="vtelcli" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="vfecnaci" Type="DateTime" Precision="0" />
+          <Property Name="dfecregi" Type="DateTime" Precision="3" />
+          <Property Name="vestregi" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+        </EntityType>
+        <EntityType Name="court">
+          <Key>
+            <PropertyRef Name="ncodcort" />
+          </Key>
+          <Property Name="ncodcort" Type="Int32" Nullable="false" />
+          <Property Name="ncodusua" Type="Int32" />
+          <Property Name="nnomcort" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="vdircort" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="vtelcort" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+          <Property Name="vdet" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="dfecregi" Type="DateTime" Precision="3" />
+          <Property Name="vestregi" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+        </EntityType>
+        <EntityType Name="court1">
+          <Key>
+            <PropertyRef Name="ncodcort" />
+          </Key>
+          <Property Name="ncodcort" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="ncodusua" Type="Int32" />
+          <Property Name="nnomcort" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="vdircort" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="vtelcort" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+          <Property Name="vdet" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="dfecregi" Type="DateTime" Precision="3" />
+          <Property Name="vestregi" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+        </EntityType>
+        <EntityType Name="email">
+          <Key>
+            <PropertyRef Name="vcodemail" />
+          </Key>
+          <Property Name="vcodemail" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="vtitle" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="vname" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="vphome" Type="String" MaxLength="20" Unicode="true" FixedLength="true" />
+          <Property Name="vpcell" Type="String" MaxLength="20" Unicode="true" FixedLength="true" />
+          <Property Name="vemail" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="vcboOff1" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="vcboOff2" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="vcboOff3" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="vcboOff4" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="vrdbdd1" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="vticket" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="vdate" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="vcourt" Type="String" MaxLength="150" Unicode="false" FixedLength="false" />
+          <Property Name="vestlicen" Type="String" MaxLength="150" Unicode="false" FixedLength="false" />
+          <Property Name="vpoints" Type="String" MaxLength="150" Unicode="false" FixedLength="false" />
+          <Property Name="vrdbq1" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="vrdbq2" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="vcomduidwi" Type="String" MaxLength="150" Unicode="false" FixedLength="false" />
+          <Property Name="vcomment" Type="String" MaxLength="150" Unicode="false" FixedLength="false" />
+          <Property Name="dfecregi" Type="DateTime" Precision="3" />
+          <Property Name="vestregi" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+        </EntityType>
+        <EntityType Name="usuario">
+          <Key>
+            <PropertyRef Name="vcodusua" />
+          </Key>
+          <Property Name="vcodusua" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="vtipo" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="vnomusua" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="vcon" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+          <Property Name="vnom" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
+          <Property Name="vape" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
+          <Property Name="vmail" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="vfecnaci" Type="DateTime" Precision="0" />
+          <Property Name="dfecregi" Type="DateTime" Precision="3" />
+          <Property Name="vestregi" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+        </EntityType>
+        <EntityType Name="video_usuarios_tipo">
+          <Key>
+            <PropertyRef Name="nusuariotipo" />
+          </Key>
+          <Property Name="nusuariotipo" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="vdescripcion" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="video_usuarios" Relationship="dd_databaseModel.FK_video_usuarios_video_usuarios_tipo" FromRole="video_usuarios_tipo" ToRole="video_usuarios" />
+        </EntityType>
+        <EntityType Name="video_usuarios">
+          <Key>
+            <PropertyRef Name="ncodusua" />
+          </Key>
+          <Property Type="Int32" Name="ncodusua" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="nusuariotipo" />
+          <Property Type="String" Name="vfullname" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="vphone" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="vcelular" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="vemail" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="vcomments" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="vcon" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="vcreation" Precision="3" />
+          <Property Type="String" Name="vestusuario" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="vdeleted" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Address" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="NJDL_" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="DOB" Precision="3" />
+          <Property Type="String" Name="EyeColor" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Gender" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="State" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="City" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Zip" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IsCompleted" Nullable="false" />
+          <Property Type="DateTime" Name="CourseCompletedDate" Precision="3" />
+          <NavigationProperty Name="video_usuarios_tipo" Relationship="dd_databaseModel.FK_video_usuarios_video_usuarios_tipo" FromRole="video_usuarios" ToRole="video_usuarios_tipo" />
+        </EntityType>
+        <Association Name="FK_video_usuarios_video_usuarios_tipo">
+          <End Type="dd_databaseModel.video_usuarios_tipo" Role="video_usuarios_tipo" Multiplicity="0..1" />
+          <End Type="dd_databaseModel.video_usuarios" Role="video_usuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="video_usuarios_tipo">
+              <PropertyRef Name="nusuariotipo" />
+            </Principal>
+            <Dependent Role="video_usuarios">
+              <PropertyRef Name="nusuariotipo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="dd_databaseModelStoreContainer" CdmEntityContainer="dd_databaseEntities">
+          <EntitySetMapping Name="blogcoments">
+            <EntityTypeMapping TypeName="dd_databaseModel.blogcoment">
+              <MappingFragment StoreEntitySet="blogcoment">
+                <ScalarProperty Name="vcodcoment" ColumnName="vcodcoment" />
+                <ScalarProperty Name="vcodusua" ColumnName="vcodusua" />
+                <ScalarProperty Name="vcodpost" ColumnName="vcodpost" />
+                <ScalarProperty Name="vdescoment" ColumnName="vdescoment" />
+                <ScalarProperty Name="dfecregi" ColumnName="dfecregi" />
+                <ScalarProperty Name="vestregi" ColumnName="vestregi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="blogposts">
+            <EntityTypeMapping TypeName="dd_databaseModel.blogpost">
+              <MappingFragment StoreEntitySet="blogpost">
+                <ScalarProperty Name="vcodpost" ColumnName="vcodpost" />
+                <ScalarProperty Name="vtitulo" ColumnName="vtitulo" />
+                <ScalarProperty Name="vcontenido" ColumnName="vcontenido" />
+                <ScalarProperty Name="vimagen" ColumnName="vimagen" />
+                <ScalarProperty Name="vimgubic" ColumnName="vimgubic" />
+                <ScalarProperty Name="vlabel" ColumnName="vlabel" />
+                <ScalarProperty Name="dfecregi" ColumnName="dfecregi" />
+                <ScalarProperty Name="vestregi" ColumnName="vestregi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="casos">
+            <EntityTypeMapping TypeName="dd_databaseModel.caso">
+              <MappingFragment StoreEntitySet="casos">
+                <ScalarProperty Name="vcodcaso" ColumnName="vcodcaso" />
+                <ScalarProperty Name="vcodusua" ColumnName="vcodusua" />
+                <ScalarProperty Name="vname" ColumnName="vname" />
+                <ScalarProperty Name="vcourt" ColumnName="vcourt" />
+                <ScalarProperty Name="vtype" ColumnName="vtype" />
+                <ScalarProperty Name="vinter" ColumnName="vinter" />
+                <ScalarProperty Name="ntotal" ColumnName="ntotal" />
+                <ScalarProperty Name="npaid" ColumnName="npaid" />
+                <ScalarProperty Name="nbalan" ColumnName="nbalan" />
+                <ScalarProperty Name="vfile" ColumnName="vfile" />
+                <ScalarProperty Name="vcom" ColumnName="vcom" />
+                <ScalarProperty Name="dfecregi" ColumnName="dfecregi" />
+                <ScalarProperty Name="vestregi" ColumnName="vestregi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="casos1">
+            <EntityTypeMapping TypeName="dd_databaseModel.casos1">
+              <MappingFragment StoreEntitySet="casos1">
+                <ScalarProperty Name="vcodcaso" ColumnName="vcodcaso" />
+                <ScalarProperty Name="vcodusua" ColumnName="vcodusua" />
+                <ScalarProperty Name="vname" ColumnName="vname" />
+                <ScalarProperty Name="vcourt" ColumnName="vcourt" />
+                <ScalarProperty Name="vtype" ColumnName="vtype" />
+                <ScalarProperty Name="vinter" ColumnName="vinter" />
+                <ScalarProperty Name="ntotal" ColumnName="ntotal" />
+                <ScalarProperty Name="npaid" ColumnName="npaid" />
+                <ScalarProperty Name="nbalan" ColumnName="nbalan" />
+                <ScalarProperty Name="vfile" ColumnName="vfile" />
+                <ScalarProperty Name="vcom" ColumnName="vcom" />
+                <ScalarProperty Name="dfecregi" ColumnName="dfecregi" />
+                <ScalarProperty Name="vestregi" ColumnName="vestregi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="clients">
+            <EntityTypeMapping TypeName="dd_databaseModel.client">
+              <MappingFragment StoreEntitySet="client">
+                <ScalarProperty Name="vcodcli" ColumnName="vcodcli" />
+                <ScalarProperty Name="vnomcli" ColumnName="vnomcli" />
+                <ScalarProperty Name="vapecli" ColumnName="vapecli" />
+                <ScalarProperty Name="vdircli" ColumnName="vdircli" />
+                <ScalarProperty Name="vtelcli" ColumnName="vtelcli" />
+                <ScalarProperty Name="vfecnaci" ColumnName="vfecnaci" />
+                <ScalarProperty Name="dfecregi" ColumnName="dfecregi" />
+                <ScalarProperty Name="vestregi" ColumnName="vestregi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="client1">
+            <EntityTypeMapping TypeName="dd_databaseModel.client1">
+              <MappingFragment StoreEntitySet="client1">
+                <ScalarProperty Name="vcodcli" ColumnName="vcodcli" />
+                <ScalarProperty Name="vnomcli" ColumnName="vnomcli" />
+                <ScalarProperty Name="vapecli" ColumnName="vapecli" />
+                <ScalarProperty Name="vdircli" ColumnName="vdircli" />
+                <ScalarProperty Name="vtelcli" ColumnName="vtelcli" />
+                <ScalarProperty Name="vfecnaci" ColumnName="vfecnaci" />
+                <ScalarProperty Name="dfecregi" ColumnName="dfecregi" />
+                <ScalarProperty Name="vestregi" ColumnName="vestregi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="courts">
+            <EntityTypeMapping TypeName="dd_databaseModel.court">
+              <MappingFragment StoreEntitySet="court">
+                <ScalarProperty Name="ncodcort" ColumnName="ncodcort" />
+                <ScalarProperty Name="ncodusua" ColumnName="ncodusua" />
+                <ScalarProperty Name="nnomcort" ColumnName="nnomcort" />
+                <ScalarProperty Name="vdircort" ColumnName="vdircort" />
+                <ScalarProperty Name="vtelcort" ColumnName="vtelcort" />
+                <ScalarProperty Name="vdet" ColumnName="vdet" />
+                <ScalarProperty Name="dfecregi" ColumnName="dfecregi" />
+                <ScalarProperty Name="vestregi" ColumnName="vestregi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="court1">
+            <EntityTypeMapping TypeName="dd_databaseModel.court1">
+              <MappingFragment StoreEntitySet="court1">
+                <ScalarProperty Name="ncodcort" ColumnName="ncodcort" />
+                <ScalarProperty Name="ncodusua" ColumnName="ncodusua" />
+                <ScalarProperty Name="nnomcort" ColumnName="nnomcort" />
+                <ScalarProperty Name="vdircort" ColumnName="vdircort" />
+                <ScalarProperty Name="vtelcort" ColumnName="vtelcort" />
+                <ScalarProperty Name="vdet" ColumnName="vdet" />
+                <ScalarProperty Name="dfecregi" ColumnName="dfecregi" />
+                <ScalarProperty Name="vestregi" ColumnName="vestregi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="emails">
+            <EntityTypeMapping TypeName="dd_databaseModel.email">
+              <MappingFragment StoreEntitySet="emails">
+                <ScalarProperty Name="vcodemail" ColumnName="vcodemail" />
+                <ScalarProperty Name="vtitle" ColumnName="vtitle" />
+                <ScalarProperty Name="vname" ColumnName="vname" />
+                <ScalarProperty Name="vphome" ColumnName="vphome" />
+                <ScalarProperty Name="vpcell" ColumnName="vpcell" />
+                <ScalarProperty Name="vemail" ColumnName="vemail" />
+                <ScalarProperty Name="vcboOff1" ColumnName="vcboOff1" />
+                <ScalarProperty Name="vcboOff2" ColumnName="vcboOff2" />
+                <ScalarProperty Name="vcboOff3" ColumnName="vcboOff3" />
+                <ScalarProperty Name="vcboOff4" ColumnName="vcboOff4" />
+                <ScalarProperty Name="vrdbdd1" ColumnName="vrdbdd1" />
+                <ScalarProperty Name="vticket" ColumnName="vticket" />
+                <ScalarProperty Name="vdate" ColumnName="vdate" />
+                <ScalarProperty Name="vcourt" ColumnName="vcourt" />
+                <ScalarProperty Name="vestlicen" ColumnName="vestlicen" />
+                <ScalarProperty Name="vpoints" ColumnName="vpoints" />
+                <ScalarProperty Name="vrdbq1" ColumnName="vrdbq1" />
+                <ScalarProperty Name="vrdbq2" ColumnName="vrdbq2" />
+                <ScalarProperty Name="vcomduidwi" ColumnName="vcomduidwi" />
+                <ScalarProperty Name="vcomment" ColumnName="vcomment" />
+                <ScalarProperty Name="dfecregi" ColumnName="dfecregi" />
+                <ScalarProperty Name="vestregi" ColumnName="vestregi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="usuarios">
+            <EntityTypeMapping TypeName="dd_databaseModel.usuario">
+              <MappingFragment StoreEntitySet="usuarios">
+                <ScalarProperty Name="vcodusua" ColumnName="vcodusua" />
+                <ScalarProperty Name="vtipo" ColumnName="vtipo" />
+                <ScalarProperty Name="vnomusua" ColumnName="vnomusua" />
+                <ScalarProperty Name="vcon" ColumnName="vcon" />
+                <ScalarProperty Name="vnom" ColumnName="vnom" />
+                <ScalarProperty Name="vape" ColumnName="vape" />
+                <ScalarProperty Name="vmail" ColumnName="vmail" />
+                <ScalarProperty Name="vfecnaci" ColumnName="vfecnaci" />
+                <ScalarProperty Name="dfecregi" ColumnName="dfecregi" />
+                <ScalarProperty Name="vestregi" ColumnName="vestregi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="video_usuarios_tipo">
+            <EntityTypeMapping TypeName="dd_databaseModel.video_usuarios_tipo">
+              <MappingFragment StoreEntitySet="video_usuarios_tipo">
+                <ScalarProperty Name="nusuariotipo" ColumnName="nusuariotipo" />
+                <ScalarProperty Name="vdescripcion" ColumnName="vdescripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="video_usuarios">
+            <EntityTypeMapping TypeName="dd_databaseModel.video_usuarios">
+              <MappingFragment StoreEntitySet="video_usuarios">
+                <ScalarProperty Name="CourseCompletedDate" ColumnName="CourseCompletedDate" />
+                <ScalarProperty Name="IsCompleted" ColumnName="IsCompleted" />
+                <ScalarProperty Name="Zip" ColumnName="Zip" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="EyeColor" ColumnName="EyeColor" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="NJDL_" ColumnName="NJDL#" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="vdeleted" ColumnName="vdeleted" />
+                <ScalarProperty Name="vestusuario" ColumnName="vestusuario" />
+                <ScalarProperty Name="vcreation" ColumnName="vcreation" />
+                <ScalarProperty Name="vcon" ColumnName="vcon" />
+                <ScalarProperty Name="vcomments" ColumnName="vcomments" />
+                <ScalarProperty Name="vemail" ColumnName="vemail" />
+                <ScalarProperty Name="vcelular" ColumnName="vcelular" />
+                <ScalarProperty Name="vphone" ColumnName="vphone" />
+                <ScalarProperty Name="vfullname" ColumnName="vfullname" />
+                <ScalarProperty Name="nusuariotipo" ColumnName="nusuariotipo" />
+                <ScalarProperty Name="ncodusua" ColumnName="ncodusua" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,223 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="dd_databaseModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="dd_databaseEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="blogcoments" EntityType="dd_databaseModel.blogcoment" />
+    <EntitySet Name="blogposts" EntityType="dd_databaseModel.blogpost" />
+    <EntitySet Name="casos" EntityType="dd_databaseModel.caso" />
+    <EntitySet Name="casos1" EntityType="dd_databaseModel.casos1" />
+    <EntitySet Name="clients" EntityType="dd_databaseModel.client" />
+    <EntitySet Name="client1" EntityType="dd_databaseModel.client1" />
+    <EntitySet Name="courts" EntityType="dd_databaseModel.court" />
+    <EntitySet Name="court1" EntityType="dd_databaseModel.court1" />
+    <EntitySet Name="emails" EntityType="dd_databaseModel.email" />
+    <EntitySet Name="usuarios" EntityType="dd_databaseModel.usuario" />
+    <EntitySet Name="video_usuarios_tipo" EntityType="dd_databaseModel.video_usuarios_tipo" />
+    <EntitySet Name="video_usuarios" EntityType="dd_databaseModel.video_usuarios" />
+    <AssociationSet Name="FK_video_usuarios_video_usuarios_tipo" Association="dd_databaseModel.FK_video_usuarios_video_usuarios_tipo">
+      <End Role="video_usuarios_tipo" EntitySet="video_usuarios_tipo" />
+      <End Role="video_usuarios" EntitySet="video_usuarios" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="blogcoment">
+    <Key>
+      <PropertyRef Name="vcodcoment" />
+      <PropertyRef Name="vcodusua" />
+    </Key>
+    <Property Name="vcodcoment" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="vcodusua" Type="Int32" Nullable="false" />
+    <Property Name="vcodpost" Type="Int32" />
+    <Property Name="vdescoment" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="dfecregi" Type="DateTime" Precision="3" />
+    <Property Name="vestregi" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+  </EntityType>
+  <EntityType Name="blogpost">
+    <Key>
+      <PropertyRef Name="vcodpost" />
+    </Key>
+    <Property Name="vcodpost" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="vtitulo" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="vcontenido" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="vimagen" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="vimgubic" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+    <Property Name="vlabel" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
+    <Property Name="dfecregi" Type="DateTime" Precision="3" />
+    <Property Name="vestregi" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+  </EntityType>
+  <EntityType Name="caso">
+    <Key>
+      <PropertyRef Name="vcodcaso" />
+    </Key>
+    <Property Name="vcodcaso" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="vcodusua" Type="Int32" />
+    <Property Name="vname" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="vcourt" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="vtype" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+    <Property Name="vinter" Type="String" MaxLength="80" Unicode="false" FixedLength="false" />
+    <Property Name="ntotal" Type="Decimal" Precision="7" Scale="2" />
+    <Property Name="npaid" Type="Decimal" Precision="7" Scale="2" />
+    <Property Name="nbalan" Type="Decimal" Precision="7" Scale="2" />
+    <Property Name="vfile" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="vcom" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="dfecregi" Type="DateTime" Precision="3" />
+    <Property Name="vestregi" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+  </EntityType>
+  <EntityType Name="casos1">
+    <Key>
+      <PropertyRef Name="vcodcaso" />
+    </Key>
+    <Property Name="vcodcaso" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="vcodusua" Type="Int32" />
+    <Property Name="vname" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="vcourt" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="vtype" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+    <Property Name="vinter" Type="String" MaxLength="80" Unicode="false" FixedLength="false" />
+    <Property Name="ntotal" Type="Decimal" Precision="7" Scale="2" />
+    <Property Name="npaid" Type="Decimal" Precision="7" Scale="2" />
+    <Property Name="nbalan" Type="Decimal" Precision="7" Scale="2" />
+    <Property Name="vfile" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="vcom" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="dfecregi" Type="DateTime" Precision="3" />
+    <Property Name="vestregi" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+  </EntityType>
+  <EntityType Name="client">
+    <Key>
+      <PropertyRef Name="vcodcli" />
+    </Key>
+    <Property Name="vcodcli" Type="Int32" Nullable="false" />
+    <Property Name="vnomcli" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="vapecli" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="vdircli" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
+    <Property Name="vtelcli" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="vfecnaci" Type="DateTime" Precision="0" />
+    <Property Name="dfecregi" Type="DateTime" Precision="3" />
+    <Property Name="vestregi" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+  </EntityType>
+  <EntityType Name="client1">
+    <Key>
+      <PropertyRef Name="vcodcli" />
+    </Key>
+    <Property Name="vcodcli" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="vnomcli" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="vapecli" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="vdircli" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
+    <Property Name="vtelcli" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="vfecnaci" Type="DateTime" Precision="0" />
+    <Property Name="dfecregi" Type="DateTime" Precision="3" />
+    <Property Name="vestregi" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+  </EntityType>
+  <EntityType Name="court">
+    <Key>
+      <PropertyRef Name="ncodcort" />
+    </Key>
+    <Property Name="ncodcort" Type="Int32" Nullable="false" />
+    <Property Name="ncodusua" Type="Int32" />
+    <Property Name="nnomcort" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="vdircort" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="vtelcort" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+    <Property Name="vdet" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="dfecregi" Type="DateTime" Precision="3" />
+    <Property Name="vestregi" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+  </EntityType>
+  <EntityType Name="court1">
+    <Key>
+      <PropertyRef Name="ncodcort" />
+    </Key>
+    <Property Name="ncodcort" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="ncodusua" Type="Int32" />
+    <Property Name="nnomcort" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="vdircort" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="vtelcort" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+    <Property Name="vdet" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="dfecregi" Type="DateTime" Precision="3" />
+    <Property Name="vestregi" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+  </EntityType>
+  <EntityType Name="email">
+    <Key>
+      <PropertyRef Name="vcodemail" />
+    </Key>
+    <Property Name="vcodemail" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="vtitle" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="vname" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="vphome" Type="String" MaxLength="20" Unicode="true" FixedLength="true" />
+    <Property Name="vpcell" Type="String" MaxLength="20" Unicode="true" FixedLength="true" />
+    <Property Name="vemail" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="vcboOff1" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="vcboOff2" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="vcboOff3" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="vcboOff4" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="vrdbdd1" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="vticket" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="vdate" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="vcourt" Type="String" MaxLength="150" Unicode="false" FixedLength="false" />
+    <Property Name="vestlicen" Type="String" MaxLength="150" Unicode="false" FixedLength="false" />
+    <Property Name="vpoints" Type="String" MaxLength="150" Unicode="false" FixedLength="false" />
+    <Property Name="vrdbq1" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="vrdbq2" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="vcomduidwi" Type="String" MaxLength="150" Unicode="false" FixedLength="false" />
+    <Property Name="vcomment" Type="String" MaxLength="150" Unicode="false" FixedLength="false" />
+    <Property Name="dfecregi" Type="DateTime" Precision="3" />
+    <Property Name="vestregi" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+  </EntityType>
+  <EntityType Name="usuario">
+    <Key>
+      <PropertyRef Name="vcodusua" />
+    </Key>
+    <Property Name="vcodusua" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="vtipo" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="vnomusua" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="vcon" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+    <Property Name="vnom" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
+    <Property Name="vape" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
+    <Property Name="vmail" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="vfecnaci" Type="DateTime" Precision="0" />
+    <Property Name="dfecregi" Type="DateTime" Precision="3" />
+    <Property Name="vestregi" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+  </EntityType>
+  <EntityType Name="video_usuarios_tipo">
+    <Key>
+      <PropertyRef Name="nusuariotipo" />
+    </Key>
+    <Property Name="nusuariotipo" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="vdescripcion" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="video_usuarios" Relationship="dd_databaseModel.FK_video_usuarios_video_usuarios_tipo" FromRole="video_usuarios_tipo" ToRole="video_usuarios" />
+  </EntityType>
+  <EntityType Name="video_usuarios">
+    <Key>
+      <PropertyRef Name="ncodusua" />
+    </Key>
+    <Property Type="Int32" Name="ncodusua" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="nusuariotipo" />
+    <Property Type="String" Name="vfullname" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="vphone" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="vcelular" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="vemail" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="vcomments" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="vcon" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="vcreation" Precision="3" />
+    <Property Type="String" Name="vestusuario" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="vdeleted" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Address" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="NJDL_" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="DOB" Precision="3" />
+    <Property Type="String" Name="EyeColor" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Gender" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="State" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="City" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Zip" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="IsCompleted" Nullable="false" />
+    <Property Type="DateTime" Name="CourseCompletedDate" Precision="3" />
+    <NavigationProperty Name="video_usuarios_tipo" Relationship="dd_databaseModel.FK_video_usuarios_video_usuarios_tipo" FromRole="video_usuarios" ToRole="video_usuarios_tipo" />
+  </EntityType>
+  <Association Name="FK_video_usuarios_video_usuarios_tipo">
+    <End Type="dd_databaseModel.video_usuarios_tipo" Role="video_usuarios_tipo" Multiplicity="0..1" />
+    <End Type="dd_databaseModel.video_usuarios" Role="video_usuarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="video_usuarios_tipo">
+        <PropertyRef Name="nusuariotipo" />
+      </Principal>
+      <Dependent Role="video_usuarios">
+        <PropertyRef Name="nusuariotipo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

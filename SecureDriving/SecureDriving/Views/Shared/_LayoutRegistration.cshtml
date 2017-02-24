@@ -1,0 +1,204 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/jquery")
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Defensive Driving Course</title>
+
+    <!-- Bootstrap -->
+
+
+
+    <link href="~/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="~/css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="~/owl-carousel/owl.carousel.css">
+    <link rel="stylesheet" type="text/css" href="~/owl-carousel/owl.transitions.css">
+    <link rel="stylesheet" type="text/css" href="~/css/animated.css">
+    <link rel="stylesheet" type="text/css" href="~/css/hover.css">
+
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <div class="loadercont">
+        <div class="loader">Loading...</div>
+    </div>
+
+    <div class="container-fluid header">
+        <div class="container">
+            <div class="row hdr">
+                <div class="col-md-6 col-sm-6 icons">
+                    <ul class="list-unstyled list-inline">
+                        <li><i class="fa fa-tty" aria-hidden="true"></i>&nbsp (732) 322-3723</li>
+                       @* <li><i class="fa fa-envelope-o" aria-hidden="true"></i><a href="#">driving_school@hotmail.com</a></li>*@
+                    </ul>
+                </div>
+                <div class="col-md-6 col-sm-6 text-right icon1">
+                    <ul class="list-unstyled list-inline hdr1">
+                        <li><i class="fa fa-facebook"></i></li>
+                        <li><i class="fa fa-twitter"></i></li>
+                        <li><i class="fa fa-linkedin"></i></li>
+                        <li><i class="fa fa-pinterest-p"></i></li>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 logo">
+                    <img class="img-responsive center-block" src="/img/logo.png" />
+                </div>
+                <div class="col-md-9 con-nav">
+                    <ul class="text-right list-unstyled list-inline login">
+                        @if (Convert.ToInt32(Session["LoginId"]) > 0)
+                        {
+                            <li><a href="/Home/LogOut">Logout(@Session["Email"]) </a></li>
+                        }
+                        else
+                        {
+                            <li><a href="/Home/Login">Login </a></li>
+                        }
+                      @if (Convert.ToInt32(Session["UserRoll"]) == 2 && Convert.ToInt32(Session["UserActive"]) == 1)
+                        {
+                            <li>| <a href="/Admin/UserList">User List</a></li>
+                        }
+                    </ul>
+                    <nav class="navbar navbar-default">
+                        <div class="container-fluid">
+                            <!-- Brand and toggle get grouped for better mobile display -->
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                            </div>
+
+                            <!-- Collect the nav links, forms, and other content for toggling -->
+                            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                                <ul class="nav navbar-nav">
+                                    <li id="liHome"><a href="/Home/Index">Home</a></li>
+                                    <li id="liAboutus"><a href="/Home/AboutUs">About us</a></li>
+                                    <li id="liDrivingCourses"><a href="/Home/DrivingCourses">Driving Courses</a></li>
+                                    <li id="liFAQ"><a href="/Home/FAQ">Faq  </a></li>
+                                    <li id="liinsuranceDiscount"><a href="/Home/InsuranceDiscount">Insurance Discount </a></li>
+                                    <li id="liContactUs"><a href="/Home/ContactUs">Contact us</a></li>
+                                </ul>
+                            </div>
+                            <!-- /.navbar-collapse -->
+                        </div>
+                        <!-- /.container-fluid -->
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @RenderBody()
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryui")
+    @RenderSection("scripts", required: false)
+
+</body>
+</html>
+<footer>
+
+    <div class="container-fluid looking-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 driving-scl">
+                    <h3>Are You Looking For A Driving School In Defensive Driving</h3>
+                    <h4>our customer support team will be happy to assist you.  </h4>
+                </div>
+                <div class="col-md-4 more text-center">
+                    @*  <p><a href="/Home/AboutUs" id="lnkbtnReadMore"> READ MORE</a></p>*@
+                    <p><a href="/Home/AboutUs">READ MORE</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-6 footer-1">
+                    <h3>Quick Links</h3>
+                    <hr>
+                    <ul class="list-unstyled">
+                        <li><a href="/Home/Index">Home</a></li>
+                        <li><a href="/Home/AboutUs">About us</a></li>
+                        <li><a href="/Home/DrivingCourses">Driving Courses</a></li>
+                        <li><a href="/Home/FAQ">Faq  </a></li>
+                        <li><a href="/Home/InsuranceDiscount">Insurance Discount </a></li>
+                        <li><a href="/Home/ContactUs">Contact us</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 col-sm-6 footer-1">
+                    <h3>Defensive Driving Courses</h3>
+                    <hr>
+                    <p>Do you hate expensive car insurance? Did you receive a traffic violation? You need one of those New Jersey Defensive Driving Courses. Defensive Driving Courses is now available as a New Jersey State approved alternative to classroom Defensive Driving Courses.  </p>
+                </div>
+                <div class="split"></div>
+                <div class="col-md-3 col-sm-6 footer-1">
+                    <h3>Frequently asked questions</h3>
+                    <hr>
+                    <p>Frequently Aasked Question for NJ Defensive Driving Course </p>
+                </div>
+                <div class="col-md-3 col-sm-6 footer-1">
+                    <h3>Insurance discount</h3>
+                    <hr>
+                    <p>You will receive a guaranteed insurance discount for taking our NJ Defensive Drivingonline course. It's that easy and simple. New Jersey state law guarantees that you will receive an insurance discount.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    @*  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>*@
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/owl-carousel/owl.carousel.min.js"></script>
+    <script src="/js/wow.min.js"></script>
+
+
+
+    <script type="text/javascript">
+        $(function () {
+            //-- --------------------- for animation ------------------ --
+            new WOW().init();
+            //------------------------- for active tab ------------------
+            var selector = '.nav li';
+            $(selector).removeClass('active');
+            var idd = localStorage.getItem('lastTab');
+            $("#" + idd).addClass('active');
+            localStorage.setItem('lastTab', "");
+        });
+
+        $("#owl-example").owlCarousel({
+            singleItem: true,
+            autoPlay: true,
+            transitionStyle: "backSlide"
+        });
+
+
+
+    </script>
+</footer>
+

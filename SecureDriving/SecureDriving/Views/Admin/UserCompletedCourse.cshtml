@@ -1,0 +1,81 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container">
+    <div>
+        <div class="user-lists">
+            <ul class="list-unstyled list-inline">
+                <li><a href="/Admin/UserList" id="lnkbtnUserList">User list </a></li>
+                <li><a href="/Admin/DeletedList" id="lnkbtnDeleteList">Deleted list</a></li>
+                <li><a href="/Admin/Reports" id="lnkbtnreports">Reports</a></li>
+                <li class="lists"><a href="/Admin/UserCompletedCourse" id="lnkbtnCompletedCourse">Certificate</a></li>
+
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="margin-tabel"></div>
+<div class="col-md-8">
+    <div class="col-md-1"></div>
+    <div class="col-md-6">
+        Search
+        <select id="ddlReprtssearch" style="width: 60%; margin-top: 30px;">
+
+            <option value="0">All</option>
+            <option value="1">Today</option>
+            <option value="2">Yesterday</option>
+            <option value="3">This Week</option>
+            <option value="4">This Month</option>
+            <option value="5">This Quarter</option>
+            <option value="6">This Year</option>
+            <option value="7">Last Week</option>
+            <option value="8">Last Two Weeks</option>
+            <option value="9">Last Month</option>
+            <option value="10">Last Two Months</option>
+            <option value="11">Past Six Months</option>
+            <option value="12">Last Year</option>
+        </select>
+    </div>
+</div>
+
+<div id="dvUserList" ></div>
+@section scripts
+{
+    <script>
+        $(function () {
+            CompletedSearchResult();
+            //$('.loadercont').fadeOut();
+        });
+        $("#ddlReprtssearch").change(function () {
+            //$('.loadercont').fadeIn();
+            CompletedSearchResult();
+        });
+
+        function CompletedSearchResult() {
+            $('.loadercont').fadeIn();
+            var ddlReprtssearch = $('#ddlReprtssearch').val();
+            data = { SearchItem: ddlReprtssearch }
+            $.ajax({
+                type: "POST",
+                url: "/Admin/UserCompletedCourseList",
+                data: data,
+                dataType: "html",
+                success: function (data) {
+                    {
+                        $("#dvUserList").html(data);
+                        $('.loadercont').fadeOut();
+                    }
+                },
+                error: function (data) {
+                    alert(data);
+                    $('.loadercont').fadeOut();
+                }
+            });
+        }
+
+
+
+
+    </script>
+}

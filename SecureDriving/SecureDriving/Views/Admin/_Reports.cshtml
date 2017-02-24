@@ -1,0 +1,70 @@
+﻿@model IEnumerable<SecureDriving.Models.UserList>
+@using System.Web.Helpers;
+
+@{
+    var grid = new WebGrid(Model, canPage: true, rowsPerPage: 10,
+    selectionFieldName: "selectedRow", ajaxUpdateContainerId: "gridContent");
+    grid.Pager(WebGridPagerModes.NextPrevious);}
+
+<div id="gridContent">
+    <div class="col-sm-12">
+        <div class="col-sm-9"></div>
+
+        <div class="col-sm-2" > <label>Total Users: @Model.Count()</label> </div>
+        <div class="col-sm-1"></div>
+    </div>
+    @grid.GetHtml(tableStyle: "webGrid",
+
+            headerStyle: "header",
+            alternatingRowStyle: "alt",
+            selectedRowStyle: "select",
+            columns: grid.Columns(
+            grid.Column("creationDate", "DateTime"),
+            grid.Column("Name", "FullName"),
+            grid.Column("Email", "Email"),
+            grid.Column("Password", "Password"),
+             grid.Column(
+            header: "Status",
+             format: (item) =>
+            {
+                if (item.Active == "1")
+                {
+                    var template = "Active";
+                    return Html.Raw(template);
+                }
+                else
+                {
+                    var template = "Inactive";
+                    return Html.Raw(template);
+                }
+            }
+            ),
+            grid.Column(
+            header: "Operation",
+            format: (item) =>
+            {
+                if (item.Active == "1")
+                {
+                    var template = "<a href='#' id='" + item.id + "' onclick='DeActivateUser(this.id);'>Deactivate</a> ";
+                    return Html.Raw(template);
+                }
+                else
+                {
+                    var template = "<a href='#' id='" + item.id + "' onclick='ActivateUser(this.id);'>Activate</a> ";
+                    return Html.Raw(template);
+                }
+            }
+            )
+
+            ))
+
+
+    
+    
+</div>
+
+<script type="text/javascript">
+    $(function () {
+
+    });
+</script>

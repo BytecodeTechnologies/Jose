@@ -1,0 +1,79 @@
+﻿@{
+    ViewBag.Title = "AboutUs";
+}
+
+<body>
+    <div class="container-fluid banner12">
+      <img src="/img/bnrbt.jpg">
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 text-center about-us">
+        <h2>About the course </h2>
+      </div>
+      <div class="col-md-8 about">
+        
+        <h3>Defensive driving course approved by the New Jersey Motor Vehicle Commission (MVC)</h3>
+        <p> Welcome to the online defensive driving course. American Safety, Inc is approved by the New Jersey Motor Vehicle Commission (MVC) to offer the online defensive driving course.
+
+We make completing the Defensive Driving Course (DDC) easy and inexpensive. Our DMV & MVC approved online Driving School course covers a wide range of topics including Accident Prevention techniques, Traffic Signs, and the effects of Alcohol and Drugs behind the wheel. It also contains many helpful resources for anyone that is a good driver but needs a refresher on the basic driving skills.
+
+The course is 6-Hours but the online course will allow you the flexibility to log on and off the program at your convenience. It is completely flexible and designed to fit effortlessly into your schedule. You can complete the course whenever and wherever you want - all you need is a computer and your login information! You don't have to complete the course in one sitting - our website remembers the section you last completed and puts you right back where you left off. And remember, if at any time during the process you need assistance, our customer support team will be happy to assist you.</p>
+       @* <button type="button" href="/Home/Registration" class="btn btn-primary">Register Here</button>*@
+          <a href="/Home/Registration"  class="btn btn-primary">Register Here</a>
+      </div>
+      <div class="col-md-4 images-slid">
+        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner" role="listbox">
+    <div class="item active">
+      <img src="/img/pic2.jpg" alt="...">
+      <div class="carousel-caption">
+       
+      </div>
+    </div>
+    <div class="item">
+      <img src="/img/pic1.jpg" alt="...">
+      <div class="carousel-caption">
+       
+      </div>
+    </div>
+   
+  </div>
+
+  <!-- Controls -->
+  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+      </div>
+    </div>
+  </div>
+
+</body>
+@section scripts
+{
+<script>
+    $(function () {
+        localStorage.setItem('lastTab', "liAboutus");
+        
+        $('.loadercont').fadeOut();
+        
+    });
+
+
+</script>
+    }

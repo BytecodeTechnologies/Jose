@@ -1,0 +1,204 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="dd_databaseModelStoreContainer" CdmEntityContainer="dd_databaseEntities">
+    <EntitySetMapping Name="blogcoments">
+      <EntityTypeMapping TypeName="dd_databaseModel.blogcoment">
+        <MappingFragment StoreEntitySet="blogcoment">
+          <ScalarProperty Name="vcodcoment" ColumnName="vcodcoment" />
+          <ScalarProperty Name="vcodusua" ColumnName="vcodusua" />
+          <ScalarProperty Name="vcodpost" ColumnName="vcodpost" />
+          <ScalarProperty Name="vdescoment" ColumnName="vdescoment" />
+          <ScalarProperty Name="dfecregi" ColumnName="dfecregi" />
+          <ScalarProperty Name="vestregi" ColumnName="vestregi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="blogposts">
+      <EntityTypeMapping TypeName="dd_databaseModel.blogpost">
+        <MappingFragment StoreEntitySet="blogpost">
+          <ScalarProperty Name="vcodpost" ColumnName="vcodpost" />
+          <ScalarProperty Name="vtitulo" ColumnName="vtitulo" />
+          <ScalarProperty Name="vcontenido" ColumnName="vcontenido" />
+          <ScalarProperty Name="vimagen" ColumnName="vimagen" />
+          <ScalarProperty Name="vimgubic" ColumnName="vimgubic" />
+          <ScalarProperty Name="vlabel" ColumnName="vlabel" />
+          <ScalarProperty Name="dfecregi" ColumnName="dfecregi" />
+          <ScalarProperty Name="vestregi" ColumnName="vestregi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="casos">
+      <EntityTypeMapping TypeName="dd_databaseModel.caso">
+        <MappingFragment StoreEntitySet="casos">
+          <ScalarProperty Name="vcodcaso" ColumnName="vcodcaso" />
+          <ScalarProperty Name="vcodusua" ColumnName="vcodusua" />
+          <ScalarProperty Name="vname" ColumnName="vname" />
+          <ScalarProperty Name="vcourt" ColumnName="vcourt" />
+          <ScalarProperty Name="vtype" ColumnName="vtype" />
+          <ScalarProperty Name="vinter" ColumnName="vinter" />
+          <ScalarProperty Name="ntotal" ColumnName="ntotal" />
+          <ScalarProperty Name="npaid" ColumnName="npaid" />
+          <ScalarProperty Name="nbalan" ColumnName="nbalan" />
+          <ScalarProperty Name="vfile" ColumnName="vfile" />
+          <ScalarProperty Name="vcom" ColumnName="vcom" />
+          <ScalarProperty Name="dfecregi" ColumnName="dfecregi" />
+          <ScalarProperty Name="vestregi" ColumnName="vestregi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="casos1">
+      <EntityTypeMapping TypeName="dd_databaseModel.casos1">
+        <MappingFragment StoreEntitySet="casos1">
+          <ScalarProperty Name="vcodcaso" ColumnName="vcodcaso" />
+          <ScalarProperty Name="vcodusua" ColumnName="vcodusua" />
+          <ScalarProperty Name="vname" ColumnName="vname" />
+          <ScalarProperty Name="vcourt" ColumnName="vcourt" />
+          <ScalarProperty Name="vtype" ColumnName="vtype" />
+          <ScalarProperty Name="vinter" ColumnName="vinter" />
+          <ScalarProperty Name="ntotal" ColumnName="ntotal" />
+          <ScalarProperty Name="npaid" ColumnName="npaid" />
+          <ScalarProperty Name="nbalan" ColumnName="nbalan" />
+          <ScalarProperty Name="vfile" ColumnName="vfile" />
+          <ScalarProperty Name="vcom" ColumnName="vcom" />
+          <ScalarProperty Name="dfecregi" ColumnName="dfecregi" />
+          <ScalarProperty Name="vestregi" ColumnName="vestregi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="clients">
+      <EntityTypeMapping TypeName="dd_databaseModel.client">
+        <MappingFragment StoreEntitySet="client">
+          <ScalarProperty Name="vcodcli" ColumnName="vcodcli" />
+          <ScalarProperty Name="vnomcli" ColumnName="vnomcli" />
+          <ScalarProperty Name="vapecli" ColumnName="vapecli" />
+          <ScalarProperty Name="vdircli" ColumnName="vdircli" />
+          <ScalarProperty Name="vtelcli" ColumnName="vtelcli" />
+          <ScalarProperty Name="vfecnaci" ColumnName="vfecnaci" />
+          <ScalarProperty Name="dfecregi" ColumnName="dfecregi" />
+          <ScalarProperty Name="vestregi" ColumnName="vestregi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="client1">
+      <EntityTypeMapping TypeName="dd_databaseModel.client1">
+        <MappingFragment StoreEntitySet="client1">
+          <ScalarProperty Name="vcodcli" ColumnName="vcodcli" />
+          <ScalarProperty Name="vnomcli" ColumnName="vnomcli" />
+          <ScalarProperty Name="vapecli" ColumnName="vapecli" />
+          <ScalarProperty Name="vdircli" ColumnName="vdircli" />
+          <ScalarProperty Name="vtelcli" ColumnName="vtelcli" />
+          <ScalarProperty Name="vfecnaci" ColumnName="vfecnaci" />
+          <ScalarProperty Name="dfecregi" ColumnName="dfecregi" />
+          <ScalarProperty Name="vestregi" ColumnName="vestregi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="courts">
+      <EntityTypeMapping TypeName="dd_databaseModel.court">
+        <MappingFragment StoreEntitySet="court">
+          <ScalarProperty Name="ncodcort" ColumnName="ncodcort" />
+          <ScalarProperty Name="ncodusua" ColumnName="ncodusua" />
+          <ScalarProperty Name="nnomcort" ColumnName="nnomcort" />
+          <ScalarProperty Name="vdircort" ColumnName="vdircort" />
+          <ScalarProperty Name="vtelcort" ColumnName="vtelcort" />
+          <ScalarProperty Name="vdet" ColumnName="vdet" />
+          <ScalarProperty Name="dfecregi" ColumnName="dfecregi" />
+          <ScalarProperty Name="vestregi" ColumnName="vestregi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="court1">
+      <EntityTypeMapping TypeName="dd_databaseModel.court1">
+        <MappingFragment StoreEntitySet="court1">
+          <ScalarProperty Name="ncodcort" ColumnName="ncodcort" />
+          <ScalarProperty Name="ncodusua" ColumnName="ncodusua" />
+          <ScalarProperty Name="nnomcort" ColumnName="nnomcort" />
+          <ScalarProperty Name="vdircort" ColumnName="vdircort" />
+          <ScalarProperty Name="vtelcort" ColumnName="vtelcort" />
+          <ScalarProperty Name="vdet" ColumnName="vdet" />
+          <ScalarProperty Name="dfecregi" ColumnName="dfecregi" />
+          <ScalarProperty Name="vestregi" ColumnName="vestregi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="emails">
+      <EntityTypeMapping TypeName="dd_databaseModel.email">
+        <MappingFragment StoreEntitySet="emails">
+          <ScalarProperty Name="vcodemail" ColumnName="vcodemail" />
+          <ScalarProperty Name="vtitle" ColumnName="vtitle" />
+          <ScalarProperty Name="vname" ColumnName="vname" />
+          <ScalarProperty Name="vphome" ColumnName="vphome" />
+          <ScalarProperty Name="vpcell" ColumnName="vpcell" />
+          <ScalarProperty Name="vemail" ColumnName="vemail" />
+          <ScalarProperty Name="vcboOff1" ColumnName="vcboOff1" />
+          <ScalarProperty Name="vcboOff2" ColumnName="vcboOff2" />
+          <ScalarProperty Name="vcboOff3" ColumnName="vcboOff3" />
+          <ScalarProperty Name="vcboOff4" ColumnName="vcboOff4" />
+          <ScalarProperty Name="vrdbdd1" ColumnName="vrdbdd1" />
+          <ScalarProperty Name="vticket" ColumnName="vticket" />
+          <ScalarProperty Name="vdate" ColumnName="vdate" />
+          <ScalarProperty Name="vcourt" ColumnName="vcourt" />
+          <ScalarProperty Name="vestlicen" ColumnName="vestlicen" />
+          <ScalarProperty Name="vpoints" ColumnName="vpoints" />
+          <ScalarProperty Name="vrdbq1" ColumnName="vrdbq1" />
+          <ScalarProperty Name="vrdbq2" ColumnName="vrdbq2" />
+          <ScalarProperty Name="vcomduidwi" ColumnName="vcomduidwi" />
+          <ScalarProperty Name="vcomment" ColumnName="vcomment" />
+          <ScalarProperty Name="dfecregi" ColumnName="dfecregi" />
+          <ScalarProperty Name="vestregi" ColumnName="vestregi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="usuarios">
+      <EntityTypeMapping TypeName="dd_databaseModel.usuario">
+        <MappingFragment StoreEntitySet="usuarios">
+          <ScalarProperty Name="vcodusua" ColumnName="vcodusua" />
+          <ScalarProperty Name="vtipo" ColumnName="vtipo" />
+          <ScalarProperty Name="vnomusua" ColumnName="vnomusua" />
+          <ScalarProperty Name="vcon" ColumnName="vcon" />
+          <ScalarProperty Name="vnom" ColumnName="vnom" />
+          <ScalarProperty Name="vape" ColumnName="vape" />
+          <ScalarProperty Name="vmail" ColumnName="vmail" />
+          <ScalarProperty Name="vfecnaci" ColumnName="vfecnaci" />
+          <ScalarProperty Name="dfecregi" ColumnName="dfecregi" />
+          <ScalarProperty Name="vestregi" ColumnName="vestregi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="video_usuarios_tipo">
+      <EntityTypeMapping TypeName="dd_databaseModel.video_usuarios_tipo">
+        <MappingFragment StoreEntitySet="video_usuarios_tipo">
+          <ScalarProperty Name="nusuariotipo" ColumnName="nusuariotipo" />
+          <ScalarProperty Name="vdescripcion" ColumnName="vdescripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="video_usuarios">
+      <EntityTypeMapping TypeName="dd_databaseModel.video_usuarios">
+        <MappingFragment StoreEntitySet="video_usuarios">
+          <ScalarProperty Name="CourseCompletedDate" ColumnName="CourseCompletedDate" />
+          <ScalarProperty Name="IsCompleted" ColumnName="IsCompleted" />
+          <ScalarProperty Name="Zip" ColumnName="Zip" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="EyeColor" ColumnName="EyeColor" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="NJDL_" ColumnName="NJDL#" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="vdeleted" ColumnName="vdeleted" />
+          <ScalarProperty Name="vestusuario" ColumnName="vestusuario" />
+          <ScalarProperty Name="vcreation" ColumnName="vcreation" />
+          <ScalarProperty Name="vcon" ColumnName="vcon" />
+          <ScalarProperty Name="vcomments" ColumnName="vcomments" />
+          <ScalarProperty Name="vemail" ColumnName="vemail" />
+          <ScalarProperty Name="vcelular" ColumnName="vcelular" />
+          <ScalarProperty Name="vphone" ColumnName="vphone" />
+          <ScalarProperty Name="vfullname" ColumnName="vfullname" />
+          <ScalarProperty Name="nusuariotipo" ColumnName="nusuariotipo" />
+          <ScalarProperty Name="ncodusua" ColumnName="ncodusua" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

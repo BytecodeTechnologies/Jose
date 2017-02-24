@@ -1,0 +1,49 @@
+﻿@model IEnumerable<SecureDriving.Models.UserList>
+@using System.Web.Helpers;
+
+@{
+    var grid = new WebGrid(Model, canPage: true, rowsPerPage: 10,
+    selectionFieldName: "selectedRow", ajaxUpdateContainerId: "gridContent");
+    grid.Pager(WebGridPagerModes.NextPrevious);}
+
+<div id="gridContent">
+    <div class="col-sm-12">
+        <div class="col-sm-9"></div>
+
+        <div class="col-sm-2" > <label>Total Users: @Model.Count()</label> </div>
+        <div class="col-sm-1"></div>
+    </div>
+    @grid.GetHtml(tableStyle: "webGrid",
+            headerStyle: "header",
+            alternatingRowStyle: "alt",
+            selectedRowStyle: "select",
+            columns: grid.Columns(
+            grid.Column("creationDate", "DateTime"),
+            grid.Column("Name", "FullName"),
+            grid.Column("Email", "Email"),
+            grid.Column("Password", "Password"),
+            
+
+            grid.Column(
+            header: "Move To List",
+            format: (item) =>
+            {
+                    var template = "<a href='#' id='" + item.id + "' onclick='ReturntoList(this.id);'>Move To List</a> ";
+                    return Html.Raw(template);
+              
+            }
+            ),
+             grid.Column(
+                header: "Delete",
+                format: (item) =>
+                    {
+                       
+                      
+                            var template = "<a href='#' id='" + item.id + "' onclick='PermanentDeleteUser(this.id);'>Permanent Delete</a> ";
+                            return Html.Raw(template);
+                      
+                    }
+            )
+             ))
+
+</div>

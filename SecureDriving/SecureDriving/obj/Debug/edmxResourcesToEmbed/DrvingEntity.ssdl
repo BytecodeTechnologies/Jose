@@ -1,0 +1,324 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="dd_databaseModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="dd_databaseModelStoreContainer">
+    <EntitySet Name="blogcoment" EntityType="dd_databaseModel.Store.blogcoment" store:Type="Tables" store:Schema="dbo" store:Name="blogcoment">
+      <DefiningQuery>SELECT 
+      [blogcoment].[vcodcoment] AS [vcodcoment], 
+      [blogcoment].[vcodusua] AS [vcodusua], 
+      [blogcoment].[vcodpost] AS [vcodpost], 
+      [blogcoment].[vdescoment] AS [vdescoment], 
+      [blogcoment].[dfecregi] AS [dfecregi], 
+      [blogcoment].[vestregi] AS [vestregi]
+      FROM [dbo].[blogcoment] AS [blogcoment]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="blogpost" EntityType="dd_databaseModel.Store.blogpost" store:Type="Tables" store:Schema="dbo" store:Name="blogpost">
+      <DefiningQuery>SELECT 
+      [blogpost].[vcodpost] AS [vcodpost], 
+      [blogpost].[vtitulo] AS [vtitulo], 
+      [blogpost].[vcontenido] AS [vcontenido], 
+      [blogpost].[vimagen] AS [vimagen], 
+      [blogpost].[vimgubic] AS [vimgubic], 
+      [blogpost].[vlabel] AS [vlabel], 
+      [blogpost].[dfecregi] AS [dfecregi], 
+      [blogpost].[vestregi] AS [vestregi]
+      FROM [dbo].[blogpost] AS [blogpost]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="casos" EntityType="dd_databaseModel.Store.casos" store:Type="Tables" store:Schema="dbo" store:Name="casos">
+      <DefiningQuery>SELECT 
+      [casos].[vcodcaso] AS [vcodcaso], 
+      [casos].[vcodusua] AS [vcodusua], 
+      [casos].[vname] AS [vname], 
+      [casos].[vcourt] AS [vcourt], 
+      [casos].[vtype] AS [vtype], 
+      [casos].[vinter] AS [vinter], 
+      [casos].[ntotal] AS [ntotal], 
+      [casos].[npaid] AS [npaid], 
+      [casos].[nbalan] AS [nbalan], 
+      [casos].[vfile] AS [vfile], 
+      [casos].[vcom] AS [vcom], 
+      [casos].[dfecregi] AS [dfecregi], 
+      [casos].[vestregi] AS [vestregi]
+      FROM [dbo].[casos] AS [casos]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="casos1" EntityType="dd_databaseModel.Store.casos1" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="client" EntityType="dd_databaseModel.Store.client" store:Type="Tables" store:Schema="dbo" store:Name="client">
+      <DefiningQuery>SELECT 
+      [client].[vcodcli] AS [vcodcli], 
+      [client].[vnomcli] AS [vnomcli], 
+      [client].[vapecli] AS [vapecli], 
+      [client].[vdircli] AS [vdircli], 
+      [client].[vtelcli] AS [vtelcli], 
+      [client].[vfecnaci] AS [vfecnaci], 
+      [client].[dfecregi] AS [dfecregi], 
+      [client].[vestregi] AS [vestregi]
+      FROM [dbo].[client] AS [client]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="client1" EntityType="dd_databaseModel.Store.client1" store:Type="Tables" store:Schema="dbo" store:Name="client1">
+      <DefiningQuery>SELECT 
+      [client1].[vcodcli] AS [vcodcli], 
+      [client1].[vnomcli] AS [vnomcli], 
+      [client1].[vapecli] AS [vapecli], 
+      [client1].[vdircli] AS [vdircli], 
+      [client1].[vtelcli] AS [vtelcli], 
+      [client1].[vfecnaci] AS [vfecnaci], 
+      [client1].[dfecregi] AS [dfecregi], 
+      [client1].[vestregi] AS [vestregi]
+      FROM [dbo].[client1] AS [client1]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="court" EntityType="dd_databaseModel.Store.court" store:Type="Tables" store:Schema="dbo" store:Name="court">
+      <DefiningQuery>SELECT 
+      [court].[ncodcort] AS [ncodcort], 
+      [court].[ncodusua] AS [ncodusua], 
+      [court].[nnomcort] AS [nnomcort], 
+      [court].[vdircort] AS [vdircort], 
+      [court].[vtelcort] AS [vtelcort], 
+      [court].[vdet] AS [vdet], 
+      [court].[dfecregi] AS [dfecregi], 
+      [court].[vestregi] AS [vestregi]
+      FROM [dbo].[court] AS [court]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="court1" EntityType="dd_databaseModel.Store.court1" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="emails" EntityType="dd_databaseModel.Store.emails" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="usuarios" EntityType="dd_databaseModel.Store.usuarios" store:Type="Tables" store:Schema="dbo" store:Name="usuarios">
+      <DefiningQuery>SELECT 
+      [usuarios].[vcodusua] AS [vcodusua], 
+      [usuarios].[vtipo] AS [vtipo], 
+      [usuarios].[vnomusua] AS [vnomusua], 
+      [usuarios].[vcon] AS [vcon], 
+      [usuarios].[vnom] AS [vnom], 
+      [usuarios].[vape] AS [vape], 
+      [usuarios].[vmail] AS [vmail], 
+      [usuarios].[vfecnaci] AS [vfecnaci], 
+      [usuarios].[dfecregi] AS [dfecregi], 
+      [usuarios].[vestregi] AS [vestregi]
+      FROM [dbo].[usuarios] AS [usuarios]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="video_usuarios" EntityType="dd_databaseModel.Store.video_usuarios" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="video_usuarios_tipo" EntityType="dd_databaseModel.Store.video_usuarios_tipo" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_video_usuarios_video_usuarios_tipo" Association="dd_databaseModel.Store.FK_video_usuarios_video_usuarios_tipo">
+      <End Role="video_usuarios_tipo" EntitySet="video_usuarios_tipo" />
+      <End Role="video_usuarios" EntitySet="video_usuarios" />
+    </AssociationSet>
+  </EntityContainer>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'dd_newdatabase.dbo.blogcoment' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="blogcoment">
+    <Key>
+      <PropertyRef Name="vcodcoment" />
+      <PropertyRef Name="vcodusua" />
+    </Key>
+    <Property Name="vcodcoment" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="vcodusua" Type="int" Nullable="false" />
+    <Property Name="vcodpost" Type="int" />
+    <Property Name="vdescoment" Type="text" />
+    <Property Name="dfecregi" Type="datetime" />
+    <Property Name="vestregi" Type="char" MaxLength="1" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'dd_newdatabase.dbo.blogpost' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="blogpost">
+    <Key>
+      <PropertyRef Name="vcodpost" />
+    </Key>
+    <Property Name="vcodpost" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="vtitulo" Type="varchar" MaxLength="255" />
+    <Property Name="vcontenido" Type="text" />
+    <Property Name="vimagen" Type="varchar" MaxLength="50" />
+    <Property Name="vimgubic" Type="char" MaxLength="1" />
+    <Property Name="vlabel" Type="varchar" MaxLength="250" />
+    <Property Name="dfecregi" Type="datetime" />
+    <Property Name="vestregi" Type="char" MaxLength="1" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'dd_newdatabase.dbo.casos' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="casos">
+    <Key>
+      <PropertyRef Name="vcodcaso" />
+    </Key>
+    <Property Name="vcodcaso" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="vcodusua" Type="int" />
+    <Property Name="vname" Type="varchar" MaxLength="255" />
+    <Property Name="vcourt" Type="varchar" MaxLength="255" />
+    <Property Name="vtype" Type="nchar" MaxLength="10" />
+    <Property Name="vinter" Type="varchar" MaxLength="80" />
+    <Property Name="ntotal" Type="numeric" Precision="7" Scale="2" />
+    <Property Name="npaid" Type="numeric" Precision="7" Scale="2" />
+    <Property Name="nbalan" Type="numeric" Precision="7" Scale="2" />
+    <Property Name="vfile" Type="varchar" MaxLength="50" />
+    <Property Name="vcom" Type="text" />
+    <Property Name="dfecregi" Type="datetime" />
+    <Property Name="vestregi" Type="char" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="casos1">
+    <Key>
+      <PropertyRef Name="vcodcaso" />
+    </Key>
+    <Property Name="vcodcaso" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="vcodusua" Type="int" />
+    <Property Name="vname" Type="varchar" MaxLength="255" />
+    <Property Name="vcourt" Type="varchar" MaxLength="255" />
+    <Property Name="vtype" Type="nchar" MaxLength="10" />
+    <Property Name="vinter" Type="varchar" MaxLength="80" />
+    <Property Name="ntotal" Type="numeric" Precision="7" Scale="2" />
+    <Property Name="npaid" Type="numeric" Precision="7" Scale="2" />
+    <Property Name="nbalan" Type="numeric" Precision="7" Scale="2" />
+    <Property Name="vfile" Type="varchar" MaxLength="50" />
+    <Property Name="vcom" Type="text" />
+    <Property Name="dfecregi" Type="datetime" />
+    <Property Name="vestregi" Type="char" MaxLength="1" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'dd_newdatabase.dbo.client' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="client">
+    <Key>
+      <PropertyRef Name="vcodcli" />
+    </Key>
+    <Property Name="vcodcli" Type="int" Nullable="false" />
+    <Property Name="vnomcli" Type="varchar" MaxLength="50" />
+    <Property Name="vapecli" Type="varchar" MaxLength="50" />
+    <Property Name="vdircli" Type="varchar" MaxLength="250" />
+    <Property Name="vtelcli" Type="varchar" MaxLength="100" />
+    <Property Name="vfecnaci" Type="date" />
+    <Property Name="dfecregi" Type="datetime" />
+    <Property Name="vestregi" Type="char" MaxLength="1" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'dd_newdatabase.dbo.client1' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="client1">
+    <Key>
+      <PropertyRef Name="vcodcli" />
+    </Key>
+    <Property Name="vcodcli" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="vnomcli" Type="varchar" MaxLength="50" />
+    <Property Name="vapecli" Type="varchar" MaxLength="50" />
+    <Property Name="vdircli" Type="varchar" MaxLength="250" />
+    <Property Name="vtelcli" Type="varchar" MaxLength="100" />
+    <Property Name="vfecnaci" Type="date" />
+    <Property Name="dfecregi" Type="datetime" />
+    <Property Name="vestregi" Type="char" MaxLength="1" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'dd_newdatabase.dbo.court' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="court">
+    <Key>
+      <PropertyRef Name="ncodcort" />
+    </Key>
+    <Property Name="ncodcort" Type="int" Nullable="false" />
+    <Property Name="ncodusua" Type="int" />
+    <Property Name="nnomcort" Type="varchar" MaxLength="50" />
+    <Property Name="vdircort" Type="varchar" MaxLength="50" />
+    <Property Name="vtelcort" Type="nchar" MaxLength="10" />
+    <Property Name="vdet" Type="text" />
+    <Property Name="dfecregi" Type="datetime" />
+    <Property Name="vestregi" Type="char" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="court1">
+    <Key>
+      <PropertyRef Name="ncodcort" />
+    </Key>
+    <Property Name="ncodcort" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ncodusua" Type="int" />
+    <Property Name="nnomcort" Type="varchar" MaxLength="50" />
+    <Property Name="vdircort" Type="varchar" MaxLength="50" />
+    <Property Name="vtelcort" Type="nchar" MaxLength="10" />
+    <Property Name="vdet" Type="text" />
+    <Property Name="dfecregi" Type="datetime" />
+    <Property Name="vestregi" Type="char" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="emails">
+    <Key>
+      <PropertyRef Name="vcodemail" />
+    </Key>
+    <Property Name="vcodemail" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="vtitle" Type="varchar" MaxLength="10" />
+    <Property Name="vname" Type="varchar" MaxLength="255" />
+    <Property Name="vphome" Type="nchar" MaxLength="20" />
+    <Property Name="vpcell" Type="nchar" MaxLength="20" />
+    <Property Name="vemail" Type="varchar" MaxLength="100" />
+    <Property Name="vcboOff1" Type="varchar" MaxLength="255" />
+    <Property Name="vcboOff2" Type="varchar" MaxLength="255" />
+    <Property Name="vcboOff3" Type="varchar" MaxLength="255" />
+    <Property Name="vcboOff4" Type="varchar" MaxLength="255" />
+    <Property Name="vrdbdd1" Type="varchar" MaxLength="10" />
+    <Property Name="vticket" Type="varchar" MaxLength="20" />
+    <Property Name="vdate" Type="varchar" MaxLength="50" />
+    <Property Name="vcourt" Type="varchar" MaxLength="150" />
+    <Property Name="vestlicen" Type="varchar" MaxLength="150" />
+    <Property Name="vpoints" Type="varchar" MaxLength="150" />
+    <Property Name="vrdbq1" Type="varchar" MaxLength="10" />
+    <Property Name="vrdbq2" Type="varchar" MaxLength="10" />
+    <Property Name="vcomduidwi" Type="varchar" MaxLength="150" />
+    <Property Name="vcomment" Type="varchar" MaxLength="150" />
+    <Property Name="dfecregi" Type="datetime" />
+    <Property Name="vestregi" Type="char" MaxLength="1" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'dd_newdatabase.dbo.usuarios' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="usuarios">
+    <Key>
+      <PropertyRef Name="vcodusua" />
+    </Key>
+    <Property Name="vcodusua" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="vtipo" Type="varchar" MaxLength="50" />
+    <Property Name="vnomusua" Type="varchar" MaxLength="50" />
+    <Property Name="vcon" Type="nchar" MaxLength="10" />
+    <Property Name="vnom" Type="varchar" MaxLength="250" />
+    <Property Name="vape" Type="varchar" MaxLength="250" />
+    <Property Name="vmail" Type="varchar" MaxLength="100" />
+    <Property Name="vfecnaci" Type="date" />
+    <Property Name="dfecregi" Type="datetime" />
+    <Property Name="vestregi" Type="char" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="video_usuarios">
+    <Key>
+      <PropertyRef Name="ncodusua" />
+    </Key>
+    <Property Name="ncodusua" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="nusuariotipo" Type="int" />
+    <Property Name="vfullname" Type="varchar" MaxLength="250" />
+    <Property Name="vphone" Type="varchar" MaxLength="30" />
+    <Property Name="vcelular" Type="varchar" MaxLength="50" />
+    <Property Name="vemail" Type="varchar" MaxLength="50" />
+    <Property Name="vcomments" Type="text" />
+    <Property Name="vcon" Type="varchar" MaxLength="10" />
+    <Property Name="vcreation" Type="datetime" />
+    <Property Name="vestusuario" Type="varchar" MaxLength="1" />
+    <Property Name="vdeleted" Type="varchar" MaxLength="1" />
+    <Property Name="Address" Type="varchar" MaxLength="100" />
+    <Property Name="NJDL#" Type="varchar" MaxLength="100" />
+    <Property Name="DOB" Type="datetime" />
+    <Property Name="EyeColor" Type="varchar" MaxLength="50" />
+    <Property Name="Gender" Type="varchar" MaxLength="10" />
+    <Property Name="State" Type="varchar" MaxLength="100" />
+    <Property Name="City" Type="varchar" MaxLength="100" />
+    <Property Name="Zip" Type="nvarchar" MaxLength="20" />
+    <Property Name="IsCompleted" Type="bit" Nullable="false" />
+    <Property Name="CourseCompletedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="video_usuarios_tipo">
+    <Key>
+      <PropertyRef Name="nusuariotipo" />
+    </Key>
+    <Property Name="nusuariotipo" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="vdescripcion" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <Association Name="FK_video_usuarios_video_usuarios_tipo">
+    <End Role="video_usuarios_tipo" Type="dd_databaseModel.Store.video_usuarios_tipo" Multiplicity="0..1" />
+    <End Role="video_usuarios" Type="dd_databaseModel.Store.video_usuarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="video_usuarios_tipo">
+        <PropertyRef Name="nusuariotipo" />
+      </Principal>
+      <Dependent Role="video_usuarios">
+        <PropertyRef Name="nusuariotipo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

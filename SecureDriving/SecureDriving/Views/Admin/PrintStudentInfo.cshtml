@@ -1,0 +1,132 @@
+﻿@model SecureDriving.Models.UserList
+@{
+    
+    Layout = "~/Views/Shared/_LayoutforPrinting.cshtml";
+    }
+
+<style type="text/css">
+    span.cls_002 {
+        font-family: Times,serif;
+        font-size: 56.0px;
+        color: rgb(0,0,0);
+        font-weight: bold;
+        font-style: normal;
+        text-decoration: none;
+    }
+
+    div.cls_002 {
+        font-family: Times,serif;
+        font-size: 56.0px;
+        color: rgb(0,0,0);
+        font-weight: bold;
+        font-style: normal;
+        text-decoration: none;
+    }
+
+    span.cls_003 {
+        font-family: Times,serif;
+        font-size: 43.0px;
+        color: rgb(0,0,0);
+        font-weight: bold;
+        font-style: normal;
+        text-decoration: none;
+    }
+
+    div.cls_003 {
+        font-family: Times,serif;
+        font-size: 43.0px;
+        color: rgb(0,0,0);
+        font-weight: bold;
+        font-style: normal;
+        text-decoration: none;
+    }
+
+    span.cls_004 {
+        font-family: Times,serif;
+        font-size: 26.1px;
+        color: rgb(0,0,0);
+        font-weight: bold;
+        font-style: normal;
+        text-decoration: none;
+    }
+
+    div.cls_004 {
+        font-family: Times,serif;
+        font-size: 26.1px;
+        color: rgb(0,0,0);
+        font-weight: bold;
+        font-style: normal;
+        text-decoration: none;
+    }
+
+    span.cls_005 {
+        font-family: Times,serif;
+        font-size: 21.1px;
+        color: rgb(0,0,0);
+        font-weight: bold;
+        font-style: normal;
+        text-decoration: none;
+    }
+
+    div.cls_005 {
+        font-family: Times,serif;
+        font-size: 21.1px;
+        color: rgb(0,0,0);
+        font-weight: bold;
+        font-style: normal;
+        text-decoration: none;
+    }
+
+    span.cls_006 {
+        font-family: Times,serif;
+        font-size: 19.1px;
+        color: rgb(0,0,0);
+        font-weight: normal;
+        font-style: normal;
+        text-decoration: none;
+    }
+
+    div.cls_006 {
+        font-family: Times,serif;
+        font-size: 19.1px;
+        color: rgb(0,0,0);
+        font-weight: normal;
+        font-style: normal;
+        text-decoration: none;
+        line-height:20px;
+    }
+    /*label {
+        visibility:visible !important;
+    }
+    div {
+        visibility:visible !important;
+    }*/
+  
+</style>
+<div id="test" style="position:absolute;left:50%;margin-left:-395px;top:20px;width:790px;height:611px;overflow:hidden" class="print">
+    <div style="position: absolute; left: 376.80px; top: 135.48px;" class="cls_002"><span class="cls_002"><label>0</label> </span></div>
+    <div style="position: absolute; left: 347.76px; top: 180.64px;" class="cls_003"><span class="cls_003"><label>USA</label>  </span></div>
+    <div style="position: absolute; left: 255.36px; top: 227.16px;" class="cls_004"><span class="cls_004"><label>STATE OF NEW JERSEY</label> </span></div>
+    <div style="position: absolute; left: 102.72px; top: 251.84px;" class="cls_005"><span class="cls_005"><label>This certifies that the person listed below has successfully completed the </label> </span></div>
+    <div style="position: absolute; left: 255.12px; top: 270.56px;" class="cls_005"><span class="cls_005"><label>USA 6-hour Driver Safety Course </label> </span></div>
+
+    <div style="position:absolute;left:0px;top:330px" class="cls_006"><span class="cls_006"><label >Name</label> @Model.Name</span></div>
+    <div style="position:absolute;left:453.84px;top:330px" class="cls_006"><span class="cls_006"><label>DL#</label>&nbsp;&nbsp;&nbsp; @Model.NJDL_</span></div>
+    <div style="position:absolute;left:0px;top:375px" class="cls_006"><span class="cls_006"><label>Address</label>@Model.Address</span></div>
+    <div style="position:absolute;left:453.12px;top:375px" class="cls_006"><span class="cls_006">Course Completion Date</>&nbsp;&nbsp;&nbsp; @DateTime.Now.ToShortDateString()</span></div>
+    <div style="position:absolute;left:0px;top:427px" class="cls_006"><span class="cls_006"><label>City State Zip</label>@Model.city @Model.state @Model.Zip</span></div>
+    <div style="position:absolute;left:453.60px;top:427px" class="cls_006"><span class="cls_006"><label>instructor Signature</label></span></div>
+</div>
+
+@section scripts
+  {
+    <script>
+        $(function () {
+            $('.loadercont').fadeOut();
+            window.print();
+            setTimeout(function () { window.close(); }, 100);
+        });
+
+       
+    </script>
+}

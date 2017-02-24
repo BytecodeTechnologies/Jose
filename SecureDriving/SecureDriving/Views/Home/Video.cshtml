@@ -1,0 +1,61 @@
+﻿@{
+    ViewBag.Title = "Video";
+}
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center about-us">
+                <h2>Defensive Driving Online Class</h2>
+            </div>
+            <div class="col-md-10 col-md-offset-1 cousrse-12">
+                <video id="Video1"  controls="controls" width="100%" height="450" @*loop="loop"*@ >
+                    <source src="~/Videos/sintel-trailer%201.m4v" type="video/mp4" />
+
+                </video>
+                <center><h3>If You've Completed this course please <input type="button" title="Click Here" value="Click Here" class="buttondecorate"  id="btnCompletedCourse"/></h3></center>
+
+            </div>
+        </div>
+        </div>
+</body>
+@section scripts
+{
+    <script>
+        $(function () {
+            $('#btnCompletedCourse').attr('disabled', true);
+
+            $('.loadercont').fadeOut();
+            document.getElementById('Video1').addEventListener('ended', myHandler, false);
+            function myHandler(e) {
+                $("#btnCompletedCourse").removeClass("not-active")
+                $('#btnCompletedCourse').removeAttr('disabled');
+            }
+        });
+        $("#btnCompletedCourse").click(function () {
+            //$('.loadercont').fadein();
+            if (confirm("Are you sure,You have completed your couse??")) {
+                $.ajax({
+                    type: "POST",
+                    url: "/Home/CompletedCourse",
+                    dataType: "json",
+                    success: function (response) {
+                        alert(response);
+                 
+                        $('.loadercont').fadeOut();
+                    },
+                    error: function (response) {
+                        alert(response);
+                        $('.loadercont').fadeOut();
+                    }
+
+                });
+            }
+            });
+        
+
+
+
+
+    </script>
+}

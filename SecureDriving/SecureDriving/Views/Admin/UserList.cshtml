@@ -1,0 +1,323 @@
+﻿<style type="text/css">
+    .webGrid {
+        margin: 4px;
+        border-collapse: collapse;
+        width: 1170px;
+        background-color: white;
+        margin: 30px auto;
+    }
+
+    .header {
+        background-color: #44A1FD;
+        font-weight: bold;
+        color: white;
+    }
+
+    .webGrid th, .webGrid td {
+        border: 1px solid #C0C0C0;
+        padding: 5px;
+    }
+     .webGrid th a {
+            color: white;
+        }
+
+    .alt {
+        background-color: #D5DAE0;
+        color: #000;
+    }
+
+    .gridHead a:hover {
+        text-decoration: underline;
+    }
+
+    .description {
+        width: auto;
+    }
+
+    .select {
+        background-color: #71857C;
+    }
+    .lists a {
+    background: #44A1FD;
+    padding: 10px 16px;
+    color: white;
+    font-weight: 600;
+}
+    input#Reset {
+    margin-left: 10px;
+    padding: 3px 20px;
+    font-weight: 600;
+}
+    .margin-tabel {
+    margin-top: 30px;
+}
+    #dvUserList tfoot a {
+    border: 1px solid grey;
+    padding: 0px 8px !important;
+}
+     input#Submit {
+    margin-left: 10px;
+    padding: 3px 20px;
+    font-weight: 600;
+}
+
+</style>
+<div class="container ">
+<div class="user-lists">
+     <ul class="list-unstyled list-inline">
+         <li class="lists"> <a href="/Admin/UserList" id="lnkbtnUserList">  User list </a></li>
+         <li> <a href="/Admin/DeletedList" id="lnkbtnDeleteList">  Deleted list</a></li>
+           <li > <a href="/Admin/Reports" id="lnkbtnreports"> Reports</a></li>
+           <li><a href="/Admin/UserCompletedCourse" id="lnkbtnCompletedCourse">Certificate</a></li>
+     </ul>
+   
+</div>
+<div>
+    <div class="margin-tabel">
+            <div class="col-md-4  first-search">
+        <div style="float: left; padding: 5px 0; margin-left: 5px;">
+        Find: 
+        <input type="text" id="Name" />
+        <input type="button" class="search-btn12" id="Submit" value="Search" style="background-color: #44A1FD; color: white; border-radius: 6px;" />
+    </div>
+    </div>
+    <div class="col=md-4 first-search role-buton">
+         <div style="float: left; margin-left: 0px; padding: 5px 0;">
+        Role:
+    <select id="ddlCheckRole" style="width: 200px">
+        <option value="0">All</option>
+        <option value="1">Student</option>
+        <option value="2">Admin</option>
+    </select>
+    </div>
+    </div>
+        <div class="split"></div>
+    <div class="col-md-4 first-search button-reset>
+         <div style="float: left; margin-left: 30px; padding: 5px 0;">
+        Status:
+    <select id="ddlCheckUserStatus" style="width: 200px">
+        <option value="-1">All</option>
+        <option value="1">Active</option>
+        <option value="0">Inactive</option>
+    </select>
+<input type="button" id="Reset" class="reset-butn" value="Reset" onclick="BindUserList()" style="background-color: #44A1FD; color: white; border-radius: 6px;" />
+    </div>
+    </div>
+    </div>
+
+  
+</div>
+
+</div>
+
+<body>
+    <div id="dvUserList">
+        <div class="list-scrol"></div>
+    </div>
+</body>
+
+
+
+@section scripts
+{
+    <script>
+        $(document).ready(function myfunction() {
+            GetData();
+        });
+
+        function GetData() {
+            var Model = {
+                SearchName: $("#Name").val(), SearchRole: $("#ddlCheckRole").val(), SearchStatus: $("#ddlCheckUserStatus").val()
+
+            }
+            $.ajax({
+                type: "POST",
+                url: "/Admin/UserLists",
+                data: Model,
+                dataType: "html",
+                success: function (data) {
+                    $("#dvUserList").html(data);
+                    $('.loadercont').fadeOut();
+                },
+                error: function (data)
+                { $('.loadercont').fadeOut(); }
+
+            });
+        }
+
+        $("#Name").keypress(function (e) {
+           
+            if (e.which == 13) {
+                e.preventDefault();
+                GetData();
+                $('.loadercont').fadeIn();
+            }
+        });
+
+        $("#Submit").click(function () {
+            $('.loadercont').fadeIn();
+            GetData();
+        });
+
+        function DeleteUser(id) {
+            if (confirm("Are you sure to delete this user?")) {
+                $('.loadercont').fadeIn();
+                // your deletion code
+                $.ajax({
+                    type: "POST",
+                    url: "/Admin/DeleteUser",
+                    data: { id: id,SearchName: $("#Name").val(), SearchRole: $("#ddlCheckRole").val(), SearchStatus: $("#ddlCheckUserStatus").val() },
+                    dataType: "html",
+
+                    success: function (data) {
+                        $("#dvUserList").html(data);
+                        $('.loadercont').fadeOut();
+                    },
+                    error: function (data)
+                    { $('.loadercont').fadeOut(); }
+                });
+            }
+        }
+
+        function DeActivateUser(id) {
+            if (confirm("Are you sure to DeactivateUser this user?")) {
+                $('.loadercont').fadeIn();
+                // your deletion code
+                $.ajax({
+                    type: "POST",
+                    url: "/Admin/ActiveDeactiveUser",
+                    data: { id: id, SearchName: $("#Name").val(), SearchRole: $("#ddlCheckRole").val(), SearchStatus: $("#ddlCheckUserStatus").val() },
+                    dataType: "html",
+                    success: function (data) {
+                        $("#dvUserList").html(data);
+                        $('.loadercont').fadeOut();
+                    },
+                    error: function (data)
+                    { $('.loadercont').fadeOut(); }
+                });
+            }
+        }
+
+        function ActivateUser(id) {
+            if (confirm("Are you sure to Activate this status?")) {
+                $('.loadercont').fadeIn();
+                // your deletion code
+                $.ajax({
+                    type: "POST",
+                    url: "/Admin/ActiveDeactiveUser",
+                    data: { id: id, SearchName: $("#Name").val(), SearchRole: $("#ddlCheckRole").val(), SearchStatus: $("#ddlCheckUserStatus").val() },
+                    dataType: "html",
+                    success: function (data) {
+                        $("#dvUserList").html(data);
+                        $('.loadercont').fadeOut();
+                    },
+                    error: function (data)
+                    { $('.loadercont').fadeOut(); }
+                });
+            }
+        }
+
+
+        $("#ddlCheckRole").change(function () {
+            $('.loadercont').fadeIn();
+            GetData();
+        });
+
+        $("#ddlCheckUserStatus").change(function () {
+            $('.loadercont').fadeIn();
+            GetData();
+        });
+
+        function BindUserList() {
+            $('.loadercont').fadeIn();
+            $("#ddlCheckUserStatus").val(-1);
+            $("#ddlCheckRole").val(0);
+            $("#Name").val("");
+            GetData();
+        }
+
+
+        function GenrateNewPdf(id) {
+
+            //window.open("/Admin/PrintStudentInfo/" + id, '', 'height=400,width=800');
+
+            // window.open("/Admin/CreatePdf/" + id, '', 'height=400,width=800');
+            window.open("/Admin/GenrateStudentInfoPdf/" + id);
+        }
+
+
+        function GenratePdf(id) {
+          
+            //window.open("/Admin/PrintStudentInfo/" + id, '', 'height=400,width=800');
+
+            // window.open("/Admin/CreatePdf/" + id, '', 'height=400,width=800');
+            window.open("/Admin/GenratePdf/" + id);
+        }
+
+        function ChangeToAdmin(id) {
+            if (confirm("Are you sure you want to make this user as admin?")) {
+                $('.loadercont').fadeIn();
+                // your deletion code
+                $.ajax({
+                    type: "POST",
+                    url: "/Admin/ChangeRole",
+                    data: { id: id, SearchName: $("#Name").val(), SearchRole: $("#ddlCheckRole").val(), SearchStatus: $("#ddlCheckUserStatus").val() },
+                    dataType: "html",
+                    success: function (data) {
+                        $("#dvUserList").html(data);
+                        $('.loadercont').fadeOut();
+                    },
+                    error: function (data)
+                    { $('.loadercont').fadeOut(); }
+                });
+            }
+        }
+
+        function ChangeToUser(id) {
+            if (confirm("Are you sure you want to make this admin user as normal user?")) {
+                $('.loadercont').fadeIn();
+                // your deletion code
+                $.ajax({
+                    type: "POST",
+                    url: "/Admin/ChangeRole",
+                    data: { id: id, SearchName: $("#Name").val(), SearchRole: $("#ddlCheckRole").val(), SearchStatus: $("#ddlCheckUserStatus").val() },
+                    dataType: "html",
+                    success: function (data) {
+                        $("#dvUserList").html(data);
+                        $('.loadercont').fadeOut();
+                    },
+                    error: function (data)
+                    { $('.loadercont').fadeOut(); }
+                });
+            }
+        }
+        function GetUserInfo(id) {
+            window.open("/Admin/UserInfo/" + id, '', 'height=600,width=700');
+        }
+
+        function CourseCompleted(id) {
+            if (confirm("Are you sure to add this user in course completion list?")) {
+                $('.loadercont').fadeIn();
+                // your deletion code
+                $.ajax({
+                    type: "POST",
+                    url: "/Admin/CompletedCourse",
+                    data: { id: id, SearchName: $("#Name").val(), SearchRole: $("#ddlCheckRole").val(), SearchStatus: $("#ddlCheckUserStatus").val() },
+                    dataType: "html",
+                    success: function (data) {
+                        $("#dvUserList").html(data);
+                        $('.loadercont').fadeOut();
+                    },
+                    error: function (data)
+                    { $('.loadercont').fadeOut(); }
+                });
+            }
+        }
+        
+
+
+
+
+
+    </script>
+}

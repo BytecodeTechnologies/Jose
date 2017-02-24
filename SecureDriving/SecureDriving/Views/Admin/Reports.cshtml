@@ -1,0 +1,178 @@
+﻿<style type="text/css">
+    .webGrid {
+        margin: 4px;
+        border-collapse: collapse;
+        width: 1170px;
+        background-color: white;
+        margin: 30px auto;
+    }
+
+    .header {
+        background-color: #44A1FD;
+        font-weight: bold;
+        color: white;
+    }
+
+    .webGrid th, .webGrid td {
+        border: 1px solid #C0C0C0;
+        padding: 5px;
+    }
+
+        .webGrid th a {
+            color: white;
+        }
+
+    .alt {
+        background-color: #D5DAE0;
+        color: #000;
+    }
+
+    .gridHead a:hover {
+        text-decoration: underline;
+    }
+
+    .description {
+        width: auto;
+    }
+
+    .select {
+        background-color: #71857C;
+    }
+
+    .lists a {
+        background: #44A1FD;
+        padding: 10px 16px;
+        color: white;
+        font-weight: 600;
+    }
+
+    input#Reset {
+        margin-left: 10px;
+        padding: 3px 20px;
+        font-weight: 600;
+    }
+
+    .margin-tabel {
+        margin-top: 30px;
+    }
+
+    #dvUserList tfoot a {
+        border: 1px solid grey;
+        padding: 0px 8px !important;
+    }
+</style>
+<div class="container">
+    <div>
+        <div class="user-lists">
+            <ul class="list-unstyled list-inline">
+                <li><a href="/Admin/UserList" id="lnkbtnUserList">User list </a></li>
+                <li><a href="/Admin/DeletedList" id="lnkbtnDeleteList">Deleted list</a></li>
+                <li class="lists"><a href="/Admin/Reports" id="lnkbtnreports">Reports</a></li>
+                <li><a href="/Admin/UserCompletedCourse" id="lnkbtnCompletedCourse">Certificate</a></li>
+
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="margin-tabel"></div>
+<div class="col-md-8">
+    <div class="col-md-1"></div>
+    <div class="col-md-6">
+Search
+        <select id="ddlReprtssearch" style="width:60%">
+
+            <option value="0">All</option>
+            <option value="1">Today</option>
+            <option value="2">Yesterday</option>
+            <option value="3">This Week</option>
+            <option value="4">This Month</option>
+            <option value="5">This Quarter</option>
+            <option value="6">This Year</option>
+            <option value="7">Last Week</option>
+            <option value="8">Last Two Weeks</option>
+            <option value="9">Last Month</option>
+            <option value="10">Last Two Months</option>
+            <option value="11">Past Six Months</option>
+            <option value="12">Last Year</option>
+        </select>
+    </div>
+</div>
+ <div id="dvUserList"></div>
+
+@section scripts
+{
+    <script>
+        $(function () {
+            ReportsSearchResult();
+
+            $('.loadercont').fadeOut();
+        });
+
+        $("#ddlReprtssearch").change(function () {
+            ReportsSearchResult();
+        });
+
+        function ReportsSearchResult() {
+          
+            var ddlReprtssearch = $('#ddlReprtssearch').val();
+            data = { SearchItem: ddlReprtssearch }
+            $('.loadercont').fadeIn();
+            $.ajax({
+                type: "POST",
+                url: "/Admin/SearchReports",
+                data: data,
+                dataType: "html",
+                success: function (data) {
+                    {
+                        $("#dvUserList").html(data);
+                        $('.loadercont').fadeOut();
+                    }
+                },
+                error: function (data)
+                { $('.loadercont').fadeOut(); }
+            });
+        }
+
+        function DeActivateUser(id) {
+            if (confirm("Are you sure to DeactivateUser this user?")) {
+                $('.loadercont').fadeIn();
+                var ddlReprtssearch = $('#ddlReprtssearch').val();
+              
+                $.ajax({
+                    type: "POST",
+                    url: "/Admin/ActiveUserOnReportList",
+                    data: { id: id, SearchItem: ddlReprtssearch },
+                    dataType: "html",
+                    success: function (data) {
+                        $("#dvUserList").html(data);
+                        $('.loadercont').fadeOut();
+                    },
+                    error: function (data)
+                    { $('.loadercont').fadeOut(); }
+                });
+            }
+        }
+
+        function ActivateUser(id) {
+            if (confirm("Are you sure to Activate this status?")) {
+                $('.loadercont').fadeIn();
+                var ddlReprtssearch = $('#ddlReprtssearch').val();
+                // your deletion code
+                $.ajax({
+                    type: "POST",
+                    url: "/Admin/ActiveUserOnReportList",
+                    data: { id: id, SearchItem: ddlReprtssearch },
+                    dataType: "html",
+                    success: function (data) {
+                        $("#dvUserList").html(data);
+                        $('.loadercont').fadeOut();
+                    },
+                    error: function (data)
+                    { $('.loadercont').fadeOut(); }
+                });
+            }
+        }
+
+    </script>
+}

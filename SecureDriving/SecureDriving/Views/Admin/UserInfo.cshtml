@@ -1,0 +1,98 @@
+﻿@model SecureDriving.Models.UserList
+<body>
+    <div class="container">
+        <div class="col-sm-12">
+            <h2>User Information</h2>
+        </div>
+        <div class="col-sm-12">
+            <label class="col-sm-2 control-label" for="inputName">FullName: </label>
+            <label class="col-sm-2 name-person control-label">@Model.Name</label>
+        </div>
+         <div class="col-sm-12">
+            <label for="txtDOB" class="col-sm-2 control-label">Gender :</label>
+
+            <label class="col-sm-2 name-person control-label">@Model.Gender</label>
+        </div>
+        <div class="col-sm-12">
+            <label for="txtDOB" class="col-sm-2 control-label">DOB :</label>
+
+            <label class="col-sm-2 name-person control-label">@Model.ShowDateOfBirth</label>
+        </div>
+        <div class="col-sm-12">
+            <label for="inputPhone" class="col-sm-2 control-label">Phone :</label>
+
+            <label class="col-sm-2 name-person control-label">@Model.PhoneNo</label>
+        </div>
+        <div class="col-sm-12">
+            <label for="inputPhone"  class="col-sm-2 control-label">Email :</label>
+
+            <label class="col-sm-2 name-person control-label">@Model.Email</label>
+        </div>
+        <div class="col-sm-12">
+            <label for="txtAddress" class="col-sm-2 control-label">Address :</label>
+
+            <label class="col-sm-2 name-person control-label">@Model.Address</label>
+        </div>
+        <div class="col-sm-12">
+            <label for="txtAddress" class="col-sm-2 control-label">State :</label>
+
+            <label class="col-sm-2 name-person control-label">@Model.state</label>
+        </div>
+        <div class="col-sm-12">
+
+            <label for="txtAddress" class="col-sm-2 control-label">City :</label>
+
+            <label class="col-sm-2 name-person control-label">@Model.city</label>
+        </div>
+        <div class="col-sm-12">
+
+            <label for="txtAddress" class="col-sm-2 control-label">Zip :</label>
+
+            <label class="col-sm-2 name-person control-label">@Model.Zip</label>
+        </div>
+        <div class="col-sm-12">
+            <label for="txtNJDL" class="col-sm-2 control-label">NJDL# :</label>
+
+            <label class="col-sm-2 name-person control-label">@Model.NJDL_</label>
+        </div>
+        <div class="col-sm-12">
+            <label for="txtNJDL" class="col-sm-2 control-label">Eye Color:</label>
+
+            <label class="col-sm-2 name-person control-label">@Model.EyeColor</label>
+        </div>
+         <div class="col-sm-12">
+            <label for="txtNJDL" class="col-sm-2 control-label">Creation Date :</label>
+
+            <label class="col-sm-2 name-person control-label">@Model.creationDate</label>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+</body>
+
+@section scripts
+{
+    <script>
+
+        $(document).ready(function myfunction() {
+            //var myWindow = window.open("");
+            $('.loadercont').fadeOut();
+        });
+    </script>
+}

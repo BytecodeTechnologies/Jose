@@ -1,0 +1,222 @@
+﻿
+<style type="text/css">
+    .webGrid {
+       border-collapse: collapse;
+    width: 1170px;
+    background-color: white;
+    margin: 15px auto;
+    }
+
+    .header {
+        background-color: #44A1FD;
+        font-weight: bold;
+        color: white;
+    }
+
+    .webGrid th, .webGrid td {
+        border: 1px solid #C0C0C0;
+        padding: 5px;
+    }
+
+        .webGrid th a {
+            color: white;
+        }
+
+    .alt {
+        background-color: #D5DAE0;
+        color: #000;
+    }
+
+    .gridHead a:hover {
+        text-decoration: underline;
+    }
+
+    .description {
+        width: auto;
+    }
+
+    .select {
+        background-color: #71857C;
+    }
+        .lists a {
+    background: #44A1FD;
+    padding: 10px 16px;
+    color: white;
+    font-weight: 600;
+}
+        #dvUserList tfoot a {
+    border: 1px solid grey;
+    padding: 0px 8px !important;
+}
+        input#Reset {
+    margin-left: 10px;
+    padding: 3px 20px;
+    font-weight: 600;
+}
+         input#Submit {
+    margin-left: 10px;
+    padding: 3px 20px;
+    font-weight: 600;
+}
+  
+         
+        
+</style>
+<div class="container">
+    <div>
+    <div class="user-lists">
+     <ul class="list-unstyled list-inline">
+         <li> <a href="/Admin/UserList" id="lnkbtnUserList">  User list </a></li>
+         <li  class="lists"> <a href="/Admin/DeletedList" id="lnkbtnDeleteList">  Deleted list</a></li>
+           <li> <a href="/Admin/Reports" id="lnkbtnreports"> Reports</a></li>
+           <li><a href="/Admin/UserCompletedCourse" id="lnkbtnCompletedCourse">Certificate</a></li>
+           
+     </ul>
+</div>
+       </div>
+    <div class="margin-tabel">
+            <div class="col-md-4  first-search">
+        <div style="float: left; padding: 5px 0; margin-left: 5px;">
+        Find: 
+        <input type="text" id="Name" />
+        <input type="button" id="Submit" class="search-btn12" value="Search" style="background-color: #44A1FD; color: white; border-radius: 6px;" />
+    </div>
+    </div>
+    <div class="col=md-4  first-search  role-buton">
+         <div style="float: left; margin-left: 0px; padding: 5px 0;">
+        Role:
+    <select id="ddlCheckRole" style="width: 200px">
+        <option value="0">All</option>
+        <option value="1">Student</option>
+        <option value="2">Admin</option>
+    </select>
+    </div>
+    </div>
+        <div class="split"></div>
+    <div class="col-md-4  first-search button-reset>
+         <div style="float: left; margin-left: 30px; padding: 5px 0;">
+        Status:
+    <select id="ddlCheckUserStatus" style="width: 200px">
+        <option value="-1">All</option>
+        <option value="1">Active</option>
+        <option value="0">Inactive</option>
+    </select>
+<input type="button" id="Reset" class="reset-butn"  value="Reset" onclick="BindUserList()" style="background-color: #44A1FD; color: white; border-radius: 6px; " />
+    </div>
+    </div>
+    </div>
+
+  
+</div>
+</div>
+
+
+
+
+<body>
+    <div id="dvUserList"></div>
+</body>
+
+
+
+@section scripts
+{
+    <script>
+        $(document).ready(function myfunction() {
+            GetData();
+        });
+
+        function GetData() {
+            var Model = {
+                SearchName: $("#Name").val(), SearchRole: $("#ddlCheckRole").val(), SearchStatus: $("#ddlCheckUserStatus").val()
+            }
+            $.ajax({
+                type: "POST",
+                url: "/Admin/GetDeletedList",
+                data: Model,
+                dataType: "html",
+                success: function (data) {
+                    $("#dvUserList").html(data);
+                    $('.loadercont').fadeOut();
+                },
+                error: function (data)
+                { $('.loadercont').fadeOut(); }
+
+            });
+        }
+
+        $("#Submit").click(function () {
+            $('.loadercont').fadeIn();
+            GetData();
+        });
+
+        function PermanentDeleteUser(id) {
+            if (confirm("Are you sure to delete this user?")) {
+                $('.loadercont').fadeIn();
+              
+                $.ajax({
+                    type: "POST",
+                    url: "/Admin/UserPermanentDeleted",
+                    data: { id: id, SearchName: $("#Name").val(), SearchRole: $("#ddlCheckRole").val(), SearchStatus: $("#ddlCheckUserStatus").val() },
+                    dataType: "html",
+                    success: function (data) {
+                        $("#dvUserList").html(data);
+                        $('.loadercont').fadeOut();
+                    },
+                    error: function (data)
+                    { $('.loadercont').fadeout();}
+                });
+            }
+        }
+
+        function ReturntoList(id) {
+            if (confirm("Are you sure to return this user to userlist?")) {
+                $('.loadercont').fadeIn();
+                // your deletion code
+                $.ajax({
+                    type: "POST",
+                    url: "/Admin/UserReturnToList",
+                    data: { id: id, SearchName: $("#Name").val(), SearchRole: $("#ddlCheckRole").val(), SearchStatus: $("#ddlCheckUserStatus").val() },
+                    dataType: "html",
+
+                    success: function (data) {
+                        $("#dvUserList").html(data);
+                        $('.loadercont').fadeOut();
+                    },
+                    error: function (data)
+                    { $('.loadercont').fadeOut(); }
+                });
+            }
+        }
+
+        $("#ddlCheckRole").change(function () {
+            $('.loadercont').fadeIn();
+            GetData();
+        });
+
+        $("#ddlCheckUserStatus").change(function () {
+            $('.loadercont').fadeIn();
+            GetData();
+        });
+
+        function BindUserList() {
+            $('.loadercont').fadeIn();
+            $("#ddlCheckUserStatus").val(-1);
+            $("#ddlCheckRole").val(0);
+            $("#Name").val("");
+
+            GetData();
+        }
+        $("#lnkbtnDeleteList").click(function () {
+            window.location.href = "/Admin/DeletedList"
+        });
+
+        $("#Name").keypress(function (e) {
+            if (e.which == 13) {
+                $('.loadercont').fadeIn();
+                e.preventDefault();
+                GetData();
+            }
+        });
+    </script>
+}
