@@ -1,0 +1,61 @@
+D:\Vipin\VK\Stabile DUI\Stabile DUI\bin\Stabile DUI.dll
+D:\Vipin\VK\Stabile DUI\Stabile DUI\bin\Stabile DUI.pdb
+D:\Vipin\VK\Stabile DUI\Stabile DUI\bin\Antlr3.Runtime.dll
+D:\Vipin\VK\Stabile DUI\Stabile DUI\bin\EntityFramework.dll
+D:\Vipin\VK\Stabile DUI\Stabile DUI\bin\Microsoft.Web.Infrastructure.dll
+D:\Vipin\VK\Stabile DUI\Stabile DUI\bin\Newtonsoft.Json.dll
+D:\Vipin\VK\Stabile DUI\Stabile DUI\bin\System.Net.Http.Formatting.dll
+D:\Vipin\VK\Stabile DUI\Stabile DUI\bin\System.Web.Http.dll
+D:\Vipin\VK\Stabile DUI\Stabile DUI\bin\System.Web.Http.WebHost.dll
+D:\Vipin\VK\Stabile DUI\Stabile DUI\bin\System.Web.Mvc.dll
+D:\Vipin\VK\Stabile DUI\Stabile DUI\bin\System.Web.Optimization.dll
+D:\Vipin\VK\Stabile DUI\Stabile DUI\bin\System.Web.Providers.dll
+D:\Vipin\VK\Stabile DUI\Stabile DUI\bin\System.Web.Razor.dll
+D:\Vipin\VK\Stabile DUI\Stabile DUI\bin\System.Web.WebPages.Deployment.dll
+D:\Vipin\VK\Stabile DUI\Stabile DUI\bin\System.Web.WebPages.dll
+D:\Vipin\VK\Stabile DUI\Stabile DUI\bin\System.Web.WebPages.Razor.dll
+D:\Vipin\VK\Stabile DUI\Stabile DUI\bin\WebGrease.dll
+D:\Vipin\VK\Stabile DUI\Stabile DUI\bin\EntityFramework.xml
+D:\Vipin\VK\Stabile DUI\Stabile DUI\bin\Newtonsoft.Json.xml
+D:\Vipin\VK\Stabile DUI\Stabile DUI\bin\System.Net.Http.Formatting.xml
+D:\Vipin\VK\Stabile DUI\Stabile DUI\bin\System.Web.Http.xml
+D:\Vipin\VK\Stabile DUI\Stabile DUI\bin\System.Web.Http.WebHost.xml
+D:\Vipin\VK\Stabile DUI\Stabile DUI\bin\System.Web.Mvc.xml
+D:\Vipin\VK\Stabile DUI\Stabile DUI\bin\System.Web.Razor.xml
+D:\Vipin\VK\Stabile DUI\Stabile DUI\bin\System.Web.WebPages.xml
+D:\Vipin\VK\Stabile DUI\Stabile DUI\bin\System.Web.WebPages.Deployment.xml
+D:\Vipin\VK\Stabile DUI\Stabile DUI\bin\System.Web.WebPages.Razor.xml
+D:\Vipin\VK\Stabile DUI\Stabile DUI\obj\Debug\Stabile DUI.csprojResolveAssemblyReference.cache
+D:\Vipin\VK\Stabile DUI\Stabile DUI\obj\Debug\Stabile DUI.dll
+D:\Vipin\VK\Stabile DUI\Stabile DUI\obj\Debug\Stabile DUI.pdb
+E:\Vipin\VK\Josa\Stabile DUI\Stabile DUI\bin\Stabile DUI.dll.config
+E:\Vipin\VK\Josa\Stabile DUI\Stabile DUI\bin\Stabile DUI.dll
+E:\Vipin\VK\Josa\Stabile DUI\Stabile DUI\bin\Stabile DUI.pdb
+E:\Vipin\VK\Josa\Stabile DUI\Stabile DUI\bin\Antlr3.Runtime.dll
+E:\Vipin\VK\Josa\Stabile DUI\Stabile DUI\bin\EntityFramework.dll
+E:\Vipin\VK\Josa\Stabile DUI\Stabile DUI\bin\Microsoft.Web.Infrastructure.dll
+E:\Vipin\VK\Josa\Stabile DUI\Stabile DUI\bin\Newtonsoft.Json.dll
+E:\Vipin\VK\Josa\Stabile DUI\Stabile DUI\bin\System.Net.Http.Formatting.dll
+E:\Vipin\VK\Josa\Stabile DUI\Stabile DUI\bin\System.Web.Http.dll
+E:\Vipin\VK\Josa\Stabile DUI\Stabile DUI\bin\System.Web.Http.WebHost.dll
+E:\Vipin\VK\Josa\Stabile DUI\Stabile DUI\bin\System.Web.Mvc.dll
+E:\Vipin\VK\Josa\Stabile DUI\Stabile DUI\bin\System.Web.Optimization.dll
+E:\Vipin\VK\Josa\Stabile DUI\Stabile DUI\bin\System.Web.Providers.dll
+E:\Vipin\VK\Josa\Stabile DUI\Stabile DUI\bin\System.Web.Razor.dll
+E:\Vipin\VK\Josa\Stabile DUI\Stabile DUI\bin\System.Web.WebPages.Deployment.dll
+E:\Vipin\VK\Josa\Stabile DUI\Stabile DUI\bin\System.Web.WebPages.dll
+E:\Vipin\VK\Josa\Stabile DUI\Stabile DUI\bin\System.Web.WebPages.Razor.dll
+E:\Vipin\VK\Josa\Stabile DUI\Stabile DUI\bin\WebGrease.dll
+E:\Vipin\VK\Josa\Stabile DUI\Stabile DUI\bin\EntityFramework.xml
+E:\Vipin\VK\Josa\Stabile DUI\Stabile DUI\bin\Newtonsoft.Json.xml
+E:\Vipin\VK\Josa\Stabile DUI\Stabile DUI\bin\System.Net.Http.Formatting.xml
+E:\Vipin\VK\Josa\Stabile DUI\Stabile DUI\bin\System.Web.Http.xml
+E:\Vipin\VK\Josa\Stabile DUI\Stabile DUI\bin\System.Web.Http.WebHost.xml
+E:\Vipin\VK\Josa\Stabile DUI\Stabile DUI\bin\System.Web.Mvc.xml
+E:\Vipin\VK\Josa\Stabile DUI\Stabile DUI\bin\System.Web.Razor.xml
+E:\Vipin\VK\Josa\Stabile DUI\Stabile DUI\bin\System.Web.WebPages.xml
+E:\Vipin\VK\Josa\Stabile DUI\Stabile DUI\bin\System.Web.WebPages.Deployment.xml
+E:\Vipin\VK\Josa\Stabile DUI\Stabile DUI\bin\System.Web.WebPages.Razor.xml
+E:\Vipin\VK\Josa\Stabile DUI\Stabile DUI\obj\Debug\Stabile DUI.csprojResolveAssemblyReference.cache
+E:\Vipin\VK\Josa\Stabile DUI\Stabile DUI\obj\Debug\Stabile DUI.dll
+E:\Vipin\VK\Josa\Stabile DUI\Stabile DUI\obj\Debug\Stabile DUI.pdb
