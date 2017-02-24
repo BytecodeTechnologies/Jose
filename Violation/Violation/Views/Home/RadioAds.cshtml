@@ -1,0 +1,53 @@
+﻿@{
+    ViewBag.Title = "RadioAds";
+}
+<!DOCTYPE html>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 text-center  about-us abo">
+            <h3>RADIO ADS
+            </h3>
+            <div class="Footertext">
+                <h5>1-800-VIOLATION’'s Radio Ad.  Please click on the links below to preview our advertisements.</h5>
+            </div>
+            <div class="col-md-12 tn">
+                <center><img src="/img/radio_towerl.jpg"  class="img-responsive" />
+                     <a  id="anchoraudio">1.- 30 Second Radio Ad - (English)</a>
+                     </div>
+                     <div class="col-md-12">
+                    <iframe height="50" width="400" id="if" frameborder="7"></iframe></center>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    
+    <script>
+        $(function () {
+            localStorage.setItem('lastTab', "liradioAds");
+            //$('#AudioAdd').hide();
+            $('#if').hide();
+        });
+
+        $("#anchoraudio").click(function () {
+            debugger;
+            $('#if').show();
+            $('#if').attr('src', '/Audio/877Violation-121807-Final.mp3');
+        });
+
+        //$("#anchoraudio").click(function () {
+
+        //window.open("/Admin/UserInfo/" + id, '', 'height=600,width=700');
+        //});
+
+
+
+    </script>
+}
+

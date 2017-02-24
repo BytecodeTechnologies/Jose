@@ -1,0 +1,399 @@
+﻿
+@{
+
+    Layout = "/Views/Shared/_LayoutForNew_JerseyConfliction.cshtml";
+}
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<script src="https://www.google.com/recaptcha/api.js?onload=myCallBack&render=explicit" async defer></script>
+<body>
+
+    <div class="col-md-8 stabile ">
+
+        <form class="form-horizontal labelcontrol-florida">
+            <div class="pensyl">
+                <h3>Ticket Information</h3>
+            </div>
+
+
+            <div class="form-group">
+                <label for="inputCitation" class="col-sm-2 control-label">Citation # :</label>
+                <div class="col-sm-10 col-md-8">
+                    <input type="text" class="form-control" id="inputCitation" placeholder="Citation #">
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label for="ddlState" class="col-sm-2 control-label">State :</label>
+                <div class="col-sm-10 col-md-8">
+                    <select id="ddlState" class="form-control">
+
+                        <option value="Alabama">Alabama</option>
+                        <option value="Alaska">Alaska</option>
+                        <option value="Arizona">Arizona</option>
+                        <option value="Arkansas">Arkansas</option>
+                        <option value="California">California</option>
+                        <option value="Colorado">Colorado</option>
+                        <option value="Connecticut">Connecticut</option>
+                        <option value="Delaware">Delaware</option>
+                        <option value="Florida">Florida</option>
+                        <option value="Georgia">Georgia</option>
+                        <option value="Hawaii">Hawaii</option>
+                        <option value="Idaho">Idaho</option>
+                        <option value="Illinois">Illinois</option>
+                        <option value="Indiana">Indiana</option>
+                        <option value="Iowa">Iowa</option>
+                        <option value="Kansas">Kansas</option>
+                        <option value="Kentucky">Kentucky</option>
+                        <option value="Louisiana">Louisiana</option>
+                        <option value="Maine">Maine</option>
+                        <option value="Maryland">Maryland</option>
+                        <option value="Massachusetts">Massachusetts</option>
+                        <option value="Michigan">Michigan</option>
+                        <option value="Minnesota">Minnesota</option>
+                        <option value="Mississippi">Mississippi</option>
+                        <option value="Missouri">Missouri</option>
+                        <option value="Montana">Montana</option>
+                        <option value="Nebraska">Nebraska</option>
+                        <option value="Nevada">Nevada</option>
+                        <option value="New Hampshire">New Hampshire</option>
+                        <option value="New Jersey">New Jersey</option>
+                        <option value="New Mexico">New Mexico</option>
+                        <option value="New York">New York</option>
+                        <option value="North Carolina">North Carolina</option>
+                        <option value="North Dakota">North Dakota</option>
+                        <option value="Ohio">Ohio</option>
+                        <option value="Oklahoma">Oklahoma</option>
+                        <option value="Oregon">Oregon</option>
+                        <option value="Pennsylvania">Pennsylvania</option>
+                        <option value="Rhode Island">Rhode Island</option>
+                        <option value="South Carolina">South Carolina</option>
+                        <option value="South Dakota">South Dakota</option>
+                        <option value="Tennessee">Tennessee</option>
+                        <option value="Texas">Texas</option>
+                        <option value="Utah">Utah</option>
+                        <option value="Vermont">Vermont</option>
+                        <option value="Virginia">Virginia</option>
+                        <option value="Washington">Washington</option>
+                        <option value="West Virginia">West Virginia</option>
+                        <option value="Wisconsin">Wisconsin</option>
+                        <option value="Wyoming">Wyoming</option>
+
+                    </select>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label for="txtCounty" class="col-sm-2 control-label">County :</label>
+                <div class="col-sm-10 col-md-8">
+                    <input type="text" class="form-control" id="txtCounty" placeholder="County">
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label for="ddlTicketedfor" class="col-sm-2 control-label">Ticketed for :</label>
+                <div class="col-sm-10 col-md-8">
+                    <select id="ddlTicketedfor" class="form-control">
+                        <option value="">Select</option>
+                        <option value="Speeding">Speeding</option>
+                        <option value="Alaska">Suspended License</option>
+                        <option value="No Insurance">No Insurance</option>
+                        <option value="Tag Violation">Tag Violation</option>
+                        <option value="D.U.I">D.U.I</option>
+                        <option value="Red Light">Red Light</option>
+                        <option value="Stop Sign">Stop Sign</option>
+                        <option value="Others">Others</option>
+                    </select>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label for="txtTicketDate" class="col-sm-2 control-label">Date of Ticket :</label>
+                <div class="col-sm-10 col-md-8">
+                    <input type="text" class="form-control" id="txtTicketDate" placeholder="Date of Ticket">
+                </div>
+            </div>
+        </form>
+
+        <form class="form-horizontal labelcontrol-florida">
+
+            <div class="pensyl">
+                <h3>Personal Information</h3>
+            </div>
+            <div class="form-group">
+                <label for="inputLicenseNumber" class="col-sm-2 control-label">License Number :</label>
+                <div class="col-sm-10 col-md-8">
+                    <input type="text" class="form-control" id="inputLicenseNumber" placeholder="Driver's License Number">
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label for="inputFirstName" class="col-sm-2 control-label">First Name :</label>
+                <div class="col-sm-10 col-md-8">
+                    <input type="text" class="form-control QuoteRequired" id="inputFirstName" placeholder="First Name">
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label for="inputLastName" class="col-sm-2 control-label">Last Name:</label>
+                <div class="col-sm-10 col-md-8">
+                    <input type="text" class="form-control QuoteRequired" id="inputLastName" placeholder="Last Name">
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label for="inputEmailID" class="col-sm-2 control-label">Email :</label>
+                <div class="col-sm-10 col-md-8">
+                    <input type="text" class="form-control QuoteRequired" id="inputEmailID" placeholder="Email">
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label for="inputPhoneno" class="col-sm-2 control-label">Phone :</label>
+                <div class="col-sm-10 col-md-8">
+                    <input type="text" class="form-control QuoteRequired" id="inputPhoneno" placeholder="Phone">
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label for="inputWork/Cell" class="col-sm-2 control-label">Work/Cell :</label>
+                <div class="col-sm-10 col-md-8">
+                    <input type="text" class="form-control" id="inputWork" placeholder="Work/Cell">
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label for="inputMailingAddress" class="col-sm-2 control-label">Mailing Address :</label>
+                <div class="col-sm-10 col-md-8">
+                    <input type="text" class="form-control" id="inputMailingAddress" placeholder="Mailing Address">
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label for="inputApt" class="col-sm-2 control-label">Apt # :</label>
+                <div class="col-sm-10 col-md-8">
+                    <input type="text" class="form-control" id="inputApt" placeholder="Apt #">
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label for="inputCity" class="col-sm-2 control-label">City :</label>
+                <div class="col-sm-10 col-md-8">
+                    <input type="text" class="form-control" id="inputCity" placeholder="City">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="inputState" class="col-sm-2 control-label">State :</label>
+                <div class="col-sm-10 col-md-8">
+                    <input type="text" class="form-control" id="inputState" placeholder="State">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="inputZip" class="col-sm-2 control-label">Zip :</label>
+                <div class="col-sm-10 col-md-8">
+                    <input type="text" class="form-control" id="inputZip" placeholder="Zip">
+                </div>
+            </div>
+        </form>
+
+
+        <form class="form-horizontal labelcontrol-florida">
+            <div class="pensyl">
+                <h3>Optional Information</h3>
+            </div>
+            <div class="form-group">
+                <label for="ddlHearABoutUs" class="col-sm-2 control-label">How did you hear about us?:</label>
+                <div class="col-sm-10 col-md-8">
+                    <select id="ddlHearABoutUs" class="form-control">
+                        <option value="">Select</option>
+                        <option value="TV">TV</option>
+                        <option value="Radio">Radio</option>
+                        <option value="Friend">Friend</option>
+                        <option value="Online Search">Online Search</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+            </div>
+
+
+
+            <div class="form-group">
+                <label for="inputZip" class="col-sm-2 control-label"></label>
+                <div class="col-sm-10 col-md-8">
+                        <div id="recaptcha2"></div>
+
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-8">
+                    <button type="button" class="subquote" id="btnregister">Send Email</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+
+@section scripts
+{
+    <script>
+        $(function () {
+            localStorage.setItem('NewJerseylastTab', "liJerseyFreeQuotes");
+            $('#ddlState').val('New Jersey')
+            $('#txtTicketDate').datepicker({
+                changeMonth: true,
+                changeYear: true,
+                yearRange: "-116:+0",
+            });
+           
+        });
+
+        function myCallBack() {
+            var recaptcha1;
+            var recaptcha2;
+            recaptcha1 = grecaptcha.render('recaptcha1', {
+                'sitekey': '6Le_WCUTAAAAAM2xBZtfA-yuNJgq3K_LHbA_c5aR', //Replace this with your Site key
+                'theme': 'light'
+            });
+          
+            recaptcha2 = grecaptcha.render('recaptcha2', {
+                'sitekey': '6Le_WCUTAAAAAM2xBZtfA-yuNJgq3K_LHbA_c5aR', //Replace this with your Site key
+                'theme': 'light'
+            });
+        };
+
+
+        $("#btnregister").click(function () {
+            captcharesponse = grecaptcha.getResponse();
+            Citation = $('#inputCitation').val();
+            State = $("#ddlState").val(); 
+            Country = $('#txtCounty').val();
+            Ticketedfor = $('#ddlTicketedfor').val();
+            TicketDate = $('#txtTicketDate').val();
+            LicenseNumber = $('#inputLicenseNumber').val();
+            FirstName = $('#inputFirstName').val();
+            LastName = $('#inputLastName').val();
+            EmailID = $('#inputEmailID').val();
+            Phoneno = $('#inputPhoneno').val(); 
+            Work = $('#inputWork').val(); 
+            MailingAddress = $('#inputMailingAddress').val();
+            Apt = $('#inputApt').val();
+            City = $('#inputCity').val();
+            State1 = $('#inputState').val();
+            Zip = $('#inputZip').val();
+            HearABoutUs = $('#ddlHearABoutUs').val();
+            RequestFrom = "New Jersey";
+
+
+            if (FirstName == "") {
+                alert('Please Type Your First Name')
+                return;
+            }
+            if (LastName == "") {
+                alert('Please Type Your Last Name')
+                return;
+            }
+            if (EmailID == "") {
+                alert('Please Type Your EmailId')
+                return;
+            }
+            if (Phoneno == "") {
+                alert('Please Type Phone no.')
+                return;
+            }
+         
+            if (!ValidateEmail(EmailID)) {
+               
+                alert('not a valid e-mail address');
+                return;
+            }
+
+            if (captcharesponse == "") {
+                alert('Please verify Capcha')
+                return;
+            }
+
+
+            var data = {
+                Citation: Citation, State: State, Country: Country, Ticketedfor: Ticketedfor, TicketDate: TicketDate,
+                LicenseNumber: LicenseNumber, FirstName: FirstName, LastName: LastName, EmailID: EmailID, Phoneno: Phoneno,
+                Work: Work, MailingAddress: MailingAddress, Apt: Apt, City: City, State1: State1, Zip: Zip, HearABoutUs: HearABoutUs,
+                RequestFrom: RequestFrom
+          };
+            $.ajax({
+                type: "POST",
+                url: "/Home/SendQuoteEmail",
+                data: data,
+                dataType: "json",
+                success: function (data) {
+                    alert(data)
+                      $('#inputCitation').val("");
+                      $("#ddlState").val("");
+                      $('#txtCounty').val("");
+                     $('#ddlTicketedfor').val("");
+                      $('#txtTicketDate').val("");
+                      $('#inputLicenseNumber').val("");
+                      $('#inputFirstName').val("");
+                      $('#inputLastName').val("");
+                      $('#inputEmailID').val("");
+                      $('#inputPhoneno').val("");
+                      $('#inputWork').val("");
+                      $('#inputMailingAddress').val("");
+                      $('#inputApt').val("");
+                      $('#inputCity').val("");
+                      $('#inputState').val("");
+                      $('#inputZip').val("");
+                      $('#ddlHearABoutUs').val("");
+                },
+                error: function (data) {
+                    alert(data)
+                }
+            });
+
+        });
+        $("#inputPhoneno").keypress(function (e) {
+
+            if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+                //display error message
+                return false;
+            }
+        });
+        $("#inputWork").keypress(function (e) {
+
+            if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+                //display error message
+                return false;
+            }
+        });
+        $("#inputZip").keypress(function (e) {
+
+            if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+                //display error message
+                return false;
+            }
+        });
+
+        function ValidateEmail(EmailID) {
+            // Validate email format
+            var expr = /^([\w-\.]+)@@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+            return expr.test(email);
+        };
+    </script>
+}
+

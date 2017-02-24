@@ -1,0 +1,946 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+.icons .fb i {
+    padding: 5px 11px !important;
+    color: #3B5997;
+    border: 1px solid black;
+}
+
+    .icons .fb i:hover {
+        background: #3B5997;
+        color: white;
+    }
+
+.icons .twiter i {
+    padding: 5px 11px !important;
+    color: #5EA9DD;
+    border: 1px solid black;
+}
+
+    .icons .twiter i:hover {
+        background: #5EA9DD;
+        color: white;
+    }
+
+.icons .google i {
+    padding: 5px 11px !important;
+    color: #F32C26;
+    border: 1px solid black;
+}
+
+    .icons .google i:hover {
+        background: #F32C26;
+        color: white;
+    }
+
+.icons .youtub i {
+    padding: 5px 11px !important;
+    color: #E12B28;
+    border: 1px solid black;
+}
+
+    .icons .youtub i:hover {
+        background: red;
+        color: white;
+    }
+
+.icons li i {
+    font-size: 15px;
+    color: white;
+}
+
+.icons li {
+    padding: 0;
+}
+
+.icons h3 {
+    color: rgb(229, 34, 126);
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.icons {
+    margin-top: 10px;
+}
+
+.sign li {
+    border: 1px solid;
+    padding: 6px 25px;
+    border-radius: 21px;
+    background: #004169;
+    transition: 0.4s;
+}
+
+.sign a {
+    color: white;
+    font-weight: 600;
+}
+
+.sign li:hover {
+    background: white;
+    color: black;
+}
+
+    .sign li:hover a {
+        color: black;
+    }
+
+.sign img {
+    padding: 15px 0;
+}
+
+.con-nav {
+    margin-bottom: -3px;
+}
+
+.navbar-nav {
+    padding-top: 24px;
+}
+
+
+.logo img {
+    max-width: 100%;
+    width: 248px;
+}
+
+.navbar-default .navbar-nav > .active > a {
+    color: white;
+    background-color: #f5b458;
+}
+
+.navbar-default .navbar-nav > li > a:hover {
+    color: white;
+    background-color: #f5b458;
+}
+
+.nav > li > a {
+    padding: 13px 20px;
+    font-size: 14px;
+}
+
+.navbar-default .navbar-nav > .active > a:hover {
+    color: #FFF7F7;
+    background-color: #f5b458;
+}
+
+.navbar-default {
+    background-color: rgba(248, 248, 248, 0);
+    border-color: rgba(231, 231, 231, 0);
+}
+
+.navbar {
+    margin-bottom: 0px;
+}
+
+.blue {
+    background: #FAF2B7;
+}
+
+.banner {
+    padding: 0;
+    position: relative;
+    margin-top: -20px;
+}
+
+    .banner img {
+        width: 100%;
+    }
+
+.person {
+    position: absolute;
+    top: 9%;
+    background: #c27e3666;
+}
+
+    .person h1 {
+        color: white;
+        font-size: 50px;
+        font-weight: 600;
+        line-height: 72px;
+        text-shadow: 0px 1px 1px black;
+    }
+
+    .person h2 {
+        color: #e62381;
+        font-size: 46px;
+    }
+
+    .person h3 {
+        color: #198ea2;
+        font-size: 46px;
+    }
+
+    .person p {
+        border: 1px solid white;
+        padding: 14px 26px;
+        border-radius: 13px;
+        background: #f5b458;
+        transition: 0.4s;
+        display: inline-block;
+    }
+
+    .person a {
+        color: white;
+        font-weight: 600;
+    }
+
+    .person li:hover {
+        background: white;
+        color: black;
+    }
+
+        .person li:hover a {
+            color: black;
+        }
+
+.about h2 {
+    font-family: 'PT Serif', serif;
+    font-style: italic;
+    font-size: 230%;
+    color: #E31E2D;
+    font-weight: 600;
+    display: inline-block;
+}
+
+.about h3 {
+    font-size: 26px;
+    font-weight: 600;
+}
+
+.ticket {
+    margin: 15px 0;
+    border: 1px solid black;
+    transition: 1s;
+    overflow: hidden;
+}
+
+    .ticket img {
+        transition: 1s;
+    }
+
+    .ticket p {
+        color: black;
+        margin-top: 20px;
+        font-weight: 600;
+        font-size: 22px;
+    }
+
+.jersy {
+    position: absolute;
+    top: -22%;
+    left: 0;
+    right: 0;
+    transition: 1s;
+    font-size: 19px;
+}
+
+.ticket:hover .jersy {
+    top: 30%;
+}
+
+.over-fl {
+    overflow: hidden;
+}
+
+.ticket:hover img {
+    opacity: 0.5;
+}
+
+.ticket img:hover {
+    transform: scale(1.1);
+}
+
+.about {
+    margin-top: 0px;
+}
+
+    .about p {
+        line-height: 26px;
+        text-align: justify;
+    }
+
+    .about img {
+        max-width: 100%;
+        width: 100%;
+        transition: 1s;
+    }
+
+    .about:hover img {
+        transform: scale(1.1);
+    }
+
+.experi {
+    margin-top: 20px;
+    overflow: hidden;
+}
+
+    .experi h4 {
+        color: #e62381;
+        font-weight: 600;
+        font-size: 21px;
+        line-height: 38px;
+    }
+
+    .experi img {
+        transition: 1s;
+    }
+
+    .experi:hover img {
+        transform: scale(1.1);
+    }
+
+.about h5 {
+    line-height: 24px;
+}
+
+.list22 {
+    background: none !important;
+}
+
+.about1 h2 {
+    color: #e62381;
+    font-weight: 600;
+    text-decoration-style: dotted;
+    text-decoration: dotted underline;
+    display: inline-block;
+    padding: 12px 0 5px;
+}
+
+.about1 h5 {
+    padding: 20px 0;
+    line-height: 30px;
+}
+
+.slidr {
+    padding: 22px 0;
+}
+
+.footer h3 {
+    color: #E31E2D;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 0;
+}
+
+.footer p {
+    line-height: 23px;
+    font-size: 13px;
+    color: black;
+}
+
+.footer li a {
+    color: black;
+    font-size: 13px;
+    line-height: 24px;
+    text-decoration: none;
+}
+
+.control-label {
+    text-align: left!important;
+    color: black;
+}
+
+.back-round1 {
+    background: #FAF2B7;
+    padding: 0;
+    z-index: 0;
+}
+
+.ticket .btn-primary {
+    color: #fff;
+    background-color: #f5b458;
+    /*border-color: #000;*/
+    margin: 20px 0;
+    padding: 9px 30px;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.moving {
+    margin: 30px 0;
+    overflow: hidden;
+    background: #f5b458;
+}
+
+    .moving h1 {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: -20%;
+        transition: 1s;
+        color: white;
+    }
+
+    .moving:hover h1 {
+        top: 39%;
+    }
+
+    .moving img {
+        transition: 1s;
+    }
+
+    .moving :hover img {
+        transform: scale(1.1);
+        opacity: 0.7;
+    }
+
+.hiddn-h {
+    overflow: hidden;
+}
+
+.back-round {
+    background: url("../img/Challan1.jpg");
+    margin-bottom: 20px;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.about23 h2 {
+    color: #E31E2D;
+    padding: 20px 0;
+    font-weight: bold;
+}
+
+.why-pay h3 {
+    font-weight: 600;
+    color: black;
+    padding: 0px 0px 65px;
+    font-size: 35px;
+}
+
+.raad a {
+    color: white;
+    font-size: 30px;
+    border: 1px solid white;
+    padding: 10px 20px;
+    background: #f5b458;
+    text-decoration: none;
+}
+
+.raad {
+    margin: 26px 0;
+}
+
+.office a {
+    font-size: 17px;
+    line-height: 27px;
+    color: #000;
+    text-transform: capitalize;
+    text-decoration: none;
+    font-weight: 600;
+    text-shadow: 0px 2px 5px white;
+}
+
+.office-highlight {
+    color: #f5b458;
+}
+
+.offi-back {
+    background: url("../img/offic-back.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+
+.footer .btn {
+    color: #FFF;
+    background-color: #f5b458;
+    border-color: #8c8c8c;
+    padding: 6px 20px;
+    margin-bottom: 30px;
+}
+
+.copy-write {
+    background: #f5b458;
+}
+
+.copywrite h4 {
+    font-size: 14px;
+    color: white;
+}
+
+.nextpage img {
+    width: 100%;
+}
+
+.nextpage {
+    padding: 0;
+}
+
+.about-us h3 {
+    color: #f5b458;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.mark-solo h4 {
+    font-weight: 600;
+}
+
+.mark-solo p {
+    line-height: 26px;
+}
+
+.state {
+    padding: 10px 16px;
+    ;
+}
+
+    .state li {
+        line-height: 26px;
+    }
+
+.contact h3 {
+    font-weight: 600;
+    font-size: 22px;
+}
+
+.contact p {
+    line-height: 26px;
+}
+
+.fight h3 {
+    color: #f5b458;
+}
+
+.submit-buttons p {
+    display: inline-block;
+    background: #f5b458;
+    padding: 10px 35px;
+    border-radius: 4px;
+}
+
+.submit-buttons a {
+    color: white;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.group2 form {
+    margin-top: 25px;
+}
+
+.group2 .form-group {
+    padding: 15px 0;
+}
+
+.after-info p {
+    padding: 40px 0 0;
+}
+
+.law-grp {
+    background: url("../img/law.jpg");
+    background-repeat: no-repeat;
+    margin: 25px 0;
+}
+
+.bordr-rd {
+    border: 1px solid white;
+    height: 324px;
+    padding: 10px 0px;
+    box-shadow: 0px 2px 10px #f5b458;
+    margin-top: 21px;
+}
+
+#attribution {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: auto;
+    height: 30px;
+    display: none !important;
+    z-index: 1 !important;
+}
+
+.map-list iframe #attribution {
+    display: inline-block;
+    vertical-align: middle;
+    visibility: hidden;
+}
+
+
+@media (max-width:1024px) {
+    .map-list {
+        overflow: scroll;
+    }
+}
+
+
+@media (max-width:767px) {
+    .map-list {
+        overflow: scroll;
+        height: 500px;
+        -webkit-overflow-scrolling: touch;
+    }
+    .slect-state {
+    width: 630px;
+}
+    .bordr-rd {
+    border: 1px solid white;
+    height: 584px;
+    padding: 10px 0px;
+    box-shadow: 0px 2px 10px #f5b458;
+    margin-top: 21px;
+}
+
+    .law-grp {
+    background-repeat: repeat;
+}
+
+}
+
+
+.map-list {
+    padding: 0px 0;
+    box-shadow: 0px 2px 29px #f5b458;
+}
+
+
+.side-img1 {
+    margin-top: 18px;
+}
+
+    .side-img1 img {
+        width: 100%;
+        height: 500px;
+    }
+
+.footer23 {
+    margin-top: 6%;
+}
+
+.map-img {
+    background: url("../img/map.jpg");
+    padding: 7px 0;
+    background-repeat: no-repeat;
+}
+
+.new-jrsy h3 {
+    color: #e31e2d !important;
+    font-weight: 600;
+}
+
+.traffic-law h4 {
+    font-size: 24px !important;
+    font-weight: 600;
+    padding: 10px 0 !important;
+}
+
+.traffic-law p {
+    font-size: 14px !important;
+    line-height: 26px !important;
+    text-align: justify;
+}
+
+.traffic-law li {
+    font-size: 14px !important;
+    line-height: 30px;
+}
+
+.traffic-law ol {
+    padding: 0px 18px;
+}
+
+.ul-offenses {
+    margin-left: -12px;
+}
+
+.qustin h5 {
+    font-size: 24px !important;
+    font-weight: 600;
+    padding: 10px 0 !important;
+}
+
+.qustin h4 {
+    font-size: 17px !important;
+    font-weight: 600;
+}
+
+.qustin p {
+    line-height: 24px !important;
+}
+
+.traffic-law a {
+    color: black !important;
+}
+
+.ticket-state {
+    position: absolute !important;
+    z-index: 1;
+    left: 0;
+    right: 0;
+}
+
+
+.height-top {
+    height: 50px;
+    background: white;
+    position: absolute !important;
+    margin-top: -58px !important;
+    width: 100%;
+    margin-left: -15px;
+}
+
+.ticket:hover {
+    background: #EDC884;
+}
+
+    .ticket:hover p {
+        color: white;
+    }
+
+
+    .ticket:hover .btn-primary {
+        border: 1px solid white;
+    }
+
+.tikt-image img {
+    widows: 100%;
+}
+
+.pensyl h3 {
+    color: #e31e2d;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.stabile h3 {
+    color: #e31e2d;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.stabile p {
+    line-height: 30px;
+    font-size: 15px;
+    text-align: justify;
+}
+
+.stabile h4 {
+    font-size: 24px !important;
+    font-weight: 600;
+    padding: 10px 0 !important;
+}
+
+.stabile {
+    padding: 30px 28px;
+}
+
+    .stabile li {
+        font-size: 14px !important;
+        line-height: 30px;
+    }
+
+    .stabile ol {
+        padding: 0px 18px;
+    }
+
+        .stabile ol ul {
+            margin-left: -12px;
+        }
+
+.law-firm h3 {
+    font-size: 20px !important;
+    font-weight: 600;
+}
+
+.law-firm p {
+    line-height: 27px;
+    font-size: 14px;
+}
+
+.orange li a {
+    color: black;
+    text-decoration: none;
+    line-height: 28px;
+}
+
+.hiddn-h {
+    overflow: hidden;
+}
+
+.moving {
+    margin: 30px 0;
+    overflow: hidden;
+    background: #f5b458;
+}
+
+    .moving img {
+        transition: 1s;
+    }
+
+    .moving :hover img {
+        transform: scale(1.1);
+        opacity: 0.7;
+    }
+
+    .moving h1 {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: -20%;
+        transition: 1s;
+        color: white;
+    }
+
+    .moving:hover h1 {
+        top: 39%;
+    }
+
+    .moving img {
+        width: 100%;
+    }
+
+.Viola h3 {
+    color: #e31e2d;
+}
+
+.jerseyanchor a {
+    color: #f5b458 !important;
+}
+
+.contct_us_nj p {
+    line-height: 26px;
+    margin: 9px 0;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+contct_us p {
+    line-height: 32px;
+    margin: 9px 0;
+    font-size: 19px;
+    font-weight: bold;
+}
+
+.cont-us {
+    background: url("/img/contback.jpg");
+    height: 190px;
+}
+
+.tl-margin {
+    margin-top: 45px;
+}
+
+.Home_atag {
+    text-decoration: none !important;
+}
+
+.tblPoint {
+    width: 100%;
+    border: 1px solid black;
+    border-bottom: 1pt solid black;
+}
+
+    .tblPoint td {
+        padding-top: 13px;
+        border: 1px solid Black;
+        text-align: center;
+        padding-bottom: 13px;
+    }
+
+.dvhidden {
+    display: none;
+}
+
+.labelcontrol-florida label {
+    width: 240px;
+}
+
+.pensyl h3 {
+    background: #f5b458;
+    padding: 9px 19px;
+    color: white;
+}
+
+.Footertext h5 {
+    font-size: 18px !important;
+    font-weight: 600;
+    padding: 10px 0 !important;
+}
+
+.oranges li a {
+    color: black;
+    text-decoration: none;
+    line-height: 30px;
+    font-size: 16px;
+}
+
+.st p {
+    color: #6d733d;
+    padding-top: 46px;
+    padding-bottom: 46px;
+    font-weight: 800;
+    text-align: center;
+    font-family: 'PT Serif', serif;
+    font-style: italic;
+    font-size: 230%;
+}
+
+.tn a {
+    font-size: 30px;
+}
+
+.Setmenu {
+    padding-left: 100px;
+}
+
+.txt h5 {
+    font-size: 16px !important;
+  
+    padding: 10px 0 !important;
+}
+
+.abo h3 {
+    font-family: 'PT Serif', serif;
+    font-style: italic;
+    font-size: 230%;
+    color: #E31E2D;
+    font-weight: 600;
+    text-align:center
+   
+}
+.subquote {
+    color: #FFF;
+    background-color: #f5b458;
+    border-color: #8c8c8c;
+    padding: 6px 20px;
+    margin-bottom: 30px;
+}
+.col-md-12.about.text-center.ticket-state img {
+    width: auto;
+    margin: 0 auto;
+}
+
+.clshome:hover {
+ padding: 8px 18px; 
+ color: white; 
+ background-color: #f5b458; 
+ font-size:14px;
+}
+
+.clshome {
+ padding: 8px 18px; 
+ color: white; 
+ background-color: #f5b458; 
+ font-size:14px;
+}
+
+.clsMapText {
+    font-family: 'PT Serif', serif;
+    font-style: italic;
+    font-size: 230%;
+    color: #E31E2D;
+    font-weight: 600;
+    display: inline-block;
+   text-align:center;
+}
+
+.QuoteRequired {
+    background-color:#f3dfc4;
+}
+

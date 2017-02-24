@@ -1,0 +1,81 @@
+﻿@{
+    Layout = "/Views/Shared/_LayoutForFlorida.cshtml";
+}
+<div class="col-md-8 stabile">
+    <div class="pensyl">
+        <h3>Florida Point System</h3>
+    </div>
+
+    <p>
+        The ability to drive in the State of Florida is not a right. In the State of Florida driving is a privilege that
+must be earned. Drivers earn the privilege by passing a written and practical test or proving that they
+have done so in another jurisdiction and complying with all the rules of the road and society.
+    </p>
+    <p>
+        For example a driver can lose the privilege to drive if a number of driving infractions are received in a
+given period of time, failure to pay child support, failure to pay fines, addiction to drugs or alcohol and
+many driving infractions including but not limited to high speeds and racing.
+    </p>
+    <p>
+        Listed below is the Florida Driver License Point System:
+    </p>
+    <table id="tblFloridaPoint" class="tblPoint">
+        <tr>
+            <td style="font-size: 20px; color: red;background-color: #e09836;" colspan="2">UNLAWFUL SPEED</td>
+        </tr>
+        <tr>
+            <td>16 MPH OR MORE OVER LAWFUL OR POSTED SPEED</td>
+            <td>4 POINTS</td>
+        </tr>
+        <tr>
+            <td>15 MPH OR LESS OVER LAWFUL OR POSTED SPEED</td>
+            <td>3 POINTS</td>
+        </tr>
+    </table>
+    </br>
+    <table class="tblPoint">
+        <tr>
+            <td style="font-size: 20px; color: red;background-color: #e09836;" colspan="2">FURTHER VIOLATIONS</td>
+        </tr>
+        <tr>
+            <td>LEAVING THE SCENE OF AN ACCIDENT WITH PROPERTY DAMAGE MORE THAN $50</td>
+            <td>6 POINTS</td>
+        </tr>
+        <tr>
+            <td>UNLAWFUL SPEED RESULTING IN AN ACCIDENT</td>
+            <td>6 POINTS</td>
+        </tr>
+        <tr>
+            <td>RECKLESS DRIVING</td>
+            <td>4 POINTS</td>
+        </tr>
+        <tr>
+            <td>ANY MOVING VIOLATION RESULTING IN AN ACCIDENT</td>
+            <td>4 POINTS</td>
+        </tr>
+        <tr>
+            <td>ALL OTHER MOVING VIOLATIONS</td>
+            <td>3 POINTS</td>
+        </tr>
+        <tr>
+            <td>OPEN CONTAINER AS AN OPERATOR</td>
+            <td>3 POINTS</td>
+        </tr>
+
+    </table>
+    <p>
+        Fines are doubled when infractions occur within a school zone or construction zone,
+   with possible civil penalties up to $1,000 and you can be required to complete a driving course.
+    </p>
+
+</div>
+@section scripts
+{
+    <script>
+        $(function () {
+            localStorage.setItem('FloridalastTab', "liFloridaFlorida_PointSystem");
+        });
+
+
+    </script>
+}
