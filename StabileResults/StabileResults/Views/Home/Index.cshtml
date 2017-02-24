@@ -1,0 +1,126 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>LOGIN</title>
+
+    <!-- Bootstrap -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
+    +
+  <link rel="stylesheet" type="text/css" href="/css/hover-min.css">
+
+
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+      <![endif]-->
+</head>
+<body>
+
+    <div class="container-fluid ">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="offset-2">
+                        <div class="admin-form">
+                            <h3><i class="fa fa-user" aria-hidden="true"></i>Please Enter Your Information </h3>
+                            <form>
+                                <div class="form-group ">
+
+                                    <input class="form-control lgbtn" id="txtuserId" placeholder="Email" type="email">
+                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                </div>
+                                <div class="form-group">
+
+                                    <input class="form-control lgbtn" id="txtPassword" placeholder="Password" type="password">
+                                    <i class="fa fa-unlock-alt" aria-hidden="true"></i>
+                                </div>
+                                <p><a id="btnLogin" onclick="login()"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>SUBMIT</a></p>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/owl-carousel/owl.carousel.min.js"></script>
+</body>
+</html>
+
+<script src="/Scripts/jquery-1.7.1.min.js"></script>
+<script>
+    //$("#btnLogin").click(function () {
+    function login() {
+        $("#btnLogin").parent().next(".validation").remove();
+        var focusSet = false;
+        if (!$('#txtuserId').val()) {
+            if ($("#txtuserId").parent().next(".validation").length == 0) // only add if not added
+            {
+                $("#txtuserId").parent().after("<div class='validation' style='color:red;'>Please enter Email</div>");
+            }
+            $('#txtuserId').focus();
+            focusSet = true;
+        }
+        else {
+            $("#txtuserId").parent().next(".validation").remove(); // remove it
+        }
+        if (!$('#txtPassword').val()) {
+            if ($("#txtPassword").parent().next(".validation").length == 0) // only add if not added
+            {
+                $("#txtPassword").parent().after("<div class='validation' style='color:red;'>Please enter password</div>");
+            }
+
+        }
+        else {
+            $("#txtPassword").parent().next(".validation").remove(); // remove it
+
+        }
+        var Userid = $('#txtuserId').val();
+        var Password = $('#txtPassword').val();
+        if (Userid == "" || Password == "") {
+            return
+        }
+        var data = { UserName: Userid, Password: Password };
+        $.ajax({
+            type: "POST",
+            url: "/Home/UserLogin",
+            data: data,
+            dataType: "json",
+            success: function (response) {
+                if (response == 1) {
+                    $("#btnLogin").parent().next(".validation").remove();
+                    window.location.href = "/Results/index";
+                }
+                else if (response == 0) {
+                    $("#btnLogin").parent().after("<div class='validation' style='color:red'>Check UserName and Password</div>");
+                }
+                else {
+                    alert(response);
+                }
+            },
+            error: function (response) {
+            }
+        });
+    }
+    //});
+
+    $(".lgbtn").keypress(function (e) {
+        if (e.which == 13) {
+            e.preventDefault();
+            $("#btnLogin").click();
+        }
+    });
+</script>

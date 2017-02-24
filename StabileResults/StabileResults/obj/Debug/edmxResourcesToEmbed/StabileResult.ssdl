@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="StabileLawFirmModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="StabileLawFirmModelStoreContainer">
+    <EntitySet Name="STtblBlogs" EntityType="StabileLawFirmModel.Store.STtblBlogs" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="STtblCategory" EntityType="StabileLawFirmModel.Store.STtblCategory" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="STtblComments" EntityType="StabileLawFirmModel.Store.STtblComments" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="STtblResult" EntityType="StabileLawFirmModel.Store.STtblResult" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="STtblUser" EntityType="StabileLawFirmModel.Store.STtblUser" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="STtblUserRole" EntityType="StabileLawFirmModel.Store.STtblUserRole" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_STtblBlogs_STtblCategory" Association="StabileLawFirmModel.Store.FK_STtblBlogs_STtblCategory">
+      <End Role="STtblCategory" EntitySet="STtblCategory" />
+      <End Role="STtblBlogs" EntitySet="STtblBlogs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_STtblBlogs_STtblUser" Association="StabileLawFirmModel.Store.FK_STtblBlogs_STtblUser">
+      <End Role="STtblUser" EntitySet="STtblUser" />
+      <End Role="STtblBlogs" EntitySet="STtblBlogs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_STtblComments_STtblBlogs" Association="StabileLawFirmModel.Store.FK_STtblComments_STtblBlogs">
+      <End Role="STtblBlogs" EntitySet="STtblBlogs" />
+      <End Role="STtblComments" EntitySet="STtblComments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_STtblResult_STtblUser" Association="StabileLawFirmModel.Store.FK_STtblResult_STtblUser">
+      <End Role="STtblUser" EntitySet="STtblUser" />
+      <End Role="STtblResult" EntitySet="STtblResult" />
+    </AssociationSet>
+    <AssociationSet Name="FK_STtblUser_SttblUserRole" Association="StabileLawFirmModel.Store.FK_STtblUser_SttblUserRole">
+      <End Role="STtblUserRole" EntitySet="STtblUserRole" />
+      <End Role="STtblUser" EntitySet="STtblUser" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="STtblBlogs">
+    <Key>
+      <PropertyRef Name="tblBlog_Id" />
+    </Key>
+    <Property Name="tblBlog_Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Image" Type="varchar(max)" />
+    <Property Name="Title" Type="varchar(max)" />
+    <Property Name="Text" Type="varchar(max)" />
+    <Property Name="Post_Date" Type="datetime" />
+    <Property Name="Published_Date" Type="datetime" />
+    <Property Name="tbluserid" Type="int" Nullable="false" />
+    <Property Name="tblCategory_Id" Type="int" />
+  </EntityType>
+  <EntityType Name="STtblCategory">
+    <Key>
+      <PropertyRef Name="tblCategory_Id" />
+    </Key>
+    <Property Name="tblCategory_Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="caregory_Name" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="STtblComments">
+    <Key>
+      <PropertyRef Name="Comment_Id" />
+    </Key>
+    <Property Name="Comment_Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Comment_Text" Type="varchar(max)" />
+    <Property Name="Comment_Date" Type="datetime" />
+    <Property Name="Comment_By" Type="varchar(max)" />
+    <Property Name="Comment_Email" Type="varchar(max)" />
+    <Property Name="Blog_Id" Type="int" />
+    <Property Name="Isapproved" Type="int" />
+  </EntityType>
+  <EntityType Name="STtblResult">
+    <Key>
+      <PropertyRef Name="tblResultId" />
+    </Key>
+    <Property Name="tblResultId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Result_Text" Type="varchar(max)" />
+    <Property Name="Result_Date" Type="datetime" />
+    <Property Name="Result_Heading" Type="varchar(max)" />
+    <Property Name="tblUserId" Type="int" />
+  </EntityType>
+  <EntityType Name="STtblUser">
+    <Key>
+      <PropertyRef Name="tblUserId" />
+    </Key>
+    <Property Name="tblUserId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="varchar" MaxLength="500" />
+    <Property Name="tblUserRoleId" Type="int" />
+    <Property Name="UserName" Type="varchar" MaxLength="500" />
+    <Property Name="Password" Type="varchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="STtblUserRole">
+    <Key>
+      <PropertyRef Name="tblUserRoleId" />
+    </Key>
+    <Property Name="tblUserRoleId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="varchar" MaxLength="500" />
+  </EntityType>
+  <Association Name="FK_STtblBlogs_STtblCategory">
+    <End Role="STtblCategory" Type="StabileLawFirmModel.Store.STtblCategory" Multiplicity="0..1" />
+    <End Role="STtblBlogs" Type="StabileLawFirmModel.Store.STtblBlogs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="STtblCategory">
+        <PropertyRef Name="tblCategory_Id" />
+      </Principal>
+      <Dependent Role="STtblBlogs">
+        <PropertyRef Name="tblCategory_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_STtblBlogs_STtblUser">
+    <End Role="STtblUser" Type="StabileLawFirmModel.Store.STtblUser" Multiplicity="1" />
+    <End Role="STtblBlogs" Type="StabileLawFirmModel.Store.STtblBlogs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="STtblUser">
+        <PropertyRef Name="tblUserId" />
+      </Principal>
+      <Dependent Role="STtblBlogs">
+        <PropertyRef Name="tbluserid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_STtblComments_STtblBlogs">
+    <End Role="STtblBlogs" Type="StabileLawFirmModel.Store.STtblBlogs" Multiplicity="0..1" />
+    <End Role="STtblComments" Type="StabileLawFirmModel.Store.STtblComments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="STtblBlogs">
+        <PropertyRef Name="tblBlog_Id" />
+      </Principal>
+      <Dependent Role="STtblComments">
+        <PropertyRef Name="Blog_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_STtblResult_STtblUser">
+    <End Role="STtblUser" Type="StabileLawFirmModel.Store.STtblUser" Multiplicity="0..1" />
+    <End Role="STtblResult" Type="StabileLawFirmModel.Store.STtblResult" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="STtblUser">
+        <PropertyRef Name="tblUserId" />
+      </Principal>
+      <Dependent Role="STtblResult">
+        <PropertyRef Name="tblUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_STtblUser_SttblUserRole">
+    <End Role="STtblUserRole" Type="StabileLawFirmModel.Store.STtblUserRole" Multiplicity="0..1" />
+    <End Role="STtblUser" Type="StabileLawFirmModel.Store.STtblUser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="STtblUserRole">
+        <PropertyRef Name="tblUserRoleId" />
+      </Principal>
+      <Dependent Role="STtblUser">
+        <PropertyRef Name="tblUserRoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

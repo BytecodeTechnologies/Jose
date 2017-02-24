@@ -1,0 +1,117 @@
+body {
+    background: #303030 none repeat scroll 0 0;
+    font-family: "Open Sans",sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.admin-form {
+    background: #000;
+ 
+    border-radius: 2px;
+ 
+    margin:10% auto 0;
+    padding: 58px 30px;
+    width: 50%;
+}
+.admin-form h3 {
+    margin: 0 0 30px;
+}
+.col-md-offset-2 {
+    margin-left: 0;
+}
+.admin-form form input {
+        border-radius: 4px;
+    margin: 10px 0px;
+    display: inline-block;
+    height: 48px;
+
+}
+.admin-form .form-group i {
+    color: #9bc19c;
+    float: left;
+    font-size: 19px;
+    left: 69%;
+    margin-top: 26px;
+    position: absolute;
+    right: 0;
+    text-align: left;
+    -webkit-margin-before: -46px;
+}
+.admin-form h3 i {
+    color: #9bc19c;
+}
+.admin-form h3 {
+    color: #9bc19c;font-size: 19px;
+font-weight: 600;text-shadow:  0px 1px 1px black;
+}
+.admin-form p {
+    background: #9bc19c;
+    text-align: center;
+    margin-top: 30px;
+display: inline-block;
+width: 100%;box-shadow: 0px 1px 2px;
+    padding: 16px;
+     cursor: pointer;
+}
+.admin-form a{color: white;text-decoration: none;font-weight: 600;font-size: 17px;
+}
+.admin-form p:hover {background: #303030 none repeat scroll 0 0;}
+.form-control:focus{box-shadow: inset 0 0px 1px rgba(0,0,0,.075),0 0 8px rgb(1, 192, 200);}
+.logged{background: white;
+padding: 48px 30px;
+margin: 30% 15px;
+box-shadow: 0px 0px 0px 1px #9bc19c;
+border: 1px solid;text-align: center;
+border-radius: 2px;
+}
+.logged h3 {
+    margin: 0 0 30px;color: #9bc19c;color: #9bc19c;
+font-size: 19px;
+font-weight: 600;
+}
+
+.logged h3 i {
+    color: #9bc19c;
+}
+@media (max-width:1024px) {
+    .admin-form {
+    background: #000;
+    border-radius: 2px;
+    margin: 10% auto 0;
+    padding: 58px 30px;
+    width: 58%;
+}
+}
+@media (max-width:640px) {
+    .admin-form {
+    background: #000;
+    border-radius: 2px;
+    margin: 10% auto 0;
+    padding: 58px 30px;
+    width: 100%;
+}
+    .admin-form .form-group i {
+    color: #9bc19c;
+    float: left;
+    font-size: 19px;
+    left: 78%;
+    margin-top: 26px;
+    position: absolute;
+    right: 0;
+    text-align: left;
+}
+    .admin-form h3 {
+    margin: 0;
+}
+
+
+}
+
+
+
+
+
+
+
+

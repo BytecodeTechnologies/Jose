@@ -1,0 +1,61 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "/Views/Shared/_LayoutStabile.cshtml";
+}
+<div class="container outer-box">
+    <h4>Result List</h4>
+    <div id="ShowGrid" class="table-responsive"></div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/Scripts/Notify/bootbox.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $("#liResultList").addClass("active");
+        ShowResuts();
+    });
+
+    function ShowResuts() {
+        $.ajax({
+            type: "POST",
+            url: "/Results/GetAllResult",
+            dataType: "html",
+            success: function (response) {
+                $("#ShowGrid").append(response);
+            },
+            error: function (response) {
+            }
+        });
+    }
+
+    function DeleteResult(id) {
+        bootbox.confirm("Are you sure to delete this user?", function (result) {
+            if (result) {
+                $.ajax({
+                    type: "POST",
+                    url: "/Results/Deleteresult",
+                    data: { id: id },
+                    dataType: "html",
+                    success: function (response) {
+                        $("#ShowGrid").empty();
+                        $("#ShowGrid").append(response);
+                    },
+                    error: function (response) {
+                    }
+                });
+            }
+        });
+        setPopupHeightWidth();
+    }
+
+    function EditResult(id) {
+        window.location.href = "/results/addresult?id=" + id;
+    }
+
+    function setPopupHeightWidth() {
+        $(".modal-dialog").addClass("alert-save");
+        $(".modal-footer").find(".btn").addClass("btn-lineHeight");
+    }
+</script>

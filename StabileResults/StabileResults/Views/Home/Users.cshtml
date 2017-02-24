@@ -1,0 +1,63 @@
+﻿@{
+    ViewBag.Title = "Users";
+    Layout = "/Views/Shared/_LayoutStabile.cshtml";
+}
+<div class="container outer-box">
+    <h4>User List</h4>
+
+    <div id="ShowGrid" class="table-responsive"></div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/owl-carousel/owl.carousel.min.js"></script>
+<script src="/Scripts/Notify/bootbox.min.js"></script>
+
+
+<script>
+    $(document).ready(function () {
+        getallusers();
+        $("#liUserlist").addClass("active");
+    });
+
+    function getallusers() {
+        $.ajax({
+            type: "POST",
+            url: "/Home/GetAllUser",
+            dataType: "html",
+            success: function (response) {
+                $("#ShowGrid").append(response);
+            },
+            error: function (response) {
+            }
+        });
+    }
+
+    function DeleteUser(id) {
+        bootbox.confirm("Are you sure to delete this User?", function (result) {
+            if (result) {
+                $.ajax({
+                    type: "POST",
+                    url: "/Home/DeleteUser",
+                    data: { id: id },
+                    dataType: "html",
+                    success: function (response) {                                                                             
+                        $("#ShowGrid").empty();
+                        $("#ShowGrid").append(response);
+                    },
+                    error: function (response) {
+                    }
+                });
+            }
+        });
+        setPopupHeightWidth();
+    }
+
+    function EditUser(id) {
+        window.location.href = "/Home/Signup?id=" + id;
+    }
+    function setPopupHeightWidth() {
+        $(".modal-dialog").addClass("alert-save");
+        $(".modal-footer").find(".btn").addClass("btn-lineHeight");
+    }
+</script>
+
