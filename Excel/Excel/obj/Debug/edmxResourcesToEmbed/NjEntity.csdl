@@ -1,0 +1,256 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="NJTicketModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="NJTicketEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="NJ_Details" EntityType="NJTicketModel.NJ_Details" />
+    <FunctionImport Name="nfs_GetPresets">
+      <Parameter Name="DomainID" Mode="In" Type="Int32" />
+      <Parameter Name="Vendor" Mode="In" Type="Boolean" />
+      <Parameter Name="PresetType" Mode="In" Type="Int32" />
+      <Parameter Name="LoginID" Mode="In" Type="Int32" />
+      <Parameter Name="SiteID" Mode="In" Type="Int32" />
+      <Parameter Name="TypeID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ImportJobMaterialsModify" ReturnType="Collection(NJTicketModel.ImportJobMaterialsModify_Result)">
+      <Parameter Name="JobMaterialsXml" Mode="In" Type="String" />
+      <Parameter Name="Tableid" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="NJ_User" EntityType="NJTicketModel.NJ_User" />
+    <EntitySet Name="NJ_UserRole" EntityType="NJTicketModel.NJ_UserRole" />
+    <AssociationSet Name="FK_NJ_User_NJ_User" Association="NJTicketModel.FK_NJ_User_NJ_User">
+      <End Role="NJ_UserRole" EntitySet="NJ_UserRole" />
+      <End Role="NJ_User" EntitySet="NJ_User" />
+    </AssociationSet>
+    <EntitySet Name="NJ_tblComment" EntityType="NJTicketModel.NJ_tblComment" />
+    <EntitySet Name="NJ_Clients" EntityType="NJTicketModel.NJ_Clients" />
+    <EntitySet Name="tbl_CertificateFiles" EntityType="NJTicketModel.tbl_CertificateFiles" />
+    <EntitySet Name="tbl_APISearchHistory" EntityType="NJTicketModel.tbl_APISearchHistory" />
+    <EntitySet Name="NJ_CallLog" EntityType="NJTicketModel.NJ_CallLog" />
+    <FunctionImport Name="Materials">
+      <Parameter Name="JobMaterialsXml" Mode="In" Type="String" />
+      <Parameter Name="Tableid" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Materials_new">
+      <Parameter Name="JobMaterialsXml" Mode="In" Type="String" />
+      <Parameter Name="Tableid" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+  <EntityType Name="NJ_Details">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="List_Type" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="File_Date" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="Court_Name" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="CourtDate" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="L_Name" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="F_Name" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="MI" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="Address1" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="Address2" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="City" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="ST" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="ZIP" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="DOB" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="Violation" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="DateIssued" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="Salutation" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="Summons" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Type="Boolean" Name="IsUser" />
+    <Property Type="String" Name="NJ_CourtID" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Muncipality" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Complaint" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Title" MaxLength="500" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <ComplexType Name="ImportJobMaterialsModify_Result">
+    <Property Type="String" Name="ListType" Nullable="true" />
+    <Property Type="String" Name="FileDate" Nullable="true" />
+    <Property Type="String" Name="CourtName" Nullable="true" />
+    <Property Type="String" Name="CourtDate" Nullable="true" />
+    <Property Type="String" Name="Lname" Nullable="true" />
+    <Property Type="String" Name="Fname" Nullable="true" />
+    <Property Type="String" Name="MI" Nullable="true" />
+    <Property Type="String" Name="Addr1" Nullable="true" />
+    <Property Type="String" Name="Addr2" Nullable="true" />
+    <Property Type="String" Name="City" Nullable="true" />
+    <Property Type="String" Name="ST" Nullable="true" />
+    <Property Type="String" Name="Zip" Nullable="true" />
+    <Property Type="String" Name="DOB" Nullable="true" />
+    <Property Type="String" Name="Violation" Nullable="true" />
+    <Property Type="String" Name="Description" Nullable="true" />
+    <Property Type="String" Name="DateIssued" Nullable="true" />
+    <Property Type="String" Name="Salutation" Nullable="true" />
+    <Property Type="String" Name="Summons" Nullable="true" />
+    <Property Type="Boolean" Name="isuser" Nullable="true" />
+  </ComplexType>
+  <EntityType Name="NJ_User">
+    <Key>
+      <PropertyRef Name="tblUserId" />
+    </Key>
+    <Property Type="Int32" Name="tblUserId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="First_Name" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Last_Name" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Email" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Password" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="tbl_RoleId" Nullable="false" />
+    <NavigationProperty Name="NJ_UserRole" Relationship="NJTicketModel.FK_NJ_User_NJ_User" FromRole="NJ_User" ToRole="NJ_UserRole" />
+  </EntityType>
+  <EntityType Name="NJ_UserRole">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="UserRole" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="NJ_User" Relationship="NJTicketModel.FK_NJ_User_NJ_User" FromRole="NJ_UserRole" ToRole="NJ_User" />
+  </EntityType>
+  <Association Name="FK_NJ_User_NJ_User">
+    <End Type="NJTicketModel.NJ_UserRole" Role="NJ_UserRole" Multiplicity="1" />
+    <End Type="NJTicketModel.NJ_User" Role="NJ_User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NJ_UserRole">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="NJ_User">
+        <PropertyRef Name="tbl_RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="NJ_tblComment">
+    <Key>
+      <PropertyRef Name="Comment_Id" />
+    </Key>
+    <Property Type="Int32" Name="Comment_Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Comment" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="UserId" />
+    <Property Type="Int32" Name="Comment_By" />
+    <Property Type="DateTime" Name="Comment_Date" Precision="3" />
+  </EntityType>
+  <EntityType Name="NJ_Clients">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="List_Type" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="File_Date" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Court_Name" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CourtDate" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="L_Name" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="F_Name" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="MI" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Address1" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Address2" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="City" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ST" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ZIP" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="DOB" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Violation" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="DateIssued" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Salutation" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Summons" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="Boolean" Name="IsUser" />
+    <Property Type="String" Name="NJ_CourtID" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Muncipality" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Complaint" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Title" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Payment_Type" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Double" Name="Payment_Total" />
+    <Property Type="Double" Name="Payment_Paid" />
+    <Property Type="Double" Name="Payment_Balance" />
+    <Property Type="DateTime" Name="MarkClientDate" Precision="3" />
+    <Property Type="String" Name="Payment_Cardno" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Payment_Card_ExpDate" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="Payment_CVV" />
+    <Property Type="String" Name="Email" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Phone" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Boolean" Name="IsPotentialClient" Nullable="false" />
+    <Property Type="Boolean" Name="IsDeleted" Nullable="false" />
+    <Property Type="String" Name="Comment" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="IsAddedBy" />
+    <Property Type="String" Name="SourceOfComm" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_CertificateFiles">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="FilePath" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="Nj_ClientsID" />
+    <Property Type="DateTime" Name="CreatedDate" Precision="0" />
+  </EntityType>
+  <EntityType Name="tbl_APISearchHistory">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="First_Name" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Last_Name" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="DOB" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="SearchBy" />
+    <Property Type="DateTime" Name="SearchDate" Precision="0" />
+  </EntityType>
+  <EntityType Name="NJ_CallLog">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="FirstName" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="LastName" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Phone" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Notes" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="DateAdded" Precision="3" />
+    <Property Type="Int32" Name="AddedBy" />
+    <Property Type="String" Name="Users" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <ComplexType Name="TempJobMaterials_Result">
+    <Property Type="String" Name="ListType" Nullable="true" />
+    <Property Type="String" Name="FileDate" Nullable="true" />
+    <Property Type="String" Name="CourtName" Nullable="true" />
+    <Property Type="String" Name="CourtDate" Nullable="true" />
+    <Property Type="String" Name="Lname" Nullable="true" />
+    <Property Type="String" Name="Fname" Nullable="true" />
+    <Property Type="String" Name="MI" Nullable="true" />
+    <Property Type="String" Name="Addr1" Nullable="true" />
+    <Property Type="String" Name="Addr2" Nullable="true" />
+    <Property Type="String" Name="City" Nullable="true" />
+    <Property Type="String" Name="ST" Nullable="true" />
+    <Property Type="String" Name="Zip" Nullable="true" />
+    <Property Type="String" Name="DOB" Nullable="true" />
+    <Property Type="String" Name="Violation" Nullable="true" />
+    <Property Type="String" Name="Description" Nullable="true" />
+    <Property Type="String" Name="DateIssued" Nullable="true" />
+    <Property Type="String" Name="Salutation" Nullable="true" />
+    <Property Type="String" Name="Summons" Nullable="true" />
+    <Property Type="Boolean" Name="isuser" Nullable="true" />
+    <Property Type="String" Name="NJ_CourtID" Nullable="true" />
+    <Property Type="String" Name="Muncipality" Nullable="true" />
+    <Property Type="String" Name="Complaint" Nullable="true" />
+    <Property Type="String" Name="Title" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="TempJobMaterials_Result1">
+    <Property Type="String" Name="ListType" Nullable="true" />
+    <Property Type="String" Name="FileDate" Nullable="true" />
+    <Property Type="String" Name="CourtName" Nullable="true" />
+    <Property Type="String" Name="CourtDate" Nullable="true" />
+    <Property Type="String" Name="Lname" Nullable="true" />
+    <Property Type="String" Name="Fname" Nullable="true" />
+    <Property Type="String" Name="MI" Nullable="true" />
+    <Property Type="String" Name="Addr1" Nullable="true" />
+    <Property Type="String" Name="Addr2" Nullable="true" />
+    <Property Type="String" Name="City" Nullable="true" />
+    <Property Type="String" Name="ST" Nullable="true" />
+    <Property Type="String" Name="Zip" Nullable="true" />
+    <Property Type="String" Name="DOB" Nullable="true" />
+    <Property Type="String" Name="Violation" Nullable="true" />
+    <Property Type="String" Name="Description" Nullable="true" />
+    <Property Type="String" Name="DateIssued" Nullable="true" />
+    <Property Type="String" Name="Salutation" Nullable="true" />
+    <Property Type="String" Name="Summons" Nullable="true" />
+    <Property Type="Boolean" Name="isuser" Nullable="true" />
+    <Property Type="String" Name="NJ_CourtID" Nullable="true" />
+    <Property Type="String" Name="Muncipality" Nullable="true" />
+    <Property Type="String" Name="Complaint" Nullable="true" />
+    <Property Type="String" Name="Title" Nullable="true" />
+  </ComplexType>
+</Schema>

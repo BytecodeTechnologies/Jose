@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="355fa50cef584b16a13e9d4c81300707" Name="Diagram1" ZoomLevel="60">
+        <EntityTypeShape EntityType="NJTicketModel.NJ_Details" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="NJTicketModel.NJ_User" Width="1.5" PointX="4.2946967446686219" PointY="9.54424034503486" />
+        <EntityTypeShape EntityType="NJTicketModel.NJ_UserRole" Width="1.5" PointX="7.4337216966942519" PointY="11.018861865167908" />
+        <AssociationConnector Association="NJTicketModel.FK_NJ_User_NJ_User" />
+        <EntityTypeShape EntityType="NJTicketModel.NJ_tblComment" Width="1.5" PointX="3.875" PointY="2" />
+        <EntityTypeShape EntityType="NJTicketModel.NJ_Clients" Width="1.5" PointX="0.59699189504468442" PointY="21.944910581198013" />
+        <EntityTypeShape EntityType="NJTicketModel.tbl_CertificateFiles" Width="1.5" PointX="8.55941004145863" PointY="29.171688600057593" />
+        <EntityTypeShape EntityType="NJTicketModel.tbl_APISearchHistory" Width="1.5" PointX="9.3600347923860117" PointY="16.246751330907806" />
+        <EntityTypeShape EntityType="NJTicketModel.NJ_CallLog" Width="1.5" PointX="9.1878551455158064" PointY="27.922429038175583" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

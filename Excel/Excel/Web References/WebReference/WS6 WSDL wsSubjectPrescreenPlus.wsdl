@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="https://webservice.drivershistory.com/currentVersion6" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="https://webservice.drivershistory.com/currentVersion6" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="https://webservice.drivershistory.com/currentVersion6">
+      <s:element name="SubjectSearch">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="LicenseKey" nillable="true" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="SearchID" nillable="true" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Reference" nillable="true" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="TrackingNumber" nillable="true" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="unbounded" name="ProductCodes" nillable="true" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="QueryType" nillable="true" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="unbounded" name="Subject" nillable="true" type="tns:iSubject" />
+            <s:element minOccurs="1" maxOccurs="1" name="PolicyState" nillable="true" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="LookbackStartDate" nillable="true" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="LookbackEndDate" nillable="true" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="DHIExpansionXML" nillable="true" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="UsePurposeCode" nillable="true" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="iSubject">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Number" nillable="true" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Name" type="tns:iName" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Phone" type="tns:iPhone" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Address" type="tns:iAddress" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DOB" type="tns:iDOB" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DriversLicense" type="tns:iDriversLicense" />
+          <s:element minOccurs="1" maxOccurs="1" name="Gender" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PersonID" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Email" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="iName">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="FirstName" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="MiddleName" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastName" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="NameSuffix" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Source" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Type" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="iPhone">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="AreaCode" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Exchange" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Suffix" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Extension" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Source" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Type" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="iAddress">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Address1" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Address2" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="City" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="StateCode" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Zip" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CountryCode" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Source" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Status" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Type" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="OccupancyStartDate" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="OccupancyEndDate" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="iDOB">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Year" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Month" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Day" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Source" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="iDriversLicense">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Number" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="StateCode" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CountryCode" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Source" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Status" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Endorsements" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IssueDate" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SurrenderDate" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SubjectSearchResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SubjectSearchResult" type="tns:SubjectSearchResults" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="SubjectSearchResults">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:BaseResults">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="unbounded" name="Subject" type="tns:oSubject" />
+              <s:element minOccurs="1" maxOccurs="1" name="DriverRank" nillable="true" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="StandardizedAddresses" type="tns:ArrayOfOStandardizedAddress" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="BaseResults">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="SearchID" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ErrorCode" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ErrorMessage" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Reference" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="TrackingNumber" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="RequestID" nillable="true" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProductCodes" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="WarningMessages" type="tns:ArrayOfOWarning" />
+          <s:element minOccurs="0" maxOccurs="1" name="InfoMessages" type="tns:ArrayOfOInfo" />
+          <s:element minOccurs="0" maxOccurs="1" name="AllViolationSummary" type="tns:ArrayOfOAllViolationSummary" />
+          <s:element minOccurs="1" maxOccurs="1" name="CalculatedLookBackStartDate" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CalculatedLookBackEndDate" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="UsePurposeCode" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ProductCode" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfOWarning">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Warning" nillable="true" type="tns:oWarning" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="oWarning">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Key" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfOInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Info" nillable="true" type="tns:oInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="oInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Key" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfOAllViolationSummary">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="AllViolationSummary" nillable="true" type="tns:oAllViolationSummary" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="oAllViolationSummary">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Key" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="oSubject">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DriverViolation" type="tns:oDriverViolation" />
+          <s:element minOccurs="1" maxOccurs="1" name="Number" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SubjectVerified" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SubjectDriverRank" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="oDriverViolation">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CourtDate" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DMVPoints" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="INSPoints" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ChargeCount" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="FName" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LName" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="MName" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Suffix" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="BirthYear" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="BirthMonth" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="BirthDay" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Gender" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="EyeColor" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Docket" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CaseType" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Summons" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ViolationStateCode" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ViolationDate" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ViolationStatute" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ViolationDescription" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ViolationAcdCode" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ViolationCustomerCode" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ViolationEVC" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="AdjudicatedDate" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="AdjudicatedStatute" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="AdjudicatedDescription" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="AdjudicatedAcdCode" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="AdjudicatedCustomerCode" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="AdjudicatedEVC" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Disposition" nillable="true" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="StateSpecific" type="tns:StateSpecificItemType" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CustomerSpecific" type="tns:CustomerSpecificItemType" />
+          <s:element minOccurs="1" maxOccurs="1" name="UncomputedStatuteIndicator" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ViolationSubRank" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DowngradeIndicator" nillable="true" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address" type="tns:oAddress" />
+          <s:element minOccurs="0" maxOccurs="1" name="LicensePlate" type="tns:oLicensePlate" />
+          <s:element minOccurs="0" maxOccurs="1" name="DriversLicense" type="tns:oDriversLicense" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="StateSpecificItemType">
+        <s:attribute name="Key" type="s:string" />
+        <s:attribute name="Value" type="s:string" />
+      </s:complexType>
+      <s:complexType name="CustomerSpecificItemType">
+        <s:attribute name="Key" type="s:string" />
+        <s:attribute name="Value" type="s:string" />
+      </s:complexType>
+      <s:complexType name="oAddress">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Address1" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Address2" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="City" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="StateCode" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Zip" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CountryCode" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="oLicensePlate">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Number" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="StateCode" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CountryCode" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="oDriversLicense">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Number" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="StateCode" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CountryCode" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfOStandardizedAddress">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="StandardizedAddress" nillable="true" type="tns:oStandardizedAddress" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="oStandardizedAddress">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="SubjectNumber" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Address1" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Address2" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="City" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="StateCode" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Zip" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CountryCode" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Source" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Status" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Type" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="StandardizationCode" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SubjectSearchBasic">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="LicenseKey" nillable="true" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="SearchId" nillable="true" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Reference" nillable="true" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="QueryType" nillable="true" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="FirstName" nillable="true" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="MiddleName" nillable="true" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="LastName" nillable="true" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Suffix" nillable="true" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Gender" nillable="true" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="DLNumber" nillable="true" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="DLState" nillable="true" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="DLCountry" nillable="true" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="BirthYear" nillable="true" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="BirthMonth" nillable="true" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="BirthDay" nillable="true" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Address1" nillable="true" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Address2" nillable="true" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="City" nillable="true" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="StateCode" nillable="true" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Zip" nillable="true" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="PolicyState" nillable="true" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="LookbackStartDate" nillable="true" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="LookbackEndDate" nillable="true" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="DHIExpansionXml" nillable="true" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SubjectSearchBasicResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SubjectSearchBasicResult" type="tns:SubjectSearchResults" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="SubjectSearchSoapIn">
+    <wsdl:part name="parameters" element="tns:SubjectSearch" />
+  </wsdl:message>
+  <wsdl:message name="SubjectSearchSoapOut">
+    <wsdl:part name="parameters" element="tns:SubjectSearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="SubjectSearchBasicSoapIn">
+    <wsdl:part name="parameters" element="tns:SubjectSearchBasic" />
+  </wsdl:message>
+  <wsdl:message name="SubjectSearchBasicSoapOut">
+    <wsdl:part name="parameters" element="tns:SubjectSearchBasicResponse" />
+  </wsdl:message>
+  <wsdl:portType name="wsSubjectPrescreenPlusSoap">
+    <wsdl:operation name="SubjectSearch">
+      <wsdl:input message="tns:SubjectSearchSoapIn" />
+      <wsdl:output message="tns:SubjectSearchSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SubjectSearchBasic">
+      <wsdl:input message="tns:SubjectSearchBasicSoapIn" />
+      <wsdl:output message="tns:SubjectSearchBasicSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="wsSubjectPrescreenPlusSoap" type="tns:wsSubjectPrescreenPlusSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SubjectSearch">
+      <soap:operation soapAction="https://webservice.drivershistory.com/currentVersion6/SubjectSearch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubjectSearchBasic">
+      <soap:operation soapAction="https://webservice.drivershistory.com/currentVersion6/SubjectSearchBasic" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="wsSubjectPrescreenPlusSoap12" type="tns:wsSubjectPrescreenPlusSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SubjectSearch">
+      <soap12:operation soapAction="https://webservice.drivershistory.com/currentVersion6/SubjectSearch" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubjectSearchBasic">
+      <soap12:operation soapAction="https://webservice.drivershistory.com/currentVersion6/SubjectSearchBasic" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="wsSubjectPrescreenPlus">
+    <wsdl:port name="wsSubjectPrescreenPlusSoap" binding="tns:wsSubjectPrescreenPlusSoap">
+      <soap:address location="https://webservice.drivershistory.com/currentVersion6/wsSubjectPrescreenPlus.asmx" />
+    </wsdl:port>
+    <wsdl:port name="wsSubjectPrescreenPlusSoap12" binding="tns:wsSubjectPrescreenPlusSoap12">
+      <soap12:address location="https://webservice.drivershistory.com/currentVersion6/wsSubjectPrescreenPlus.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

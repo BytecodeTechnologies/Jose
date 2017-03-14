@@ -1,0 +1,174 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="NJTicketModelStoreContainer" CdmEntityContainer="NJTicketEntities">
+    <EntitySetMapping Name="NJ_Details">
+      <EntityTypeMapping TypeName="NJTicketModel.NJ_Details">
+        <MappingFragment StoreEntitySet="NJ_Details">
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Complaint" ColumnName="Complaint" />
+          <ScalarProperty Name="Muncipality" ColumnName="Muncipality" />
+          <ScalarProperty Name="NJ_CourtID" ColumnName="NJ_CourtID" />
+          <ScalarProperty Name="IsUser" ColumnName="IsUser" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="List_Type" ColumnName="List_Type" />
+          <ScalarProperty Name="File_Date" ColumnName="File_Date" />
+          <ScalarProperty Name="Court_Name" ColumnName="Court_Name" />
+          <ScalarProperty Name="CourtDate" ColumnName="CourtDate" />
+          <ScalarProperty Name="L_Name" ColumnName="L_Name" />
+          <ScalarProperty Name="F_Name" ColumnName="F_Name" />
+          <ScalarProperty Name="MI" ColumnName="MI" />
+          <ScalarProperty Name="Address1" ColumnName="Address1" />
+          <ScalarProperty Name="Address2" ColumnName="Address2" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="ST" ColumnName="ST" />
+          <ScalarProperty Name="ZIP" ColumnName="ZIP" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="Violation" ColumnName="Violation" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="DateIssued" ColumnName="DateIssued" />
+          <ScalarProperty Name="Salutation" ColumnName="Salutation" />
+          <ScalarProperty Name="Summons" ColumnName="Summons" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="ImportJobMaterialsModify" FunctionName="NJTicketModel.Store.ImportJobMaterialsModify">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="NJTicketModel.ImportJobMaterialsModify_Result">
+          <ScalarProperty Name="ListType" ColumnName="ListType" />
+          <ScalarProperty Name="FileDate" ColumnName="FileDate" />
+          <ScalarProperty Name="CourtName" ColumnName="CourtName" />
+          <ScalarProperty Name="CourtDate" ColumnName="CourtDate" />
+          <ScalarProperty Name="Lname" ColumnName="Lname" />
+          <ScalarProperty Name="Fname" ColumnName="Fname" />
+          <ScalarProperty Name="MI" ColumnName="MI" />
+          <ScalarProperty Name="Addr1" ColumnName="Addr1" />
+          <ScalarProperty Name="Addr2" ColumnName="Addr2" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="ST" ColumnName="ST" />
+          <ScalarProperty Name="Zip" ColumnName="Zip" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="Violation" ColumnName="Violation" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="DateIssued" ColumnName="DateIssued" />
+          <ScalarProperty Name="Salutation" ColumnName="Salutation" />
+          <ScalarProperty Name="Summons" ColumnName="Summons" />
+          <ScalarProperty Name="isuser" ColumnName="isuser" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="NJ_User">
+      <EntityTypeMapping TypeName="NJTicketModel.NJ_User">
+        <MappingFragment StoreEntitySet="NJ_User">
+          <ScalarProperty Name="tbl_RoleId" ColumnName="tbl_RoleId" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Last_Name" ColumnName="Last_Name" />
+          <ScalarProperty Name="First_Name" ColumnName="First_Name" />
+          <ScalarProperty Name="tblUserId" ColumnName="tblUserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NJ_UserRole">
+      <EntityTypeMapping TypeName="NJTicketModel.NJ_UserRole">
+        <MappingFragment StoreEntitySet="NJ_UserRole">
+          <ScalarProperty Name="UserRole" ColumnName="UserRole" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NJ_tblComment">
+      <EntityTypeMapping TypeName="NJTicketModel.NJ_tblComment">
+        <MappingFragment StoreEntitySet="NJ_tblComment">
+          <ScalarProperty Name="Comment_Date" ColumnName="Comment_Date" />
+          <ScalarProperty Name="Comment_By" ColumnName="Comment_By" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="Comment_Id" ColumnName="Comment_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NJ_Clients">
+      <EntityTypeMapping TypeName="NJTicketModel.NJ_Clients">
+        <MappingFragment StoreEntitySet="NJ_Clients">
+          <ScalarProperty Name="SourceOfComm" ColumnName="SourceOfComm" />
+          <ScalarProperty Name="IsAddedBy" ColumnName="IsAddedBy" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="IsPotentialClient" ColumnName="IsPotentialClient" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Payment_CVV" ColumnName="Payment_CVV" />
+          <ScalarProperty Name="Payment_Card_ExpDate" ColumnName="Payment_Card_ExpDate" />
+          <ScalarProperty Name="Payment_Cardno" ColumnName="Payment_Cardno" />
+          <ScalarProperty Name="MarkClientDate" ColumnName="MarkClientDate" />
+          <ScalarProperty Name="Payment_Balance" ColumnName="Payment_Balance" />
+          <ScalarProperty Name="Payment_Paid" ColumnName="Payment_Paid" />
+          <ScalarProperty Name="Payment_Total" ColumnName="Payment_Total" />
+          <ScalarProperty Name="Payment_Type" ColumnName="Payment_Type" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Complaint" ColumnName="Complaint" />
+          <ScalarProperty Name="Muncipality" ColumnName="Muncipality" />
+          <ScalarProperty Name="NJ_CourtID" ColumnName="NJ_CourtID" />
+          <ScalarProperty Name="IsUser" ColumnName="IsUser" />
+          <ScalarProperty Name="Summons" ColumnName="Summons" />
+          <ScalarProperty Name="Salutation" ColumnName="Salutation" />
+          <ScalarProperty Name="DateIssued" ColumnName="DateIssued" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Violation" ColumnName="Violation" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="ZIP" ColumnName="ZIP" />
+          <ScalarProperty Name="ST" ColumnName="ST" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Address2" ColumnName="Address2" />
+          <ScalarProperty Name="Address1" ColumnName="Address1" />
+          <ScalarProperty Name="MI" ColumnName="MI" />
+          <ScalarProperty Name="F_Name" ColumnName="F_Name" />
+          <ScalarProperty Name="L_Name" ColumnName="L_Name" />
+          <ScalarProperty Name="CourtDate" ColumnName="CourtDate" />
+          <ScalarProperty Name="Court_Name" ColumnName="Court_Name" />
+          <ScalarProperty Name="File_Date" ColumnName="File_Date" />
+          <ScalarProperty Name="List_Type" ColumnName="List_Type" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_CertificateFiles">
+      <EntityTypeMapping TypeName="NJTicketModel.tbl_CertificateFiles">
+        <MappingFragment StoreEntitySet="tbl_CertificateFiles">
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="Nj_ClientsID" ColumnName="Nj_ClientsID" />
+          <ScalarProperty Name="FilePath" ColumnName="FilePath" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_APISearchHistory">
+      <EntityTypeMapping TypeName="NJTicketModel.tbl_APISearchHistory">
+        <MappingFragment StoreEntitySet="tbl_APISearchHistory">
+          <ScalarProperty Name="SearchDate" ColumnName="SearchDate" />
+          <ScalarProperty Name="SearchBy" ColumnName="SearchBy" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="Last_Name" ColumnName="Last_Name" />
+          <ScalarProperty Name="First_Name" ColumnName="First_Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NJ_CallLog">
+      <EntityTypeMapping TypeName="NJTicketModel.NJ_CallLog">
+        <MappingFragment StoreEntitySet="NJ_CallLog">
+          <ScalarProperty Name="Users" ColumnName="Users" />
+          <ScalarProperty Name="AddedBy" ColumnName="AddedBy" />
+          <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Materials" FunctionName="NJTicketModel.Store.Materials" />
+    <FunctionImportMapping FunctionImportName="Materials_new" FunctionName="NJTicketModel.Store.Materials" />
+  </EntityContainerMapping>
+</Mapping>

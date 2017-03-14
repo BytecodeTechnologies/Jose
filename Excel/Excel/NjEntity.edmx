@@ -1,0 +1,630 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="NJTicketModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="NJTicketModelStoreContainer">
+          <EntitySet Name="NJ_CallLog" EntityType="NJTicketModel.Store.NJ_CallLog" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="NJ_Clients" EntityType="NJTicketModel.Store.NJ_Clients" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="NJ_Details" EntityType="NJTicketModel.Store.NJ_Details" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="NJ_tblComment" EntityType="NJTicketModel.Store.NJ_tblComment" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="NJ_User" EntityType="NJTicketModel.Store.NJ_User" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="NJ_UserRole" EntityType="NJTicketModel.Store.NJ_UserRole" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tbl_APISearchHistory" EntityType="NJTicketModel.Store.tbl_APISearchHistory" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tbl_CertificateFiles" EntityType="NJTicketModel.Store.tbl_CertificateFiles" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_NJ_User_NJ_User" Association="NJTicketModel.Store.FK_NJ_User_NJ_User">
+            <End Role="NJ_UserRole" EntitySet="NJ_UserRole" />
+            <End Role="NJ_User" EntitySet="NJ_User" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="NJ_CallLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="100" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="100" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="20" />
+          <Property Name="Notes" Type="nvarchar(max)" />
+          <Property Name="DateAdded" Type="datetime" />
+          <Property Name="AddedBy" Type="int" />
+          <Property Name="Users" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="NJ_Clients">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="List_Type" Type="varchar(max)" />
+          <Property Name="File_Date" Type="varchar(max)" />
+          <Property Name="Court_Name" Type="varchar(max)" />
+          <Property Name="CourtDate" Type="varchar(max)" />
+          <Property Name="L_Name" Type="varchar(max)" />
+          <Property Name="F_Name" Type="varchar(max)" />
+          <Property Name="MI" Type="varchar(max)" />
+          <Property Name="Address1" Type="varchar(max)" />
+          <Property Name="Address2" Type="varchar(max)" />
+          <Property Name="City" Type="varchar" MaxLength="200" />
+          <Property Name="ST" Type="varchar" MaxLength="200" />
+          <Property Name="ZIP" Type="varchar" MaxLength="200" />
+          <Property Name="DOB" Type="varchar" MaxLength="200" />
+          <Property Name="Violation" Type="varchar(max)" />
+          <Property Name="Description" Type="varchar(max)" />
+          <Property Name="DateIssued" Type="varchar" MaxLength="200" />
+          <Property Name="Salutation" Type="varchar(max)" />
+          <Property Name="Summons" Type="varchar(max)" />
+          <Property Name="IsUser" Type="bit" />
+          <Property Name="NJ_CourtID" Type="varchar" MaxLength="500" />
+          <Property Name="Muncipality" Type="varchar" MaxLength="500" />
+          <Property Name="Complaint" Type="varchar" MaxLength="500" />
+          <Property Name="Title" Type="varchar" MaxLength="500" />
+          <Property Name="Payment_Type" Type="varchar" MaxLength="50" />
+          <Property Name="Payment_Total" Type="float" />
+          <Property Name="Payment_Paid" Type="float" />
+          <Property Name="Payment_Balance" Type="float" />
+          <Property Name="MarkClientDate" Type="datetime" />
+          <Property Name="Payment_Cardno" Type="varchar" MaxLength="200" />
+          <Property Name="Payment_Card_ExpDate" Type="varchar" MaxLength="200" />
+          <Property Name="Payment_CVV" Type="int" />
+          <Property Name="Email" Type="varchar" MaxLength="100" />
+          <Property Name="Phone" Type="varchar" MaxLength="100" />
+          <Property Name="IsPotentialClient" Type="bit" Nullable="false" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+          <Property Name="Comment" Type="varchar(max)" />
+          <Property Name="IsAddedBy" Type="int" />
+          <Property Name="SourceOfComm" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="NJ_Details">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="List_Type" Type="varchar(max)" />
+          <Property Name="File_Date" Type="varchar(max)" />
+          <Property Name="Court_Name" Type="varchar(max)" />
+          <Property Name="CourtDate" Type="varchar(max)" />
+          <Property Name="L_Name" Type="varchar(max)" />
+          <Property Name="F_Name" Type="varchar(max)" />
+          <Property Name="MI" Type="varchar(max)" />
+          <Property Name="Address1" Type="varchar(max)" />
+          <Property Name="Address2" Type="varchar(max)" />
+          <Property Name="City" Type="varchar" MaxLength="200" />
+          <Property Name="ST" Type="varchar" MaxLength="200" />
+          <Property Name="ZIP" Type="varchar" MaxLength="200" />
+          <Property Name="DOB" Type="varchar" MaxLength="200" />
+          <Property Name="Violation" Type="varchar(max)" />
+          <Property Name="Description" Type="varchar(max)" />
+          <Property Name="DateIssued" Type="varchar" MaxLength="200" />
+          <Property Name="Salutation" Type="varchar(max)" />
+          <Property Name="Summons" Type="varchar(max)" />
+          <Property Name="IsUser" Type="bit" />
+          <Property Name="NJ_CourtID" Type="varchar" MaxLength="500" />
+          <Property Name="Muncipality" Type="varchar" MaxLength="500" />
+          <Property Name="Complaint" Type="varchar" MaxLength="500" />
+          <Property Name="Title" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="NJ_tblComment">
+          <Key>
+            <PropertyRef Name="Comment_Id" />
+          </Key>
+          <Property Name="Comment_Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Comment" Type="varchar(max)" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="Comment_By" Type="int" />
+          <Property Name="Comment_Date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="NJ_User">
+          <Key>
+            <PropertyRef Name="tblUserId" />
+          </Key>
+          <Property Name="tblUserId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="First_Name" Type="varchar" MaxLength="100" />
+          <Property Name="Last_Name" Type="varchar" MaxLength="100" />
+          <Property Name="Email" Type="varchar" MaxLength="100" />
+          <Property Name="Password" Type="varchar" MaxLength="100" />
+          <Property Name="tbl_RoleId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="NJ_UserRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserRole" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="tbl_APISearchHistory">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="First_Name" Type="varchar" MaxLength="100" />
+          <Property Name="Last_Name" Type="varchar" MaxLength="100" />
+          <Property Name="DOB" Type="varchar" MaxLength="200" />
+          <Property Name="SearchBy" Type="int" />
+          <Property Name="SearchDate" Type="date" />
+        </EntityType>
+        <EntityType Name="tbl_CertificateFiles">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="FilePath" Type="varchar" MaxLength="300" />
+          <Property Name="Nj_ClientsID" Type="int" />
+          <Property Name="CreatedDate" Type="date" />
+        </EntityType>
+        <Association Name="FK_NJ_User_NJ_User">
+          <End Role="NJ_UserRole" Type="NJTicketModel.Store.NJ_UserRole" Multiplicity="1" />
+          <End Role="NJ_User" Type="NJTicketModel.Store.NJ_User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NJ_UserRole">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="NJ_User">
+              <PropertyRef Name="tbl_RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="ImportJobMaterialsModify" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="JobMaterialsXml" Type="varchar(max)" Mode="In" />
+          <Parameter Name="Tableid" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="Materials" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="JobMaterialsXml" Type="varchar(max)" Mode="In" />
+          <Parameter Name="Tableid" Type="varchar" Mode="In" />
+        </Function>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="NJTicketModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="NJTicketEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="NJ_Details" EntityType="NJTicketModel.NJ_Details" />
+          <FunctionImport Name="nfs_GetPresets">
+            <Parameter Name="DomainID" Mode="In" Type="Int32" />
+            <Parameter Name="Vendor" Mode="In" Type="Boolean" />
+            <Parameter Name="PresetType" Mode="In" Type="Int32" />
+            <Parameter Name="LoginID" Mode="In" Type="Int32" />
+            <Parameter Name="SiteID" Mode="In" Type="Int32" />
+            <Parameter Name="TypeID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="ImportJobMaterialsModify" ReturnType="Collection(NJTicketModel.ImportJobMaterialsModify_Result)">
+            <Parameter Name="JobMaterialsXml" Mode="In" Type="String" />
+            <Parameter Name="Tableid" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="NJ_User" EntityType="NJTicketModel.NJ_User" />
+          <EntitySet Name="NJ_UserRole" EntityType="NJTicketModel.NJ_UserRole" />
+          <AssociationSet Name="FK_NJ_User_NJ_User" Association="NJTicketModel.FK_NJ_User_NJ_User">
+            <End Role="NJ_UserRole" EntitySet="NJ_UserRole" />
+            <End Role="NJ_User" EntitySet="NJ_User" />
+          </AssociationSet>
+          <EntitySet Name="NJ_tblComment" EntityType="NJTicketModel.NJ_tblComment" />
+          <EntitySet Name="NJ_Clients" EntityType="NJTicketModel.NJ_Clients" />
+          <EntitySet Name="tbl_CertificateFiles" EntityType="NJTicketModel.tbl_CertificateFiles" />
+          <EntitySet Name="tbl_APISearchHistory" EntityType="NJTicketModel.tbl_APISearchHistory" />
+          <EntitySet Name="NJ_CallLog" EntityType="NJTicketModel.NJ_CallLog" />
+          <FunctionImport Name="Materials">
+            <Parameter Name="JobMaterialsXml" Mode="In" Type="String" />
+            <Parameter Name="Tableid" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Materials_new">
+            <Parameter Name="JobMaterialsXml" Mode="In" Type="String" />
+            <Parameter Name="Tableid" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <EntityType Name="NJ_Details">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="List_Type" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="File_Date" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="Court_Name" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="CourtDate" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="L_Name" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="F_Name" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="MI" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="Address1" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="Address2" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="City" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+          <Property Name="ST" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+          <Property Name="ZIP" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+          <Property Name="DOB" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+          <Property Name="Violation" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="DateIssued" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+          <Property Name="Salutation" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="Summons" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Type="Boolean" Name="IsUser" />
+          <Property Type="String" Name="NJ_CourtID" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Muncipality" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Complaint" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Title" MaxLength="500" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <ComplexType Name="ImportJobMaterialsModify_Result">
+          <Property Type="String" Name="ListType" Nullable="true" />
+          <Property Type="String" Name="FileDate" Nullable="true" />
+          <Property Type="String" Name="CourtName" Nullable="true" />
+          <Property Type="String" Name="CourtDate" Nullable="true" />
+          <Property Type="String" Name="Lname" Nullable="true" />
+          <Property Type="String" Name="Fname" Nullable="true" />
+          <Property Type="String" Name="MI" Nullable="true" />
+          <Property Type="String" Name="Addr1" Nullable="true" />
+          <Property Type="String" Name="Addr2" Nullable="true" />
+          <Property Type="String" Name="City" Nullable="true" />
+          <Property Type="String" Name="ST" Nullable="true" />
+          <Property Type="String" Name="Zip" Nullable="true" />
+          <Property Type="String" Name="DOB" Nullable="true" />
+          <Property Type="String" Name="Violation" Nullable="true" />
+          <Property Type="String" Name="Description" Nullable="true" />
+          <Property Type="String" Name="DateIssued" Nullable="true" />
+          <Property Type="String" Name="Salutation" Nullable="true" />
+          <Property Type="String" Name="Summons" Nullable="true" />
+          <Property Type="Boolean" Name="isuser" Nullable="true" />
+        </ComplexType>
+        <EntityType Name="NJ_User">
+          <Key>
+            <PropertyRef Name="tblUserId" />
+          </Key>
+          <Property Type="Int32" Name="tblUserId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="First_Name" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Last_Name" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Email" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Password" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="tbl_RoleId" Nullable="false" />
+          <NavigationProperty Name="NJ_UserRole" Relationship="NJTicketModel.FK_NJ_User_NJ_User" FromRole="NJ_User" ToRole="NJ_UserRole" />
+        </EntityType>
+        <EntityType Name="NJ_UserRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="UserRole" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="NJ_User" Relationship="NJTicketModel.FK_NJ_User_NJ_User" FromRole="NJ_UserRole" ToRole="NJ_User" />
+        </EntityType>
+        <Association Name="FK_NJ_User_NJ_User">
+          <End Type="NJTicketModel.NJ_UserRole" Role="NJ_UserRole" Multiplicity="1" />
+          <End Type="NJTicketModel.NJ_User" Role="NJ_User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NJ_UserRole">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="NJ_User">
+              <PropertyRef Name="tbl_RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="NJ_tblComment">
+          <Key>
+            <PropertyRef Name="Comment_Id" />
+          </Key>
+          <Property Type="Int32" Name="Comment_Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Comment" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="UserId" />
+          <Property Type="Int32" Name="Comment_By" />
+          <Property Type="DateTime" Name="Comment_Date" Precision="3" />
+        </EntityType>
+        <EntityType Name="NJ_Clients">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="List_Type" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="File_Date" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Court_Name" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="CourtDate" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="L_Name" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="F_Name" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="MI" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Address1" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Address2" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="City" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ST" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ZIP" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="DOB" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Violation" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="DateIssued" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Salutation" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Summons" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="IsUser" />
+          <Property Type="String" Name="NJ_CourtID" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Muncipality" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Complaint" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Title" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Payment_Type" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Double" Name="Payment_Total" />
+          <Property Type="Double" Name="Payment_Paid" />
+          <Property Type="Double" Name="Payment_Balance" />
+          <Property Type="DateTime" Name="MarkClientDate" Precision="3" />
+          <Property Type="String" Name="Payment_Cardno" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Payment_Card_ExpDate" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="Payment_CVV" />
+          <Property Type="String" Name="Email" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Phone" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="IsPotentialClient" Nullable="false" />
+          <Property Type="Boolean" Name="IsDeleted" Nullable="false" />
+          <Property Type="String" Name="Comment" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IsAddedBy" />
+          <Property Type="String" Name="SourceOfComm" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tbl_CertificateFiles">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="FilePath" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="Nj_ClientsID" />
+          <Property Type="DateTime" Name="CreatedDate" Precision="0" />
+        </EntityType>
+        <EntityType Name="tbl_APISearchHistory">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="First_Name" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Last_Name" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="DOB" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="SearchBy" />
+          <Property Type="DateTime" Name="SearchDate" Precision="0" />
+        </EntityType>
+        <EntityType Name="NJ_CallLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="FirstName" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LastName" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Phone" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Notes" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="DateAdded" Precision="3" />
+          <Property Type="Int32" Name="AddedBy" />
+          <Property Type="String" Name="Users" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <ComplexType Name="TempJobMaterials_Result">
+          <Property Type="String" Name="ListType" Nullable="true" />
+          <Property Type="String" Name="FileDate" Nullable="true" />
+          <Property Type="String" Name="CourtName" Nullable="true" />
+          <Property Type="String" Name="CourtDate" Nullable="true" />
+          <Property Type="String" Name="Lname" Nullable="true" />
+          <Property Type="String" Name="Fname" Nullable="true" />
+          <Property Type="String" Name="MI" Nullable="true" />
+          <Property Type="String" Name="Addr1" Nullable="true" />
+          <Property Type="String" Name="Addr2" Nullable="true" />
+          <Property Type="String" Name="City" Nullable="true" />
+          <Property Type="String" Name="ST" Nullable="true" />
+          <Property Type="String" Name="Zip" Nullable="true" />
+          <Property Type="String" Name="DOB" Nullable="true" />
+          <Property Type="String" Name="Violation" Nullable="true" />
+          <Property Type="String" Name="Description" Nullable="true" />
+          <Property Type="String" Name="DateIssued" Nullable="true" />
+          <Property Type="String" Name="Salutation" Nullable="true" />
+          <Property Type="String" Name="Summons" Nullable="true" />
+          <Property Type="Boolean" Name="isuser" Nullable="true" />
+          <Property Type="String" Name="NJ_CourtID" Nullable="true" />
+          <Property Type="String" Name="Muncipality" Nullable="true" />
+          <Property Type="String" Name="Complaint" Nullable="true" />
+          <Property Type="String" Name="Title" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="TempJobMaterials_Result1">
+          <Property Type="String" Name="ListType" Nullable="true" />
+          <Property Type="String" Name="FileDate" Nullable="true" />
+          <Property Type="String" Name="CourtName" Nullable="true" />
+          <Property Type="String" Name="CourtDate" Nullable="true" />
+          <Property Type="String" Name="Lname" Nullable="true" />
+          <Property Type="String" Name="Fname" Nullable="true" />
+          <Property Type="String" Name="MI" Nullable="true" />
+          <Property Type="String" Name="Addr1" Nullable="true" />
+          <Property Type="String" Name="Addr2" Nullable="true" />
+          <Property Type="String" Name="City" Nullable="true" />
+          <Property Type="String" Name="ST" Nullable="true" />
+          <Property Type="String" Name="Zip" Nullable="true" />
+          <Property Type="String" Name="DOB" Nullable="true" />
+          <Property Type="String" Name="Violation" Nullable="true" />
+          <Property Type="String" Name="Description" Nullable="true" />
+          <Property Type="String" Name="DateIssued" Nullable="true" />
+          <Property Type="String" Name="Salutation" Nullable="true" />
+          <Property Type="String" Name="Summons" Nullable="true" />
+          <Property Type="Boolean" Name="isuser" Nullable="true" />
+          <Property Type="String" Name="NJ_CourtID" Nullable="true" />
+          <Property Type="String" Name="Muncipality" Nullable="true" />
+          <Property Type="String" Name="Complaint" Nullable="true" />
+          <Property Type="String" Name="Title" Nullable="true" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="NJTicketModelStoreContainer" CdmEntityContainer="NJTicketEntities">
+          <EntitySetMapping Name="NJ_Details">
+            <EntityTypeMapping TypeName="NJTicketModel.NJ_Details">
+              <MappingFragment StoreEntitySet="NJ_Details">
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Complaint" ColumnName="Complaint" />
+                <ScalarProperty Name="Muncipality" ColumnName="Muncipality" />
+                <ScalarProperty Name="NJ_CourtID" ColumnName="NJ_CourtID" />
+                <ScalarProperty Name="IsUser" ColumnName="IsUser" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="List_Type" ColumnName="List_Type" />
+                <ScalarProperty Name="File_Date" ColumnName="File_Date" />
+                <ScalarProperty Name="Court_Name" ColumnName="Court_Name" />
+                <ScalarProperty Name="CourtDate" ColumnName="CourtDate" />
+                <ScalarProperty Name="L_Name" ColumnName="L_Name" />
+                <ScalarProperty Name="F_Name" ColumnName="F_Name" />
+                <ScalarProperty Name="MI" ColumnName="MI" />
+                <ScalarProperty Name="Address1" ColumnName="Address1" />
+                <ScalarProperty Name="Address2" ColumnName="Address2" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="ST" ColumnName="ST" />
+                <ScalarProperty Name="ZIP" ColumnName="ZIP" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="Violation" ColumnName="Violation" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="DateIssued" ColumnName="DateIssued" />
+                <ScalarProperty Name="Salutation" ColumnName="Salutation" />
+                <ScalarProperty Name="Summons" ColumnName="Summons" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="ImportJobMaterialsModify" FunctionName="NJTicketModel.Store.ImportJobMaterialsModify">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="NJTicketModel.ImportJobMaterialsModify_Result">
+                <ScalarProperty Name="ListType" ColumnName="ListType" />
+                <ScalarProperty Name="FileDate" ColumnName="FileDate" />
+                <ScalarProperty Name="CourtName" ColumnName="CourtName" />
+                <ScalarProperty Name="CourtDate" ColumnName="CourtDate" />
+                <ScalarProperty Name="Lname" ColumnName="Lname" />
+                <ScalarProperty Name="Fname" ColumnName="Fname" />
+                <ScalarProperty Name="MI" ColumnName="MI" />
+                <ScalarProperty Name="Addr1" ColumnName="Addr1" />
+                <ScalarProperty Name="Addr2" ColumnName="Addr2" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="ST" ColumnName="ST" />
+                <ScalarProperty Name="Zip" ColumnName="Zip" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="Violation" ColumnName="Violation" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="DateIssued" ColumnName="DateIssued" />
+                <ScalarProperty Name="Salutation" ColumnName="Salutation" />
+                <ScalarProperty Name="Summons" ColumnName="Summons" />
+                <ScalarProperty Name="isuser" ColumnName="isuser" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="NJ_User">
+            <EntityTypeMapping TypeName="NJTicketModel.NJ_User">
+              <MappingFragment StoreEntitySet="NJ_User">
+                <ScalarProperty Name="tbl_RoleId" ColumnName="tbl_RoleId" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Last_Name" ColumnName="Last_Name" />
+                <ScalarProperty Name="First_Name" ColumnName="First_Name" />
+                <ScalarProperty Name="tblUserId" ColumnName="tblUserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NJ_UserRole">
+            <EntityTypeMapping TypeName="NJTicketModel.NJ_UserRole">
+              <MappingFragment StoreEntitySet="NJ_UserRole">
+                <ScalarProperty Name="UserRole" ColumnName="UserRole" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NJ_tblComment">
+            <EntityTypeMapping TypeName="NJTicketModel.NJ_tblComment">
+              <MappingFragment StoreEntitySet="NJ_tblComment">
+                <ScalarProperty Name="Comment_Date" ColumnName="Comment_Date" />
+                <ScalarProperty Name="Comment_By" ColumnName="Comment_By" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="Comment_Id" ColumnName="Comment_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NJ_Clients">
+            <EntityTypeMapping TypeName="NJTicketModel.NJ_Clients">
+              <MappingFragment StoreEntitySet="NJ_Clients">
+                <ScalarProperty Name="SourceOfComm" ColumnName="SourceOfComm" />
+                <ScalarProperty Name="IsAddedBy" ColumnName="IsAddedBy" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="IsPotentialClient" ColumnName="IsPotentialClient" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Payment_CVV" ColumnName="Payment_CVV" />
+                <ScalarProperty Name="Payment_Card_ExpDate" ColumnName="Payment_Card_ExpDate" />
+                <ScalarProperty Name="Payment_Cardno" ColumnName="Payment_Cardno" />
+                <ScalarProperty Name="MarkClientDate" ColumnName="MarkClientDate" />
+                <ScalarProperty Name="Payment_Balance" ColumnName="Payment_Balance" />
+                <ScalarProperty Name="Payment_Paid" ColumnName="Payment_Paid" />
+                <ScalarProperty Name="Payment_Total" ColumnName="Payment_Total" />
+                <ScalarProperty Name="Payment_Type" ColumnName="Payment_Type" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Complaint" ColumnName="Complaint" />
+                <ScalarProperty Name="Muncipality" ColumnName="Muncipality" />
+                <ScalarProperty Name="NJ_CourtID" ColumnName="NJ_CourtID" />
+                <ScalarProperty Name="IsUser" ColumnName="IsUser" />
+                <ScalarProperty Name="Summons" ColumnName="Summons" />
+                <ScalarProperty Name="Salutation" ColumnName="Salutation" />
+                <ScalarProperty Name="DateIssued" ColumnName="DateIssued" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Violation" ColumnName="Violation" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="ZIP" ColumnName="ZIP" />
+                <ScalarProperty Name="ST" ColumnName="ST" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Address2" ColumnName="Address2" />
+                <ScalarProperty Name="Address1" ColumnName="Address1" />
+                <ScalarProperty Name="MI" ColumnName="MI" />
+                <ScalarProperty Name="F_Name" ColumnName="F_Name" />
+                <ScalarProperty Name="L_Name" ColumnName="L_Name" />
+                <ScalarProperty Name="CourtDate" ColumnName="CourtDate" />
+                <ScalarProperty Name="Court_Name" ColumnName="Court_Name" />
+                <ScalarProperty Name="File_Date" ColumnName="File_Date" />
+                <ScalarProperty Name="List_Type" ColumnName="List_Type" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_CertificateFiles">
+            <EntityTypeMapping TypeName="NJTicketModel.tbl_CertificateFiles">
+              <MappingFragment StoreEntitySet="tbl_CertificateFiles">
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="Nj_ClientsID" ColumnName="Nj_ClientsID" />
+                <ScalarProperty Name="FilePath" ColumnName="FilePath" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_APISearchHistory">
+            <EntityTypeMapping TypeName="NJTicketModel.tbl_APISearchHistory">
+              <MappingFragment StoreEntitySet="tbl_APISearchHistory">
+                <ScalarProperty Name="SearchDate" ColumnName="SearchDate" />
+                <ScalarProperty Name="SearchBy" ColumnName="SearchBy" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="Last_Name" ColumnName="Last_Name" />
+                <ScalarProperty Name="First_Name" ColumnName="First_Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NJ_CallLog">
+            <EntityTypeMapping TypeName="NJTicketModel.NJ_CallLog">
+              <MappingFragment StoreEntitySet="NJ_CallLog">
+                <ScalarProperty Name="Users" ColumnName="Users" />
+                <ScalarProperty Name="AddedBy" ColumnName="AddedBy" />
+                <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="Materials" FunctionName="NJTicketModel.Store.Materials" />
+          <FunctionImportMapping FunctionImportName="Materials_new" FunctionName="NJTicketModel.Store.Materials" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

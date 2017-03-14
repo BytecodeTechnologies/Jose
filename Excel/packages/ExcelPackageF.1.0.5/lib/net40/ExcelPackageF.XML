@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doc>
+<assembly><name>ExcelPackageF</name></assembly>
+<members>
+<member name="M:ExcelPackageF.Excel.addColumn``1(System.Int32,OfficeOpenXml.ExcelWorksheet,System.Collections.Generic.IEnumerable{``0})">
+ <summary>Adds a sequence as a column in to a worksheet </summary>       
+ <param name="colIndex">The column index.</param>
+ <param name="worksheet">The input worksheet.</param>
+ <param name="seq">The input sequence.</param>
+ <returns>unit</returns>
+</member>
+<member name="M:ExcelPackageF.Excel.addRow``1(System.Int32,OfficeOpenXml.ExcelWorksheet,System.Collections.Generic.IEnumerable{``0})">
+ <summary>Adds a sequence as a row in to a worksheet </summary>       
+ <param name="rownIndex">The row index.</param>
+ <param name="worksheet">The input worksheet.</param>
+ <param name="seq">The input sequence.</param>
+ <returns>unit</returns>
+</member>
+<member name="M:ExcelPackageF.Excel.addWorksheet(System.String,OfficeOpenXml.ExcelPackage)">
+ <summary>Adds a worksheet with a specified name to the Excel document</summary>      
+ <param name="sheetName">Name of the inserted worksheet.</param> 
+ <param name="document">The document.</param>
+ <returns>Excel worksheet</returns>
+</member>
+<member name="M:ExcelPackageF.Excel.createDocument(System.String)">
+ <summary>Creates a new Excel document. Save method needs to be called to write the file do disk </summary>       
+ <param name="filename">The document filename.</param>
+ <returns>Excel document</returns>
+</member>
+<member name="M:ExcelPackageF.Excel.getRow(System.Int32,OfficeOpenXml.ExcelWorksheet)">
+ <summary>Gets all the values from given column in a given worksheet in a sequence. </summary>   
+ <param name="rowIndex">The column index (starting from 1!).</param> 
+ <param name="worksheet">The input worksheet.</param>
+ <returns>Sequence of cell values</returns>
+</member>
+<member name="M:ExcelPackageF.Excel.getColumn(System.Int32,OfficeOpenXml.ExcelWorksheet)">
+ <summary>Gets all the values from given column in a given worksheet in a sequence. </summary>   
+ <param name="colIndex">The column index (starting from 1!).</param> 
+ <param name="worksheet">The input worksheet.</param>
+ <returns>Sequence of cell values</returns>
+</member>
+<member name="M:ExcelPackageF.Excel.getContent(OfficeOpenXml.ExcelWorksheet)">
+ <summary>Gets all the values from all the cells in a given worksheet in a sequence. The traversal is done line by line</summary>    
+ <param name="worksheet">The input worksheet.</param>
+ <returns>Sequence of cell values</returns>
+</member>
+<member name="M:ExcelPackageF.Excel.getMaxColNumber(OfficeOpenXml.ExcelWorksheet)">
+ <summary>Gets the maximum column number for a given worksheet</summary>    
+ <param name="worksheet">The input worksheet.</param>
+ <returns>Maximum column number</returns>
+</member>
+<member name="M:ExcelPackageF.Excel.getMaxRowNumber(OfficeOpenXml.ExcelWorksheet)">
+ <summary>Gets the maximum row number for a given worksheet</summary>    
+ <param name="worksheet">The input worksheet.</param>
+ <returns>Maximum row number</returns>
+</member>
+<member name="M:ExcelPackageF.Excel.getWorksheets(System.String)">
+ <summary>Reads an Excel file and returns a sequence of all the worksheets in the file</summary>    
+ <param name="filename">The input file.</param>
+ <returns>Sequence of Excel worksheets</returns>        
+</member>
+<member name="M:ExcelPackageF.Excel.getWorksheetByName(System.String,System.String)">
+ <summary>Reads an Excel file and returns the worksheet with the specified name</summary>
+ <param name="name">The name of the worksheet in the file</param>
+ <param name="filename">The input file.</param>
+ <returns>Excel worksheet</returns>
+</member>
+<member name="M:ExcelPackageF.Excel.getWorksheetByIndex(System.Int32,System.String)">
+ <summary>Reads an Excel file and returns the worksheet with the specified index</summary>
+ <param name="index">The index of the worksheet in the file (starting from 1!)</param>
+ <param name="filename">The input file.</param>
+ <returns>Excel worksheet</returns>
+</member>
+<member name="T:ExcelPackageF.Excel">
+
+</member>
+</members>
+</doc>

@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="NJTicketModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="NJTicketModelStoreContainer">
+    <EntitySet Name="NJ_CallLog" EntityType="NJTicketModel.Store.NJ_CallLog" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="NJ_Clients" EntityType="NJTicketModel.Store.NJ_Clients" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="NJ_Details" EntityType="NJTicketModel.Store.NJ_Details" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="NJ_tblComment" EntityType="NJTicketModel.Store.NJ_tblComment" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="NJ_User" EntityType="NJTicketModel.Store.NJ_User" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="NJ_UserRole" EntityType="NJTicketModel.Store.NJ_UserRole" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tbl_APISearchHistory" EntityType="NJTicketModel.Store.tbl_APISearchHistory" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tbl_CertificateFiles" EntityType="NJTicketModel.Store.tbl_CertificateFiles" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_NJ_User_NJ_User" Association="NJTicketModel.Store.FK_NJ_User_NJ_User">
+      <End Role="NJ_UserRole" EntitySet="NJ_UserRole" />
+      <End Role="NJ_User" EntitySet="NJ_User" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="NJ_CallLog">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="100" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="100" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="20" />
+    <Property Name="Notes" Type="nvarchar(max)" />
+    <Property Name="DateAdded" Type="datetime" />
+    <Property Name="AddedBy" Type="int" />
+    <Property Name="Users" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="NJ_Clients">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="List_Type" Type="varchar(max)" />
+    <Property Name="File_Date" Type="varchar(max)" />
+    <Property Name="Court_Name" Type="varchar(max)" />
+    <Property Name="CourtDate" Type="varchar(max)" />
+    <Property Name="L_Name" Type="varchar(max)" />
+    <Property Name="F_Name" Type="varchar(max)" />
+    <Property Name="MI" Type="varchar(max)" />
+    <Property Name="Address1" Type="varchar(max)" />
+    <Property Name="Address2" Type="varchar(max)" />
+    <Property Name="City" Type="varchar" MaxLength="200" />
+    <Property Name="ST" Type="varchar" MaxLength="200" />
+    <Property Name="ZIP" Type="varchar" MaxLength="200" />
+    <Property Name="DOB" Type="varchar" MaxLength="200" />
+    <Property Name="Violation" Type="varchar(max)" />
+    <Property Name="Description" Type="varchar(max)" />
+    <Property Name="DateIssued" Type="varchar" MaxLength="200" />
+    <Property Name="Salutation" Type="varchar(max)" />
+    <Property Name="Summons" Type="varchar(max)" />
+    <Property Name="IsUser" Type="bit" />
+    <Property Name="NJ_CourtID" Type="varchar" MaxLength="500" />
+    <Property Name="Muncipality" Type="varchar" MaxLength="500" />
+    <Property Name="Complaint" Type="varchar" MaxLength="500" />
+    <Property Name="Title" Type="varchar" MaxLength="500" />
+    <Property Name="Payment_Type" Type="varchar" MaxLength="50" />
+    <Property Name="Payment_Total" Type="float" />
+    <Property Name="Payment_Paid" Type="float" />
+    <Property Name="Payment_Balance" Type="float" />
+    <Property Name="MarkClientDate" Type="datetime" />
+    <Property Name="Payment_Cardno" Type="varchar" MaxLength="200" />
+    <Property Name="Payment_Card_ExpDate" Type="varchar" MaxLength="200" />
+    <Property Name="Payment_CVV" Type="int" />
+    <Property Name="Email" Type="varchar" MaxLength="100" />
+    <Property Name="Phone" Type="varchar" MaxLength="100" />
+    <Property Name="IsPotentialClient" Type="bit" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+    <Property Name="Comment" Type="varchar(max)" />
+    <Property Name="IsAddedBy" Type="int" />
+    <Property Name="SourceOfComm" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="NJ_Details">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="List_Type" Type="varchar(max)" />
+    <Property Name="File_Date" Type="varchar(max)" />
+    <Property Name="Court_Name" Type="varchar(max)" />
+    <Property Name="CourtDate" Type="varchar(max)" />
+    <Property Name="L_Name" Type="varchar(max)" />
+    <Property Name="F_Name" Type="varchar(max)" />
+    <Property Name="MI" Type="varchar(max)" />
+    <Property Name="Address1" Type="varchar(max)" />
+    <Property Name="Address2" Type="varchar(max)" />
+    <Property Name="City" Type="varchar" MaxLength="200" />
+    <Property Name="ST" Type="varchar" MaxLength="200" />
+    <Property Name="ZIP" Type="varchar" MaxLength="200" />
+    <Property Name="DOB" Type="varchar" MaxLength="200" />
+    <Property Name="Violation" Type="varchar(max)" />
+    <Property Name="Description" Type="varchar(max)" />
+    <Property Name="DateIssued" Type="varchar" MaxLength="200" />
+    <Property Name="Salutation" Type="varchar(max)" />
+    <Property Name="Summons" Type="varchar(max)" />
+    <Property Name="IsUser" Type="bit" />
+    <Property Name="NJ_CourtID" Type="varchar" MaxLength="500" />
+    <Property Name="Muncipality" Type="varchar" MaxLength="500" />
+    <Property Name="Complaint" Type="varchar" MaxLength="500" />
+    <Property Name="Title" Type="varchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="NJ_tblComment">
+    <Key>
+      <PropertyRef Name="Comment_Id" />
+    </Key>
+    <Property Name="Comment_Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Comment" Type="varchar(max)" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="Comment_By" Type="int" />
+    <Property Name="Comment_Date" Type="datetime" />
+  </EntityType>
+  <EntityType Name="NJ_User">
+    <Key>
+      <PropertyRef Name="tblUserId" />
+    </Key>
+    <Property Name="tblUserId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="First_Name" Type="varchar" MaxLength="100" />
+    <Property Name="Last_Name" Type="varchar" MaxLength="100" />
+    <Property Name="Email" Type="varchar" MaxLength="100" />
+    <Property Name="Password" Type="varchar" MaxLength="100" />
+    <Property Name="tbl_RoleId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NJ_UserRole">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="UserRole" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="tbl_APISearchHistory">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="First_Name" Type="varchar" MaxLength="100" />
+    <Property Name="Last_Name" Type="varchar" MaxLength="100" />
+    <Property Name="DOB" Type="varchar" MaxLength="200" />
+    <Property Name="SearchBy" Type="int" />
+    <Property Name="SearchDate" Type="date" />
+  </EntityType>
+  <EntityType Name="tbl_CertificateFiles">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="FilePath" Type="varchar" MaxLength="300" />
+    <Property Name="Nj_ClientsID" Type="int" />
+    <Property Name="CreatedDate" Type="date" />
+  </EntityType>
+  <Association Name="FK_NJ_User_NJ_User">
+    <End Role="NJ_UserRole" Type="NJTicketModel.Store.NJ_UserRole" Multiplicity="1" />
+    <End Role="NJ_User" Type="NJTicketModel.Store.NJ_User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NJ_UserRole">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="NJ_User">
+        <PropertyRef Name="tbl_RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="ImportJobMaterialsModify" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="JobMaterialsXml" Type="varchar(max)" Mode="In" />
+    <Parameter Name="Tableid" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Materials" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="JobMaterialsXml" Type="varchar(max)" Mode="In" />
+    <Parameter Name="Tableid" Type="varchar" Mode="In" />
+  </Function>
+</Schema>
