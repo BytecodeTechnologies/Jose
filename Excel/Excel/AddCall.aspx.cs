@@ -72,7 +72,7 @@ namespace Excel
             client.UseDefaultCredentials = false;
             client.Host = "mail.newjerseydefensivedriving.net";
             //mail.Subject = "Call Log Details from Driving Users app";
-            mail.Subject = "Phone call message for " + FirstName + " " + LastName;
+            mail.Subject = "Phone call message from " + FirstName + " " + LastName;
             mail.IsBodyHtml = true;
             mail.Body = body;
             mail.CC.Add(new MailAddress(from));
