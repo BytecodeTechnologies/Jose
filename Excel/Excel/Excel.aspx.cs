@@ -14,6 +14,7 @@ using System.Xml.Serialization;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data.Entity.Infrastructure;
+using Microsoft.VisualBasic.FileIO;
 
 
 namespace Excel
@@ -35,15 +36,15 @@ namespace Excel
                 string _imgname = string.Empty;
                 var imgPath2 = string.Empty;
 
-                if (Request.Files.Count > 10)
+                if (fileupload.PostedFiles.Count > 10)
                 {
                     ScriptManager.RegisterStartupScript(this, this.GetType(), "bootbox.alert", "bootbox.alert('Please choose 10 files only')", true);
                 }
                 else
                 {
-                    for (int i = 0; i < Request.Files.Count; i++)
+                    for (int i = 0; i < fileupload.PostedFiles.Count; i++)
                     {
-                        HttpPostedFile PostedFile = Request.Files[i];
+                        HttpPostedFile PostedFile = fileupload.PostedFiles[i];
                         if (PostedFile.ContentLength > 0)
                         {
                             var file = PostedFile;
@@ -350,5 +351,179 @@ namespace Excel
             }
         }
 
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string _imgname = string.Empty;
+                var imgPath2 = string.Empty;
+
+                if (fileupload1.PostedFiles.Count > 10)
+                {
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "bootbox.alert", "bootbox.alert('Please choose 10 files only')", true);
+                }
+                else
+                {
+                    for (int i = 0; i < fileupload1.PostedFiles.Count; i++)
+                    {
+                        HttpPostedFile PostedFile = fileupload1.PostedFiles[i];
+                        if (PostedFile.ContentLength > 0)
+                        {
+                            var file = PostedFile;
+                            //   var file = System.Web.HttpContext.Current.Request.Files["file"];
+                            if (file.FileName != "")
+                            {
+                                string fileName = file.FileName;
+                                string fileContentType = file.ContentType;
+                                var _ext = Path.GetExtension(file.FileName);
+                                _imgname = Guid.NewGuid().ToString();
+
+                                string PathStart = Server.MapPath("/CSVFiles");
+
+                                if (!Directory.Exists(PathStart))
+                                {
+                                    Directory.CreateDirectory(PathStart);
+                                }
+
+                                var _comPath = Server.MapPath("/CSVFiles/") + _imgname + _ext;
+                                var imgPath = "/CSVFiles/" + _imgname + _ext;
+                                imgPath2 = "/CSVFiles/" + _imgname + _ext;
+                                var path = _comPath;
+                                file.SaveAs(path);
+                                DataTable dt = new DataTable();
+                               
+                                string FilePath = path;
+                                if (_ext == ".csv")
+                                {                                           
+                                    using (TextFieldParser csvReader = new TextFieldParser(FilePath))
+                                    {
+                                        csvReader.SetDelimiters(new string[] { "," });
+                                        csvReader.HasFieldsEnclosedInQuotes = true;
+                                        //read column names
+                                        string[] colFields = csvReader.ReadFields();
+                                        foreach (string column in colFields)
+                                        {
+                                            DataColumn datecolumn = new DataColumn(column);
+                                            datecolumn.AllowDBNull = true;
+                                            dt.Columns.Add(datecolumn);
+                                        }
+                                        while (!csvReader.EndOfData)
+                                        {
+                                            string[] fieldData = csvReader.ReadFields();
+                                            //Making empty value as null
+                                            for (int j = 0; j < fieldData.Length; j++)
+                                            {
+                                                if (fieldData[j] == "")
+                                                {
+                                                    fieldData[j] = null;
+                                                }
+                                            }
+                                            dt.Rows.Add(fieldData);
+                                        }
+                                    }
+                                    NJTicketEntities db = new NJTicketEntities();
+                                    NJ_Details details = new NJ_Details();
+                                    for (int k = 0; k < dt.Rows.Count; k++)
+                                    {
+                                        if (dt.Columns.Contains("ListType"))
+                                        {
+                                            details.List_Type = dt.Rows[k]["ListType"].ToString();
+                                        }
+                                        
+                                        if (dt.Columns.Contains("DateIssued"))
+                                        {
+                                            details.DateIssued = dt.Rows[k]["DateIssued"].ToString();
+                                        }
+                                        else
+                                        {
+                                            details.DateIssued = dt.Rows[k]["IssueDate"].ToString();
+                                        }
+
+                                        if (dt.Columns.Contains("State"))
+                                        {
+                                            details.ST = dt.Rows[k]["State"].ToString();
+                                        }
+                                        else
+                                        {
+                                            details.ST = dt.Rows[k]["ST"].ToString();
+                                        }
+
+                                        if (dt.Columns.Contains("Address1"))
+                                        {
+                                            details.Address1 = dt.Rows[k]["Address1"].ToString();
+                                        }
+                                        else
+                                        {
+                                            details.Address1 = dt.Rows[k]["Addr1"].ToString();
+                                        }
+
+                                        if (dt.Columns.Contains("Address2"))
+                                        {
+                                            details.Address2 = dt.Rows[k]["Address2"].ToString();
+                                        }
+                                        else
+                                        {
+                                            details.Address2 = dt.Rows[k]["Addr2"].ToString();
+                                        }
+
+                                        if (dt.Columns.Contains("Summons"))
+                                        {
+                                            details.Summons = dt.Rows[k]["Summons"].ToString();
+                                        }
+                                        if (dt.Columns.Contains("DOB"))
+                                        {
+                                            details.DOB = dt.Rows[k]["DOB"].ToString();
+                                        }
+                                        if (dt.Columns.Contains("MI"))
+                                        {
+                                            details.MI = dt.Rows[k]["MI"].ToString();
+                                        }
+                                        
+                                        if (dt.Columns.Contains("FileDate"))
+                                        {
+                                            details.File_Date = dt.Rows[k]["FileDate"].ToString();
+                                        }
+                                        if (dt.Columns.Contains("CourtName"))
+                                        {
+                                            details.Court_Name = dt.Rows[k]["CourtName"].ToString();
+                                        }
+                                        else
+                                        {
+                                            details.Court_Name = dt.Rows[k]["Municipality"].ToString();
+                                            details.Muncipality = dt.Rows[k]["Municipality"].ToString();
+                                        }
+                                        
+                                        details.F_Name = dt.Rows[k]["FName"].ToString();
+                                        details.L_Name = dt.Rows[k]["LName"].ToString();
+                                        details.CourtDate = dt.Rows[k]["CourtDate"].ToString();
+                                        details.City = dt.Rows[k]["City"].ToString();
+                                        details.ZIP = dt.Rows[k]["Zip"].ToString();
+                                        details.Violation = dt.Rows[k]["Violation"].ToString();
+                                        details.Description = dt.Rows[k]["Description"].ToString();
+                                        details.Salutation = dt.Rows[k]["Salutation"].ToString();
+
+                                        db.NJ_Details.Add(details);
+                                        db.SaveChanges();
+                                    }
+                                }
+                                
+                            }
+                            ScriptManager.RegisterStartupScript(this, this.GetType(), "bootbox.alert", "bootbox.alert('User details saved sucessfully')", true);
+                        }
+                        else
+                        {
+                            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "bootbox.alertMessage", "bootbox.alert('Please Select a File')", true);
+                        }
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                Response.Write(ex.Message);
+            }
+        }
+
     }
 }
+

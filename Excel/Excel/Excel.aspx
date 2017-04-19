@@ -37,12 +37,19 @@
                     <div class="gridtopMargin">
                         <form class="form-horizontal">
                             <div class="form-group">
-                                <center><label class="col-lg-6 control-label text-semibold"> file upload:</label></center>
+                                <center><label class="col-lg-6 control-label text-semibold">Excel file upload:</label></center>
                                 <asp:FileUpload class="browser" ID="fileupload" runat="server" AllowMultiple="true" ></asp:FileUpload>
                                 <div class="col-lg-6">
                                 </div>
                             </div>
-                            <asp:Button ID="btnSaveFile" class="btn btn-primary" runat="server" OnClick="Button1_Click" Text="Save Data" />
+                            <asp:Button ID="btnSaveFile" class="btn btn-primary" runat="server" OnClick="Button1_Click" Text="Save Excel Data" />
+                            <div class="form-group" style="margin-top:50px;">
+                                <center><label class="col-lg-6 control-label text-semibold">CSV file upload:</label></center>
+                                <asp:FileUpload class="browser" ID="fileupload1" runat="server" AllowMultiple="true" ></asp:FileUpload>
+                                <div class="col-lg-6">
+                                </div>
+                            </div>
+                         <center> <asp:Button ID="btnSaveCSVFile" class="btn btn-primary" runat="server" OnClick="Button2_Click" Text="Save CSV Data" /> </center>
                         </form>
                     </div>
                     <div class="panel-body">
@@ -64,13 +71,14 @@
             };
         });
 
+        //-------------------------- Excel File Upload--------------------------
+
         $('#<%= btnSaveFile.ClientID %>').click(function () {
             $('.loadercont').fadeIn();
         });
 
         $('#<%= fileupload.ClientID %>').on('change', function () {
-            $('.loadercont').fadeIn();
-            
+            $('.loadercont').fadeIn();            
             var countFiles = $(this)[0].files.length;
             var imgPath = $(this)[0].value;
             var extn = imgPath.substring(imgPath.lastIndexOf('.') + 1).toLowerCase();
@@ -78,6 +86,35 @@
                 bootbox.alert("Please select only Excel File")
                 $('#<%= fileupload.ClientID %>').val('');
                 $('.loadercont').fadeOut();
+            }
+            $('.loadercont').fadeOut();
+        });
+
+        //-------------------------- CSV File Upload--------------------------
+
+        $('#<%= btnSaveCSVFile.ClientID %>').click(function () {
+            $('.loadercont').fadeIn();
+        });
+
+        $('#<%= fileupload1.ClientID %>').on('change', function () {
+            $('.loadercont').fadeIn();
+            debugger;
+            var countFiles = $(this)[0].files.length;
+            var files = $(this)[0].files;
+            for (var i = 0; i < countFiles; i++) {
+
+
+                //var imgPath = $(this)[0].value;
+                //var extn = imgPath.substring(imgPath.lastIndexOf('.') + 1).toLowerCase();
+
+              var  f = files[i];
+
+                var extn = f.name.split('.').pop().toLowerCase();
+                if (extn != "csv") {
+                    bootbox.alert("Please select only CSV File")
+                    $('#<%= fileupload1.ClientID %>').val('');
+                    $('.loadercont').fadeOut();
+                }
             }
             $('.loadercont').fadeOut();
         });

@@ -1,0 +1,4 @@
+ListType,FileDate,CourtName,CourtDate,Lname,Fname,MI,Addr1,Addr2,City,ST,Zip,DOB,Violation,Description,DateIssued,Salutation,Summons,LettershopIdentifier
+NJ - Municipal Court,04/10/2017,Newark City,04/21/2017,Manning,Tutana,Q,107-109 Sunset Ave A,,Newark,NJ,07106 ,07/01/1996,39:4-50(G)(1),Dwi On School Property Or W/In 1000 Ft. Of School,04/07/2017,Ms. Manning,E17  078521,UGS
+NJ - Municipal Court,04/10/2017,Union Twp (Uni),04/17/2017,Bell,Jordan,I,42 Brenner St,,Newark,NJ,07108 ,11/24/1994,39:4-50,Operating Under Influence Of Liquor Or Drugs,04/07/2017,Mr. Bell,E17  008351,UGS
+NJ - Municipal Court,04/10/2017,Elizabeth City,04/10/2017,Quaglia,Francesco,,633 Second Ave,,Elizabeth,NJ,07202 ,10/01/1973,39:4-50,Operating Under Influence Of Liquor Or Drugs,04/06/2017,Mr. Quaglia,ME   544447,UGS
